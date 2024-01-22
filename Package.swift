@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "StitchSchemaKit",
+    platforms: [
+        .macOS(.v14), .iOS(.v17)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -16,7 +19,7 @@ let package = Package(
             // Targets can depend on other targets in this package, and on products in packages this package depends on.
             .target(
                 name: "Schemas",
-//                dependencies: ["StitchTypes"],
+                dependencies: ["SwiftyJSON"],
                 exclude: ["README.md"]
 //                resources: [
 //                    .process("text.txt"),

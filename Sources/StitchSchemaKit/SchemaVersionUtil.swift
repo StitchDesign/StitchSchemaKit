@@ -125,14 +125,14 @@ extension VersionType {
         return oldestVersion
     }
 
-    static func getNewestVersion() -> Self {
+    public static func getNewestVersion() -> Self {
         guard let newestVersion = Self.allCases.sorted(by: >).first else {
             fatalError("VersionType getNewestVersion error: no versions found.")
         }
         return newestVersion
     }
 
-    static func getNextVersion(_ version: Self) -> Self? {
+    public static func getNextVersion(_ version: Self) -> Self? {
         let allVersions = Self.allCases.sorted(by: <)
 
         guard let index = allVersions.firstIndex(of: version),

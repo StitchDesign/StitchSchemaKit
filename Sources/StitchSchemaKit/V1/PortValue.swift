@@ -87,11 +87,6 @@ public struct LayerSize: Codable {
         self.width = width
         self.height = height
     }
-    
-    public init(width: CGFloat, height: CGFloat) {
-        self.width = .number(width)
-        self.height = .number(height)
-    }
 }
 
 public typealias StitchPosition = CGSize
@@ -322,7 +317,7 @@ extension CustomShape: Codable {
     }
 }
 
-public enum ShapeAndRect: Codable {
+public enum ShapeAndRect: Codable, Equatable {
     case oval(CGRect),
          circle(CGRect),
          rectangle(RoundedRectangleData),
@@ -341,8 +336,8 @@ public struct RoundedRectangleData: Equatable, Codable {
     }
 }
 
-public struct TriangleData: Codable {
-    var points: [CGPoint] {
+public struct TriangleData: Codable, Equatable {
+    public var points: [CGPoint] {
         [p1, p2, p3]
     }
     
@@ -366,7 +361,7 @@ public typealias JSONShapeCommands = [JSONShapeCommand]
 // TODO: other Shapes like `RoundedRectangle` and `Oval` can be described via JSONShapeCommands too
 
 // TODO: migrate e.g. `JSONShapeCommand.moveTo(CGPoint)` etc. to  `JSONShapeCommand.moveTo(JSONMoveTo)`
-public enum JSONShapeCommand: Codable {
+public enum JSONShapeCommand: Codable, Equatable {
     case closePath
     case moveTo(CGPoint)
     case lineTo(CGPoint)

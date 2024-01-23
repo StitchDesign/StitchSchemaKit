@@ -17,10 +17,22 @@ public enum LayerNodeEntity_V1: StitchSchemaVersionable {
 
     public struct LayerNodeEntity {
         public  let id: NodeId
-        let layer: Layer
-        let interactionsDict: InteractionsDict
-        let hasSidebarVisibility: Bool
-        let layerGroupId: NodeId?
+        public let layer: Layer
+        public let interactionsDict: InteractionsDict
+        public let hasSidebarVisibility: Bool
+        public let layerGroupId: NodeId?
+        
+        public init(id: NodeId,
+             layer: Layer,
+             interactionsDict: InteractionsDict,
+             hasSidebarVisibility: Bool,
+             layerGroupId: NodeId?) {
+            self.id = id
+            self.layer = layer
+            self.interactionsDict = interactionsDict
+            self.hasSidebarVisibility = hasSidebarVisibility
+            self.layerGroupId = layerGroupId
+        }
     }
 }
 

@@ -29,6 +29,26 @@ public enum NodeEntity_V1: StitchSchemaVersionable {
         public let isGroupNode: Bool
         public let title: String
         public let inputs: [NodePortInputEntitySchema.NodePortInputEntity]
+        
+        public init(id: NodeId,
+             position: CGPoint,
+             zIndex: Double,
+             parentGroupNodeId: NodeId?,
+             patchNodeEntity: PatchNodeEntitySchema.PatchNodeEntity?,
+             layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?,
+             isGroupNode: Bool,
+             title: String,
+             inputs: [NodePortInputEntitySchema.NodePortInputEntity]) {
+            self.id = id
+            self.position = position
+            self.zIndex = zIndex
+            self.parentGroupNodeId = parentGroupNodeId
+            self.patchNodeEntity = patchNodeEntity
+            self.layerNodeEntity = layerNodeEntity
+            self.isGroupNode = isGroupNode
+            self.title = title
+            self.inputs = inputs
+        }
     }
 }
 

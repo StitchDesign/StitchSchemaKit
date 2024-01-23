@@ -37,6 +37,30 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
 
         public let cameraSettings: CameraSettings
 
+        public init(projectId: ProjectId,
+             name: String,
+             previewWindowSize: CGSize,
+             previewSizeDevice: PreviewSize,
+             previewWindowBackgroundColor: Color,
+             localPosition: CGPoint,
+             zoomData: CGFloat,
+             nodes: [NodeEntitySchema.NodeEntity],
+             orderedSidebarLayers: [SidebarLayerType],
+             commentBoxesDict: CommentBoxesDict,
+             cameraSettings: CameraSettings) {
+            self.projectId = projectId
+            self.name = name
+            self.previewWindowSize = previewWindowSize
+            self.previewSizeDevice = previewSizeDevice
+            self.previewWindowBackgroundColor = previewWindowBackgroundColor
+            self.localPosition = localPosition
+            self.zoomData = zoomData
+            self.nodes = nodes
+            self.orderedSidebarLayers = orderedSidebarLayers
+            self.commentBoxesDict = commentBoxesDict
+            self.cameraSettings = cameraSettings
+        }
+        
         // MARK: remove `transferRepresentation` from older `StitchDocument` versions
 //        static var transferRepresentation: some TransferRepresentation {
 //            FileRepresentation(contentType: .stitchDocument,

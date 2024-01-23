@@ -252,6 +252,10 @@ public enum SplitterType: String, Codable, CaseIterable {
 
 public struct ProjectId: Codable, Identifiable {
     public var id: String = UUID().description
+    
+    public init() {
+        self.id = .init()
+    }
 }
 
 public enum PreviewSize: String, CaseIterable, Identifiable, Codable {

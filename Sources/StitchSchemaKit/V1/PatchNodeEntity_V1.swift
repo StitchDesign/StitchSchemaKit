@@ -20,6 +20,16 @@ public enum PatchNodeEntity_V1: StitchSchemaVersionable {
         public let patch: Patch
         public let userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema.SplitterNodeEntity?
+        
+        public init(id: NodeId,
+             patch: Patch,
+             userVisibleType: UserVisibleType?,
+             splitterNode: SplitterNodeEntitySchema.SplitterNodeEntity?) {
+            self.id = id
+            self.patch = patch
+            self.userVisibleType = userVisibleType
+            self.splitterNode = splitterNode
+        }
     }
 }
 

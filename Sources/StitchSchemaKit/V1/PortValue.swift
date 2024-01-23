@@ -91,7 +91,7 @@ public struct LayerSize: Codable, Equatable {
 
 public typealias StitchPosition = CGSize
 
-public struct Point3D: Codable {
+public struct Point3D: Codable, Equatable {
     public var x: Double
     public var y: Double
     public var z: Double

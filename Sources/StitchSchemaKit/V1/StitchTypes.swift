@@ -316,6 +316,11 @@ public enum SidebarLayerType: Codable, Equatable {
 public struct SidebarLayerGroupData: Codable, Equatable {
     public let id: NodeId
     public var sortedChildren: [SidebarLayerType]
+    
+    public init(id: NodeId, sortedChildren: [SidebarLayerType]) {
+        self.id = id
+        self.sortedChildren = sortedChildren
+    }
 }
 
 public typealias CommentBoxId = UUID
@@ -392,6 +397,21 @@ public struct CommentExpansionBox: Codable, Equatable, Hashable {
     public var endPoint: CGPoint // = .zero
     
     public var anchorCorner: CGPoint
+    
+    public init(nodes: NodeIdSet = .init(),
+                expansionDirection: ExpansionDirection? = nil,
+                size: CGSize,
+                startPoint: CGPoint,
+                endPoint: CGPoint,
+                anchorCorner: CGPoint? = nil) {
+        self.nodes = nodes
+        self.expansionDirection = expansionDirection
+        self.size = size
+        self.previousSize = size
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+        self.anchorCorner = anchorCorner ?? startPoint
+    }
 }
 
 // not just the size of the box,

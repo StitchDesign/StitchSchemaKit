@@ -8,35 +8,59 @@
 import Foundation
 import SwiftUI
 
-enum StitchDocument_V1: StitchSchemaVersionable {
+public enum StitchDocument_V1: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V1
-    typealias PreviousInstance = Self.StitchDocument
-    typealias NodeEntitySchema = NodeEntity_V1
+    public typealias PreviousInstance = Self.StitchDocument
+    public typealias NodeEntitySchema = NodeEntity_V1
     // MARK: - end
 
     // TODO: transferable
-    struct StitchDocument: StitchVersionedCodable {
-        var projectId: ProjectId
-        var name: String
+    public struct StitchDocument: StitchVersionedCodable {
+        public var projectId: ProjectId
+        public var name: String
 
         // Preview window
-        let previewWindowSize: CGSize
-        let previewSizeDevice: PreviewSize
-        let previewWindowBackgroundColor: Color
+        public let previewWindowSize: CGSize
+        public let previewSizeDevice: PreviewSize
+        public let previewWindowBackgroundColor: Color
 
         // Graph positioning data
-        let localPosition: CGPoint
-        let zoomData: CGFloat
+        public let localPosition: CGPoint
+        public let zoomData: CGFloat
 
         // Node data
-        let nodes: [NodeEntitySchema.NodeEntity]
-        let orderedSidebarLayers: [SidebarLayerType]
-        let commentBoxesDict: CommentBoxesDict
+        public let nodes: [NodeEntitySchema.NodeEntity]
+        public let orderedSidebarLayers: [SidebarLayerType]
+        public let commentBoxesDict: CommentBoxesDict
 
-        let cameraSettings: CameraSettings
+        public let cameraSettings: CameraSettings
 
+        public init(projectId: ProjectId,
+             name: String,
+             previewWindowSize: CGSize,
+             previewSizeDevice: PreviewSize,
+             previewWindowBackgroundColor: Color,
+             localPosition: CGPoint,
+             zoomData: CGFloat,
+             nodes: [NodeEntitySchema.NodeEntity],
+             orderedSidebarLayers: [SidebarLayerType],
+             commentBoxesDict: CommentBoxesDict,
+             cameraSettings: CameraSettings) {
+            self.projectId = projectId
+            self.name = name
+            self.previewWindowSize = previewWindowSize
+            self.previewSizeDevice = previewSizeDevice
+            self.previewWindowBackgroundColor = previewWindowBackgroundColor
+            self.localPosition = localPosition
+            self.zoomData = zoomData
+            self.nodes = nodes
+            self.orderedSidebarLayers = orderedSidebarLayers
+            self.commentBoxesDict = commentBoxesDict
+            self.cameraSettings = cameraSettings
+        }
+        
         // MARK: remove `transferRepresentation` from older `StitchDocument` versions
 //        static var transferRepresentation: some TransferRepresentation {
 //            FileRepresentation(contentType: .stitchDocument,
@@ -47,7 +71,7 @@ enum StitchDocument_V1: StitchSchemaVersionable {
 }
 
 extension StitchDocument_V1.StitchDocument {
-    init(previousInstance: StitchDocument_V1.PreviousInstance) {
+    public init(previousInstance: StitchDocument_V1.PreviousInstance) {
         fatalError()
         //            self.projectId = previousInstance.projectId
         //            self.name = previousInstance.name

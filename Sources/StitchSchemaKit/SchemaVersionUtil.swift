@@ -80,7 +80,7 @@ extension StitchVersionedCodable {
 
 extension StitchVersionedData {
     /// Initializer that uses current version.
-    init(currentDoc: StitchDocument) throws {
+    public init(currentDoc: StitchDocument) throws {
         let encoder = getStitchEncoder()
         let encodedDoc = try encoder.encode(currentDoc)
 
@@ -100,7 +100,7 @@ protocol StitchVersionedCodable: Codable, Identifiable, Sendable {
 }
 
 extension StitchVersionedCodable {
-    init(anyCodable: any StitchVersionedCodable) {
+    public init(anyCodable: any StitchVersionedCodable) {
         self.init(previousInstance: anyCodable as! Self.PreviousCodable)
     }
 }
@@ -125,14 +125,14 @@ extension VersionType {
         return oldestVersion
     }
 
-    static func getNewestVersion() -> Self {
+    public static func getNewestVersion() -> Self {
         guard let newestVersion = Self.allCases.sorted(by: >).first else {
             fatalError("VersionType getNewestVersion error: no versions found.")
         }
         return newestVersion
     }
 
-    static func getNextVersion(_ version: Self) -> Self? {
+    public static func getNextVersion(_ version: Self) -> Self? {
         let allVersions = Self.allCases.sorted(by: <)
 
         guard let index = allVersions.firstIndex(of: version),
@@ -142,5 +142,23 @@ extension VersionType {
         }
 
         return next
+    }
+}
+
+// https://developer.apple.com/forums/thread/112243
+// https://www.hackingwithswift.com/example-code/language/how-to-conform-to-the-hashable-protocol
+// https://codereview.stackexchange.com/questions/148763/extending-cgpoint-to-conform-to-hashable
+
+extension CGPoint: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+    }
+}
+
+extension CGSize: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(width)
+        hasher.combine(height)
     }
 }

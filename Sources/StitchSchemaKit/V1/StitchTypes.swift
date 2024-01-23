@@ -8,19 +8,24 @@
 import Foundation
 import SwiftUI
 
-typealias NodeId = UUID
-typealias NodeIdSet = Set<NodeId>
+public typealias NodeId = UUID
+public typealias NodeIdSet = Set<NodeId>
 
-struct NodeIOCoordinate: Hashable, Equatable, Codable {
-    var portId: Int
-    var nodeId: NodeId
+public struct NodeIOCoordinate: Hashable, Equatable, Codable {
+    public var portId: Int
+    public var nodeId: NodeId
+    
+    public init(portId: Int, nodeId: NodeId) {
+        self.portId = portId
+        self.nodeId = nodeId
+    }
 }
 
-enum NodeKind: Codable {
+public enum NodeKind: Codable {
     case patch(Patch), layer(Layer), group
 }
 
-enum Patch: String, CaseIterable, Codable, Equatable {
+public enum Patch: String, CaseIterable, Codable, Equatable {
     case splitter = "Value",
          add,
          convertPosition,
@@ -171,7 +176,7 @@ enum Patch: String, CaseIterable, Codable, Equatable {
          mouse
 }
 
-enum Layer: String, CaseIterable, Codable, Equatable {
+public enum Layer: String, CaseIterable, Codable {
     case text,
          oval,
          rectangle,
@@ -187,7 +192,7 @@ enum Layer: String, CaseIterable, Codable, Equatable {
          textField = "Text Field"
 }
 
-enum UserVisibleType: String, CaseIterable, Codable, Equatable, Hashable {
+public enum UserVisibleType: String, CaseIterable, Codable {
     case string
     case bool
     case int
@@ -230,27 +235,31 @@ enum UserVisibleType: String, CaseIterable, Codable, Equatable, Hashable {
     case vnImageCropOption
 }
 
-enum InteractionType: String, Equatable, Codable {
+public enum InteractionType: String, Equatable, Codable {
     case drag, press, scroll
 }
 
 // A given interaction patch node can only be assigned to a single layer at a time, but we can have n-many interaction patch nodes (all of the same type, even) attached to a single layer.
 // Hence for `InteractionsDict`, which lives on a layer node, we map a single interaction type (e.g. `.drag`) to a SET of interaction patch node ids.
-typealias InteractionsDict = [InteractionType: NodeIdSet]
+public typealias InteractionsDict = [InteractionType: NodeIdSet]
 
-enum SplitterType: String, Equatable, Codable, CaseIterable {
+public enum SplitterType: String, Codable, CaseIterable {
     case inline = "Inline", // ie regular splitter: input and output
          // add GroupNodeId assoc-val ?
          input = "Input", // ie groupIutput node: output only
          output = "Output" // ie groupOutput node: input only
 }
 
-struct ProjectId: Codable, Identifiable {
-    var id: String = UUID().description
+public struct ProjectId: Codable, Identifiable {
+    public var id: String = UUID().description
+    
+    public init() {
+        self.id = .init()
+    }
 }
 
-enum PreviewSize: String, CaseIterable, Identifiable, Codable {
-    var id: String { self.rawValue }
+public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
+    public var id: String { self.rawValue }
 
     // iPhones
     case iPhone14 = "iPhone 14"
@@ -294,21 +303,21 @@ enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     case custom = "Custom Size"
 }
 
-enum SidebarLayerType: Codable {
+public enum SidebarLayerType: Codable {
     case layer(NodeId)
     case group(SidebarLayerGroupData)
 }
 
-struct SidebarLayerGroupData: Codable {
+public struct SidebarLayerGroupData: Codable {
     let id: NodeId
     var sortedChildren: [SidebarLayerType]
 }
 
-typealias CommentBoxId = UUID
-typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]
+public typealias CommentBoxId = UUID
+public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]
 
-struct CommentBoxData: Codable {
-    var id: CommentBoxId
+public struct CommentBoxData: Codable, Equatable, Hashable {
+    public var id: CommentBoxId
     
     /*
      "Which traversal level (group node) does this comment box belong to?"
@@ -319,50 +328,50 @@ struct CommentBoxData: Codable {
      
      For now we just make all comment boxes top-level.
      */
-    var groupId: GroupNodeId?
+    public var groupId: GroupNodeId?
     
-    var title: String = "Comment"
-    var color: Color
+    public var title: String = "Comment"
+    public var color: Color
     
-    var nodes: NodeIdSet
+    public var nodes: NodeIdSet
     
     // TODO: potentially can consolidate CommentBoxData.position and CommentExpansionBox.startingPoint, CommentExpansionBox.anchorPoint, etc.;
     // a little hard to tell, since the trig + gesture logic is complicated;
     // low-priority refactor.
-    var position: CGSize
-    var previousPosition: CGSize
-    var expansionBox: CommentExpansionBox
+    public var position: CGSize
+    public var previousPosition: CGSize
+    public var expansionBox: CommentExpansionBox
     
-    var zIndex: Double // = .zero
+    public var zIndex: Double // = .zero
 }
 
-struct GroupNodeId: Codable {
-    let id: NodeId
+public struct GroupNodeId: Codable, Equatable, Hashable {
+    public let id: NodeId
 }
 
-struct CommentExpansionBox: Codable {
-    var nodes: NodeIdSet = .init()
+public struct CommentExpansionBox: Codable, Equatable, Hashable {
+    public var nodes: NodeIdSet = .init()
     
     // set nil after gesture completes;
     // set non-nil when gesture first starts
-    var expansionDirection: ExpansionDirection?
+    public var expansionDirection: ExpansionDirection?
     
     // size is always positive numbers
-    var size: CGSize // = .zero
-    var previousSize: CGSize // = .zero
+    public var size: CGSize // = .zero
+    public var previousSize: CGSize // = .zero
     
     // drag gesture start
-    var startPoint: CGPoint // = .zero
+    public var startPoint: CGPoint // = .zero
     
     // drag gesture current
-    var endPoint: CGPoint // = .zero
+    public var endPoint: CGPoint // = .zero
     
-    var anchorCorner: CGPoint
+    public var anchorCorner: CGPoint
 }
 
 // not just the size of the box,
 // but from where the box goes to etc.
-enum ExpansionDirection: Codable {
+public enum ExpansionDirection: Codable, Equatable, Hashable {
     case topLeft, topRight,
          bottomLeft, bottomRight,
          none

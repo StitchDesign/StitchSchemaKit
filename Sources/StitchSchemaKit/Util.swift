@@ -16,7 +16,7 @@ typealias CGPoints = [CGPoint]
 // we can determine the resulting bounding box that contains the points.
 // Similar to the `CGRect` in SwiftUI Shape protocol's `path(in rect: CGRect)`.
 extension CGPoints {
-    var boundingBoxWidth: CGFloat {
+    public var boundingBoxWidth: CGFloat {
         let min = self.min { x1, x2 in
             x1.x < x2.x
         }
@@ -26,7 +26,7 @@ extension CGPoints {
         return (max?.x ?? .zero) - (min?.x ?? .zero)
     }
 
-    var boundingBoxHeight: CGFloat {
+    public var boundingBoxHeight: CGFloat {
         let min = self.min { y1, y2 in
             y1.y < y2.y
         }
@@ -36,27 +36,27 @@ extension CGPoints {
         return (max?.y ?? .zero) - (min?.y ?? .zero)
     }
 
-    var mostNegativeY: CGFloat {
+    public var mostNegativeY: CGFloat {
         self.min { k1, k2 in k1.y < k2.y }?.y ?? .zero
     }
 
-    var mostNegativeX: CGFloat {
+    public var mostNegativeX: CGFloat {
         self.min { k1, k2 in k1.x < k2.x }?.x ?? .zero
     }
 
     // added:
-    var mostPostiveY: CGFloat {
+    public var mostPostiveY: CGFloat {
         self.max { k1, k2 in k1.y < k2.y }?.y ?? .zero
     }
 
-    var mostPostiveX: CGFloat {
+    public var mostPostiveX: CGFloat {
         self.max { k1, k2 in k1.x < k2.x }?.x ?? .zero
     }
 }
 
 
 extension CGRect {
-    func yBound(_ baseOriginY: CGFloat,
+    public func yBound(_ baseOriginY: CGFloat,
                 _ baseHeight: CGFloat,
                 isNorth: Bool = false) -> CGFloat {
 
@@ -73,7 +73,7 @@ extension CGRect {
         }
     }
 
-    func xBound(_ baseOriginX: CGFloat,
+    public func xBound(_ baseOriginX: CGFloat,
                 _ baseWidth: CGFloat,
                 isWest: Bool = false) -> CGFloat {
 
@@ -92,17 +92,17 @@ extension CGRect {
 }
 
 extension CGSize {
-    var area: CGFloat {
+    public var area: CGFloat {
         abs(self.width) * abs(self.height)
     }
 }
 
 extension StitchDocument {
-    var id: String { self.projectId.id }
+    public var id: String { self.projectId.id }
 }
 
 extension Color: Codable {
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case red, green, blue, alpha
     }
     
@@ -139,7 +139,7 @@ typealias SystemColor = NSColor
 typealias SystemColor = UIColor
 #endif
     
-    init(red: CGFloat,
+    public init(red: CGFloat,
          green: CGFloat,
          blue: CGFloat,
          alpha: CGFloat) {
@@ -157,7 +157,7 @@ typealias SystemColor = UIColor
         self = Color(uiColor: uiColor)
     }
     
-    var colorComponents: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
+    public var colorComponents: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
@@ -197,3 +197,107 @@ extension matrix_float4x4: Codable {
 }
 
 extension VNImageCropAndScaleOption: Codable { }
+
+extension ShapeAndRect {
+    public var rect: CGRect {
+        switch self {
+        case .oval(let x):
+            return x
+        case .circle(let x):
+            return x
+        case .rectangle(let x):
+            return x.rect
+
+        // self.rect not really used in most case
+        case .triangle(let trianglePoints):
+            // Assuming `.p1` is the proper origin here:
+            return .init(
+                origin: trianglePoints.p1,
+                size: .init(width: abs(trianglePoints.points.boundingBoxWidth),
+                            height: abs(trianglePoints.points.boundingBoxHeight)))
+
+        case .custom(let commands):
+            return .init(
+                // .first not accurate for e.g. the curveTo ?
+                // also, this is ALL points for all instructions
+                origin: commands.getPoints().first ?? .zero,
+                size: .init(width: abs(commands.getPoints().boundingBoxWidth),
+                            height: abs(commands.getPoints().boundingBoxHeight)))
+        }
+    }
+    
+    // the northern bound for a given shape
+    public func north(_ smallestShape: CGRect) -> CGFloat {
+        switch self {
+        case .triangle(let trianglePoints):
+            return trianglePoints.points.mostNegativeY
+        case .custom(let jsonShapeCommands):
+            return jsonShapeCommands.getPoints().mostNegativeY
+        case .oval, .circle, .rectangle:
+            return self.rect.yBound(smallestShape.origin.y,
+                                    smallestShape.height,
+                                    isNorth: true)
+        }
+    }
+
+    public func south(_ smallestShape: CGRect) -> CGFloat {
+        switch self {
+        case .oval, .circle, .rectangle:
+            return self.rect.yBound(smallestShape.origin.y,
+                                    smallestShape.height)
+        case .triangle(let trianglePoints):
+            // double check that south logic is correct
+            return trianglePoints.points.mostPostiveY
+        case .custom(let jsonShapeCommands):
+            return jsonShapeCommands.getPoints().mostPostiveY
+        }
+    }
+
+    public func west(_ smallestShape: CGRect) -> CGFloat {
+        switch self {
+        case .oval, .circle, .rectangle:
+            return self.rect.xBound(smallestShape.origin.x,
+                                    smallestShape.width,
+                                    isWest: true)
+        case .triangle(let trianglePoints):
+            return trianglePoints.points.mostNegativeX
+        case .custom(let jsonShapeCommands):
+            return jsonShapeCommands.getPoints().mostNegativeX
+        }
+    }
+
+    public func east(_ smallestShape: CGRect) -> CGFloat {
+        switch self {
+        case .oval, .circle, .rectangle:
+            return self.rect.xBound(smallestShape.origin.x,
+                                    smallestShape.width)
+        case .triangle(let trianglePoints):
+            // double check that east logic is correct
+            return trianglePoints.points.mostPostiveX
+        case .custom(let jsonShapeCommands):
+            return jsonShapeCommands.getPoints().mostPostiveX
+        }
+    }
+}
+
+extension JSONShapeCommands {
+    public func getPoints() -> [CGPoint] {
+        self.map { $0.point }
+    }
+}
+
+extension JSONShapeCommand {
+    public var point: CGPoint {
+        switch self {
+        // TODO: handle this case properly?
+        case .closePath:
+            return .zero
+        case .moveTo(let cgPoint):
+            return cgPoint
+        case .lineTo(let cgPoint):
+            return cgPoint
+        case .curveTo(let jsonCurveTo):
+            return jsonCurveTo.point
+        }
+    }
+}

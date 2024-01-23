@@ -9,20 +9,20 @@ import Foundation
 import SwiftUI
 
 // MARK: - UPDATE VERSION NUMBERS HERE
-typealias CurrentStitchDocument = StitchDocument_V1
-typealias CurrentNodeEntity = NodeEntity_V1
-typealias CurrentPatchNodeEntity = PatchNodeEntity_V1
-typealias CurrentLayerNodeEntity = LayerNodeEntity_V1
-typealias CurrentNodePortInputEntity = NodePortInputEntity_V1
-typealias CurrentSplitterNodeEntity = SplitterNodeEntity_V1
+public typealias CurrentStitchDocument = StitchDocument_V1
+public typealias CurrentNodeEntity = NodeEntity_V1
+public typealias CurrentPatchNodeEntity = PatchNodeEntity_V1
+public typealias CurrentLayerNodeEntity = LayerNodeEntity_V1
+public typealias CurrentNodePortInputEntity = NodePortInputEntity_V1
+public typealias CurrentSplitterNodeEntity = SplitterNodeEntity_V1
 // MARK: - end
 
-typealias StitchDocument = CurrentStitchDocument.StitchDocument
-typealias NodeEntity = CurrentNodeEntity.NodeEntity
-typealias PatchNodeEntity = CurrentPatchNodeEntity.PatchNodeEntity
-typealias LayerNodeEntity = CurrentLayerNodeEntity.LayerNodeEntity
-typealias NodePortInputEntity = CurrentNodePortInputEntity.NodePortInputEntity
-typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
+public typealias StitchDocument = CurrentStitchDocument.StitchDocument
+public typealias NodeEntity = CurrentNodeEntity.NodeEntity
+public typealias PatchNodeEntity = CurrentPatchNodeEntity.PatchNodeEntity
+public typealias LayerNodeEntity = CurrentLayerNodeEntity.LayerNodeEntity
+public typealias NodePortInputEntity = CurrentNodePortInputEntity.NodePortInputEntity
+public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
 
 enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

@@ -7,23 +7,29 @@
 
 import Foundation
 
-enum SplitterNodeEntity_V1: StitchSchemaVersionable {
+public enum SplitterNodeEntity_V1: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V1
-    typealias PreviousInstance = Self.SplitterNodeEntity
+    public typealias PreviousInstance = Self.SplitterNodeEntity
     // MARK: - end
 
-    struct SplitterNodeEntity {
-        let id: NodeId
+    public struct SplitterNodeEntity {
+        public let id: NodeId
         // Dates used to sort ports in group node view
-        let lastModifiedDate: Date
-        let type: SplitterType
+        public let lastModifiedDate: Date
+        public let type: SplitterType
+        
+        public init(id: NodeId, lastModifiedDate: Date, type: SplitterType) {
+            self.id = id
+            self.lastModifiedDate = lastModifiedDate
+            self.type = type
+        }
     }
 }
 
 extension SplitterNodeEntity_V1.SplitterNodeEntity: StitchVersionedCodable {
-    init(previousInstance: PatchNodeEntity_V1.PreviousInstance) {
+    public init(previousInstance: PatchNodeEntity_V1.PreviousInstance) {
         fatalError()
     }
 

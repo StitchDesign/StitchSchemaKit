@@ -29,18 +29,18 @@ extension StitchSchemaVersionType {
         return try decoder.decode(type.self, from: data)
     }
 
-    var codableType: any StitchVersionedCodable.Type {
+    public var codableType: any StitchVersionedCodable.Type {
         Self.getCodableType(from: self.version)
     }
 }
 
 public struct StitchVersionedData: Codable {
-    let version: StitchSchemaVersion
-    let data: Data
+    public let version: StitchSchemaVersion
+    public let data: Data
 }
 
 extension StitchSchemaVersionType {
-    func migrate(versionedCodable: StitchVersionedData) throws -> Self.NewestVersionType? {
+    public func migrate(versionedCodable: StitchVersionedData) throws -> Self.NewestVersionType? {
         // 1. get version
         // 2. call decode with payload
         // 3. get next type
@@ -73,7 +73,7 @@ extension StitchVersionedCodable {
     //        models.map { Self.init(from: $0) }
     //    }
 
-    static func upgradeEntities(_ previousEntities: [Self.PreviousCodable]) -> [Self] {
+    public static func upgradeEntities(_ previousEntities: [Self.PreviousCodable]) -> [Self] {
         previousEntities.map { Self.init(previousInstance: $0) }
     }
 }

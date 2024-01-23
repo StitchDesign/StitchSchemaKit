@@ -303,12 +303,12 @@ public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     case custom = "Custom Size"
 }
 
-public enum SidebarLayerType: Codable {
+public enum SidebarLayerType: Codable, Equatable {
     case layer(NodeId)
     case group(SidebarLayerGroupData)
 }
 
-public struct SidebarLayerGroupData: Codable {
+public struct SidebarLayerGroupData: Codable, Equatable {
     public let id: NodeId
     public var sortedChildren: [SidebarLayerType]
 }

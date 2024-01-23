@@ -59,7 +59,7 @@ public enum PortValue: Codable {
     case vnImageCropOption(VNImageCropAndScaleOption)
 }
 
-public enum LayerDimension: Codable {
+public enum LayerDimension: Codable, Equatable {
     case number(CGFloat),
          // visual media layer: resource's inherent dimnensions
          // non-media layer: 100% of parent's dimension
@@ -79,7 +79,7 @@ public enum NetworkRequestType: String, CaseIterable, Codable {
     case get, post // put
 }
 
-public struct LayerSize: Codable {
+public struct LayerSize: Codable, Equatable {
     public var width: LayerDimension
     public var height: LayerDimension
     
@@ -117,13 +117,33 @@ public struct Point4D: Codable {
     }
 }
 
-public struct AsyncMediaValue: Codable {
+public struct AsyncMediaValue: Codable, Equatable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>
     
     public init(id: MediaObjectId, dataType: DataType<MediaKey>) {
         self.id = id
         self.dataType = dataType
+    }
+    
+    /// Optional initializer with NodeId and MediaKey.
+    public init(nodeId: NodeId,
+         loopIndex: Int,
+         mediaKey: MediaKey) {
+        self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
+        self.dataType = .source(mediaKey)
+    }
+    
+    /// Optional initializer for computed type.
+    public init(nodeId: NodeId, loopIndex: Int) {
+        self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
+        self.dataType = .computed
+    }
+    
+    /// Optional initializer for default media, where loopIndex is always 0 but we need the static global id.
+    public init(globalId: UUID, nodeId: NodeId, mediaKey: MediaKey) {
+        self.id = .init(globalId: globalId, nodeId: nodeId, loopIndex: 0)
+        self.dataType = .source(mediaKey)
     }
 }
 
@@ -417,7 +437,7 @@ public enum ShapeCommandType: String, Equatable, Hashable, Codable, CaseIterable
     case closePath, lineTo, moveTo, curveTo
 }
 
-public enum ShapeCommand {
+public enum ShapeCommand: Equatable, Hashable {
     case closePath,
          lineTo(point: PathPoint),
          moveTo(point: PathPoint),
@@ -507,7 +527,7 @@ public struct JSONShapeKeys {
 }
 
 // Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
-public struct PathPoint: Codable {
+public struct PathPoint: Codable, Equatable, Hashable {
     public let x: CGFloat
     public let y: CGFloat
     

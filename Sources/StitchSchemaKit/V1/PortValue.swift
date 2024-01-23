@@ -14,7 +14,7 @@ import SwiftyJSON
 // the values contained in a single Input or Output
 public typealias PortValues = [PortValue]
 
-public enum PortValue: Codable {
+public enum PortValue: Codable, Equatable {
     case string(String)
     case bool(Bool)
     case int(Int) // e.g  nodeId or index?
@@ -103,7 +103,7 @@ public struct Point3D: Codable, Equatable {
     }
 }
 
-public struct Point4D: Codable {
+public struct Point4D: Codable, Equatable {
     public var x: Double
     public var y: Double
     public var z: Double
@@ -117,7 +117,7 @@ public struct Point4D: Codable {
     }
 }
 
-public struct AsyncMediaValue: Codable, Equatable {
+public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>
     
@@ -287,7 +287,7 @@ public enum DateAndTimeFormat: String, CaseIterable, Codable {
 
 public typealias ShapeDataArray = [ShapeAndRect]
 
-public struct CustomShape {
+public struct CustomShape: Equatable {
     public var shapes: ShapeDataArray {
         didSet {
             self.setCachedValues()
@@ -443,7 +443,7 @@ public enum DelayStyle: String, Codable, Equatable, CaseIterable {
     case decreasing = "Decreasing"
 }
 
-public enum ShapeCoordinates: String, Codable, Equatable {
+public enum ShapeCoordinates: String, Codable, Equatable, CaseIterable {
     case relative = "Relative"
     case absolute = "Absolute"
 }

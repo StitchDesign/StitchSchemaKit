@@ -38,6 +38,11 @@ extension StitchSchemaVersionType {
 public struct StitchVersionedData: Codable {
     public let version: StitchSchemaVersion
     public let data: Data
+    
+    public init(version: StitchSchemaVersion, data: Data) {
+        self.version = version
+        self.data = data
+    }
 }
 
 extension StitchSchemaVersionType {

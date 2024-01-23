@@ -98,7 +98,7 @@ extension CGSize {
 }
 
 extension StitchDocument {
-    public var id: String { self.projectId.id }
+    public var id: ProjectId { self.projectId }
 }
 
 extension Color: Codable {

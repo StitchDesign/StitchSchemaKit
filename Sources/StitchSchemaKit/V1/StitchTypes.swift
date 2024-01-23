@@ -252,15 +252,15 @@ public enum SplitterType: String, Codable, CaseIterable {
 
 public struct ProjectId: Codable, Identifiable, Equatable, Hashable {
 //    typealias Id = Tagged<ProjectId, String>
-    public var id: String = UUID().description
+    public var id: UUID = UUID()
     
     public init() {
         self.id = .init()
     }
     
-    public init(from url: URL) {
-        self.id = url.filename
-    }
+//    public init(from url: URL) {
+//        self.id = url.filename
+//    }
 }
 
 public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
@@ -375,8 +375,16 @@ public struct CommentBoxData: Codable, Equatable, Hashable {
     }
 }
 
-public struct GroupNodeId: Codable, Equatable, Hashable {
+public struct GroupNodeId: Codable, Equatable, Hashable, Identifiable {
     public let id: NodeId
+    
+    public init(id: NodeId) {
+        self.id = id
+    }
+    
+    public init(_ id: UUID) {
+        self.id = id
+    }
 }
 
 public struct CommentExpansionBox: Codable, Equatable, Hashable {

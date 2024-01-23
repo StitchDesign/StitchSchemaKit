@@ -474,6 +474,86 @@ enum ShapeCommand {
                  curveTo: PathPoint)
 }
 
+extension ShapeCommand: Codable {
+    enum CodingKeys: String, CodingKey {
+        case type, point,
+             // added for curveTo case
+             curveFrom, curveTo
+    }
+
+    enum CommandType: String, Decodable {
+        case closePath, lineTo, moveTo, curveTo
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        // the `type` key, whether it's "lineTo" or "moveTo"
+        let type = try container.decode(CommandType.self, forKey: .type)
+
+        switch type {
+
+        case .closePath:
+            self = .closePath
+
+        case .lineTo:
+            let point = try container.decode(PathPoint.self, forKey: .point)
+            self = .lineTo(point: point)
+
+        case .moveTo:
+            let point = try container.decode(PathPoint.self, forKey: .point)
+            self = .moveTo(point: point)
+
+        case .curveTo:
+            let point = try container.decode(PathPoint.self, forKey: .point)
+            // .curveTo case means we have type, point AND curveFrom, and curveTo keys
+            let curveFrom: PathPoint = try container.decode(PathPoint.self, forKey: .curveFrom)
+            let curveTo: PathPoint = try container.decode(PathPoint.self, forKey: .curveTo)
+
+            self = .curveTo(curveFrom: curveFrom,
+                            point: point,
+                            curveTo: curveTo)
+        }
+
+    }
+
+    // Note: we encode a key-value pair (e.g. "type: moveTo")
+    // which we don't actually use in the enum.
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        switch self {
+        case .closePath:
+            try container.encode(JSONShapeKeys.CLOSE_PATH, forKey: .type)
+        case .moveTo(let point):
+            try container.encode(JSONShapeKeys.MOVE_TO, forKey: .type)
+            try container.encode(point, forKey: .point)
+        case .lineTo(let point):
+            try container.encode(JSONShapeKeys.LINE_TO, forKey: .type)
+            try container.encode(point, forKey: .point)
+        case .curveTo(let curveFrom, let point, let curveTo):
+            try container.encode(JSONShapeKeys.CURVE_TO, forKey: .type)
+            try container.encode(point, forKey: .point)
+            try container.encode(curveFrom, forKey: .curveFrom)
+            try container.encode(curveTo, forKey: .curveTo)
+        }
+    }
+}
+
+struct JSONShapeKeys {
+    static let PATH = "path"
+    static let TYPE = "type"
+
+    static let POINT = "point"
+
+    static let CLOSE_PATH = "closePath"
+    static let MOVE_TO = "moveTo"
+    static let LINE_TO = "lineTo"
+    static let CURVE_TO = "curveTo"
+
+    static let CURVE_FROM = "curveFrom"
+}
+
 // Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
 struct PathPoint: Codable {
     let x: CGFloat
@@ -487,7 +567,7 @@ enum StitchOrientation: String, Codable, CaseIterable {
 
 struct CameraSettings: Codable {
     var direction: CameraDirection = .front
-    var orientation: StitchCameraOrientation = .defaultCameraOrientation
+    var orientation: StitchCameraOrientation
 }
 
 enum StitchCameraOrientation: String, Codable, CaseIterable {

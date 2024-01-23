@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Vision
 import simd
 
 typealias CGPoints = [CGPoint]
@@ -194,3 +195,5 @@ extension matrix_float4x4: Codable {
         try container.encode([columns.0, columns.1, columns.2, columns.3])
     }
 }
+
+extension VNImageCropAndScaleOption: Codable { }

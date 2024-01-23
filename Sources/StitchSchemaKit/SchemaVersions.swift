@@ -46,7 +46,7 @@ public struct StitchDocumentVersion: StitchSchemaVersionType {
     }
 }
 
-extension StitchDocumentVersion{
+extension StitchDocumentVersion {
     public static func getCodableType(from version: StitchSchemaVersion) -> any StitchVersionedCodable.Type {
         switch version {
         case ._V1:

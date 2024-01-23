@@ -87,6 +87,26 @@ public struct LayerSize: Codable, Equatable {
         self.width = width
         self.height = height
     }
+    
+    public init(width: CGFloat, height: CGFloat) {
+        self.width = LayerDimension.number(width)
+        self.height = LayerDimension.number(height)
+    }
+
+    public init(width: LayerDimension, height: CGFloat) {
+        self.width = width
+        self.height = .number(height)
+    }
+
+    public init(width: CGFloat, height: LayerDimension) {
+        self.width = .number(width)
+        self.height = height
+    }
+
+    public init(_ size: CGSize) {
+        self.width = LayerDimension.number(size.width)
+        self.height = LayerDimension.number(size.height)
+    }
 }
 
 public typealias StitchPosition = CGSize
@@ -305,6 +325,15 @@ public struct CustomShape: Equatable {
     private var _east: CGFloat = .zero
     private var _north: CGFloat = .zero
     private var _south: CGFloat = .zero
+    
+    public init(shapes: ShapeDataArray) {
+        self.shapes = shapes
+        self.setCachedValues()
+    }
+    
+    public init(_ shape: ShapeAndRect) {
+        self.init(shapes: [shape])
+    }
     
     mutating func setCachedValues() {
         let baseFrame = self.getBaseFrame()
@@ -584,7 +613,7 @@ public enum StitchDeviceOrientation: String, Codable, CaseIterable {
          faceDown = "Face Down"
 }
 
-public struct RGBA: Codable {
+public struct RGBA: Codable, Equatable {
     public let red: CGFloat
     public let green: CGFloat
     public let blue: CGFloat

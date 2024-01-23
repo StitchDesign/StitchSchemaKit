@@ -17,7 +17,7 @@ enum StitchDocument_V1: StitchSchemaVersionable {
     // MARK: - end
 
     // TODO: transferable
-    struct StitchDocument: StitchVersionedCodable, Transferable {
+    struct StitchDocument: StitchVersionedCodable {
         var projectId: ProjectId
         var name: String
 
@@ -38,11 +38,11 @@ enum StitchDocument_V1: StitchSchemaVersionable {
         let cameraSettings: CameraSettings
 
         // MARK: remove `transferRepresentation` from older `StitchDocument` versions
-        static var transferRepresentation: some TransferRepresentation {
-            FileRepresentation(contentType: .stitchDocument,
-                               exporting: Self.exportDocument,
-                               importing: Self.importDocument)
-        }
+//        static var transferRepresentation: some TransferRepresentation {
+//            FileRepresentation(contentType: .stitchDocument,
+//                               exporting: Self.exportDocument,
+//                               importing: Self.importDocument)
+//        }
     }
 }
 

@@ -28,6 +28,14 @@ enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1
 }
 
+protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
+
+extension VersionType where RawValue: Comparable {
+    static func < (a: Self, b: Self) -> Bool {
+        return a.rawValue < b.rawValue
+    }
+}
+
 struct StitchDocumentVersion: StitchSchemaVersionType {
     typealias NewestVersionType = CurrentStitchDocument.StitchDocument
 

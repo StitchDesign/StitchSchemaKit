@@ -37,28 +37,28 @@ extension NodeEntity_V1.NodeEntity: StitchVersionedCodable {
         fatalError()
     }
 
-    init(from viewModel: NodeViewModel) {
-        var patchNodeEntity: PatchNodeEntity_V1.PatchNodeEntity?
-        var layerNodeEntity: LayerNodeEntity_V1.LayerNodeEntity?
-
-        self.id = viewModel.id
-        self.position = viewModel.position
-        self.zIndex = viewModel.zIndex
-        self.parentGroupNodeId = viewModel.parentGroupNodeId
-        self.isGroupNode = viewModel.kind.isGroup
-        self.title = viewModel.title
-
-        switch viewModel.nodeType {
-        case .patch(let patchNode):
-            patchNodeEntity = .init(from: patchNode)
-        case .layer(let layerNode):
-            layerNodeEntity = .init(from: layerNode)
-        case .group:
-            break
-        }
-
-        self.patchNodeEntity = patchNodeEntity
-        self.layerNodeEntity = layerNodeEntity
-        self.inputs = viewModel.inputsObservers.map { $0.createSchema() }
-    }
+//    init(from viewModel: NodeViewModel) {
+//        var patchNodeEntity: PatchNodeEntity_V1.PatchNodeEntity?
+//        var layerNodeEntity: LayerNodeEntity_V1.LayerNodeEntity?
+//
+//        self.id = viewModel.id
+//        self.position = viewModel.position
+//        self.zIndex = viewModel.zIndex
+//        self.parentGroupNodeId = viewModel.parentGroupNodeId
+//        self.isGroupNode = viewModel.kind.isGroup
+//        self.title = viewModel.title
+//
+//        switch viewModel.nodeType {
+//        case .patch(let patchNode):
+//            patchNodeEntity = .init(from: patchNode)
+//        case .layer(let layerNode):
+//            layerNodeEntity = .init(from: layerNode)
+//        case .group:
+//            break
+//        }
+//
+//        self.patchNodeEntity = patchNodeEntity
+//        self.layerNodeEntity = layerNodeEntity
+//        self.inputs = viewModel.inputsObservers.map { $0.createSchema() }
+//    }
 }

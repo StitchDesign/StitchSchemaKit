@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 typealias NodeId = UUID
 typealias NodeIdSet = Set<NodeId>
@@ -15,7 +16,7 @@ struct NodeIOCoordinate: Hashable, Equatable, Codable {
     var nodeId: NodeId
 }
 
-enum NodeKind {
+enum NodeKind: Codable {
     case patch(Patch), layer(Layer), group
 }
 
@@ -242,4 +243,127 @@ enum SplitterType: String, Equatable, Codable, CaseIterable {
          // add GroupNodeId assoc-val ?
          input = "Input", // ie groupIutput node: output only
          output = "Output" // ie groupOutput node: input only
+}
+
+struct ProjectId: Codable, Identifiable {
+    var id: String = UUID().description
+}
+
+enum PreviewSize: String, CaseIterable, Identifiable, Codable {
+    var id: String { self.rawValue }
+
+    // iPhones
+    case iPhone14 = "iPhone 14"
+    case iPhone14Plus = "iPhone 14 Plus"
+    case iPhone14Pro = "iPhone 14 Pro"
+    case iPhone14ProMax = "iPhone 14 Pro Max"
+    case iPhone13 = "iPhone 13"
+    case iPhone13mini = "iPhone 13 mini"
+    case iPhone13ProMax = "iPhone 13 Pro Max"
+    case iPhone13Pro = "iPhone 13 Pro"
+    case iPhone12 = "iPhone 12"
+    case iPhone12mini = "iPhone 12 mini"
+    case iPhone12ProMax = "iPhone 12 Pro Max"
+    case iPhone12Pro = "iPhone 12 Pro"
+    case iPhoneSe2ndGen = "iPhone SE (2nd gen)"
+    case iPhone11ProMax = "iPhone 11 Pro Max"
+    case iPhone11Pro = "iPhone 11 Pro"
+    case iPhone11 = "iPhone 11"
+    case iPhoneSE1stGen = "iPhone SE (1st gen)"
+
+    // iPads
+    case iPadMini6thGen = "iPad Mini (6th gen)"
+    case iPad9thGen = "iPad (9th gen)"
+    case iPadPro12Inch = "iPad Pro (12.9\")"
+    case iPadPro11Inch = "iPad Pro (11\")"
+    case iPadAir4thGen = "iPad Air (4th gen)"
+    case iPadMini5thGen = "iPad Mini (5th gen)"
+    case iPadAir3rdGen = "iPad Air (3rd gen)"
+    case iPadPro10Inch = "iPad Pro (10.5\")"
+
+    // MacBooks
+    case MacBookAir = "MacBook Air (13.3\")"
+    case MacBook = "MacBook (12\")"
+    case MacBookPro = "MacBook Pro (15.4\")"
+
+    // iMacs
+    case iMacRetina24Inch = "iMac Retina (24\")"
+    case iMacRetina27Inch = "iMac Retina (27\")"
+    case iMacProRetina27Inch = "iMac Pro Retina (27\")"
+
+    case custom = "Custom Size"
+}
+
+enum SidebarLayerType: Codable {
+    case layer(NodeId)
+    case group(SidebarLayerGroupData)
+}
+
+struct SidebarLayerGroupData: Codable {
+    let id: NodeId
+    var sortedChildren: [SidebarLayerType]
+}
+
+typealias CommentBoxId = UUID
+typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]
+
+struct CommentBoxData: Codable {
+    var id: CommentBoxId
+    
+    /*
+     "Which traversal level (group node) does this comment box belong to?"
+     
+     nil = top level
+     
+     TODO: implement this properly, but wait until after SwiftData since e.g. VisibleNodesViewModel etc. may be changing.
+     
+     For now we just make all comment boxes top-level.
+     */
+    var groupId: GroupNodeId?
+    
+    var title: String = "Comment"
+    var color: Color
+    
+    var nodes: NodeIdSet
+    
+    // TODO: potentially can consolidate CommentBoxData.position and CommentExpansionBox.startingPoint, CommentExpansionBox.anchorPoint, etc.;
+    // a little hard to tell, since the trig + gesture logic is complicated;
+    // low-priority refactor.
+    var position: CGSize
+    var previousPosition: CGSize
+    var expansionBox: CommentExpansionBox
+    
+    var zIndex: Double // = .zero
+}
+
+struct GroupNodeId: Codable {
+    let id: NodeId
+}
+
+struct CommentExpansionBox: Codable {
+    var nodes: NodeIdSet = .init()
+    
+    // set nil after gesture completes;
+    // set non-nil when gesture first starts
+    var expansionDirection: ExpansionDirection?
+    
+    // size is always positive numbers
+    var size: CGSize // = .zero
+    var previousSize: CGSize // = .zero
+    
+    // drag gesture start
+    var startPoint: CGPoint // = .zero
+    
+    // drag gesture current
+    var endPoint: CGPoint // = .zero
+    
+    var anchorCorner: CGPoint
+}
+
+// not just the size of the box,
+// but from where the box goes to etc.
+enum ExpansionDirection: Codable {
+    case topLeft, topRight,
+         bottomLeft, bottomRight,
+         none
 }

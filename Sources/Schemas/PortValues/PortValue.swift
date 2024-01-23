@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 import simd
+import Vision
 import SwiftyJSON
 
 // the values contained in a single Input or Output
 typealias PortValues = [PortValue]
 
-enum PortValue: Equatable, Codable, Hashable {
+enum PortValue: Codable {
     case string(String)
     case bool(Bool)
     case int(Int) // e.g  nodeId or index?
@@ -137,7 +138,7 @@ struct StitchJSON: Codable {
     }
 }
 
-enum Anchoring: String, Equatable, Codable, Hashable, CaseIterable{
+enum Anchoring: String, Equatable, Codable, Hashable, CaseIterable {
     case topLeft, topCenter, topRight,
          centerLeft, center, centerRight,
          bottomLeft, bottomCenter, bottomRight
@@ -228,6 +229,15 @@ struct CustomShape {
     private var _east: CGFloat = .zero
     private var _north: CGFloat = .zero
     private var _south: CGFloat = .zero
+}
+
+extension CustomShape: Codable {
+    /// Custom decoder enables us to only decode essential, non-cached values.
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let shapes = try container.decode(ShapeDataArray.self, forKey: .shapes)
+        self.init(shapes: shapes)
+    }
 }
 
 extension CustomShape {
@@ -366,7 +376,7 @@ struct RoundedRectangleData: Equatable, Codable {
     var cornerRadius: CGFloat
 }
 
-struct TriangleData: Equatable, Codable {
+struct TriangleData: Codable {
     var points: [CGPoint] {
         [p1, p2, p3]
     }
@@ -422,4 +432,84 @@ struct JSONCurveTo: Codable {
 
     // i.e. JSON's `curveTo`
     let controlPoint2: CGPoint
+}
+
+enum ScrollJumpStyle: String, Codable, CaseIterable {
+    case animated
+    case instant
+}
+
+enum ScrollDecelerationRate: String, Codable, CaseIterable {
+    case normal
+    case fast
+}
+
+enum PortValueComparable: Equatable, Codable, Hashable {
+    case number(Double)
+    case bool(Bool)
+    case string(String)
+}
+
+enum DelayStyle: String, Codable, Equatable {
+    case always = "Always"
+    case increasing = "Increasing"
+    case decreasing = "Decreasing"
+}
+
+enum ShapeCoordinates: String, Codable, Equatable {
+    case relative = "Relative"
+    case absolute = "Absolute"
+}
+
+enum ShapeCommandType: String, Codable, CaseIterable {
+    case closePath, lineTo, moveTo, curveTo
+}
+
+enum ShapeCommand {
+    case closePath,
+         lineTo(point: PathPoint),
+         moveTo(point: PathPoint),
+         curveTo(curveFrom: PathPoint,
+                 point: PathPoint,
+                 curveTo: PathPoint)
+}
+
+// Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
+struct PathPoint: Codable {
+    let x: CGFloat
+    let y: CGFloat
+}
+
+// Used for VStack vs HStack on layer groups
+enum StitchOrientation: String, Codable, CaseIterable {
+    case none, horizontal, vertical
+}
+
+struct CameraSettings: Codable {
+    var direction: CameraDirection = .front
+    var orientation: StitchCameraOrientation = .defaultCameraOrientation
+}
+
+enum StitchCameraOrientation: String, Codable, CaseIterable {
+    case portrait = "Portrait",
+         portraitUpsideDown = "Portrait Upside-Down",
+         landscapeLeft = "Landscape Left",
+         landscapeRight = "Landscape Right"
+}
+
+enum StitchDeviceOrientation: String, Codable, CaseIterable {
+    case unknown = "Unknown",
+         portrait = "Portrait",
+         portraitUpsideDown = "Portrait Upside-Down",
+         landscapeLeft = "Landscape Left",
+         landscapeRight = "Landscape Right",
+         faceUp = "Face Up",
+         faceDown = "Face Down"
+}
+
+struct RGBA: Codable {
+    let red: CGFloat
+    let green: CGFloat
+    let blue: CGFloat
+    let alpha: CGFloat
 }

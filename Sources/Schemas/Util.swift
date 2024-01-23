@@ -6,7 +6,8 @@
 //
 
 import Foundation
-
+import SwiftUI
+import simd
 
 typealias CGPoints = [CGPoint]
 
@@ -92,5 +93,104 @@ extension CGRect {
 extension CGSize {
     var area: CGFloat {
         abs(self.width) * abs(self.height)
+    }
+}
+
+extension StitchDocument {
+    var id: String { self.projectId.id }
+}
+
+extension Color: Codable {
+    enum CodingKeys: String, CodingKey {
+        case red, green, blue, alpha
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let r = try container.decode(Double.self, forKey: .red)
+        let g = try container.decode(Double.self, forKey: .green)
+        let b = try container.decode(Double.self, forKey: .blue)
+
+        // Added
+        let a = (try? container.decode(Double.self, forKey: .alpha)) ?? 1.0
+
+        self.init(red: r, green: g, blue: b, alpha: a)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        guard let colorComponents = self.colorComponents else {
+            return
+        }
+
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(colorComponents.red, forKey: .red)
+        try container.encode(colorComponents.green, forKey: .green)
+        try container.encode(colorComponents.blue, forKey: .blue)
+        try container.encode(colorComponents.alpha, forKey: .alpha)
+    }
+}
+
+extension Color {
+#if os(macOS)
+typealias SystemColor = NSColor
+#else
+typealias SystemColor = UIColor
+#endif
+    
+    init(red: CGFloat,
+         green: CGFloat,
+         blue: CGFloat,
+         alpha: CGFloat) {
+
+        let rgba = RGBA(red: red,
+                    green: green,
+                    blue: blue,
+                    alpha: alpha)
+        
+        let uiColor = UIColor(red: rgba.red,
+                              green: rgba.green,
+                              blue: rgba.blue,
+                              alpha: rgba.alpha)
+        
+        self = Color(uiColor: uiColor)
+    }
+    
+    var colorComponents: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+
+        #if os(macOS)
+        SystemColor(self).getRed(&r, green: &g, blue: &b, alpha: &a)
+        // Note that non RGB color will raise an exception, that I don't now how to catch because it is an Objc exception.
+        #else
+        guard SystemColor(self).getRed(&r, green: &g, blue: &b, alpha: &a) else {
+            // Pay attention that the color should be convertible into RGB format
+            // Colors using hue, saturation and brightness won't work
+            return nil
+        }
+        #endif
+
+        return (r, g, b, a)
+    }
+}
+
+extension Collection {
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+extension matrix_float4x4: Codable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        try self.init(container.decode([SIMD4<Float>].self))
+    }
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([columns.0, columns.1, columns.2, columns.3])
     }
 }

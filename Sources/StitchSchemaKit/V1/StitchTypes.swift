@@ -250,18 +250,7 @@ public enum SplitterType: String, Codable, CaseIterable {
          output = "Output" // ie groupOutput node: input only
 }
 
-public struct ProjectId: Codable, Identifiable, Equatable, Hashable {
-//    typealias Id = Tagged<ProjectId, String>
-    public var id: UUID = UUID()
-    
-    public init() {
-        self.id = .init()
-    }
-    
-//    public init(from url: URL) {
-//        self.id = url.filename
-//    }
-}
+public typealias ProjectId = UUID
 
 public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     public var id: String { self.rawValue }

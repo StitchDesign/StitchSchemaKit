@@ -147,7 +147,9 @@ public struct MediaObjectId: Codable, Equatable, Hashable {
     public var nodeId: NodeId
     public var loopIndex: Int
     
-    public init(globalId: UUID, nodeId: NodeId, loopIndex: Int) {
+    public init(globalId: UUID = UUID(),
+                nodeId: NodeId,
+                loopIndex: Int) {
         self.globalId = globalId
         self.nodeId = nodeId
         self.loopIndex = loopIndex
@@ -411,7 +413,7 @@ public enum ShapeCoordinates: String, Codable, Equatable {
     case absolute = "Absolute"
 }
 
-public enum ShapeCommandType: String, Codable, CaseIterable {
+public enum ShapeCommandType: String, Equatable, Hashable, Codable, CaseIterable {
     case closePath, lineTo, moveTo, curveTo
 }
 

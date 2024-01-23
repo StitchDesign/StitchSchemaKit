@@ -34,7 +34,7 @@ extension StitchSchemaVersionType {
     }
 }
 
-struct StitchVersionedData: Codable {
+public struct StitchVersionedData: Codable {
     let version: StitchSchemaVersion
     let data: Data
 }
@@ -89,7 +89,7 @@ extension StitchVersionedData {
     }
 }
 
-protocol StitchVersionedCodable: Codable, Identifiable, Sendable {
+public protocol StitchVersionedCodable: Codable, Identifiable, Sendable {
     // associatedtype Version: StitchSchemaVersionType
     //    associatedtype ViewModel: Observable
     associatedtype PreviousCodable: StitchVersionedCodable
@@ -105,13 +105,13 @@ extension StitchVersionedCodable {
     }
 }
 
-func getStitchEncoder() -> JSONEncoder {
+public func getStitchEncoder() -> JSONEncoder {
     let encoder = JSONEncoder()
     encoder.dateEncodingStrategy = .iso8601
     return encoder
 }
 
-func getStitchDecoder() -> JSONDecoder {
+public func getStitchDecoder() -> JSONDecoder {
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
     return decoder

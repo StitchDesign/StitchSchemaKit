@@ -21,7 +21,7 @@ public struct NodeIOCoordinate: Hashable, Equatable, Codable {
     }
 }
 
-public enum NodeKind: Codable {
+public enum NodeKind: Codable, Equatable, Hashable {
     case patch(Patch), layer(Layer), group
 }
 
@@ -309,8 +309,8 @@ public enum SidebarLayerType: Codable {
 }
 
 public struct SidebarLayerGroupData: Codable {
-    let id: NodeId
-    var sortedChildren: [SidebarLayerType]
+    public let id: NodeId
+    public var sortedChildren: [SidebarLayerType]
 }
 
 public typealias CommentBoxId = UUID

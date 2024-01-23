@@ -19,11 +19,11 @@ public enum NodePortInputEntity_V1: StitchSchemaVersionable {
 
     public struct NodePortInputEntity {
         public let id: NodeIOCoordinate
-        let nodeKind: NodeKind
-        let userVisibleType: UserVisibleType?
+        public let nodeKind: NodeKind
+        public let userVisibleType: UserVisibleType?
         // Either we have values or an upstream connection
-        let values: PortValues?
-        let upstreamOutputCoordinate: NodeIOCoordinate?
+        public let values: PortValues?
+        public let upstreamOutputCoordinate: NodeIOCoordinate?
     }
 }
 

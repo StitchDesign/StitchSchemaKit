@@ -12,14 +12,14 @@ public enum PatchNodeEntity_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.PatchNodeEntity
-    typealias SplitterNodeEntitySchema = SplitterNodeEntity_V1
+    public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V1
     // MARK: - end
 
     public struct PatchNodeEntity {
         public let id: NodeId
-        let patch: Patch
-        let userVisibleType: UserVisibleType?
-        let splitterNode: SplitterNodeEntitySchema.SplitterNodeEntity?
+        public let patch: Patch
+        public let userVisibleType: UserVisibleType?
+        public let splitterNode: SplitterNodeEntitySchema.SplitterNodeEntity?
     }
 }
 

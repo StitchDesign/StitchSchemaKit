@@ -144,3 +144,21 @@ extension VersionType {
         return next
     }
 }
+
+// https://developer.apple.com/forums/thread/112243
+// https://www.hackingwithswift.com/example-code/language/how-to-conform-to-the-hashable-protocol
+// https://codereview.stackexchange.com/questions/148763/extending-cgpoint-to-conform-to-hashable
+
+extension CGPoint: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+    }
+}
+
+extension CGSize: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(width)
+        hasher.combine(height)
+    }
+}

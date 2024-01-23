@@ -17,8 +17,8 @@ public enum SplitterNodeEntity_V1: StitchSchemaVersionable {
     public struct SplitterNodeEntity {
         public let id: NodeId
         // Dates used to sort ports in group node view
-        let lastModifiedDate: Date
-        let type: SplitterType
+        public let lastModifiedDate: Date
+        public let type: SplitterType
     }
 }
 

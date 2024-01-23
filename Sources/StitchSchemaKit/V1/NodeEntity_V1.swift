@@ -14,21 +14,21 @@ public enum NodeEntity_V1: StitchSchemaVersionable {
     static let version = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.NodeEntity
     typealias StitchDocumentSchema = StitchDocument_V1
-    typealias PatchNodeEntitySchema = PatchNodeEntity_V1
-    typealias LayerNodeEntitySchema = LayerNodeEntity_V1
-    typealias NodePortInputEntitySchema = NodePortInputEntity_V1
+    public typealias PatchNodeEntitySchema = PatchNodeEntity_V1
+    public typealias LayerNodeEntitySchema = LayerNodeEntity_V1
+    public typealias NodePortInputEntitySchema = NodePortInputEntity_V1
     // MARK: - end
 
     public struct NodeEntity {
         public let id: NodeId
-        let position: CGPoint
-        let zIndex: Double
-        let parentGroupNodeId: NodeId?
-        let patchNodeEntity: PatchNodeEntitySchema.PatchNodeEntity?
-        let layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?
-        let isGroupNode: Bool
-        let title: String
-        let inputs: [NodePortInputEntitySchema.NodePortInputEntity]
+        public let position: CGPoint
+        public let zIndex: Double
+        public let parentGroupNodeId: NodeId?
+        public let patchNodeEntity: PatchNodeEntitySchema.PatchNodeEntity?
+        public let layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?
+        public let isGroupNode: Bool
+        public let title: String
+        public let inputs: [NodePortInputEntitySchema.NodePortInputEntity]
     }
 }
 

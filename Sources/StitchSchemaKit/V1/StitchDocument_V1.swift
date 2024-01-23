@@ -13,29 +13,29 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.StitchDocument
-    typealias NodeEntitySchema = NodeEntity_V1
+    public typealias NodeEntitySchema = NodeEntity_V1
     // MARK: - end
 
     // TODO: transferable
     public struct StitchDocument: StitchVersionedCodable {
-        var projectId: ProjectId
-        var name: String
+        public var projectId: ProjectId
+        public var name: String
 
         // Preview window
-        let previewWindowSize: CGSize
-        let previewSizeDevice: PreviewSize
-        let previewWindowBackgroundColor: Color
+        public let previewWindowSize: CGSize
+        public let previewSizeDevice: PreviewSize
+        public let previewWindowBackgroundColor: Color
 
         // Graph positioning data
-        let localPosition: CGPoint
-        let zoomData: CGFloat
+        public let localPosition: CGPoint
+        public let zoomData: CGFloat
 
         // Node data
-        let nodes: [NodeEntitySchema.NodeEntity]
-        let orderedSidebarLayers: [SidebarLayerType]
-        let commentBoxesDict: CommentBoxesDict
+        public let nodes: [NodeEntitySchema.NodeEntity]
+        public let orderedSidebarLayers: [SidebarLayerType]
+        public let commentBoxesDict: CommentBoxesDict
 
-        let cameraSettings: CameraSettings
+        public let cameraSettings: CameraSettings
 
         // MARK: remove `transferRepresentation` from older `StitchDocument` versions
 //        static var transferRepresentation: some TransferRepresentation {

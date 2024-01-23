@@ -80,44 +80,54 @@ public enum NetworkRequestType: String, CaseIterable, Codable {
 }
 
 public struct LayerSize: Codable {
-    var width: LayerDimension
-    var height: LayerDimension
+    public var width: LayerDimension
+    public var height: LayerDimension
+    
+    public init(width: LayerDimension, height: LayerDimension) {
+        self.width = width
+        self.height = height
+    }
+    
+    public init(width: CGFloat, height: CGFloat) {
+        self.width = .number(width)
+        self.height = .number(height)
+    }
 }
 
 public typealias StitchPosition = CGSize
 
 public struct Point3D: Codable {
-    var x: Double
-    var y: Double
-    var z: Double
+    public var x: Double
+    public var y: Double
+    public var z: Double
 }
 
 public struct Point4D: Codable {
-    var x: Double
-    var y: Double
-    var z: Double
-    var w: Double
+    public var x: Double
+    public var y: Double
+    public var z: Double
+    public var w: Double
 }
 
 public struct AsyncMediaValue: Codable {
-    var id: MediaObjectId
-    var dataType: DataType<MediaKey>
+    public var id: MediaObjectId
+    public var dataType: DataType<MediaKey>
 }
 
 public struct MediaKey: Codable, Hashable {
-    let filename: String // eg. `dogs`
-    let fileExtension: String // eg `.avi`
+    public let filename: String // eg. `dogs`
+    public let fileExtension: String // eg `.avi`
 }
 
 /// Combines a UUID with some NodeId to assign unique media objects to each node.
 /// This ensures 1:1 mapping between media and nodes.
 public struct MediaObjectId: Codable {
     // An ID that's associated with the original media
-    var globalId: UUID
+    public var globalId: UUID
     
     // Properties specific to the media's location in the node
-    var nodeId: NodeId
-    var loopIndex: Int
+    public var nodeId: NodeId
+    public var loopIndex: Int
 }
 
 public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
@@ -126,8 +136,8 @@ public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
 }
 
 public struct StitchJSON: Codable {
-    var id: UUID
-    var value: JSON {
+    public var id: UUID
+    public var value: JSON {
         didSet {
             self.id = .init()
         }
@@ -146,8 +156,12 @@ public enum CameraDirection: String, CaseIterable, Codable {
 }
 
 // a wrapper-type over NodeId, to use in more specific situations
-public struct LayerNodeId: Codable {
-    let id: NodeId
+public struct LayerNodeId: Codable, Hashable {
+    public let id: NodeId
+    
+    public init(_ id: UUID) {
+        self.id = id
+    }
 }
 
 public enum ScrollMode: String, Codable, CaseIterable {
@@ -208,17 +222,17 @@ public enum DateAndTimeFormat: String, CaseIterable, Codable {
 public typealias ShapeDataArray = [ShapeAndRect]
 
 public struct CustomShape {
-    var shapes: ShapeDataArray {
+    public var shapes: ShapeDataArray {
         didSet {
             self.setCachedValues()
         }
     }
     
-    var baseFrame: CGRect { self._baseFrame }
-    var west: CGFloat { self._west }
-    var east: CGFloat { self._east }
-    var north: CGFloat { self._north }
-    var south: CGFloat { self._south }
+    public var baseFrame: CGRect { self._baseFrame }
+    public var west: CGFloat { self._west }
+    public var east: CGFloat { self._east }
+    public var north: CGFloat { self._north }
+    public var south: CGFloat { self._south }
     
     private var _baseFrame: CGRect = .zero
     private var _west: CGFloat = .zero
@@ -284,8 +298,8 @@ public enum ShapeAndRect: Codable {
 }
 
 public struct RoundedRectangleData: Equatable, Codable {
-    var rect: CGRect
-    var cornerRadius: CGFloat
+    public var rect: CGRect
+    public var cornerRadius: CGFloat
 }
 
 public struct TriangleData: Codable {
@@ -294,9 +308,9 @@ public struct TriangleData: Codable {
     }
     
     // A triangle is made up of three points:
-    let p1: CGPoint
-    let p2: CGPoint
-    let p3: CGPoint
+    public let p1: CGPoint
+    public let p2: CGPoint
+    public let p3: CGPoint
 }
 
 public typealias JSONShapeCommands = [JSONShapeCommand]
@@ -315,13 +329,13 @@ public enum JSONShapeCommand: Codable {
 }
 
 public struct JSONCurveTo: Codable {
-    let point: CGPoint
+    public let point: CGPoint
 
     // i.e. JSON's `curveFrom`
-    let controlPoint1: CGPoint
+    public let controlPoint1: CGPoint
 
     // i.e. JSON's `curveTo`
-    let controlPoint2: CGPoint
+    public let controlPoint2: CGPoint
 }
 
 public enum ScrollJumpStyle: String, Codable, CaseIterable {
@@ -446,8 +460,8 @@ public struct JSONShapeKeys {
 
 // Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
 public struct PathPoint: Codable {
-    let x: CGFloat
-    let y: CGFloat
+    public let x: CGFloat
+    public let y: CGFloat
 }
 
 // Used for VStack vs HStack on layer groups
@@ -455,12 +469,12 @@ public enum StitchOrientation: String, Codable, CaseIterable {
     case none, horizontal, vertical
 }
 
-public struct CameraSettings: Codable {
-    var direction: CameraDirection = .front
-    var orientation: StitchCameraOrientation
+public struct CameraSettings: Codable, Equatable, Hashable {
+    public var direction: CameraDirection = .front
+    public var orientation: StitchCameraOrientation
 }
 
-public enum StitchCameraOrientation: String, Codable, CaseIterable {
+public enum StitchCameraOrientation: String, Codable, Equatable, Hashable, CaseIterable {
     case portrait = "Portrait",
          portraitUpsideDown = "Portrait Upside-Down",
          landscapeLeft = "Landscape Left",

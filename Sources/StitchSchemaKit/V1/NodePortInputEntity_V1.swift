@@ -8,17 +8,17 @@
 import Foundation
 import SwiftUI
 
-enum NodePortInputEntity_V1: StitchSchemaVersionable {
+public enum NodePortInputEntity_V1: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V1
     typealias NodeEntitySchema = NodeEntity_V1
-    typealias PreviousInstance = Self.NodePortInputEntity
+    public typealias PreviousInstance = Self.NodePortInputEntity
     typealias PatchNodeEntitySchema = PatchNodeEntity_V1
     // MARK: - end
 
-    struct NodePortInputEntity {
-        let id: NodeIOCoordinate
+    public struct NodePortInputEntity {
+        public let id: NodeIOCoordinate
         let nodeKind: NodeKind
         let userVisibleType: UserVisibleType?
         // Either we have values or an upstream connection
@@ -28,7 +28,7 @@ enum NodePortInputEntity_V1: StitchSchemaVersionable {
 }
 
 extension NodePortInputEntity_V1.NodePortInputEntity: StitchVersionedCodable {
-    init(previousInstance: NodePortInputEntity_V1.PreviousInstance) {
+    public init(previousInstance: NodePortInputEntity_V1.PreviousInstance) {
         fatalError()
     }
 }

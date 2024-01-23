@@ -80,7 +80,7 @@ extension StitchVersionedCodable {
 
 extension StitchVersionedData {
     /// Initializer that uses current version.
-    init(currentDoc: StitchDocument) throws {
+    public init(currentDoc: StitchDocument) throws {
         let encoder = getStitchEncoder()
         let encodedDoc = try encoder.encode(currentDoc)
 
@@ -100,7 +100,7 @@ protocol StitchVersionedCodable: Codable, Identifiable, Sendable {
 }
 
 extension StitchVersionedCodable {
-    init(anyCodable: any StitchVersionedCodable) {
+    public init(anyCodable: any StitchVersionedCodable) {
         self.init(previousInstance: anyCodable as! Self.PreviousCodable)
     }
 }

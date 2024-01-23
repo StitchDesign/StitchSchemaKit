@@ -12,9 +12,9 @@ import Vision
 import SwiftyJSON
 
 // the values contained in a single Input or Output
-typealias PortValues = [PortValue]
+public typealias PortValues = [PortValue]
 
-enum PortValue: Codable {
+public enum PortValue: Codable {
     case string(String)
     case bool(Bool)
     case int(Int) // e.g  nodeId or index?
@@ -59,7 +59,7 @@ enum PortValue: Codable {
     case vnImageCropOption(VNImageCropAndScaleOption)
 }
 
-enum LayerDimension: Equatable, Codable, Hashable {
+public enum LayerDimension: Codable {
     case number(CGFloat),
          // visual media layer: resource's inherent dimnensions
          // non-media layer: 100% of parent's dimension
@@ -67,55 +67,51 @@ enum LayerDimension: Equatable, Codable, Hashable {
          // parentPercent(100), // use 100% of parent dimenion
          // parentPercent(50) // use 50% of parent dimension
          parentPercent(Double)
-
-    init(_ x: CGFloat) {
-        self = .number(x)
-    }
 }
 
-typealias StitchMatrix = matrix_float4x4
+public typealias StitchMatrix = matrix_float4x4
 
-enum Plane: String, CaseIterable, Equatable, Codable {
+public enum Plane: String, CaseIterable, Codable {
     case any, horizontal, vertical
 }
 
-enum NetworkRequestType: String, CaseIterable, Equatable, Codable {
+public enum NetworkRequestType: String, CaseIterable, Codable {
     case get, post // put
 }
 
-struct LayerSize: Equatable, Codable, Hashable {
+public struct LayerSize: Codable {
     var width: LayerDimension
     var height: LayerDimension
 }
 
-typealias StitchPosition = CGSize
+public typealias StitchPosition = CGSize
 
-struct Point3D: Codable, Equatable, Hashable {
+public struct Point3D: Codable {
     var x: Double
     var y: Double
     var z: Double
 }
 
-struct Point4D: Codable, Equatable, Hashable {
+public struct Point4D: Codable {
     var x: Double
     var y: Double
     var z: Double
     var w: Double
 }
 
-struct AsyncMediaValue: Equatable, Codable, Identifiable, Hashable {
+public struct AsyncMediaValue: Codable {
     var id: MediaObjectId
     var dataType: DataType<MediaKey>
 }
 
-struct MediaKey: Equatable, Codable, Hashable {
+public struct MediaKey: Codable, Hashable {
     let filename: String // eg. `dogs`
     let fileExtension: String // eg `.avi`
 }
 
 /// Combines a UUID with some NodeId to assign unique media objects to each node.
 /// This ensures 1:1 mapping between media and nodes.
-struct MediaObjectId: Equatable, Codable, Hashable {
+public struct MediaObjectId: Codable {
     // An ID that's associated with the original media
     var globalId: UUID
     
@@ -124,12 +120,12 @@ struct MediaObjectId: Equatable, Codable, Hashable {
     var loopIndex: Int
 }
 
-enum DataType<Value: Equatable & Codable & Hashable>: Equatable, Codable, Hashable {
+public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
     case source(Value)
     case computed
 }
 
-struct StitchJSON: Codable {
+public struct StitchJSON: Codable {
     var id: UUID
     var value: JSON {
         didSet {
@@ -138,42 +134,42 @@ struct StitchJSON: Codable {
     }
 }
 
-enum Anchoring: String, Equatable, Codable, Hashable, CaseIterable {
+public enum Anchoring: String, Codable, CaseIterable {
     case topLeft, topCenter, topRight,
          centerLeft, center, centerRight,
          bottomLeft, bottomCenter, bottomRight
 }
 
 // e.g. AVCaptureDevice.Position.front
-enum CameraDirection: String, CaseIterable, Equatable, Codable {
+public enum CameraDirection: String, CaseIterable, Codable {
     case front, back
 }
 
 // a wrapper-type over NodeId, to use in more specific situations
-struct LayerNodeId: Equatable, Codable, Hashable, Identifiable {
+public struct LayerNodeId: Codable {
     let id: NodeId
 }
 
-enum ScrollMode: String, Codable, Equatable, CaseIterable {
+public enum ScrollMode: String, Codable, CaseIterable {
     case free
     case paging
     case disabled
 }
 
-enum LayerTextAlignment: String, Equatable, Codable, CaseIterable {
+public enum LayerTextAlignment: String, Codable, CaseIterable {
     case left, center, right, justify
 }
 
 // Vertical alignment options for our Text Layers in preview window
-enum LayerTextVerticalAligment: String, Equatable, Codable, CaseIterable {
+public enum LayerTextVerticalAligment: String, Codable, CaseIterable {
     case top, center, bottom
 }
 
-enum VisualMediaFitStyle: String, CaseIterable, Equatable, Codable {
+public enum VisualMediaFitStyle: String, CaseIterable, Codable {
     case fit, fill, stretch
 }
 
-enum ClassicAnimationCurve: String, Codable, Equatable, CaseIterable {
+public enum ClassicAnimationCurve: String, Codable, CaseIterable {
     case linear,
          
          // quadratic
@@ -192,26 +188,26 @@ enum ClassicAnimationCurve: String, Codable, Equatable, CaseIterable {
          exponentialInOut
 }
 
-enum LightType: String, Equatable, Codable, Hashable, CaseIterable {
+public enum LightType: String, Codable, CaseIterable {
     case ambient, omni, directional,
          spot, IES, probe, area
 }
 
-enum LayerStroke: String, Equatable, Codable, Hashable, CaseIterable {
+public enum LayerStroke: String, Codable, CaseIterable {
     case none, inside, outside
 }
 
-enum TextTransform: String, Equatable, Codable, Hashable, CaseIterable {
+public enum TextTransform: String, Codable, CaseIterable {
     case uppercase, lowercase, capitalize
 }
 
-enum DateAndTimeFormat: String, Equatable, Hashable, CaseIterable, Codable {
+public enum DateAndTimeFormat: String, CaseIterable, Codable {
     case none, short, medium, long, full
 }
 
-typealias ShapeDataArray = [ShapeAndRect]
+public typealias ShapeDataArray = [ShapeAndRect]
 
-struct CustomShape {
+public struct CustomShape {
     var shapes: ShapeDataArray {
         didSet {
             self.setCachedValues()
@@ -229,18 +225,7 @@ struct CustomShape {
     private var _east: CGFloat = .zero
     private var _north: CGFloat = .zero
     private var _south: CGFloat = .zero
-}
-
-extension CustomShape: Codable {
-    /// Custom decoder enables us to only decode essential, non-cached values.
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let shapes = try container.decode(ShapeDataArray.self, forKey: .shapes)
-        self.init(shapes: shapes)
-    }
-}
-
-extension CustomShape {
+    
     mutating func setCachedValues() {
         let baseFrame = self.getBaseFrame()
 
@@ -280,7 +265,16 @@ extension CustomShape {
     }
 }
 
-enum ShapeAndRect: Codable {
+extension CustomShape: Codable {
+    /// Custom decoder enables us to only decode essential, non-cached values.
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let shapes = try container.decode(ShapeDataArray.self, forKey: .shapes)
+        self.init(shapes: shapes)
+    }
+}
+
+public enum ShapeAndRect: Codable {
     case oval(CGRect),
          circle(CGRect),
          rectangle(RoundedRectangleData),
@@ -289,94 +283,12 @@ enum ShapeAndRect: Codable {
          custom(JSONShapeCommands)
 }
 
-extension ShapeAndRect {
-    var rect: CGRect {
-        switch self {
-        case .oval(let x):
-            return x
-        case .circle(let x):
-            return x
-        case .rectangle(let x):
-            return x.rect
-
-        // self.rect not really used in most case
-        case .triangle(let trianglePoints):
-            // Assuming `.p1` is the proper origin here:
-            return .init(
-                origin: trianglePoints.p1,
-                size: .init(width: abs(trianglePoints.points.boundingBoxWidth),
-                            height: abs(trianglePoints.points.boundingBoxHeight)))
-
-        case .custom(let commands):
-            return .init(
-                // .first not accurate for e.g. the curveTo ?
-                // also, this is ALL points for all instructions
-                origin: commands.getPoints().first ?? .zero,
-                size: .init(width: abs(commands.getPoints().boundingBoxWidth),
-                            height: abs(commands.getPoints().boundingBoxHeight)))
-        }
-    }
-    
-    // the northern bound for a given shape
-    func north(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .triangle(let trianglePoints):
-            return trianglePoints.points.mostNegativeY
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostNegativeY
-        case .oval, .circle, .rectangle:
-            return self.rect.yBound(smallestShape.origin.y,
-                                    smallestShape.height,
-                                    isNorth: true)
-        }
-    }
-
-    func south(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .oval, .circle, .rectangle:
-            return self.rect.yBound(smallestShape.origin.y,
-                                    smallestShape.height)
-        case .triangle(let trianglePoints):
-            // double check that south logic is correct
-            return trianglePoints.points.mostPostiveY
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostPostiveY
-        }
-    }
-
-    func west(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .oval, .circle, .rectangle:
-            return self.rect.xBound(smallestShape.origin.x,
-                                    smallestShape.width,
-                                    isWest: true)
-        case .triangle(let trianglePoints):
-            return trianglePoints.points.mostNegativeX
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostNegativeX
-        }
-    }
-
-    func east(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .oval, .circle, .rectangle:
-            return self.rect.xBound(smallestShape.origin.x,
-                                    smallestShape.width)
-        case .triangle(let trianglePoints):
-            // double check that east logic is correct
-            return trianglePoints.points.mostPostiveX
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostPostiveX
-        }
-    }
-}
-
-struct RoundedRectangleData: Equatable, Codable {
+public struct RoundedRectangleData: Equatable, Codable {
     var rect: CGRect
     var cornerRadius: CGFloat
 }
 
-struct TriangleData: Codable {
+public struct TriangleData: Codable {
     var points: [CGPoint] {
         [p1, p2, p3]
     }
@@ -387,13 +299,7 @@ struct TriangleData: Codable {
     let p3: CGPoint
 }
 
-typealias JSONShapeCommands = [JSONShapeCommand]
-
-extension JSONShapeCommands {
-    func getPoints() -> [CGPoint] {
-        self.map { $0.point }
-    }
-}
+public typealias JSONShapeCommands = [JSONShapeCommand]
 
 // NOTE: The points inside have already been multiplied
 // by the JsonToShape node's coordinate-space input.
@@ -401,30 +307,14 @@ extension JSONShapeCommands {
 // TODO: other Shapes like `RoundedRectangle` and `Oval` can be described via JSONShapeCommands too
 
 // TODO: migrate e.g. `JSONShapeCommand.moveTo(CGPoint)` etc. to  `JSONShapeCommand.moveTo(JSONMoveTo)`
-enum JSONShapeCommand: Codable {
+public enum JSONShapeCommand: Codable {
     case closePath
     case moveTo(CGPoint)
     case lineTo(CGPoint)
     case curveTo(JSONCurveTo)
 }
 
-extension JSONShapeCommand {
-    var point: CGPoint {
-        switch self {
-        // TODO: handle this case properly?
-        case .closePath:
-            return .zero
-        case .moveTo(let cgPoint):
-            return cgPoint
-        case .lineTo(let cgPoint):
-            return cgPoint
-        case .curveTo(let jsonCurveTo):
-            return jsonCurveTo.point
-        }
-    }
-}
-
-struct JSONCurveTo: Codable {
+public struct JSONCurveTo: Codable {
     let point: CGPoint
 
     // i.e. JSON's `curveFrom`
@@ -434,38 +324,38 @@ struct JSONCurveTo: Codable {
     let controlPoint2: CGPoint
 }
 
-enum ScrollJumpStyle: String, Codable, CaseIterable {
+public enum ScrollJumpStyle: String, Codable, CaseIterable {
     case animated
     case instant
 }
 
-enum ScrollDecelerationRate: String, Codable, CaseIterable {
+public enum ScrollDecelerationRate: String, Codable, CaseIterable {
     case normal
     case fast
 }
 
-enum PortValueComparable: Equatable, Codable, Hashable {
+public enum PortValueComparable: Equatable, Codable, Hashable {
     case number(Double)
     case bool(Bool)
     case string(String)
 }
 
-enum DelayStyle: String, Codable, Equatable {
+public enum DelayStyle: String, Codable, Equatable {
     case always = "Always"
     case increasing = "Increasing"
     case decreasing = "Decreasing"
 }
 
-enum ShapeCoordinates: String, Codable, Equatable {
+public enum ShapeCoordinates: String, Codable, Equatable {
     case relative = "Relative"
     case absolute = "Absolute"
 }
 
-enum ShapeCommandType: String, Codable, CaseIterable {
+public enum ShapeCommandType: String, Codable, CaseIterable {
     case closePath, lineTo, moveTo, curveTo
 }
 
-enum ShapeCommand {
+public enum ShapeCommand {
     case closePath,
          lineTo(point: PathPoint),
          moveTo(point: PathPoint),
@@ -485,7 +375,7 @@ extension ShapeCommand: Codable {
         case closePath, lineTo, moveTo, curveTo
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         // the `type` key, whether it's "lineTo" or "moveTo"
@@ -519,7 +409,7 @@ extension ShapeCommand: Codable {
 
     // Note: we encode a key-value pair (e.g. "type: moveTo")
     // which we don't actually use in the enum.
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
         switch self {
@@ -540,7 +430,7 @@ extension ShapeCommand: Codable {
     }
 }
 
-struct JSONShapeKeys {
+public struct JSONShapeKeys {
     static let PATH = "path"
     static let TYPE = "type"
 
@@ -555,29 +445,29 @@ struct JSONShapeKeys {
 }
 
 // Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
-struct PathPoint: Codable {
+public struct PathPoint: Codable {
     let x: CGFloat
     let y: CGFloat
 }
 
 // Used for VStack vs HStack on layer groups
-enum StitchOrientation: String, Codable, CaseIterable {
+public enum StitchOrientation: String, Codable, CaseIterable {
     case none, horizontal, vertical
 }
 
-struct CameraSettings: Codable {
+public struct CameraSettings: Codable {
     var direction: CameraDirection = .front
     var orientation: StitchCameraOrientation
 }
 
-enum StitchCameraOrientation: String, Codable, CaseIterable {
+public enum StitchCameraOrientation: String, Codable, CaseIterable {
     case portrait = "Portrait",
          portraitUpsideDown = "Portrait Upside-Down",
          landscapeLeft = "Landscape Left",
          landscapeRight = "Landscape Right"
 }
 
-enum StitchDeviceOrientation: String, Codable, CaseIterable {
+public enum StitchDeviceOrientation: String, Codable, CaseIterable {
     case unknown = "Unknown",
          portrait = "Portrait",
          portraitUpsideDown = "Portrait Upside-Down",
@@ -587,7 +477,7 @@ enum StitchDeviceOrientation: String, Codable, CaseIterable {
          faceDown = "Face Down"
 }
 
-struct RGBA: Codable {
+public struct RGBA: Codable {
     let red: CGFloat
     let green: CGFloat
     let blue: CGFloat

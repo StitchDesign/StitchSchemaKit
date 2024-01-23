@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-enum LayerNodeEntity_V1: StitchSchemaVersionable {
+public enum LayerNodeEntity_V1: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V1
-    typealias PreviousInstance = Self.LayerNodeEntity
+    public typealias PreviousInstance = Self.LayerNodeEntity
     typealias NodeEntitySchema = NodeEntity_V1
     // MARK: - end
 
-    struct LayerNodeEntity {
-        let id: NodeId
+    public struct LayerNodeEntity {
+        public  let id: NodeId
         let layer: Layer
         let interactionsDict: InteractionsDict
         let hasSidebarVisibility: Bool
@@ -25,7 +25,7 @@ enum LayerNodeEntity_V1: StitchSchemaVersionable {
 }
 
 extension LayerNodeEntity_V1.LayerNodeEntity: StitchVersionedCodable {
-    init(previousInstance: LayerNodeEntity_V1.PreviousInstance) {
+    public init(previousInstance: LayerNodeEntity_V1.PreviousInstance) {
         fatalError()
     }
 

@@ -7,16 +7,16 @@
 
 import Foundation
 
-enum PatchNodeEntity_V1: StitchSchemaVersionable {
+public enum PatchNodeEntity_V1: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V1
-    typealias PreviousInstance = Self.PatchNodeEntity
+    public typealias PreviousInstance = Self.PatchNodeEntity
     typealias SplitterNodeEntitySchema = SplitterNodeEntity_V1
     // MARK: - end
 
-    struct PatchNodeEntity {
-        let id: NodeId
+    public struct PatchNodeEntity {
+        public let id: NodeId
         let patch: Patch
         let userVisibleType: UserVisibleType?
         let splitterNode: SplitterNodeEntitySchema.SplitterNodeEntity?
@@ -24,7 +24,7 @@ enum PatchNodeEntity_V1: StitchSchemaVersionable {
 }
 
 extension PatchNodeEntity_V1.PatchNodeEntity: StitchVersionedCodable {
-    init(previousInstance: PatchNodeEntity_V1.PreviousInstance) {
+    public init(previousInstance: PatchNodeEntity_V1.PreviousInstance) {
         fatalError()
     }
 

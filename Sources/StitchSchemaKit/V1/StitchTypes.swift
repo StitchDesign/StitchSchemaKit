@@ -8,19 +8,19 @@
 import Foundation
 import SwiftUI
 
-typealias NodeId = UUID
-typealias NodeIdSet = Set<NodeId>
+public typealias NodeId = UUID
+public typealias NodeIdSet = Set<NodeId>
 
-struct NodeIOCoordinate: Hashable, Equatable, Codable {
+public struct NodeIOCoordinate: Hashable, Equatable, Codable {
     var portId: Int
     var nodeId: NodeId
 }
 
-enum NodeKind: Codable {
+public enum NodeKind: Codable {
     case patch(Patch), layer(Layer), group
 }
 
-enum Patch: String, CaseIterable, Codable, Equatable {
+public enum Patch: String, CaseIterable, Codable, Equatable {
     case splitter = "Value",
          add,
          convertPosition,
@@ -171,7 +171,7 @@ enum Patch: String, CaseIterable, Codable, Equatable {
          mouse
 }
 
-enum Layer: String, CaseIterable, Codable, Equatable {
+public enum Layer: String, CaseIterable, Codable {
     case text,
          oval,
          rectangle,
@@ -187,7 +187,7 @@ enum Layer: String, CaseIterable, Codable, Equatable {
          textField = "Text Field"
 }
 
-enum UserVisibleType: String, CaseIterable, Codable, Equatable, Hashable {
+public enum UserVisibleType: String, CaseIterable, Codable {
     case string
     case bool
     case int
@@ -230,27 +230,27 @@ enum UserVisibleType: String, CaseIterable, Codable, Equatable, Hashable {
     case vnImageCropOption
 }
 
-enum InteractionType: String, Equatable, Codable {
+public enum InteractionType: String, Equatable, Codable {
     case drag, press, scroll
 }
 
 // A given interaction patch node can only be assigned to a single layer at a time, but we can have n-many interaction patch nodes (all of the same type, even) attached to a single layer.
 // Hence for `InteractionsDict`, which lives on a layer node, we map a single interaction type (e.g. `.drag`) to a SET of interaction patch node ids.
-typealias InteractionsDict = [InteractionType: NodeIdSet]
+public typealias InteractionsDict = [InteractionType: NodeIdSet]
 
-enum SplitterType: String, Equatable, Codable, CaseIterable {
+public enum SplitterType: String, Codable, CaseIterable {
     case inline = "Inline", // ie regular splitter: input and output
          // add GroupNodeId assoc-val ?
          input = "Input", // ie groupIutput node: output only
          output = "Output" // ie groupOutput node: input only
 }
 
-struct ProjectId: Codable, Identifiable {
-    var id: String = UUID().description
+public struct ProjectId: Codable, Identifiable {
+    public var id: String = UUID().description
 }
 
-enum PreviewSize: String, CaseIterable, Identifiable, Codable {
-    var id: String { self.rawValue }
+public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
+    public var id: String { self.rawValue }
 
     // iPhones
     case iPhone14 = "iPhone 14"
@@ -294,20 +294,20 @@ enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     case custom = "Custom Size"
 }
 
-enum SidebarLayerType: Codable {
+public enum SidebarLayerType: Codable {
     case layer(NodeId)
     case group(SidebarLayerGroupData)
 }
 
-struct SidebarLayerGroupData: Codable {
+public struct SidebarLayerGroupData: Codable {
     let id: NodeId
     var sortedChildren: [SidebarLayerType]
 }
 
-typealias CommentBoxId = UUID
-typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]
+public typealias CommentBoxId = UUID
+public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]
 
-struct CommentBoxData: Codable {
+public struct CommentBoxData: Codable {
     var id: CommentBoxId
     
     /*
@@ -336,11 +336,11 @@ struct CommentBoxData: Codable {
     var zIndex: Double // = .zero
 }
 
-struct GroupNodeId: Codable {
+public struct GroupNodeId: Codable {
     let id: NodeId
 }
 
-struct CommentExpansionBox: Codable {
+public struct CommentExpansionBox: Codable {
     var nodes: NodeIdSet = .init()
     
     // set nil after gesture completes;
@@ -362,7 +362,7 @@ struct CommentExpansionBox: Codable {
 
 // not just the size of the box,
 // but from where the box goes to etc.
-enum ExpansionDirection: Codable {
+public enum ExpansionDirection: Codable {
     case topLeft, topRight,
          bottomLeft, bottomRight,
          none

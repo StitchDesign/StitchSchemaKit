@@ -8,19 +8,19 @@
 import Foundation
 import SwiftUI
 
-enum NodeEntity_V1: StitchSchemaVersionable {
+public enum NodeEntity_V1: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V1
-    typealias PreviousInstance = Self.NodeEntity
+    public typealias PreviousInstance = Self.NodeEntity
     typealias StitchDocumentSchema = StitchDocument_V1
     typealias PatchNodeEntitySchema = PatchNodeEntity_V1
     typealias LayerNodeEntitySchema = LayerNodeEntity_V1
     typealias NodePortInputEntitySchema = NodePortInputEntity_V1
     // MARK: - end
 
-    struct NodeEntity {
-        let id: NodeId
+    public struct NodeEntity {
+        public let id: NodeId
         let position: CGPoint
         let zIndex: Double
         let parentGroupNodeId: NodeId?
@@ -33,7 +33,7 @@ enum NodeEntity_V1: StitchSchemaVersionable {
 }
 
 extension NodeEntity_V1.NodeEntity: StitchVersionedCodable {
-    init(previousInstance: NodeEntity_V1.PreviousInstance) {
+    public init(previousInstance: NodeEntity_V1.PreviousInstance) {
         fatalError()
     }
 

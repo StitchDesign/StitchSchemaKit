@@ -8,16 +8,16 @@
 import Foundation
 import SwiftUI
 
-enum StitchDocument_V1: StitchSchemaVersionable {
+public enum StitchDocument_V1: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V1
-    typealias PreviousInstance = Self.StitchDocument
+    public typealias PreviousInstance = Self.StitchDocument
     typealias NodeEntitySchema = NodeEntity_V1
     // MARK: - end
 
     // TODO: transferable
-    struct StitchDocument: StitchVersionedCodable {
+    public struct StitchDocument: StitchVersionedCodable {
         var projectId: ProjectId
         var name: String
 
@@ -47,7 +47,7 @@ enum StitchDocument_V1: StitchSchemaVersionable {
 }
 
 extension StitchDocument_V1.StitchDocument {
-    init(previousInstance: StitchDocument_V1.PreviousInstance) {
+    public init(previousInstance: StitchDocument_V1.PreviousInstance) {
         fatalError()
         //            self.projectId = previousInstance.projectId
         //            self.name = previousInstance.name

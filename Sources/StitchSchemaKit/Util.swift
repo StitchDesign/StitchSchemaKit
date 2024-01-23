@@ -301,3 +301,10 @@ extension JSONShapeCommand {
         }
     }
 }
+
+extension URL {
+    public var filename: String {
+        let pathExtension = "." + self.pathExtension
+        return self.pathComponents.last!.replacingOccurrences(of: pathExtension, with: "")
+    }
+}

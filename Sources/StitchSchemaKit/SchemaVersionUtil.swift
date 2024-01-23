@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftyJSON
 
 protocol StitchSchemaVersionable {
     static var version: StitchSchemaVersion { get }
@@ -118,7 +119,7 @@ public func getStitchDecoder() -> JSONDecoder {
 }
 
 extension VersionType {
-    static func getOldestVersion() -> Self {
+    public static func getOldestVersion() -> Self {
         guard let oldestVersion = Self.allCases.sorted(by: <).first else {
             fatalError("VersionType getOldestVersion error: no versions found.")
         }
@@ -160,5 +161,12 @@ extension CGSize: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(width)
         hasher.combine(height)
+    }
+}
+
+// TODO: remove this when JSON is moved to media manager
+extension JSON: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.stringValue)
     }
 }

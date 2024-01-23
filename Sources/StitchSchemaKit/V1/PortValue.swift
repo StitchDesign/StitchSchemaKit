@@ -155,6 +155,11 @@ public struct MediaKey: Codable, Hashable {
         self.filename = filename
         self.fileExtension = fileExtension
     }
+    
+    public init(_ url: URL) {
+        self.filename = url.filename
+        self.fileExtension = url.pathExtension
+    }
 }
 
 /// Combines a UUID with some NodeId to assign unique media objects to each node.
@@ -181,7 +186,11 @@ public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
     case computed
 }
 
-public struct StitchJSON: Codable {
+public struct StitchJSON: Codable, Equatable, Hashable {
+    public static func == (lhs: StitchJSON, rhs: StitchJSON) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     public var id: UUID
     public var value: JSON {
         didSet {
@@ -191,6 +200,12 @@ public struct StitchJSON: Codable {
     
     public init(id: UUID, value: JSON) {
         self.id = id
+        self.value = value
+    }
+    
+    
+    public init(_ value: JSON) {
+        self.id = .init()
         self.value = value
     }
 }
@@ -383,7 +398,7 @@ public typealias JSONShapeCommands = [JSONShapeCommand]
 // TODO: other Shapes like `RoundedRectangle` and `Oval` can be described via JSONShapeCommands too
 
 // TODO: migrate e.g. `JSONShapeCommand.moveTo(CGPoint)` etc. to  `JSONShapeCommand.moveTo(JSONMoveTo)`
-public enum JSONShapeCommand: Codable, Equatable {
+public enum JSONShapeCommand: Codable, Equatable, Hashable {
     case closePath
     case moveTo(CGPoint)
     case lineTo(CGPoint)
@@ -422,7 +437,7 @@ public enum PortValueComparable: Equatable, Codable, Hashable {
     case string(String)
 }
 
-public enum DelayStyle: String, Codable, Equatable {
+public enum DelayStyle: String, Codable, Equatable, CaseIterable {
     case always = "Always"
     case increasing = "Increasing"
     case decreasing = "Decreasing"

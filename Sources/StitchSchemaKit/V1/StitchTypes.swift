@@ -250,11 +250,16 @@ public enum SplitterType: String, Codable, CaseIterable {
          output = "Output" // ie groupOutput node: input only
 }
 
-public struct ProjectId: Codable, Identifiable {
+public struct ProjectId: Codable, Identifiable, Equatable, Hashable {
+//    typealias Id = Tagged<ProjectId, String>
     public var id: String = UUID().description
     
     public init() {
         self.id = .init()
+    }
+    
+    public init(from url: URL) {
+        self.id = url.filename
     }
 }
 
@@ -343,6 +348,26 @@ public struct CommentBoxData: Codable, Equatable, Hashable {
     public var expansionBox: CommentExpansionBox
     
     public var zIndex: Double // = .zero
+    
+    public init(id: CommentBoxId = .init(),
+                groupId: GroupNodeId? = nil,
+                title: String = "Comment",
+                color: Color,
+                nodes: NodeIdSet = .init(),
+                position: CGSize = .zero,
+                previousPosition: CGSize = .zero,
+                expansionBox: CommentExpansionBox,
+                zIndex: Double) {
+        self.id = id
+        self.groupId = groupId
+        self.title = title
+        self.color = color
+        self.nodes = nodes
+        self.position = position
+        self.previousPosition = previousPosition
+        self.expansionBox = expansionBox
+        self.zIndex = zIndex
+    }
 }
 
 public struct GroupNodeId: Codable, Equatable, Hashable {

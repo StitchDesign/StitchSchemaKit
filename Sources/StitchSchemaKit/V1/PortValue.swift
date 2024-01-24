@@ -148,11 +148,6 @@ public struct StitchJSON: Codable, Equatable, Hashable {
     }
 }
 
-// e.g. AVCaptureDevice.Position.front
-public enum CameraDirection: String, CaseIterable, Codable {
-    case front, back
-}
-
 // a wrapper-type over NodeId, to use in more specific situations
 public struct LayerNodeId: Codable, Hashable {
     public let id: NodeId

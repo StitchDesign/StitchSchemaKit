@@ -22,7 +22,7 @@ public enum SidebarLayerType_V1: StitchSchemaVersionable {
 }
 
 extension SidebarLayerType_V1.SidebarLayerType: StitchVersionedCodable {
-    public init(previousInstance: GroupNodeID_V1.PreviousInstance) {
+    public init(previousInstance: SidebarLayerType_V1.PreviousInstance) {
         fatalError()
     }
 }

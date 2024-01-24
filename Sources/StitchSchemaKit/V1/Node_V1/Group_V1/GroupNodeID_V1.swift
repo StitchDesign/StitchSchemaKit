@@ -13,7 +13,7 @@ public enum GroupNodeID_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.GroupNodeId
     // MARK: - endif
     
-    public struct GroupNodeId: Codable, Equatable, Hashable, Identifiable {
+    public struct GroupNodeId: Equatable, Hashable, Identifiable {
         public let id: NodeId
         
         public init(id: NodeId) {

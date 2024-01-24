@@ -13,7 +13,7 @@ public enum SidebarLayerType_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.SidebarLayerType
     // MARK: - endif
     
-    public enum SidebarLayerType: Codable, Equatable {
+    public enum SidebarLayerType: Equatable {
         case layer(NodeId)
         case group(SidebarLayerGroupData)
     }

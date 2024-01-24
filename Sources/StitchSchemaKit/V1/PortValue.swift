@@ -167,12 +167,6 @@ public struct StitchJSON: Codable, Equatable, Hashable {
     }
 }
 
-public enum Anchoring: String, Codable, CaseIterable {
-    case topLeft, topCenter, topRight,
-         centerLeft, center, centerRight,
-         bottomLeft, bottomCenter, bottomRight
-}
-
 // e.g. AVCaptureDevice.Position.front
 public enum CameraDirection: String, CaseIterable, Codable {
     case front, back

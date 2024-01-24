@@ -98,7 +98,18 @@ extension CGSize {
 }
 
 extension StitchDocument {
+    public static let defaultName = "Untitled"
+    
+    /// Matches iPHone 12, 13, 14 etc
+    public static let defaultPreviewWindowSize = CGSize(width: 390, height: 844)
+    
+    public static let defaultBackgroundColor = Color.white
+    
     public var id: ProjectId { self.projectId }
+}
+
+extension PreviewSize {
+    public static let defaultOption = Self.iPhone14
 }
 
 extension Color: Codable {
@@ -326,3 +337,20 @@ public typealias InteractionsDict = [InteractionType: NodeIdSet]
 
 public typealias ProjectId = UUID
 public typealias CommentBoxId = UUID
+
+extension StitchCameraOrientation {
+    @MainActor
+    public static let defaultCameraOrientation: Self = {
+        #if os(iOS)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .portrait
+        }
+
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return .landscapeRight
+        }
+        #endif
+        return .landscapeRight
+    }()
+}
+

@@ -74,36 +74,6 @@ public enum NetworkRequestType: String, CaseIterable, Codable {
     case get, post // put
 }
 
-public struct LayerSize: Codable, Equatable {
-    public var width: LayerDimension
-    public var height: LayerDimension
-    
-    public init(width: LayerDimension, height: LayerDimension) {
-        self.width = width
-        self.height = height
-    }
-    
-    public init(width: CGFloat, height: CGFloat) {
-        self.width = LayerDimension.number(width)
-        self.height = LayerDimension.number(height)
-    }
-
-    public init(width: LayerDimension, height: CGFloat) {
-        self.width = width
-        self.height = .number(height)
-    }
-
-    public init(width: CGFloat, height: LayerDimension) {
-        self.width = .number(width)
-        self.height = height
-    }
-
-    public init(_ size: CGSize) {
-        self.width = LayerDimension.number(size.width)
-        self.height = LayerDimension.number(size.height)
-    }
-}
-
 public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>

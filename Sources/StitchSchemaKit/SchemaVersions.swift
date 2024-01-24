@@ -21,6 +21,7 @@ public typealias CurrentSidebarLayerType = SidebarLayerType_V1
 public typealias CurrentNodeKind = NodeKind_V1
 public typealias CurrentAnchoring = Anchoring_V1
 public typealias CurrentLayerSize = LayerSize_V1
+public typealias CurrentNetworkRequestType = NetworkRequestType_V1
 public typealias CurrentPoint3D = Point3D_V1
 public typealias CurrentPoint4D = Point4D_V1
 // MARK: - end
@@ -37,6 +38,7 @@ public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
 public typealias NodeKind = CurrentNodeKind.NodeKind
 public typealias Anchoring = CurrentAnchoring.Anchoring
 public typealias LayerSize = CurrentLayerSize.LayerSize
+public typealias NetworkRequestType = CurrentNetworkRequestType.NetworkRequestType
 public typealias Point3D = CurrentPoint3D.Point3D
 public typealias Point4D = CurrentPoint4D.Point4D
 

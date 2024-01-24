@@ -70,10 +70,6 @@ public enum Plane: String, CaseIterable, Codable {
     case any, horizontal, vertical
 }
 
-public enum NetworkRequestType: String, CaseIterable, Codable {
-    case get, post // put
-}
-
 public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>

@@ -116,20 +116,6 @@ public struct Point3D: Codable, Equatable {
     }
 }
 
-public struct Point4D: Codable, Equatable {
-    public var x: Double
-    public var y: Double
-    public var z: Double
-    public var w: Double
-    
-    public init(x: Double, y: Double, z: Double, w: Double) {
-        self.x = x
-        self.y = y
-        self.z = z
-        self.w = w
-    }
-}
-
 public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>

@@ -19,6 +19,8 @@ public typealias CurrentNodeIOCoordinate = NodeIOCoordinate_V1
 public typealias CurrentGroupNodeIDCoordinate = GroupNodeID_V1
 public typealias CurrentSidebarLayerType = SidebarLayerType_V1
 public typealias CurrentNodeKind = NodeKind_V1
+
+public typealias CurrentPoint4D = Point4D_V1
 // MARK: - end
 
 public typealias StitchDocument = CurrentStitchDocument.StitchDocument
@@ -31,6 +33,9 @@ public typealias NodeIOCoordinate = CurrentNodeIOCoordinate.NodeIOCoordinate
 public typealias GroupNodeId = CurrentGroupNodeIDCoordinate.GroupNodeId
 public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
 public typealias NodeKind = CurrentNodeKind.NodeKind
+
+public typealias Point4D = CurrentPoint4D.Point4D
+
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

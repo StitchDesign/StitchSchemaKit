@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  VisualMediaFitStyle_V1.swift
+//
 //
 //  Created by Nicholas Arner on 1/24/24.
 //
@@ -10,7 +10,7 @@ import Foundation
 public enum VisualMediaFitStyle_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V1
-    public typealias PreviousInstance = Self.Anchoring
+    public typealias PreviousInstance = Self.VisualMediaFitStyle
     // MARK: - endif
  
     public enum VisualMediaFitStyle: String, CaseIterable, Codable {
@@ -19,8 +19,8 @@ public enum VisualMediaFitStyle_V1: StitchSchemaVersionable {
 
 }
 
-extension Anchoring_V1.Anchoring: StitchVersionedCodable {
-    public init(previousInstance: Anchoring_V1.PreviousInstance) {
+extension VisualMediaFitStyle_V1.VisualMediaFitStyle: StitchVersionedCodable {
+    public init(previousInstance: VisualMediaFitStyle_V1.PreviousInstance) {
         fatalError()
     }
 }

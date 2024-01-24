@@ -172,10 +172,6 @@ public enum LayerTextVerticalAligment: String, Codable, CaseIterable {
     case top, center, bottom
 }
 
-public enum VisualMediaFitStyle: String, CaseIterable, Codable {
-    case fit, fill, stretch
-}
-
 public enum ClassicAnimationCurve: String, Codable, CaseIterable {
     case linear,
          

@@ -274,10 +274,6 @@ public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     case custom = "Custom Size"
 }
 
-public enum SidebarLayerType: Codable, Equatable {
-    case layer(NodeId)
-    case group(SidebarLayerGroupData)
-}
 
 public struct SidebarLayerGroupData: Codable, Equatable {
     public let id: NodeId
@@ -335,18 +331,6 @@ public struct CommentBoxData: Codable, Equatable, Hashable {
         self.previousPosition = previousPosition
         self.expansionBox = expansionBox
         self.zIndex = zIndex
-    }
-}
-
-public struct GroupNodeId: Codable, Equatable, Hashable, Identifiable {
-    public let id: NodeId
-    
-    public init(id: NodeId) {
-        self.id = id
-    }
-    
-    public init(_ id: UUID) {
-        self.id = id
     }
 }
 

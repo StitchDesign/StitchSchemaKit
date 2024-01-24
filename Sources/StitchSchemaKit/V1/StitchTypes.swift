@@ -21,7 +21,7 @@ public struct NodeIOCoordinate: Hashable, Equatable, Codable {
     }
 }
 
-public enum NodeKind: Codable {
+public enum NodeKind: Codable, Equatable, Hashable {
     case patch(Patch), layer(Layer), group
 }
 
@@ -250,13 +250,7 @@ public enum SplitterType: String, Codable, CaseIterable {
          output = "Output" // ie groupOutput node: input only
 }
 
-public struct ProjectId: Codable, Identifiable {
-    public var id: String = UUID().description
-    
-    public init() {
-        self.id = .init()
-    }
-}
+public typealias ProjectId = UUID
 
 public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     public var id: String { self.rawValue }
@@ -303,14 +297,19 @@ public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     case custom = "Custom Size"
 }
 
-public enum SidebarLayerType: Codable {
+public enum SidebarLayerType: Codable, Equatable {
     case layer(NodeId)
     case group(SidebarLayerGroupData)
 }
 
-public struct SidebarLayerGroupData: Codable {
-    let id: NodeId
-    var sortedChildren: [SidebarLayerType]
+public struct SidebarLayerGroupData: Codable, Equatable {
+    public let id: NodeId
+    public var sortedChildren: [SidebarLayerType]
+    
+    public init(id: NodeId, sortedChildren: [SidebarLayerType]) {
+        self.id = id
+        self.sortedChildren = sortedChildren
+    }
 }
 
 public typealias CommentBoxId = UUID
@@ -343,10 +342,38 @@ public struct CommentBoxData: Codable, Equatable, Hashable {
     public var expansionBox: CommentExpansionBox
     
     public var zIndex: Double // = .zero
+    
+    public init(id: CommentBoxId = .init(),
+                groupId: GroupNodeId? = nil,
+                title: String = "Comment",
+                color: Color,
+                nodes: NodeIdSet = .init(),
+                position: CGSize = .zero,
+                previousPosition: CGSize = .zero,
+                expansionBox: CommentExpansionBox,
+                zIndex: Double) {
+        self.id = id
+        self.groupId = groupId
+        self.title = title
+        self.color = color
+        self.nodes = nodes
+        self.position = position
+        self.previousPosition = previousPosition
+        self.expansionBox = expansionBox
+        self.zIndex = zIndex
+    }
 }
 
-public struct GroupNodeId: Codable, Equatable, Hashable {
+public struct GroupNodeId: Codable, Equatable, Hashable, Identifiable {
     public let id: NodeId
+    
+    public init(id: NodeId) {
+        self.id = id
+    }
+    
+    public init(_ id: UUID) {
+        self.id = id
+    }
 }
 
 public struct CommentExpansionBox: Codable, Equatable, Hashable {
@@ -367,6 +394,21 @@ public struct CommentExpansionBox: Codable, Equatable, Hashable {
     public var endPoint: CGPoint // = .zero
     
     public var anchorCorner: CGPoint
+    
+    public init(nodes: NodeIdSet = .init(),
+                expansionDirection: ExpansionDirection? = nil,
+                size: CGSize,
+                startPoint: CGPoint,
+                endPoint: CGPoint,
+                anchorCorner: CGPoint? = nil) {
+        self.nodes = nodes
+        self.expansionDirection = expansionDirection
+        self.size = size
+        self.previousSize = size
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+        self.anchorCorner = anchorCorner ?? startPoint
+    }
 }
 
 // not just the size of the box,

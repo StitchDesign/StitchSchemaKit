@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftyJSON
 
 protocol StitchSchemaVersionable {
     static var version: StitchSchemaVersion { get }
@@ -29,18 +30,23 @@ extension StitchSchemaVersionType {
         return try decoder.decode(type.self, from: data)
     }
 
-    var codableType: any StitchVersionedCodable.Type {
+    public var codableType: any StitchVersionedCodable.Type {
         Self.getCodableType(from: self.version)
     }
 }
 
-struct StitchVersionedData: Codable {
-    let version: StitchSchemaVersion
-    let data: Data
+public struct StitchVersionedData: Codable {
+    public let version: StitchSchemaVersion
+    public let data: Data
+    
+    public init(version: StitchSchemaVersion, data: Data) {
+        self.version = version
+        self.data = data
+    }
 }
 
-extension StitchSchemaVersionType {
-    func migrate(versionedCodable: StitchVersionedData) throws -> Self.NewestVersionType? {
+extension StitchDocumentVersion {
+    public func migrate(versionedCodable: StitchVersionedData) throws -> Self.NewestVersionType? {
         // 1. get version
         // 2. call decode with payload
         // 3. get next type
@@ -73,7 +79,7 @@ extension StitchVersionedCodable {
     //        models.map { Self.init(from: $0) }
     //    }
 
-    static func upgradeEntities(_ previousEntities: [Self.PreviousCodable]) -> [Self] {
+    public static func upgradeEntities(_ previousEntities: [Self.PreviousCodable]) -> [Self] {
         previousEntities.map { Self.init(previousInstance: $0) }
     }
 }
@@ -89,7 +95,7 @@ extension StitchVersionedData {
     }
 }
 
-protocol StitchVersionedCodable: Codable, Identifiable, Sendable {
+public protocol StitchVersionedCodable: Codable, Identifiable, Sendable {
     // associatedtype Version: StitchSchemaVersionType
     //    associatedtype ViewModel: Observable
     associatedtype PreviousCodable: StitchVersionedCodable
@@ -105,20 +111,20 @@ extension StitchVersionedCodable {
     }
 }
 
-func getStitchEncoder() -> JSONEncoder {
+public func getStitchEncoder() -> JSONEncoder {
     let encoder = JSONEncoder()
     encoder.dateEncodingStrategy = .iso8601
     return encoder
 }
 
-func getStitchDecoder() -> JSONDecoder {
+public func getStitchDecoder() -> JSONDecoder {
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
     return decoder
 }
 
 extension VersionType {
-    static func getOldestVersion() -> Self {
+    public static func getOldestVersion() -> Self {
         guard let oldestVersion = Self.allCases.sorted(by: <).first else {
             fatalError("VersionType getOldestVersion error: no versions found.")
         }
@@ -160,5 +166,12 @@ extension CGSize: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(width)
         hasher.combine(height)
+    }
+}
+
+// TODO: remove this when JSON is moved to media manager
+extension JSON: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.stringValue)
     }
 }

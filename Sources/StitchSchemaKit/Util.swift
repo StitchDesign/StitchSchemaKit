@@ -98,7 +98,7 @@ extension CGSize {
 }
 
 extension StitchDocument {
-    public var id: String { self.projectId.id }
+    public var id: ProjectId { self.projectId }
 }
 
 extension Color: Codable {
@@ -299,5 +299,12 @@ extension JSONShapeCommand {
         case .curveTo(let jsonCurveTo):
             return jsonCurveTo.point
         }
+    }
+}
+
+extension URL {
+    public var filename: String {
+        let pathExtension = "." + self.pathExtension
+        return self.pathComponents.last!.replacingOccurrences(of: pathExtension, with: "")
     }
 }

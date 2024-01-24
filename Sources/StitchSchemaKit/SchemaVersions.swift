@@ -24,24 +24,30 @@ public typealias LayerNodeEntity = CurrentLayerNodeEntity.LayerNodeEntity
 public typealias NodePortInputEntity = CurrentNodePortInputEntity.NodePortInputEntity
 public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
 
-enum StitchSchemaVersion: Int, VersionType {
+public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1
 }
 
-protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
+public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
 
 extension VersionType where RawValue: Comparable {
-    static func < (a: Self, b: Self) -> Bool {
+    public static func < (a: Self, b: Self) -> Bool {
         return a.rawValue < b.rawValue
     }
 }
 
-struct StitchDocumentVersion: StitchSchemaVersionType {
-    typealias NewestVersionType = CurrentStitchDocument.StitchDocument
+public struct StitchDocumentVersion: StitchSchemaVersionType {
+    public typealias NewestVersionType = CurrentStitchDocument.StitchDocument
+    
+    public var version: StitchSchemaVersion
+    
+    public init(version: StitchSchemaVersion) {
+        self.version = version
+    }
+}
 
-    var version: StitchSchemaVersion
-
-    static func getCodableType(from version: StitchSchemaVersion) -> any StitchVersionedCodable.Type {
+extension StitchDocumentVersion {
+    public static func getCodableType(from version: StitchSchemaVersion) -> any StitchVersionedCodable.Type {
         switch version {
         case ._V1:
             return StitchDocument_V1.StitchDocument.self

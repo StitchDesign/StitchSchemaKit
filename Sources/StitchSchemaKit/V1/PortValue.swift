@@ -14,7 +14,7 @@ import SwiftyJSON
 // the values contained in a single Input or Output
 public typealias PortValues = [PortValue]
 
-public enum PortValue: Codable {
+public enum PortValue: Codable, Equatable {
     case string(String)
     case bool(Bool)
     case int(Int) // e.g  nodeId or index?
@@ -59,7 +59,7 @@ public enum PortValue: Codable {
     case vnImageCropOption(VNImageCropAndScaleOption)
 }
 
-public enum LayerDimension: Codable {
+public enum LayerDimension: Codable, Equatable {
     case number(CGFloat),
          // visual media layer: resource's inherent dimnensions
          // non-media layer: 100% of parent's dimension
@@ -79,7 +79,7 @@ public enum NetworkRequestType: String, CaseIterable, Codable {
     case get, post // put
 }
 
-public struct LayerSize: Codable {
+public struct LayerSize: Codable, Equatable {
     public var width: LayerDimension
     public var height: LayerDimension
     
@@ -87,11 +87,31 @@ public struct LayerSize: Codable {
         self.width = width
         self.height = height
     }
+    
+    public init(width: CGFloat, height: CGFloat) {
+        self.width = LayerDimension.number(width)
+        self.height = LayerDimension.number(height)
+    }
+
+    public init(width: LayerDimension, height: CGFloat) {
+        self.width = width
+        self.height = .number(height)
+    }
+
+    public init(width: CGFloat, height: LayerDimension) {
+        self.width = .number(width)
+        self.height = height
+    }
+
+    public init(_ size: CGSize) {
+        self.width = LayerDimension.number(size.width)
+        self.height = LayerDimension.number(size.height)
+    }
 }
 
 public typealias StitchPosition = CGSize
 
-public struct Point3D: Codable {
+public struct Point3D: Codable, Equatable {
     public var x: Double
     public var y: Double
     public var z: Double
@@ -103,7 +123,7 @@ public struct Point3D: Codable {
     }
 }
 
-public struct Point4D: Codable {
+public struct Point4D: Codable, Equatable {
     public var x: Double
     public var y: Double
     public var z: Double
@@ -117,13 +137,33 @@ public struct Point4D: Codable {
     }
 }
 
-public struct AsyncMediaValue: Codable {
+public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>
     
     public init(id: MediaObjectId, dataType: DataType<MediaKey>) {
         self.id = id
         self.dataType = dataType
+    }
+    
+    /// Optional initializer with NodeId and MediaKey.
+    public init(nodeId: NodeId,
+         loopIndex: Int,
+         mediaKey: MediaKey) {
+        self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
+        self.dataType = .source(mediaKey)
+    }
+    
+    /// Optional initializer for computed type.
+    public init(nodeId: NodeId, loopIndex: Int) {
+        self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
+        self.dataType = .computed
+    }
+    
+    /// Optional initializer for default media, where loopIndex is always 0 but we need the static global id.
+    public init(globalId: UUID, nodeId: NodeId, mediaKey: MediaKey) {
+        self.id = .init(globalId: globalId, nodeId: nodeId, loopIndex: 0)
+        self.dataType = .source(mediaKey)
     }
 }
 
@@ -134,6 +174,11 @@ public struct MediaKey: Codable, Hashable {
     public init(filename: String, fileExtension: String) {
         self.filename = filename
         self.fileExtension = fileExtension
+    }
+    
+    public init(_ url: URL) {
+        self.filename = url.filename
+        self.fileExtension = url.pathExtension
     }
 }
 
@@ -147,7 +192,9 @@ public struct MediaObjectId: Codable, Equatable, Hashable {
     public var nodeId: NodeId
     public var loopIndex: Int
     
-    public init(globalId: UUID, nodeId: NodeId, loopIndex: Int) {
+    public init(globalId: UUID = UUID(),
+                nodeId: NodeId,
+                loopIndex: Int) {
         self.globalId = globalId
         self.nodeId = nodeId
         self.loopIndex = loopIndex
@@ -159,7 +206,11 @@ public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
     case computed
 }
 
-public struct StitchJSON: Codable {
+public struct StitchJSON: Codable, Equatable, Hashable {
+    public static func == (lhs: StitchJSON, rhs: StitchJSON) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     public var id: UUID
     public var value: JSON {
         didSet {
@@ -169,6 +220,12 @@ public struct StitchJSON: Codable {
     
     public init(id: UUID, value: JSON) {
         self.id = id
+        self.value = value
+    }
+    
+    
+    public init(_ value: JSON) {
+        self.id = .init()
         self.value = value
     }
 }
@@ -250,7 +307,7 @@ public enum DateAndTimeFormat: String, CaseIterable, Codable {
 
 public typealias ShapeDataArray = [ShapeAndRect]
 
-public struct CustomShape {
+public struct CustomShape: Equatable {
     public var shapes: ShapeDataArray {
         didSet {
             self.setCachedValues()
@@ -268,6 +325,15 @@ public struct CustomShape {
     private var _east: CGFloat = .zero
     private var _north: CGFloat = .zero
     private var _south: CGFloat = .zero
+    
+    public init(shapes: ShapeDataArray) {
+        self.shapes = shapes
+        self.setCachedValues()
+    }
+    
+    public init(_ shape: ShapeAndRect) {
+        self.init(shapes: [shape])
+    }
     
     mutating func setCachedValues() {
         let baseFrame = self.getBaseFrame()
@@ -361,7 +427,7 @@ public typealias JSONShapeCommands = [JSONShapeCommand]
 // TODO: other Shapes like `RoundedRectangle` and `Oval` can be described via JSONShapeCommands too
 
 // TODO: migrate e.g. `JSONShapeCommand.moveTo(CGPoint)` etc. to  `JSONShapeCommand.moveTo(JSONMoveTo)`
-public enum JSONShapeCommand: Codable, Equatable {
+public enum JSONShapeCommand: Codable, Equatable, Hashable {
     case closePath
     case moveTo(CGPoint)
     case lineTo(CGPoint)
@@ -400,22 +466,22 @@ public enum PortValueComparable: Equatable, Codable, Hashable {
     case string(String)
 }
 
-public enum DelayStyle: String, Codable, Equatable {
+public enum DelayStyle: String, Codable, Equatable, CaseIterable {
     case always = "Always"
     case increasing = "Increasing"
     case decreasing = "Decreasing"
 }
 
-public enum ShapeCoordinates: String, Codable, Equatable {
+public enum ShapeCoordinates: String, Codable, Equatable, CaseIterable {
     case relative = "Relative"
     case absolute = "Absolute"
 }
 
-public enum ShapeCommandType: String, Codable, CaseIterable {
+public enum ShapeCommandType: String, Equatable, Hashable, Codable, CaseIterable {
     case closePath, lineTo, moveTo, curveTo
 }
 
-public enum ShapeCommand {
+public enum ShapeCommand: Equatable, Hashable {
     case closePath,
          lineTo(point: PathPoint),
          moveTo(point: PathPoint),
@@ -505,7 +571,7 @@ public struct JSONShapeKeys {
 }
 
 // Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
-public struct PathPoint: Codable {
+public struct PathPoint: Codable, Equatable, Hashable {
     public let x: CGFloat
     public let y: CGFloat
     
@@ -547,7 +613,7 @@ public enum StitchDeviceOrientation: String, Codable, CaseIterable {
          faceDown = "Face Down"
 }
 
-public struct RGBA: Codable {
+public struct RGBA: Codable, Equatable {
     public let red: CGFloat
     public let green: CGFloat
     public let blue: CGFloat

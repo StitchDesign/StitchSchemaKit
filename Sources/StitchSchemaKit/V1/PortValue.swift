@@ -104,18 +104,6 @@ public struct LayerSize: Codable, Equatable {
     }
 }
 
-public struct Point3D: Codable, Equatable {
-    public var x: Double
-    public var y: Double
-    public var z: Double
-    
-    public init(x: Double, y: Double, z: Double) {
-        self.x = x
-        self.y = y
-        self.z = z
-    }
-}
-
 public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>

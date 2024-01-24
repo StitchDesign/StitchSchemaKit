@@ -100,21 +100,6 @@ public struct AsyncMediaValue: Codable, Equatable, Hashable {
     }
 }
 
-public struct MediaKey: Codable, Hashable {
-    public let filename: String // eg. `dogs`
-    public let fileExtension: String // eg `.avi`
-    
-    public init(filename: String, fileExtension: String) {
-        self.filename = filename
-        self.fileExtension = fileExtension
-    }
-    
-    public init(_ url: URL) {
-        self.filename = url.filename
-        self.fileExtension = url.pathExtension
-    }
-}
-
 /// Combines a UUID with some NodeId to assign unique media objects to each node.
 /// This ensures 1:1 mapping between media and nodes.
 public struct MediaObjectId: Codable, Equatable, Hashable {

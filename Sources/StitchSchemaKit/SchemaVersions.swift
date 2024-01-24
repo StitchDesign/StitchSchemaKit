@@ -16,6 +16,7 @@ public typealias CurrentLayerNodeEntity = LayerNodeEntity_V1
 public typealias CurrentNodePortInputEntity = NodePortInputEntity_V1
 public typealias CurrentSplitterNodeEntity = SplitterNodeEntity_V1
 public typealias CurrentNodeIOCoordinate = NodeIOCoordinate_V1
+public typealias CurrentGroupNodeIDCoordinate = GroupNodeID_V1
 public typealias CurrentNodeKind = NodeKind_V1
 // MARK: - end
 
@@ -26,6 +27,7 @@ public typealias LayerNodeEntity = CurrentLayerNodeEntity.LayerNodeEntity
 public typealias NodePortInputEntity = CurrentNodePortInputEntity.NodePortInputEntity
 public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
 public typealias NodeIOCoordinate = CurrentNodeIOCoordinate.NodeIOCoordinate
+public typealias GroupNodeId = CurrentGroupNodeIDCoordinate.GroupNodeId
 public typealias NodeKind = CurrentNodeKind.NodeKind
 
 public enum StitchSchemaVersion: Int, VersionType {

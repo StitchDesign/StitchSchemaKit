@@ -338,18 +338,6 @@ public struct CommentBoxData: Codable, Equatable, Hashable {
     }
 }
 
-public struct GroupNodeId: Codable, Equatable, Hashable, Identifiable {
-    public let id: NodeId
-    
-    public init(id: NodeId) {
-        self.id = id
-    }
-    
-    public init(_ id: UUID) {
-        self.id = id
-    }
-}
-
 public struct CommentExpansionBox: Codable, Equatable, Hashable {
     public var nodes: NodeIdSet = .init()
     

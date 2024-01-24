@@ -11,9 +11,6 @@ import simd
 import Vision
 import SwiftyJSON
 
-// the values contained in a single Input or Output
-public typealias PortValues = [PortValue]
-
 public enum PortValue: Codable, Equatable {
     case string(String)
     case bool(Bool)
@@ -69,8 +66,6 @@ public enum LayerDimension: Codable, Equatable {
          parentPercent(Double)
 }
 
-public typealias StitchMatrix = matrix_float4x4
-
 public enum Plane: String, CaseIterable, Codable {
     case any, horizontal, vertical
 }
@@ -108,8 +103,6 @@ public struct LayerSize: Codable, Equatable {
         self.height = LayerDimension.number(size.height)
     }
 }
-
-public typealias StitchPosition = CGSize
 
 public struct Point3D: Codable, Equatable {
     public var x: Double
@@ -305,8 +298,6 @@ public enum DateAndTimeFormat: String, CaseIterable, Codable {
     case none, short, medium, long, full
 }
 
-public typealias ShapeDataArray = [ShapeAndRect]
-
 public struct CustomShape: Equatable {
     public var shapes: ShapeDataArray {
         didSet {
@@ -418,8 +409,6 @@ public struct TriangleData: Codable, Equatable {
         self.p3 = p3
     }
 }
-
-public typealias JSONShapeCommands = [JSONShapeCommand]
 
 // NOTE: The points inside have already been multiplied
 // by the JsonToShape node's coordinate-space input.

@@ -39,32 +39,32 @@ public typealias CurrentTextTransform = TextTransform_V1
 
 // MARK: - end
 
-public typealias StitchDocument = CurrentStitchDocument.StitchDocument
-public typealias NodeEntity = CurrentNodeEntity.NodeEntity
-public typealias PatchNodeEntity = CurrentPatchNodeEntity.PatchNodeEntity
-public typealias LayerNodeEntity = CurrentLayerNodeEntity.LayerNodeEntity
-public typealias NodePortInputEntity = CurrentNodePortInputEntity.NodePortInputEntity
-public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
-public typealias NodeIOCoordinate = CurrentNodeIOCoordinate.NodeIOCoordinate
-public typealias GroupNodeId = CurrentGroupNodeIDCoordinate.GroupNodeId
-public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
-public typealias NodeKind = CurrentNodeKind.NodeKind
 public typealias Anchoring = CurrentAnchoring.Anchoring
 public typealias CameraDirection = CurrentCameraDirection.CameraDirection
 public typealias DelayStyle = CurrentDelayStyle.DelayStyle
+public typealias GroupNodeId = CurrentGroupNodeIDCoordinate.GroupNodeId
+public typealias LayerNodeEntity = CurrentLayerNodeEntity.LayerNodeEntity
 public typealias LayerSize = CurrentLayerSize.LayerSize
 public typealias LayerStroke = CurrentLayerStroke.LayerStroke
 public typealias LightType = CurrentLightType.LightType
 public typealias MediaKey = CurrentMediaKey.MediaKey
 public typealias NetworkRequestType = CurrentNetworkRequestType.NetworkRequestType
+public typealias NodeEntity = CurrentNodeEntity.NodeEntity
+public typealias NodeKind = CurrentNodeKind.NodeKind
+public typealias NodeIOCoordinate = CurrentNodeIOCoordinate.NodeIOCoordinate
+public typealias NodePortInputEntity = CurrentNodePortInputEntity.NodePortInputEntity
+public typealias PatchNodeEntity = CurrentPatchNodeEntity.PatchNodeEntity
 public typealias Plane = CurrentPlane.Plane
 public typealias Point3D = CurrentPoint3D.Point3D
 public typealias Point4D = CurrentPoint4D.Point4D
 public typealias PortValueComparable = CurrentPortValueComparable.PortValueComparable
-public typealias TextTransform = CurrentTextTransform.TextTransform
 public typealias ScrollDecelerationRate = CurrentScrollDecelerationRate.ScrollDecelerationRate
 public typealias ScrollJumpStyle = CurrentScrollJumpStyle.ScrollJumpStyle
 public typealias ScrollMode = CurrentScrollMode.ScrollMode
+public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
+public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
+public typealias StitchDocument = CurrentStitchDocument.StitchDocument
+public typealias TextTransform = CurrentTextTransform.TextTransform
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
 
 public enum StitchSchemaVersion: Int, VersionType {

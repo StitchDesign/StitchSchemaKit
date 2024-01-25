@@ -327,12 +327,6 @@ public struct JSONCurveTo: Codable, Equatable, Hashable {
     }
 }
 
-public enum PortValueComparable: Equatable, Codable, Hashable {
-    case number(Double)
-    case bool(Bool)
-    case string(String)
-}
-
 public enum DelayStyle: String, Codable, Equatable, CaseIterable {
     case always = "Always"
     case increasing = "Increasing"

@@ -10,6 +10,7 @@ import SwiftUI
 
 // MARK: - UPDATE VERSION NUMBERS HERE
 public typealias CurrentStitchDocument = StitchDocument_V1
+public typealias CurrentDelayStyle = DelayStyle_V1
 public typealias CurrentNodeEntity = NodeEntity_V1
 public typealias CurrentPatchNodeEntity = PatchNodeEntity_V1
 public typealias CurrentLayerNodeEntity = LayerNodeEntity_V1
@@ -50,6 +51,7 @@ public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
 public typealias NodeKind = CurrentNodeKind.NodeKind
 public typealias Anchoring = CurrentAnchoring.Anchoring
 public typealias CameraDirection = CurrentCameraDirection.CameraDirection
+public typealias DelayStyle = CurrentDelayStyle.DelayStyle
 public typealias LayerSize = CurrentLayerSize.LayerSize
 public typealias LayerStroke = CurrentLayerStroke.LayerStroke
 public typealias LightType = CurrentLightType.LightType

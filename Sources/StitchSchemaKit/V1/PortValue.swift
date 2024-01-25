@@ -327,12 +327,6 @@ public struct JSONCurveTo: Codable, Equatable, Hashable {
     }
 }
 
-public enum DelayStyle: String, Codable, Equatable, CaseIterable {
-    case always = "Always"
-    case increasing = "Increasing"
-    case decreasing = "Decreasing"
-}
-
 public enum ShapeCoordinates: String, Codable, Equatable, CaseIterable {
     case relative = "Relative"
     case absolute = "Absolute"

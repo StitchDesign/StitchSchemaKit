@@ -308,21 +308,3 @@ extension URL {
         return self.pathComponents.last!.replacingOccurrences(of: pathExtension, with: "")
     }
 }
-
-public typealias NodeId = UUID
-public typealias NodeIdSet = Set<NodeId>
-
-// the values contained in a single Input or Output
-public typealias PortValues = [PortValue]
-
-public typealias StitchMatrix = matrix_float4x4
-public typealias StitchPosition = CGSize
-public typealias ShapeDataArray = [ShapeAndRect]
-public typealias JSONShapeCommands = [JSONShapeCommand]
-
-// A given interaction patch node can only be assigned to a single layer at a time, but we can have n-many interaction patch nodes (all of the same type, even) attached to a single layer.
-// Hence for `InteractionsDict`, which lives on a layer node, we map a single interaction type (e.g. `.drag`) to a SET of interaction patch node ids.
-public typealias InteractionsDict = [InteractionType: NodeIdSet]
-
-public typealias ProjectId = UUID
-public typealias CommentBoxId = UUID

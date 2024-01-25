@@ -27,6 +27,7 @@ public typealias CurrentNetworkRequestType = NetworkRequestType_V1
 public typealias CurrentPoint3D = Point3D_V1
 public typealias CurrentPoint4D = Point4D_V1
 public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V1
+public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V1
 
 // MARK: - end
 
@@ -47,7 +48,9 @@ public typealias MediaKey = CurrentMediaKey.MediaKey
 public typealias NetworkRequestType = CurrentNetworkRequestType.NetworkRequestType
 public typealias Point3D = CurrentPoint3D.Point3D
 public typealias Point4D = CurrentPoint4D.Point4D
+public typealias ScrollJumpStyle = CurrentScrollJumpStyle.ScrollJumpStyle
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
+
 
 
 public enum StitchSchemaVersion: Int, VersionType {

@@ -349,11 +349,6 @@ public struct JSONCurveTo: Codable, Equatable, Hashable {
     }
 }
 
-public enum ScrollJumpStyle: String, Codable, CaseIterable {
-    case animated
-    case instant
-}
-
 public enum ScrollDecelerationRate: String, Codable, CaseIterable {
     case normal
     case fast

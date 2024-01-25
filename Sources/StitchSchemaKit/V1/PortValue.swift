@@ -153,10 +153,6 @@ public struct LayerNodeId: Codable, Hashable {
     }
 }
 
-public enum LayerTextAlignment: String, Codable, CaseIterable {
-    case left, center, right, justify
-}
-
 // Vertical alignment options for our Text Layers in preview window
 public enum LayerTextVerticalAligment: String, Codable, CaseIterable {
     case top, center, bottom

@@ -66,10 +66,6 @@ public enum LayerDimension: Codable, Equatable {
          parentPercent(Double)
 }
 
-public enum Plane: String, CaseIterable, Codable {
-    case any, horizontal, vertical
-}
-
 public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>

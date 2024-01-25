@@ -27,4 +27,3 @@ extension ScrollDecelerationRate_V1.ScrollDecelerationRate: StitchVersionedCodab
         fatalError()
     }
 }
-

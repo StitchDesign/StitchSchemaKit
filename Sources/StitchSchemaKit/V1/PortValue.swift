@@ -157,12 +157,6 @@ public struct LayerNodeId: Codable, Hashable {
     }
 }
 
-public enum ScrollMode: String, Codable, CaseIterable {
-    case free
-    case paging
-    case disabled
-}
-
 public enum LayerTextAlignment: String, Codable, CaseIterable {
     case left, center, right, justify
 }

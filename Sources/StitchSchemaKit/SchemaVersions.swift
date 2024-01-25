@@ -29,6 +29,7 @@ public typealias CurrentPoint4D = Point4D_V1
 public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V1
 public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V1
 public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V1
+public typealias CurrentScrollMode = ScrollMode_V1
 
 // MARK: - end
 
@@ -51,6 +52,7 @@ public typealias Point3D = CurrentPoint3D.Point3D
 public typealias Point4D = CurrentPoint4D.Point4D
 public typealias ScrollDecelerationRate = CurrentScrollDecelerationRate.ScrollDecelerationRate
 public typealias ScrollJumpStyle = CurrentScrollJumpStyle.ScrollJumpStyle
+public typealias ScrollMode = CurrentScrollMode.ScrollMode
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
 
 

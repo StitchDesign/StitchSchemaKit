@@ -414,13 +414,6 @@ public struct CameraSettings: Codable, Equatable, Hashable {
     }
 }
 
-public enum StitchCameraOrientation: String, Codable, Equatable, Hashable, CaseIterable {
-    case portrait = "Portrait",
-         portraitUpsideDown = "Portrait Upside-Down",
-         landscapeLeft = "Landscape Left",
-         landscapeRight = "Landscape Right"
-}
-
 public enum StitchDeviceOrientation: String, Codable, CaseIterable {
     case unknown = "Unknown",
          portrait = "Portrait",

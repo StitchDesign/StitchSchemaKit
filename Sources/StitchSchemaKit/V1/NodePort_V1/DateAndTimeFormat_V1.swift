@@ -13,7 +13,7 @@ public enum DateAndTimeFormat_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.DateAndTimeFormat
     // MARK: - endif
     
-    public enum DateAndTimeFormat: String, CaseIterable, Codable {
+    public enum DateAndTimeFormat: String, CaseIterable {
         case none, short, medium, long, full
     }
 

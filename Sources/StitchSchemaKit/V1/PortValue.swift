@@ -349,11 +349,6 @@ public struct JSONCurveTo: Codable, Equatable, Hashable {
     }
 }
 
-public enum ScrollDecelerationRate: String, Codable, CaseIterable {
-    case normal
-    case fast
-}
-
 public enum PortValueComparable: Equatable, Codable, Hashable {
     case number(Double)
     case bool(Bool)

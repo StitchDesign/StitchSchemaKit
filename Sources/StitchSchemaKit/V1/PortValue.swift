@@ -153,15 +153,6 @@ public struct LayerNodeId: Codable, Hashable {
     }
 }
 
-public enum LayerTextAlignment: String, Codable, CaseIterable {
-    case left, center, right, justify
-}
-
-// Vertical alignment options for our Text Layers in preview window
-public enum LayerTextVerticalAligment: String, Codable, CaseIterable {
-    case top, center, bottom
-}
-
 public enum ClassicAnimationCurve: String, Codable, CaseIterable {
     case linear,
          
@@ -179,11 +170,6 @@ public enum ClassicAnimationCurve: String, Codable, CaseIterable {
          exponentialIn,
          exponentialOut,
          exponentialInOut
-}
-
-
-public enum DateAndTimeFormat: String, CaseIterable, Codable {
-    case none, short, medium, long, full
 }
 
 public struct CustomShape: Equatable {
@@ -325,18 +311,6 @@ public struct JSONCurveTo: Codable, Equatable, Hashable {
         self.controlPoint1 = controlPoint1
         self.controlPoint2 = controlPoint2
     }
-}
-
-public enum PortValueComparable: Equatable, Codable, Hashable {
-    case number(Double)
-    case bool(Bool)
-    case string(String)
-}
-
-public enum DelayStyle: String, Codable, Equatable, CaseIterable {
-    case always = "Always"
-    case increasing = "Increasing"
-    case decreasing = "Decreasing"
 }
 
 public enum ShapeCoordinates: String, Codable, Equatable, CaseIterable {

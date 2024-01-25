@@ -318,10 +318,6 @@ public enum ShapeCoordinates: String, Codable, Equatable, CaseIterable {
     case absolute = "Absolute"
 }
 
-public enum ShapeCommandType: String, Equatable, Hashable, Codable, CaseIterable {
-    case closePath, lineTo, moveTo, curveTo
-}
-
 public enum ShapeCommand: Equatable, Hashable {
     case closePath,
          lineTo(point: PathPoint),

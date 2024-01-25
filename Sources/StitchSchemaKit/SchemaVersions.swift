@@ -38,6 +38,7 @@ public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V1
 public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V1
 public typealias CurrentScrollMode = ScrollMode_V1
 public typealias CurrentStitchOrientation = StitchOrientation_V1
+public typealias CurrentShapeCommandType = ShapeCommandType_V1
 public typealias CurrentLightType = LightType_V1
 public typealias CurrentTextTransform = TextTransform_V1
 
@@ -68,6 +69,7 @@ public typealias PortValueComparable = CurrentPortValueComparable.PortValueCompa
 public typealias ScrollDecelerationRate = CurrentScrollDecelerationRate.ScrollDecelerationRate
 public typealias ScrollJumpStyle = CurrentScrollJumpStyle.ScrollJumpStyle
 public typealias ScrollMode = CurrentScrollMode.ScrollMode
+public typealias ShapeCommandType = CurrentShapeCommandType.ShapeCommandType
 public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
 public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
 public typealias StitchDocument = CurrentStitchDocument.StitchDocument

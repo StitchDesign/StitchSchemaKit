@@ -422,11 +422,6 @@ public struct PathPoint: Codable, Equatable, Hashable {
     }
 }
 
-// Used for VStack vs HStack on layer groups
-public enum StitchOrientation: String, Codable, CaseIterable {
-    case none, horizontal, vertical
-}
-
 public struct CameraSettings: Codable, Equatable, Hashable {
     public var direction: CameraDirection = .front
     public var orientation: StitchCameraOrientation

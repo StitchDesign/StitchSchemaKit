@@ -37,6 +37,7 @@ public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V1
 public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V1
 public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V1
 public typealias CurrentScrollMode = ScrollMode_V1
+public typealias CurrentStitchOrientation = StitchOrientation_V1
 public typealias CurrentLightType = LightType_V1
 public typealias CurrentTextTransform = TextTransform_V1
 
@@ -70,6 +71,7 @@ public typealias ScrollMode = CurrentScrollMode.ScrollMode
 public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
 public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
 public typealias StitchDocument = CurrentStitchDocument.StitchDocument
+public typealias StitchOrientation = CurrentStitchOrientation.StitchOrientation
 public typealias TextTransform = CurrentTextTransform.TextTransform
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
 

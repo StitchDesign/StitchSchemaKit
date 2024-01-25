@@ -14,7 +14,7 @@ public enum CameraSettings_V1: StitchSchemaVersionable {
     // MARK: - endif
     
     // Used for VStack vs HStack on layer groups
-    public struct CameraSettings: Codable, Equatable, Hashable {
+    public struct CameraSettings: Equatable, Hashable {
         public var direction: CameraDirection = .front
         public var orientation: StitchCameraOrientation
         
@@ -31,4 +31,3 @@ extension CameraSettings_V1.CameraSettings: StitchVersionedCodable {
         fatalError()
     }
 }
-

@@ -404,26 +404,6 @@ public struct JSONShapeKeys {
     public static let CURVE_FROM = "curveFrom"
 }
 
-public struct CameraSettings: Codable, Equatable, Hashable {
-    public var direction: CameraDirection = .front
-    public var orientation: StitchCameraOrientation
-    
-    public init(direction: CameraDirection, orientation: StitchCameraOrientation) {
-        self.direction = direction
-        self.orientation = orientation
-    }
-}
-
-public enum StitchDeviceOrientation: String, Codable, CaseIterable {
-    case unknown = "Unknown",
-         portrait = "Portrait",
-         portraitUpsideDown = "Portrait Upside-Down",
-         landscapeLeft = "Landscape Left",
-         landscapeRight = "Landscape Right",
-         faceUp = "Face Up",
-         faceDown = "Face Down"
-}
-
 public struct RGBA: Codable, Equatable {
     public let red: CGFloat
     public let green: CGFloat

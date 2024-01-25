@@ -13,7 +13,7 @@ public enum ShapeCommandType_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.ShapeCommandType
     // MARK: - endif
  
-    public enum ShapeCommandType: String, Equatable, Hashable, Codable, CaseIterable {
+    public enum ShapeCommandType: String, Equatable, Hashable, CaseIterable {
         case closePath, lineTo, moveTo, curveTo
     }
 

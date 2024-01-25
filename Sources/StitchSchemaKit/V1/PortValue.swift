@@ -404,17 +404,6 @@ public struct JSONShapeKeys {
     public static let CURVE_FROM = "curveFrom"
 }
 
-// Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
-public struct PathPoint: Codable, Equatable, Hashable {
-    public let x: CGFloat
-    public let y: CGFloat
-    
-    public init(x: CGFloat, y: CGFloat) {
-        self.x = x
-        self.y = y
-    }
-}
-
 public struct CameraSettings: Codable, Equatable, Hashable {
     public var direction: CameraDirection = .front
     public var orientation: StitchCameraOrientation

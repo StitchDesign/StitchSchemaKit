@@ -13,7 +13,7 @@ public enum Plane_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.Plane
     // MARK: - endif
   
-    public enum Plane: String, CaseIterable, Codable {
+    public enum Plane: String, CaseIterable {
         case any, horizontal, vertical
     }
 }

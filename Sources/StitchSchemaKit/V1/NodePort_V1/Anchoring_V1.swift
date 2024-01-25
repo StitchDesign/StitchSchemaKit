@@ -13,7 +13,7 @@ public enum Anchoring_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.Anchoring
     // MARK: - endif
  
-    public enum Anchoring: String, Codable, CaseIterable {
+    public enum Anchoring: String, CaseIterable {
         case topLeft, topCenter, topRight,
              centerLeft, center, centerRight,
              bottomLeft, bottomCenter, bottomRight

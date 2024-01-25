@@ -13,7 +13,7 @@ public enum ScrollMode_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.ScrollMode
     // MARK: - endif
     
-    public enum ScrollMode: String, Codable, CaseIterable {
+    public enum ScrollMode: String, CaseIterable {
         case free
         case paging
         case disabled

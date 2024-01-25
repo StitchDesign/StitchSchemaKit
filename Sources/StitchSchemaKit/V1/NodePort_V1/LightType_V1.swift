@@ -13,7 +13,7 @@ public enum LightType_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.LightType
     // MARK: - endif
     
-    public enum LightType: String, Codable, CaseIterable {
+    public enum LightType: String, CaseIterable {
         case ambient, omni, directional,
              spot, IES, probe, area
     }

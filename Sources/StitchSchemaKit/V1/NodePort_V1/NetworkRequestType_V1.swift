@@ -13,7 +13,7 @@ public enum NetworkRequestType_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.NetworkRequestType
     // MARK: - endif
     
-    public enum NetworkRequestType: String, CaseIterable, Codable {
+    public enum NetworkRequestType: String, CaseIterable {
         case get, post // put
     }
 

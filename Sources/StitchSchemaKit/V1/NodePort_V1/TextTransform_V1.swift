@@ -13,7 +13,7 @@ public enum TextTransform_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.TextTransform
     // MARK: - endif
   
-    public enum TextTransform: String, Codable, CaseIterable {
+    public enum TextTransform: String, CaseIterable {
         case uppercase, lowercase, capitalize
     }
 

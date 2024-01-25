@@ -35,7 +35,7 @@ public enum PortValue: Codable, Equatable {
     case assignedLayer(LayerNodeId?)
     case scrollMode(ScrollMode)
     case textAlignment(LayerTextAlignment)
-    case textVerticalAlignment(LayerTextVerticalAlignment)
+    case textVerticalAlignment(LayerTextVerticalAligment)
     case fitStyle(VisualMediaFitStyle)
     case animationCurve(ClassicAnimationCurve)
     case lightType(LightType)

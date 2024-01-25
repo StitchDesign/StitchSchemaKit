@@ -30,6 +30,7 @@ public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V1
 public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V1
 public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V1
 public typealias CurrentScrollMode = ScrollMode_V1
+public typealias CurrentLightType = LightType_V1
 
 // MARK: - end
 
@@ -54,7 +55,7 @@ public typealias ScrollDecelerationRate = CurrentScrollDecelerationRate.ScrollDe
 public typealias ScrollJumpStyle = CurrentScrollJumpStyle.ScrollJumpStyle
 public typealias ScrollMode = CurrentScrollMode.ScrollMode
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
-
+public typealias LightType = CurrentLightType.LightType
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

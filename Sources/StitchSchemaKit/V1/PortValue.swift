@@ -185,10 +185,6 @@ public enum ClassicAnimationCurve: String, Codable, CaseIterable {
          exponentialInOut
 }
 
-public enum LightType: String, Codable, CaseIterable {
-    case ambient, omni, directional,
-         spot, IES, probe, area
-}
 
 public enum LayerStroke: String, Codable, CaseIterable {
     case none, inside, outside

@@ -313,10 +313,7 @@ public struct JSONCurveTo: Codable, Equatable, Hashable {
     }
 }
 
-public enum ShapeCoordinates: String, Codable, Equatable, CaseIterable {
-    case relative = "Relative"
-    case absolute = "Absolute"
-}
+
 
 public enum ShapeCommand: Equatable, Hashable {
     case closePath,

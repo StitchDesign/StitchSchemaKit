@@ -181,9 +181,6 @@ public enum ClassicAnimationCurve: String, Codable, CaseIterable {
          exponentialInOut
 }
 
-public enum TextTransform: String, Codable, CaseIterable {
-    case uppercase, lowercase, capitalize
-}
 
 public enum DateAndTimeFormat: String, CaseIterable, Codable {
     case none, short, medium, long, full

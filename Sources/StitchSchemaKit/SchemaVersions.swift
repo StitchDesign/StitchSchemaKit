@@ -33,6 +33,7 @@ public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V1
 public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V1
 public typealias CurrentScrollMode = ScrollMode_V1
 public typealias CurrentLightType = LightType_V1
+public typealias CurrentTextTransform = TextTransform_V1
 
 // MARK: - end
 
@@ -56,6 +57,7 @@ public typealias NetworkRequestType = CurrentNetworkRequestType.NetworkRequestTy
 public typealias Plane = CurrentPlane.Plane
 public typealias Point3D = CurrentPoint3D.Point3D
 public typealias Point4D = CurrentPoint4D.Point4D
+public typealias TextTransform = CurrentTextTransform.TextTransform
 public typealias ScrollDecelerationRate = CurrentScrollDecelerationRate.ScrollDecelerationRate
 public typealias ScrollJumpStyle = CurrentScrollJumpStyle.ScrollJumpStyle
 public typealias ScrollMode = CurrentScrollMode.ScrollMode

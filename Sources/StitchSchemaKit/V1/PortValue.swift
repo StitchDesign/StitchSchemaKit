@@ -181,11 +181,6 @@ public enum ClassicAnimationCurve: String, Codable, CaseIterable {
          exponentialInOut
 }
 
-
-public enum DateAndTimeFormat: String, CaseIterable, Codable {
-    case none, short, medium, long, full
-}
-
 public struct CustomShape: Equatable {
     public var shapes: ShapeDataArray {
         didSet {

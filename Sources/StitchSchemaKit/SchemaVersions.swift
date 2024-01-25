@@ -11,6 +11,7 @@ import SwiftUI
 // MARK: - UPDATE VERSION NUMBERS HERE
 public typealias CurrentStitchDocument = StitchDocument_V1
 public typealias CurrentDelayStyle = DelayStyle_V1
+public typealias CurrentDateAndTimeFormat_V1 = DateAndTimeFormat_V1
 public typealias CurrentNodeEntity = NodeEntity_V1
 public typealias CurrentPatchNodeEntity = PatchNodeEntity_V1
 public typealias CurrentLayerNodeEntity = LayerNodeEntity_V1
@@ -42,6 +43,7 @@ public typealias CurrentTextTransform = TextTransform_V1
 public typealias Anchoring = CurrentAnchoring.Anchoring
 public typealias CameraDirection = CurrentCameraDirection.CameraDirection
 public typealias DelayStyle = CurrentDelayStyle.DelayStyle
+public typealias DateAndTimeFormat = CurrentDateAndTimeFormat_V1.DateAndTimeFormat
 public typealias GroupNodeId = CurrentGroupNodeIDCoordinate.GroupNodeId
 public typealias LayerNodeEntity = CurrentLayerNodeEntity.LayerNodeEntity
 public typealias LayerSize = CurrentLayerSize.LayerSize

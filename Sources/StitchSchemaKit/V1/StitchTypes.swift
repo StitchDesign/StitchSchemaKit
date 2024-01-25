@@ -8,23 +8,6 @@
 import Foundation
 import SwiftUI
 
-public typealias NodeId = UUID
-public typealias NodeIdSet = Set<NodeId>
-
-public struct NodeIOCoordinate: Hashable, Equatable, Codable {
-    public var portId: Int
-    public var nodeId: NodeId
-    
-    public init(portId: Int, nodeId: NodeId) {
-        self.portId = portId
-        self.nodeId = nodeId
-    }
-}
-
-public enum NodeKind: Codable, Equatable, Hashable {
-    case patch(Patch), layer(Layer), group
-}
-
 public enum Patch: String, CaseIterable, Codable, Equatable {
     case splitter = "Value",
          add,
@@ -239,18 +222,12 @@ public enum InteractionType: String, Equatable, Codable {
     case drag, press, scroll
 }
 
-// A given interaction patch node can only be assigned to a single layer at a time, but we can have n-many interaction patch nodes (all of the same type, even) attached to a single layer.
-// Hence for `InteractionsDict`, which lives on a layer node, we map a single interaction type (e.g. `.drag`) to a SET of interaction patch node ids.
-public typealias InteractionsDict = [InteractionType: NodeIdSet]
-
 public enum SplitterType: String, Codable, CaseIterable {
     case inline = "Inline", // ie regular splitter: input and output
          // add GroupNodeId assoc-val ?
          input = "Input", // ie groupIutput node: output only
          output = "Output" // ie groupOutput node: input only
 }
-
-public typealias ProjectId = UUID
 
 public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     public var id: String { self.rawValue }
@@ -297,10 +274,6 @@ public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     case custom = "Custom Size"
 }
 
-public enum SidebarLayerType: Codable, Equatable {
-    case layer(NodeId)
-    case group(SidebarLayerGroupData)
-}
 
 public struct SidebarLayerGroupData: Codable, Equatable {
     public let id: NodeId
@@ -311,9 +284,6 @@ public struct SidebarLayerGroupData: Codable, Equatable {
         self.sortedChildren = sortedChildren
     }
 }
-
-public typealias CommentBoxId = UUID
-public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]
 
 public struct CommentBoxData: Codable, Equatable, Hashable {
     public var id: CommentBoxId
@@ -364,18 +334,6 @@ public struct CommentBoxData: Codable, Equatable, Hashable {
     }
 }
 
-public struct GroupNodeId: Codable, Equatable, Hashable, Identifiable {
-    public let id: NodeId
-    
-    public init(id: NodeId) {
-        self.id = id
-    }
-    
-    public init(_ id: UUID) {
-        self.id = id
-    }
-}
-
 public struct CommentExpansionBox: Codable, Equatable, Hashable {
     public var nodes: NodeIdSet = .init()
     
@@ -418,3 +376,5 @@ public enum ExpansionDirection: Codable, Equatable, Hashable {
          bottomLeft, bottomRight,
          none
 }
+
+public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]

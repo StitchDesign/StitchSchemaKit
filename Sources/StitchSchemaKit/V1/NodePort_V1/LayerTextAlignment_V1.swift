@@ -13,7 +13,7 @@ public enum LayerTextAlignment_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.LayerTextAlignment
     // MARK: - endif
 
-    public enum LayerTextAlignment: String, Codable, CaseIterable {
+    public enum LayerTextAlignment: String, CaseIterable {
         case left, center, right, justify
     }
 

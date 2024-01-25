@@ -35,7 +35,7 @@ public enum PortValue: Codable, Equatable {
     case assignedLayer(LayerNodeId?)
     case scrollMode(ScrollMode)
     case textAlignment(LayerTextAlignment)
-    case textVerticalAlignment(LayerTextVerticalAligment)
+    case textVerticalAlignment(LayerTextVerticalAlignment)
     case fitStyle(VisualMediaFitStyle)
     case animationCurve(ClassicAnimationCurve)
     case lightType(LightType)
@@ -151,11 +151,6 @@ public struct LayerNodeId: Codable, Hashable {
     public init(_ id: UUID) {
         self.id = id
     }
-}
-
-// Vertical alignment options for our Text Layers in preview window
-public enum LayerTextVerticalAligment: String, Codable, CaseIterable {
-    case top, center, bottom
 }
 
 public enum ClassicAnimationCurve: String, Codable, CaseIterable {

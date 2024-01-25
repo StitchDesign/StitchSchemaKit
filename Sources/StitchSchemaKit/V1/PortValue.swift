@@ -181,11 +181,6 @@ public enum ClassicAnimationCurve: String, Codable, CaseIterable {
          exponentialInOut
 }
 
-
-public enum LayerStroke: String, Codable, CaseIterable {
-    case none, inside, outside
-}
-
 public enum TextTransform: String, Codable, CaseIterable {
     case uppercase, lowercase, capitalize
 }

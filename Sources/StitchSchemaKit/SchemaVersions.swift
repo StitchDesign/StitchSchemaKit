@@ -19,6 +19,22 @@ public typealias CurrentNodeIOCoordinate = NodeIOCoordinate_V1
 public typealias CurrentGroupNodeIDCoordinate = GroupNodeID_V1
 public typealias CurrentSidebarLayerType = SidebarLayerType_V1
 public typealias CurrentNodeKind = NodeKind_V1
+public typealias CurrentAnchoring = Anchoring_V1
+public typealias CurrentCameraDirection = CameraDirection_V1
+public typealias CurrentLayerSize = LayerSize_V1
+public typealias CurrentLayerStroke = LayerStroke_V1
+public typealias CurrentMediaKey = MediaKey_V1
+public typealias CurrentNetworkRequestType = NetworkRequestType_V1
+public typealias CurrentPlane = Plane_V1
+public typealias CurrentPoint3D = Point3D_V1
+public typealias CurrentPoint4D = Point4D_V1
+public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V1
+public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V1
+public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V1
+public typealias CurrentScrollMode = ScrollMode_V1
+public typealias CurrentLightType = LightType_V1
+public typealias CurrentTextTransform = TextTransform_V1
+
 // MARK: - end
 
 public typealias StitchDocument = CurrentStitchDocument.StitchDocument
@@ -31,6 +47,21 @@ public typealias NodeIOCoordinate = CurrentNodeIOCoordinate.NodeIOCoordinate
 public typealias GroupNodeId = CurrentGroupNodeIDCoordinate.GroupNodeId
 public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
 public typealias NodeKind = CurrentNodeKind.NodeKind
+public typealias Anchoring = CurrentAnchoring.Anchoring
+public typealias CameraDirection = CurrentCameraDirection.CameraDirection
+public typealias LayerSize = CurrentLayerSize.LayerSize
+public typealias LayerStroke = CurrentLayerStroke.LayerStroke
+public typealias LightType = CurrentLightType.LightType
+public typealias MediaKey = CurrentMediaKey.MediaKey
+public typealias NetworkRequestType = CurrentNetworkRequestType.NetworkRequestType
+public typealias Plane = CurrentPlane.Plane
+public typealias Point3D = CurrentPoint3D.Point3D
+public typealias Point4D = CurrentPoint4D.Point4D
+public typealias TextTransform = CurrentTextTransform.TextTransform
+public typealias ScrollDecelerationRate = CurrentScrollDecelerationRate.ScrollDecelerationRate
+public typealias ScrollJumpStyle = CurrentScrollJumpStyle.ScrollJumpStyle
+public typealias ScrollMode = CurrentScrollMode.ScrollMode
+public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

@@ -66,70 +66,6 @@ public enum LayerDimension: Codable, Equatable {
          parentPercent(Double)
 }
 
-public enum Plane: String, CaseIterable, Codable {
-    case any, horizontal, vertical
-}
-
-public enum NetworkRequestType: String, CaseIterable, Codable {
-    case get, post // put
-}
-
-public struct LayerSize: Codable, Equatable {
-    public var width: LayerDimension
-    public var height: LayerDimension
-    
-    public init(width: LayerDimension, height: LayerDimension) {
-        self.width = width
-        self.height = height
-    }
-    
-    public init(width: CGFloat, height: CGFloat) {
-        self.width = LayerDimension.number(width)
-        self.height = LayerDimension.number(height)
-    }
-
-    public init(width: LayerDimension, height: CGFloat) {
-        self.width = width
-        self.height = .number(height)
-    }
-
-    public init(width: CGFloat, height: LayerDimension) {
-        self.width = .number(width)
-        self.height = height
-    }
-
-    public init(_ size: CGSize) {
-        self.width = LayerDimension.number(size.width)
-        self.height = LayerDimension.number(size.height)
-    }
-}
-
-public struct Point3D: Codable, Equatable {
-    public var x: Double
-    public var y: Double
-    public var z: Double
-    
-    public init(x: Double, y: Double, z: Double) {
-        self.x = x
-        self.y = y
-        self.z = z
-    }
-}
-
-public struct Point4D: Codable, Equatable {
-    public var x: Double
-    public var y: Double
-    public var z: Double
-    public var w: Double
-    
-    public init(x: Double, y: Double, z: Double, w: Double) {
-        self.x = x
-        self.y = y
-        self.z = z
-        self.w = w
-    }
-}
-
 public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>
@@ -157,21 +93,6 @@ public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public init(globalId: UUID, nodeId: NodeId, mediaKey: MediaKey) {
         self.id = .init(globalId: globalId, nodeId: nodeId, loopIndex: 0)
         self.dataType = .source(mediaKey)
-    }
-}
-
-public struct MediaKey: Codable, Hashable {
-    public let filename: String // eg. `dogs`
-    public let fileExtension: String // eg `.avi`
-    
-    public init(filename: String, fileExtension: String) {
-        self.filename = filename
-        self.fileExtension = fileExtension
-    }
-    
-    public init(_ url: URL) {
-        self.filename = url.filename
-        self.fileExtension = url.pathExtension
     }
 }
 
@@ -223,17 +144,6 @@ public struct StitchJSON: Codable, Equatable, Hashable {
     }
 }
 
-public enum Anchoring: String, Codable, CaseIterable {
-    case topLeft, topCenter, topRight,
-         centerLeft, center, centerRight,
-         bottomLeft, bottomCenter, bottomRight
-}
-
-// e.g. AVCaptureDevice.Position.front
-public enum CameraDirection: String, CaseIterable, Codable {
-    case front, back
-}
-
 // a wrapper-type over NodeId, to use in more specific situations
 public struct LayerNodeId: Codable, Hashable {
     public let id: NodeId
@@ -243,12 +153,6 @@ public struct LayerNodeId: Codable, Hashable {
     }
 }
 
-public enum ScrollMode: String, Codable, CaseIterable {
-    case free
-    case paging
-    case disabled
-}
-
 public enum LayerTextAlignment: String, Codable, CaseIterable {
     case left, center, right, justify
 }
@@ -256,10 +160,6 @@ public enum LayerTextAlignment: String, Codable, CaseIterable {
 // Vertical alignment options for our Text Layers in preview window
 public enum LayerTextVerticalAligment: String, Codable, CaseIterable {
     case top, center, bottom
-}
-
-public enum VisualMediaFitStyle: String, CaseIterable, Codable {
-    case fit, fill, stretch
 }
 
 public enum ClassicAnimationCurve: String, Codable, CaseIterable {
@@ -281,18 +181,6 @@ public enum ClassicAnimationCurve: String, Codable, CaseIterable {
          exponentialInOut
 }
 
-public enum LightType: String, Codable, CaseIterable {
-    case ambient, omni, directional,
-         spot, IES, probe, area
-}
-
-public enum LayerStroke: String, Codable, CaseIterable {
-    case none, inside, outside
-}
-
-public enum TextTransform: String, Codable, CaseIterable {
-    case uppercase, lowercase, capitalize
-}
 
 public enum DateAndTimeFormat: String, CaseIterable, Codable {
     case none, short, medium, long, full
@@ -437,16 +325,6 @@ public struct JSONCurveTo: Codable, Equatable, Hashable {
         self.controlPoint1 = controlPoint1
         self.controlPoint2 = controlPoint2
     }
-}
-
-public enum ScrollJumpStyle: String, Codable, CaseIterable {
-    case animated
-    case instant
-}
-
-public enum ScrollDecelerationRate: String, Codable, CaseIterable {
-    case normal
-    case fast
 }
 
 public enum PortValueComparable: Equatable, Codable, Hashable {

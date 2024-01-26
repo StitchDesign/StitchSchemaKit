@@ -56,16 +56,6 @@ public enum PortValue: Codable, Equatable {
     case vnImageCropOption(VNImageCropAndScaleOption)
 }
 
-public enum LayerDimension: Codable, Equatable {
-    case number(CGFloat),
-         // visual media layer: resource's inherent dimnensions
-         // non-media layer: 100% of parent's dimension
-         auto,
-         // parentPercent(100), // use 100% of parent dimenion
-         // parentPercent(50) // use 50% of parent dimension
-         parentPercent(Double)
-}
-
 public struct AsyncMediaValue: Codable, Equatable, Hashable {
     public var id: MediaObjectId
     public var dataType: DataType<MediaKey>

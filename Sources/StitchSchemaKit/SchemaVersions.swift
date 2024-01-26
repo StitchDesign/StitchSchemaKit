@@ -48,6 +48,7 @@ public typealias CurrentShapeCommandType = ShapeCommandType_V1
 public typealias CurrentShapeCoordinates = ShapeCoordinates_V1
 public typealias CurrentLightType = LightType_V1
 public typealias CurrentTextTransform = TextTransform_V1
+public typealias CurrentTriangleData = TriangleData_V1
 
 // MARK: - end
 
@@ -89,6 +90,7 @@ public typealias StitchCameraOrientation = CurrentStitchCameraOrientation.Stitch
 public typealias StitchDeviceOrientation = CurrentStitchDeviceOrientation.StitchDeviceOrientation
 public typealias StitchOrientation = CurrentStitchOrientation.StitchOrientation
 public typealias TextTransform = CurrentTextTransform.TextTransform
+public typealias TriangleData = CurrentTriangleData.TriangleData
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
 
 public enum StitchSchemaVersion: Int, VersionType {

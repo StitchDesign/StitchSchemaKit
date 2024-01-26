@@ -248,19 +248,6 @@ extension CustomShape: Codable {
     }
 }
 
-
-
-
-
-public enum ShapeCommand: Equatable, Hashable {
-    case closePath,
-         lineTo(point: PathPoint),
-         moveTo(point: PathPoint),
-         curveTo(curveFrom: PathPoint,
-                 point: PathPoint,
-                 curveTo: PathPoint)
-}
-
 extension ShapeCommand: Codable {
     enum CodingKeys: String, CodingKey {
         case type, point,

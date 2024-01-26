@@ -14,7 +14,7 @@ public enum JSONCurveTo_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.JSONCurveTo
     // MARK: - endif
  
-    public struct JSONCurveTo: Codable, Equatable, Hashable {
+    public struct JSONCurveTo: Equatable, Hashable {
         public let point: CGPoint
 
         // i.e. JSON's `curveFrom`

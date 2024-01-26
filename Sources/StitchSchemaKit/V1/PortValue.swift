@@ -96,25 +96,6 @@ public struct AsyncMediaValue: Codable, Equatable, Hashable {
     }
 }
 
-/// Combines a UUID with some NodeId to assign unique media objects to each node.
-/// This ensures 1:1 mapping between media and nodes.
-public struct MediaObjectId: Codable, Equatable, Hashable {
-    // An ID that's associated with the original media
-    public var globalId: UUID
-    
-    // Properties specific to the media's location in the node
-    public var nodeId: NodeId
-    public var loopIndex: Int
-    
-    public init(globalId: UUID = UUID(),
-                nodeId: NodeId,
-                loopIndex: Int) {
-        self.globalId = globalId
-        self.nodeId = nodeId
-        self.loopIndex = loopIndex
-    }
-}
-
 public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
     case source(Value)
     case computed

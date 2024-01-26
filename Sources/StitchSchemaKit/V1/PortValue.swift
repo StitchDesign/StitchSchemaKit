@@ -125,24 +125,7 @@ public struct StitchJSON: Codable, Equatable, Hashable {
     }
 }
 
-public enum ClassicAnimationCurve: String, Codable, CaseIterable {
-    case linear,
-         
-         // quadratic
-         quadraticIn,
-         quadraticOut,
-         quadraticInOut,
-         
-         // sine
-         sinusoidalIn,
-         sinusoidalOut,
-         sinusoidalInOut,
-         
-         // exponent
-         exponentialIn,
-         exponentialOut,
-         exponentialInOut
-}
+
 
 public struct CustomShape: Equatable {
     public var shapes: ShapeDataArray {

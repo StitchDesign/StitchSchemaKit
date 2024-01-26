@@ -11,6 +11,7 @@ import SwiftUI
 // MARK: - UPDATE VERSION NUMBERS HERE
 public typealias CurrentStitchDocument = StitchDocument_V1
 public typealias CurrentStitchCameraOrientation = StitchCameraOrientation_V1
+public typealias CurrentClassicAnimationCurve = ClassicAnimationCurve_V1
 public typealias CurrentStitchDeviceOrientation = StitchDeviceOrientation_V1
 public typealias CurrentCameraSettings = CameraSettings_V1
 public typealias CurrentDelayStyle = DelayStyle_V1
@@ -101,6 +102,7 @@ public typealias SidebarLayerType = CurrentSidebarLayerType.SidebarLayerType
 public typealias SplitterNodeEntity = CurrentSplitterNodeEntity.SplitterNodeEntity
 public typealias StitchDocument = CurrentStitchDocument.StitchDocument
 public typealias StitchCameraOrientation = CurrentStitchCameraOrientation.StitchCameraOrientation
+public typealias ClassicAnimationCurve = CurrentClassicAnimationCurve.ClassicAnimationCurve
 public typealias StitchDeviceOrientation = CurrentStitchDeviceOrientation.StitchDeviceOrientation
 public typealias StitchOrientation = CurrentStitchOrientation.StitchOrientation
 public typealias TextTransform = CurrentTextTransform.TextTransform

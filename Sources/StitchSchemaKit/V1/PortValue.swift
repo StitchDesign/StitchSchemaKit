@@ -257,15 +257,6 @@ public enum ShapeAndRect: Codable, Equatable {
          custom(JSONShapeCommands)
 }
 
-public struct RoundedRectangleData: Equatable, Codable {
-    public var rect: CGRect
-    public var cornerRadius: CGFloat
-    
-    public init(rect: CGRect, cornerRadius: CGFloat) {
-        self.rect = rect
-        self.cornerRadius = cornerRadius
-    }
-}
 
 // NOTE: The points inside have already been multiplied
 // by the JsonToShape node's coordinate-space input.

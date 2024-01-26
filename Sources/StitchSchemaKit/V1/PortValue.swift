@@ -248,15 +248,6 @@ extension CustomShape: Codable {
     }
 }
 
-public enum ShapeAndRect: Codable, Equatable {
-    case oval(CGRect),
-         circle(CGRect),
-         rectangle(RoundedRectangleData),
-         triangle(TriangleData),
-         // more like "path", since was created from a path json
-         custom(JSONShapeCommands)
-}
-
 public struct JSONCurveTo: Codable, Equatable, Hashable {
     public let point: CGPoint
 

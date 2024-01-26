@@ -257,20 +257,6 @@ public enum ShapeAndRect: Codable, Equatable {
          custom(JSONShapeCommands)
 }
 
-
-// NOTE: The points inside have already been multiplied
-// by the JsonToShape node's coordinate-space input.
-
-// TODO: other Shapes like `RoundedRectangle` and `Oval` can be described via JSONShapeCommands too
-
-// TODO: migrate e.g. `JSONShapeCommand.moveTo(CGPoint)` etc. to  `JSONShapeCommand.moveTo(JSONMoveTo)`
-public enum JSONShapeCommand: Codable, Equatable, Hashable {
-    case closePath
-    case moveTo(CGPoint)
-    case lineTo(CGPoint)
-    case curveTo(JSONCurveTo)
-}
-
 public struct JSONCurveTo: Codable, Equatable, Hashable {
     public let point: CGPoint
 

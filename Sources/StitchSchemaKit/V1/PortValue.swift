@@ -248,21 +248,7 @@ extension CustomShape: Codable {
     }
 }
 
-public struct JSONCurveTo: Codable, Equatable, Hashable {
-    public let point: CGPoint
 
-    // i.e. JSON's `curveFrom`
-    public let controlPoint1: CGPoint
-
-    // i.e. JSON's `curveTo`
-    public let controlPoint2: CGPoint
-    
-    public init(point: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
-        self.point = point
-        self.controlPoint1 = controlPoint1
-        self.controlPoint2 = controlPoint2
-    }
-}
 
 
 

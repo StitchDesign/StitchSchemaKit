@@ -61,28 +61,3 @@ public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
     case computed
 }
 
-public struct StitchJSON: Codable, Equatable, Hashable {
-    public static func == (lhs: StitchJSON, rhs: StitchJSON) -> Bool {
-        lhs.id == rhs.id
-    }
-    
-    public var id: UUID
-    public var value: JSON {
-        didSet {
-            self.id = .init()
-        }
-    }
-    
-    public init(id: UUID, value: JSON) {
-        self.id = id
-        self.value = value
-    }
-    
-    
-    public init(_ value: JSON) {
-        self.id = .init()
-        self.value = value
-    }
-}
-
-

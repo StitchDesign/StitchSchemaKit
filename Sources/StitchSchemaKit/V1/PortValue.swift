@@ -144,15 +144,6 @@ public struct StitchJSON: Codable, Equatable, Hashable {
     }
 }
 
-// a wrapper-type over NodeId, to use in more specific situations
-public struct LayerNodeId: Codable, Hashable {
-    public let id: NodeId
-    
-    public init(_ id: UUID) {
-        self.id = id
-    }
-}
-
 public enum ClassicAnimationCurve: String, Codable, CaseIterable {
     case linear,
          

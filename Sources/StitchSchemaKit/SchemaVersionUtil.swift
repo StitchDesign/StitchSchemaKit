@@ -96,12 +96,7 @@ extension StitchVersionedData {
 }
 
 public protocol StitchVersionedCodable: Codable, Sendable {
-    // associatedtype Version: StitchSchemaVersionType
-    //    associatedtype ViewModel: Observable
     associatedtype PreviousCodable: StitchVersionedCodable
-
-    // TODO: only needed on current
-    //    init(from viewModel: ViewModel)
     init(previousInstance: PreviousCodable)
 }
 

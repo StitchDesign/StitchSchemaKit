@@ -56,8 +56,3 @@ public enum PortValue: Codable, Equatable {
     case vnImageCropOption(VNImageCropAndScaleOption)
 }
 
-public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
-    case source(Value)
-    case computed
-}
-

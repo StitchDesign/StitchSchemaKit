@@ -14,7 +14,7 @@ public enum ClassicAnimationCurve_V1: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public enum ClassicAnimationCurve: String, Codable, CaseIterable {
+    public enum ClassicAnimationCurve: String, CaseIterable {
         case linear,
              
              // quadratic

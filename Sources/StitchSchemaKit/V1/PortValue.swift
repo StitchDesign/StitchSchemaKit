@@ -389,17 +389,3 @@ extension ShapeCommand: Codable {
         }
     }
 }
-
-public struct JSONShapeKeys {
-    public static let PATH = "path"
-    public static let TYPE = "type"
-
-    public static let POINT = "point"
-
-    public static let CLOSE_PATH = "closePath"
-    public static let MOVE_TO = "moveTo"
-    public static let LINE_TO = "lineTo"
-    public static let CURVE_TO = "curveTo"
-
-    public static let CURVE_FROM = "curveFrom"
-}

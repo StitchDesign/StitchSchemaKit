@@ -62,7 +62,7 @@ public typealias CurrentLightType = LightType_V1
 public typealias CurrentTextTransform = TextTransform_V1
 public typealias CurrentTriangleData = TriangleData_V1
 public typealias CurrentDataType = DataType_V1
-
+public typealias CurrentPortValue = PortValue_V1
 // MARK: - end
 
 public typealias Anchoring = CurrentAnchoring.Anchoring
@@ -118,6 +118,7 @@ public typealias TextTransform = CurrentTextTransform.TextTransform
 public typealias TriangleData = CurrentTriangleData.TriangleData
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
 public typealias DataType = CurrentDataType.DataType
+public typealias PortValue = CurrentPortValue.PortValue
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

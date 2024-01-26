@@ -13,7 +13,7 @@ public enum TriangleData_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.TriangleData
     // MARK: - endif
  
-    public struct TriangleData: Codable, Equatable {
+    public struct TriangleData: Equatable {
         public var points: [CGPoint] {
             [p1, p2, p3]
         }

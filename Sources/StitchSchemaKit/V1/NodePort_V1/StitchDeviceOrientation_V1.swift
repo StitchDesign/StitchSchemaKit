@@ -13,7 +13,7 @@ public enum StitchDeviceOrientation_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.StitchDeviceOrientation
     // MARK: - endif
  
-    public enum StitchDeviceOrientation: String, Codable, CaseIterable {
+    public enum StitchDeviceOrientation: String, CaseIterable {
         case unknown = "Unknown",
              portrait = "Portrait",
              portraitUpsideDown = "Portrait Upside-Down",

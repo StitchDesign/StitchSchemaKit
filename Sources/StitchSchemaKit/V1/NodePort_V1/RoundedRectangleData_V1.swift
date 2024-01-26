@@ -13,7 +13,7 @@ public enum RoundedRectangleData_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.RoundedRectangleData
     // MARK: - endif
  
-    public struct RoundedRectangleData: Equatable, Codable {
+    public struct RoundedRectangleData: Equatable {
         public var rect: CGRect
         public var cornerRadius: CGFloat
         

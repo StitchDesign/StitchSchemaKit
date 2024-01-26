@@ -14,7 +14,7 @@ public enum RGBA_V1: StitchSchemaVersionable {
     // MARK: - endif
     
 
-    public struct RGBA: Codable, Equatable {
+    public struct RGBA: Equatable {
         public let red: CGFloat
         public let green: CGFloat
         public let blue: CGFloat

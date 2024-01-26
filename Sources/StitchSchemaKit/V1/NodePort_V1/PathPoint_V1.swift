@@ -14,7 +14,7 @@ public enum PathPoint_V1: StitchSchemaVersionable {
     // MARK: - endif
 
     // Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands
-    public struct PathPoint: Codable, Equatable, Hashable {
+    public struct PathPoint: Equatable, Hashable {
         public let x: CGFloat
         public let y: CGFloat
         

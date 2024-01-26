@@ -32,6 +32,7 @@ public typealias CurrentJSONShapeKeys = JSONShapeKeys_V1
 public typealias CurrentSidebarLayerType = SidebarLayerType_V1
 public typealias CurrentNodeKind = NodeKind_V1
 public typealias CurrentAnchoring = Anchoring_V1
+public typealias CurrentAsyncMediaValue = AsyncMediaValue_V1
 public typealias CurrentCameraDirection = CameraDirection_V1
 public typealias CurrentLayerSize = LayerSize_V1
 public typealias CurrentLayerStroke = LayerStroke_V1
@@ -63,6 +64,7 @@ public typealias CurrentTriangleData = TriangleData_V1
 // MARK: - end
 
 public typealias Anchoring = CurrentAnchoring.Anchoring
+public typealias AsyncMediaValue = CurrentAsyncMediaValue.AsyncMediaValue
 public typealias CameraDirection = CurrentCameraDirection.CameraDirection
 public typealias CameraSettings = CurrentCameraSettings.CameraSettings
 public typealias CustomShape = CurrentCustomShape.CustomShape

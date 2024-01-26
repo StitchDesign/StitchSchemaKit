@@ -56,36 +56,6 @@ public enum PortValue: Codable, Equatable {
     case vnImageCropOption(VNImageCropAndScaleOption)
 }
 
-public struct AsyncMediaValue: Codable, Equatable, Hashable {
-    public var id: MediaObjectId
-    public var dataType: DataType<MediaKey>
-    
-    public init(id: MediaObjectId, dataType: DataType<MediaKey>) {
-        self.id = id
-        self.dataType = dataType
-    }
-    
-    /// Optional initializer with NodeId and MediaKey.
-    public init(nodeId: NodeId,
-         loopIndex: Int,
-         mediaKey: MediaKey) {
-        self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
-        self.dataType = .source(mediaKey)
-    }
-    
-    /// Optional initializer for computed type.
-    public init(nodeId: NodeId, loopIndex: Int) {
-        self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
-        self.dataType = .computed
-    }
-    
-    /// Optional initializer for default media, where loopIndex is always 0 but we need the static global id.
-    public init(globalId: UUID, nodeId: NodeId, mediaKey: MediaKey) {
-        self.id = .init(globalId: globalId, nodeId: nodeId, loopIndex: 0)
-        self.dataType = .source(mediaKey)
-    }
-}
-
 public enum DataType<Value: Equatable & Codable & Hashable>: Codable, Hashable {
     case source(Value)
     case computed

@@ -264,17 +264,6 @@ public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     case custom = "Custom Size"
 }
 
-
-public struct SidebarLayerGroupData: Codable, Equatable {
-    public let id: NodeId
-    public var sortedChildren: [SidebarLayerType]
-    
-    public init(id: NodeId, sortedChildren: [SidebarLayerType]) {
-        self.id = id
-        self.sortedChildren = sortedChildren
-    }
-}
-
 public struct CommentBoxData: Codable, Equatable, Hashable {
     public var id: CommentBoxId
     

@@ -53,7 +53,3 @@ public enum UserVisibleType: String, CaseIterable, Codable {
     case vnImageCropOption
 }
 
-
-
-
-public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]

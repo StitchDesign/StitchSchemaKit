@@ -218,12 +218,6 @@ public enum UserVisibleType: String, CaseIterable, Codable {
     case vnImageCropOption
 }
 
-public enum SplitterType: String, Codable, CaseIterable {
-    case inline = "Inline", // ie regular splitter: input and output
-         // add GroupNodeId assoc-val ?
-         input = "Input", // ie groupIutput node: output only
-         output = "Output" // ie groupOutput node: input only
-}
 
 public enum PreviewSize: String, CaseIterable, Identifiable, Codable {
     public var id: String { self.rawValue }

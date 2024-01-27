@@ -15,7 +15,7 @@ public enum InteractionType_V1: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public enum InteractionType: String, Equatable, Codable {
+    public enum InteractionType: String, Equatable {
         case drag, press, scroll
     }
 

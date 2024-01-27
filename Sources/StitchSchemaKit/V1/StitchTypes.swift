@@ -159,22 +159,6 @@ public enum Patch: String, CaseIterable, Codable, Equatable {
          mouse
 }
 
-public enum Layer: String, CaseIterable, Codable {
-    case text,
-         oval,
-         rectangle,
-         image,
-         group,
-         video,
-         model3D,
-         realityView,
-         shape,
-         colorFill,
-         hitArea,
-         canvasSketch = "Canvas Sketch",
-         textField = "Text Field"
-}
-
 public enum UserVisibleType: String, CaseIterable, Codable {
     case string
     case bool

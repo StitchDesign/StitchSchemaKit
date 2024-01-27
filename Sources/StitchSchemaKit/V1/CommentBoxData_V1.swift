@@ -15,7 +15,7 @@ public enum CommentBoxData_V1: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public struct CommentBoxData: Codable, Equatable, Hashable {
+    public struct CommentBoxData: Equatable, Hashable {
         public var id: CommentBoxId
         
         /*

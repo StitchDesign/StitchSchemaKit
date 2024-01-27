@@ -15,7 +15,7 @@ public enum CommentExpansionBox_V1: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public struct CommentExpansionBox: Codable, Equatable, Hashable {
+    public struct CommentExpansionBox: Equatable, Hashable {
         public var nodes: NodeIdSet = .init()
         
         // set nil after gesture completes;

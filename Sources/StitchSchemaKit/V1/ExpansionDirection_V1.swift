@@ -17,7 +17,7 @@ public enum ExpansionDirection_V1: StitchSchemaVersionable {
 
     // not just the size of the box,
     // but from where the box goes to etc.
-    public enum ExpansionDirection: Codable, Equatable, Hashable {
+    public enum ExpansionDirection: Equatable, Hashable {
         case topLeft, topRight,
              bottomLeft, bottomRight,
              none

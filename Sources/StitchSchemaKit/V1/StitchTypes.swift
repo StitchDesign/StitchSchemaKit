@@ -103,13 +103,4 @@ public struct CommentBoxData: Codable, Equatable, Hashable {
     }
 }
 
-
-// not just the size of the box,
-// but from where the box goes to etc.
-public enum ExpansionDirection: Codable, Equatable, Hashable {
-    case topLeft, topRight,
-         bottomLeft, bottomRight,
-         none
-}
-
 public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData]

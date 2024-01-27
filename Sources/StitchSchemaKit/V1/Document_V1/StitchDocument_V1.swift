@@ -31,7 +31,7 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
 
         // Node data
         public let nodes: [NodeEntitySchema.NodeEntity]
-        public let orderedSidebarLayers: [SidebarLayerType]
+        public let orderedSidebarLayers: [SidebarLayerData]
         public let commentBoxesDict: CommentBoxesDict
 
         public let cameraSettings: CameraSettings
@@ -44,7 +44,7 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
                     localPosition: CGPoint = .zero,
                     zoomData: CGFloat = .zero,
              nodes: [NodeEntitySchema.NodeEntity] = [],
-             orderedSidebarLayers: [SidebarLayerType] = [],
+             orderedSidebarLayers: [SidebarLayerData] = [],
                     commentBoxesDict: CommentBoxesDict = .init(),
                     cameraSettings: CameraSettings = .init()) {
             self.projectId = projectId

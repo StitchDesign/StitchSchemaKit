@@ -218,10 +218,6 @@ public enum UserVisibleType: String, CaseIterable, Codable {
     case vnImageCropOption
 }
 
-public enum InteractionType: String, Equatable, Codable {
-    case drag, press, scroll
-}
-
 public enum SplitterType: String, Codable, CaseIterable {
     case inline = "Inline", // ie regular splitter: input and output
          // add GroupNodeId assoc-val ?

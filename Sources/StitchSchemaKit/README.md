@@ -8,14 +8,19 @@ Follow these instructions if you plan to make a change to any `SwiftData` entity
 
 
 ## Create a New Schema Version
-1. From Xcode, create new folder group in `Stitch/Models/Schemas` with the new version. For example, the folder group should be named "V2" if the most recent version was "V1".
-2. Our new schema version will be created by copying the current newest schema. The easiest way to do this is from the Mac's Finder. You can view these files by right clicking a file or group in Xcode > select "Show in Finder".
-3. **From the Finder** go to the Schemas folder and copy files from the previous version into the new folder group. Rename files to the new version number.
-4. From Xcode, right-click your new version group and select “Add files to ‘Stitch’”. Select all newly created files and add to the folder.
-5. Again from Xcode, do a find + replace command to replace references of the old with new version (i.e.`_V2` -> `_V3`). **Make sure to restrict search to the folder location of the new version folder group.**
+1. From Xcode, create new folder group in `Sources/StitchSchemaKit` with the new version. For example, the folder group should be named "V2" if the most recent version was "V1".
+2. In your terminal, go to the package root (`StitchSchemaKit/`) and invoke the shell script as such:
+```sh
+# (Only on first ever invocation) enable permissions of this script
+chmod +x versioning.sh
+
+# i.e. if the next version is 3: "./versioning.sh 3"
+./versioning.sh <new-version-number>
+```
+3. From Xcode, do a find + replace command to replace references of the old with new version (i.e.`_V2` -> `_V3`). **Make sure to restrict search to the folder location of the new version folder group.**
     * Also do a find + replace on the old previous version. If V3 is the new version, replace `_V1` with `_V2`.
-6. Add new `StitchSchemaVersion`, incrementing the number. Fix compiler warners for missing case in switch statements.
-7. Update the type aliases at the top of the SchemaVersions.swift file.
+4. Add new `StitchSchemaVersion`, incrementing the number. Fix compiler warners for missing case in switch statements.
+5. Update the type aliases at the top of the SchemaVersions.swift file.
     
 ### Supporting New Schema Entities
 1. Update `StitchDocumentMigratable` with a new dictionary of `PersistentIdentifier` ID's using the following format:
@@ -25,4 +30,4 @@ Follow these instructions if you plan to make a change to any `SwiftData` entity
 3. Update **all** `StitchDocument versions to fix compiler errors from `StitchDocumentMigratable` changes.
 
 ## Tips
-* Use the `DEV_DEBUG` scheme if you expect to make more edits to the schema version. This fixes migration issues caused by making changes to existing versions.
+* In the Stitch codebase, use the `DEV_DEBUG` scheme if you expect to make more edits to the schema version. This fixes migration issues caused by making changes to existing versions.

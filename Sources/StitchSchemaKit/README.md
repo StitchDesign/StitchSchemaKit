@@ -8,9 +8,9 @@ Follow these instructions if you plan to make a change to any `SwiftData` entity
 
 
 ## Create a New Schema Version
-1. From Xcode, create new folder group in `Stitch/Models/Schemas` with the new version. For example, the folder group should be named "V2" if the most recent version was "V1".
+1. From Xcode, create new folder group in `Sources/StitchSchemaKit` with the new version. For example, the folder group should be named "V2" if the most recent version was "V1".
 2. Our new schema version will be created by copying the current newest schema. The easiest way to do this is from the Mac's Finder. You can view these files by right clicking a file or group in Xcode > select "Show in Finder".
-3. **From the Finder** go to the Schemas folder and copy files from the previous version into the new folder group. Rename files to the new version number.
+3. **From the Finder** go to the `StitchSchemaKit` folder and copy files from the previous version into the new folder group. Rename files to the new version number.
 4. From Xcode, right-click your new version group and select “Add files to ‘Stitch’”. Select all newly created files and add to the folder.
 5. Again from Xcode, do a find + replace command to replace references of the old with new version (i.e.`_V2` -> `_V3`). **Make sure to restrict search to the folder location of the new version folder group.**
     * Also do a find + replace on the old previous version. If V3 is the new version, replace `_V1` with `_V2`.

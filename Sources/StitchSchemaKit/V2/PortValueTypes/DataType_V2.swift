@@ -23,7 +23,13 @@ public enum DataType_V2: StitchSchemaVersionable {
 }
 
 extension DataType_V2.DataType: StitchVersionedCodable where Value: DataType_V2.ValueType {
-    public init(previousInstance: DataType_V2.PreviousInstance<Value>) {
-        fatalError()
+    public init(previousInstance: DataType_V1.PreviousInstance<Value>) {
+        switch previousInstance { 
+            
+        case .source(let value):
+            self = .source(value)
+        case .computed:
+            self = .computed
+        }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 public enum StitchDeviceOrientation_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.StitchDeviceOrientation
+    public typealias PreviousInstance = StitchDeviceOrientation_V1.StitchDeviceOrientation
     // MARK: - endif
  
     public enum StitchDeviceOrientation: String, CaseIterable {
@@ -26,6 +26,22 @@ public enum StitchDeviceOrientation_V2: StitchSchemaVersionable {
 
 extension StitchDeviceOrientation_V2.StitchDeviceOrientation: StitchVersionedCodable {
     public init(previousInstance: StitchDeviceOrientation_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .unknown:
+            self = .unknown
+        case .portrait:
+            self = .portrait
+        case .portraitUpsideDown:
+            self = .portraitUpsideDown
+        case .landscapeLeft:
+            self = .landscapeLeft
+        case .landscapeRight:
+            self = .landscapeRight
+        case .faceUp:
+            self = .faceUp
+        case .faceDown:
+            self = .faceDown
+        }
     }
 }

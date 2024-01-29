@@ -32,7 +32,7 @@ extension ShapeCommand_V2.ShapeCommand: StitchVersionedCodable {
     }
 }
 
-extension ShapeCommand: Codable {
+extension ShapeCommand_V2.ShapeCommand: Codable {
     enum CodingKeys: String, CodingKey {
         case type, point,
              // added for curveTo case

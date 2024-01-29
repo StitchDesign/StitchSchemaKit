@@ -19,6 +19,7 @@ chmod +x versioning.sh
 ```
 3. From Xcode, do a find + replace command to replace references of the old with new version (i.e.`_V2` -> `_V3`). **Make sure to restrict search to the folder location of the new version folder group.**
     * Also do a find + replace on the old previous version. If V3 is the new version, replace `_V1` with `_V2`.
+    > Note: you may need to restart Xcode to get some compiler errors to update.
 4. Add new `StitchSchemaVersion`, incrementing the number. Fix compiler warners for missing case in switch statements.
 5. Update the type aliases at the top of the SchemaVersions.swift file.
 6. The last most-recent `StitchDocument` needs to have its `Transferable` implementation removed. Complete these steps from the old version:

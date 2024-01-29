@@ -14,7 +14,14 @@ public enum CustomShape_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.CustomShape
     // MARK: - endif
  
-    public struct CustomShape: Equatable {
+    public struct CustomShape: Equatable, Codable {
+        /// Custom decoder enables us to only decode essential, non-cached values.
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let shapes = try container.decode(ShapeDataArray.self, forKey: .shapes)
+            self.init(shapes: shapes)
+        }
+        
         public var shapes: ShapeDataArray {
             didSet {
                 self.setCachedValues()
@@ -80,8 +87,6 @@ public enum CustomShape_V1: StitchSchemaVersionable {
                 .max { $0 < $1 } ?? .zero
         }
     }
-
-
 }
 
 extension CustomShape_V1.CustomShape: StitchVersionedCodable {
@@ -90,12 +95,3 @@ extension CustomShape_V1.CustomShape: StitchVersionedCodable {
     }
 }
 
-
-extension CustomShape: Codable {
-    /// Custom decoder enables us to only decode essential, non-cached values.
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let shapes = try container.decode(ShapeDataArray.self, forKey: .shapes)
-        self.init(shapes: shapes)
-    }
-}

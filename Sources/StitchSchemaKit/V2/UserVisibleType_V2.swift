@@ -10,7 +10,7 @@ import Foundation
 public enum UserVisibleType_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.UserVisibleType
+    public typealias PreviousInstance = UserVisibleType_V1.UserVisibleType
     // MARK: - endif
  
 
@@ -63,7 +63,89 @@ public enum UserVisibleType_V2: StitchSchemaVersionable {
 }
 
 extension UserVisibleType_V2.UserVisibleType: StitchVersionedCodable {
-    public init(previousInstance: ExpansionDirection_V2.PreviousInstance) {
-        fatalError()
+    public init(previousInstance: UserVisibleType_V2.PreviousInstance) {
+        switch previousInstance {
+            
+        case .string:
+            self = .string
+        case .bool:
+            self = .bool
+        case .int:
+            self = .int
+        case .color:
+            self = .color
+        case .number:
+            self = .number
+        case .layerDimension:
+            self = .layerDimension
+        case .size:
+            self = .size
+        case .position:
+            self = .position
+        case .point3D:
+            self = .point3D
+        case .point4D:
+            self = .point4D
+        case .matrixTransform:
+            self = .matrixTransform
+        case .plane:
+            self = .plane
+        case .pulse:
+            self = .pulse
+        case .media:
+            self = .media
+        case .json:
+            self = .json
+        case .networkRequestType:
+            self = .networkRequestType
+        case .none:
+            self = .none
+        case .anchoring:
+            self = .anchoring
+        case .cameraDirection:
+            self = .cameraDirection
+        case .interactionId:
+            self = .interactionId
+        case .scrollMode:
+            self = .scrollMode
+        case .textAlignment:
+            self = .textAlignment
+        case .textVerticalAlignment:
+            self = .textVerticalAlignment
+        case .fitStyle:
+            self = .fitStyle
+        case .animationCurve:
+            self = .animationCurve
+        case .lightType:
+            self = .lightType
+        case .layerStroke:
+            self = .layerStroke
+        case .textTransform:
+            self = .textTransform
+        case .dateAndTimeFormat:
+            self = .dateAndTimeFormat
+        case .shape:
+            self = .shape
+        case .scrollJumpStyle:
+            self = .scrollJumpStyle
+        case .scrollDecelerationRate:
+            self = .scrollDecelerationRate
+        case .delayStyle:
+            self = .delayStyle
+        case .shapeCoordinates:
+            self = .shapeCoordinates
+        case .shapeCommand:
+            self = .shapeCommand
+        case .shapeCommandType:
+            self = .shapeCommandType
+        case .orientation:
+            self = .orientation
+        case .cameraOrientation:
+            self = .cameraOrientation
+        case .deviceOrientation:
+            self = .deviceOrientation
+        case .vnImageCropOption:
+            self = .vnImageCropOption
+        }
     }
 }

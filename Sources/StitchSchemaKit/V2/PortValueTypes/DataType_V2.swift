@@ -11,7 +11,7 @@ import Foundation
 public enum DataType_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.DataType
+    public typealias PreviousInstance = DataType_V1.DataType
     // MARK: - endif
     
     public typealias ValueType = Equatable & StitchVersionedCodable & Hashable

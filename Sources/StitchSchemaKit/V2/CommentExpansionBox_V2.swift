@@ -11,7 +11,7 @@ import Foundation
 public enum CommentExpansionBox_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.CommentExpansionBox
+    public typealias PreviousInstance = CommentExpansionBox_V1.CommentExpansionBox
     // MARK: - endif
  
 
@@ -54,6 +54,6 @@ public enum CommentExpansionBox_V2: StitchSchemaVersionable {
 
 extension CommentExpansionBox_V2.CommentExpansionBox: StitchVersionedCodable {
     public init(previousInstance: CommentExpansionBox_V2.PreviousInstance) {
-        fatalError()
+        self.init(size: previousInstance.size, startPoint: previousInstance.startPoint, endPoint: previousInstance.endPoint)
     }
 }

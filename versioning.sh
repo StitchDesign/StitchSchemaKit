@@ -28,6 +28,7 @@ create_new_version() {
             file_name=$(basename "$file")
             file_extension="${file_name##*.}"
                                     
+            # Copy file with new file path
             new_file_name="${file_name/_V$old_version/_V$new_version}"
             cp "$file" "$new_version_path$destination_folder/$new_file_name"
             echo "Copied: $file -> $new_version_path$destination_folder/$new_file_name"

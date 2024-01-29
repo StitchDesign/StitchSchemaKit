@@ -146,6 +146,7 @@ public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFit
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1
+    case _V2 = 2
 }
 
 public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
@@ -171,6 +172,8 @@ extension StitchDocumentVersion {
         switch version {
         case ._V1:
             return StitchDocument_V1.StitchDocument.self
+        case ._V2:
+            return StitchDocument_V2.StitchDocument.self
         }
     }
 }

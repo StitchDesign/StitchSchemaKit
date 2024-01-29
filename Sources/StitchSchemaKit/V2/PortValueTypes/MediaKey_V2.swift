@@ -10,7 +10,7 @@ import Foundation
 public enum MediaKey_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.MediaKey
+    public typealias PreviousInstance = MediaKey_V1.MediaKey
     // MARK: - endif
  
     public struct MediaKey: Codable, Hashable {
@@ -32,6 +32,6 @@ public enum MediaKey_V2: StitchSchemaVersionable {
 
 extension MediaKey_V2.MediaKey: StitchVersionedCodable {
     public init(previousInstance: MediaKey_V2.PreviousInstance) {
-        fatalError()
+        self.init(filename: previousInstance.filename, fileExtension: previousInstance.fileExtension)
     }
 }

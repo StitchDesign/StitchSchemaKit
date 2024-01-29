@@ -10,7 +10,7 @@ import Foundation
 public enum CameraSettings_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.CameraSettings
+    public typealias PreviousInstance = CameraSettings_V1.CameraSettings
     // MARK: - endif
     
     // Used for VStack vs HStack on layer groups
@@ -28,6 +28,6 @@ public enum CameraSettings_V2: StitchSchemaVersionable {
 
 extension CameraSettings_V2.CameraSettings: StitchVersionedCodable {
     public init(previousInstance: CameraSettings_V2.PreviousInstance) {
-        fatalError()
+        self.init(direction: previousInstance.direction, orientation: previousInstance.orientation)
     }
 }

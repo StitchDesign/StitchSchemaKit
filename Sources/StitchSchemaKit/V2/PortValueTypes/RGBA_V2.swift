@@ -10,7 +10,7 @@ import Foundation
 public enum RGBA_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.RGBA
+    public typealias PreviousInstance = RGBA_V1.RGBA
     // MARK: - endif
     
 
@@ -32,6 +32,6 @@ public enum RGBA_V2: StitchSchemaVersionable {
 
 extension RGBA_V2.RGBA: StitchVersionedCodable {
     public init(previousInstance: RGBA_V2.PreviousInstance) {
-        fatalError()
+        self.init(red: previousInstance.red, green: previousInstance.green, blue: previousInstance.blue, alpha: previousInstance.alpha)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 public enum ShapeCoordinates_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.ShapeCoordinates
+    public typealias PreviousInstance = ShapeCoordinates_V1.ShapeCoordinates
     // MARK: - endif
  
     public enum ShapeCoordinates: String, Equatable, CaseIterable {
@@ -21,6 +21,12 @@ public enum ShapeCoordinates_V2: StitchSchemaVersionable {
 
 extension ShapeCoordinates_V2.ShapeCoordinates: StitchVersionedCodable {
     public init(previousInstance: ShapeCoordinates_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .relative:
+            self = .relative
+        case .absolute:
+            self = .absolute
+        }
     }
 }

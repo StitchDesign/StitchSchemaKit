@@ -10,7 +10,8 @@ import Foundation
 public enum LayerTextVerticalAlignment_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.LayerTextVerticalAlignment
+    public typealias PreviousInstance = LayerTextVerticalAlignment_V1.LayerTextVerticalAlignment
+    
     // MARK: - endif
 
     // Vertical alignment options for our Text Layers in preview window
@@ -22,6 +23,14 @@ public enum LayerTextVerticalAlignment_V2: StitchSchemaVersionable {
 
 extension LayerTextVerticalAlignment_V2.LayerTextVerticalAlignment: StitchVersionedCodable {
     public init(previousInstance: LayerTextVerticalAlignment_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .top:
+            self = .top
+        case .center:
+            self = .center
+        case .bottom:
+            self = .bottom
+        }
     }
 }

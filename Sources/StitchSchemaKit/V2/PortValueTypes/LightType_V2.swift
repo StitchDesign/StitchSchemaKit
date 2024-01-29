@@ -10,7 +10,7 @@ import Foundation
 public enum LightType_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.LightType
+    public typealias PreviousInstance = LightType_V2.LightType
     // MARK: - endif
     
     public enum LightType: String, CaseIterable {
@@ -22,6 +22,22 @@ public enum LightType_V2: StitchSchemaVersionable {
 
 extension LightType_V2.LightType: StitchVersionedCodable {
     public init(previousInstance: LightType_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .ambient:
+            self = .ambient
+        case .omni:
+            self = .omni
+        case .directional:
+            self = .directional
+        case .spot:
+            self = .spot
+        case .IES:
+            self = .IES
+        case .probe:
+            self = .probe
+        case .area:
+            self = .area
+        }
     }
 }

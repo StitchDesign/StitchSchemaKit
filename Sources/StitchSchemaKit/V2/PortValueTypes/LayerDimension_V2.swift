@@ -10,7 +10,7 @@ import Foundation
 public enum LayerDimension_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.LayerDimension
+    public typealias PreviousInstance = LayerDimension_V1.LayerDimension
     // MARK: - endif
  
 
@@ -29,6 +29,14 @@ public enum LayerDimension_V2: StitchSchemaVersionable {
 
 extension LayerDimension_V2.LayerDimension: StitchVersionedCodable {
     public init(previousInstance: LayerDimension_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .number(let value):
+            self = .number(value)
+        case .auto:
+            self = .auto
+        case .parentPercent(let value):
+            self = .parentPercent(value)
+        }
     }
 }

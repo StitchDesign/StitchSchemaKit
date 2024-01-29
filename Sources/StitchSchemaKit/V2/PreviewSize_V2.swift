@@ -10,7 +10,7 @@ import Foundation
 public enum PreviewSize_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.PreviewSize
+    public typealias PreviousInstance = PreviewSize_V1.PreviewSize
     // MARK: - endif
     
     public enum PreviewSize: String, CaseIterable, Identifiable {
@@ -63,6 +63,72 @@ public enum PreviewSize_V2: StitchSchemaVersionable {
 
 extension PreviewSize_V2.PreviewSize: StitchVersionedCodable {
     public init(previousInstance: PreviewSize_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .iPhone14:
+            self = .iPhone14
+        case .iPhone14Plus:
+            self = .iPhone14Plus
+        case .iPhone14Pro:
+            self = .iPhone14Pro
+        case .iPhone14ProMax:
+            self = .iPhone14ProMax
+        case .iPhone13:
+            self = .iPhone13
+        case .iPhone13mini:
+            self = .iPhone13mini
+        case .iPhone13ProMax:
+            self = .iPhone13ProMax
+        case .iPhone13Pro:
+            self = .iPhone13Pro
+        case .iPhone12:
+            self = .iPhone12
+        case .iPhone12mini:
+            self = .iPhone12mini
+        case .iPhone12ProMax:
+            self = .iPhone12ProMax
+        case .iPhone12Pro:
+            self = .iPhone12Pro
+        case .iPhoneSe2ndGen:
+            self = .iPhoneSe2ndGen
+        case .iPhone11ProMax:
+            self = .iPhone11ProMax
+        case .iPhone11Pro:
+            self = .iPhone11Pro
+        case .iPhone11:
+            self = .iPhone11
+        case .iPhoneSE1stGen:
+            self = .iPhoneSE1stGen
+        case .iPadMini6thGen:
+            self = .iPadMini6thGen
+        case .iPad9thGen:
+            self = .iPad9thGen
+        case .iPadPro12Inch:
+            self = .iPadPro12Inch
+        case .iPadPro11Inch:
+            self = .iPadPro11Inch
+        case .iPadAir4thGen:
+            self = .iPadAir4thGen
+        case .iPadMini5thGen:
+            self = .iPadMini5thGen
+        case .iPadAir3rdGen:
+            self = .iPadAir3rdGen
+        case .iPadPro10Inch:
+            self = .iPadPro10Inch
+        case .MacBookAir:
+            self = .MacBookAir
+        case .MacBook:
+            self = .MacBook
+        case .MacBookPro:
+            self = .MacBookPro
+        case .iMacRetina24Inch:
+            self = .iMacRetina24Inch
+        case .iMacRetina27Inch:
+            self = .iMacRetina27Inch
+        case .iMacProRetina27Inch:
+            self = .iMacProRetina27Inch
+        case .custom:
+            self = .custom
+        }
     }
 }

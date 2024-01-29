@@ -10,7 +10,7 @@ import Foundation
 public enum Anchoring_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.Anchoring
+    public typealias PreviousInstance = Anchoring_V1.Anchoring
     // MARK: - endif
  
     public enum Anchoring: String, CaseIterable {
@@ -23,6 +23,26 @@ public enum Anchoring_V2: StitchSchemaVersionable {
 
 extension Anchoring_V2.Anchoring: StitchVersionedCodable {
     public init(previousInstance: Anchoring_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .topLeft:
+            self = .topLeft
+        case .topCenter:
+            self = .topCenter
+        case .topRight:
+            self = .topRight
+        case .centerLeft:
+            self = .centerLeft
+        case .center:
+            self = .center
+        case .centerRight:
+            self = .centerRight
+        case .bottomLeft:
+            self = .bottomLeft
+        case .bottomCenter:
+            self = .bottomCenter
+        case .bottomRight:
+            self = .bottomRight
+        }
     }
 }

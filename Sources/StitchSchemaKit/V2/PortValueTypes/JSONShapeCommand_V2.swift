@@ -10,7 +10,7 @@ import Foundation
 public enum JSONShapeCommand_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.JSONShapeCommand
+    public typealias PreviousInstance = JSONShapeCommand_V1.JSONShapeCommand
     // MARK: - endif
  
 
@@ -31,6 +31,16 @@ public enum JSONShapeCommand_V2: StitchSchemaVersionable {
 
 extension JSONShapeCommand_V2.JSONShapeCommand: StitchVersionedCodable {
     public init(previousInstance: JSONShapeCommand_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .closePath:
+            self = .closePath
+        case .moveTo(let value):
+            self = .moveTo(value)
+        case .lineTo(let value):
+            self = .lineTo(value)
+        case .curveTo(let value):
+            self = .curveTo(value)
+        }
     }
 }

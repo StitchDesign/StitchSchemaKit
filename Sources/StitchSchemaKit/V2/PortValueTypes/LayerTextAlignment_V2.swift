@@ -10,7 +10,7 @@ import Foundation
 public enum LayerTextAlignment_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.LayerTextAlignment
+    public typealias PreviousInstance = LayerTextAlignment_V1.LayerTextAlignment
     // MARK: - endif
 
     public enum LayerTextAlignment: String, CaseIterable {
@@ -21,6 +21,16 @@ public enum LayerTextAlignment_V2: StitchSchemaVersionable {
 
 extension LayerTextAlignment_V2.LayerTextAlignment: StitchVersionedCodable {
     public init(previousInstance: LayerTextAlignment_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .left:
+            self = .left
+        case .center:
+            self = .center
+        case .right:
+            self = .right
+        case .justify:
+            self = .justify
+        }
     }
 }

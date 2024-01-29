@@ -10,7 +10,7 @@ import Foundation
 public enum VisualMediaFitStyle_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.VisualMediaFitStyle
+    public typealias PreviousInstance = VisualMediaFitStyle_V1.VisualMediaFitStyle
     // MARK: - endif
  
     public enum VisualMediaFitStyle: String, CaseIterable {
@@ -21,6 +21,14 @@ public enum VisualMediaFitStyle_V2: StitchSchemaVersionable {
 
 extension VisualMediaFitStyle_V2.VisualMediaFitStyle: StitchVersionedCodable {
     public init(previousInstance: VisualMediaFitStyle_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .fit:
+            self = .fit
+        case .fill:
+            self = .fill
+        case .stretch:
+            self = .stretch
+        }
     }
 }

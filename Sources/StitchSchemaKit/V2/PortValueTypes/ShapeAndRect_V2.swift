@@ -11,7 +11,7 @@ import Foundation
 public enum ShapeAndRect_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.ShapeAndRect
+    public typealias PreviousInstance = ShapeAndRect_V1.ShapeAndRect
     // MARK: - endif
  
     public enum ShapeAndRect: Equatable {
@@ -27,6 +27,18 @@ public enum ShapeAndRect_V2: StitchSchemaVersionable {
 
 extension ShapeAndRect_V2.ShapeAndRect: StitchVersionedCodable {
     public init(previousInstance: ShapeAndRect_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .oval(let value):
+            self = .oval(value)
+        case .circle(let value):
+            self = .circle(value)
+        case .rectangle(let value):
+            self = .rectangle(value)
+        case .triangle(let value):
+            self = .triangle(value)
+        case .custom(let value):
+            self = .custom(value)
+        }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 public enum SidebarLayerGroupData_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.SidebarLayerGroupData
+    public typealias PreviousInstance = SidebarLayerGroupData_V1.SidebarLayerGroupData
     // MARK: - endif
  
 
@@ -28,6 +28,6 @@ public enum SidebarLayerGroupData_V2: StitchSchemaVersionable {
 
 extension SidebarLayerGroupData_V2.SidebarLayerGroupData: StitchVersionedCodable {
     public init(previousInstance: SidebarLayerGroupData_V2.PreviousInstance) {
-        fatalError()
+        self.init(id: previousInstance.id, sortedChildren: previousInstance.sortedChildren)
     }
 }

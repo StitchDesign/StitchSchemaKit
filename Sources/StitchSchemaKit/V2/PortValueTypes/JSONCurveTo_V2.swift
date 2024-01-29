@@ -11,7 +11,7 @@ import Foundation
 public enum JSONCurveTo_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.JSONCurveTo
+    public typealias PreviousInstance = JSONCurveTo_V1.JSONCurveTo
     // MARK: - endif
  
     public struct JSONCurveTo: Equatable, Hashable {
@@ -34,6 +34,6 @@ public enum JSONCurveTo_V2: StitchSchemaVersionable {
 
 extension JSONCurveTo_V2.JSONCurveTo: StitchVersionedCodable {
     public init(previousInstance: JSONCurveTo_V2.PreviousInstance) {
-        fatalError()
+        self.init(point: previousInstance.point, controlPoint1: previousInstance.controlPoint1, controlPoint2: previousInstance.controlPoint2)
     }
 }

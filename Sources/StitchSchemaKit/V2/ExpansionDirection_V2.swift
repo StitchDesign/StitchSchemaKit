@@ -11,7 +11,7 @@ import Foundation
 public enum ExpansionDirection_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.ExpansionDirection
+    public typealias PreviousInstance = ExpansionDirection_V1.ExpansionDirection
     // MARK: - endif
  
 
@@ -27,6 +27,18 @@ public enum ExpansionDirection_V2: StitchSchemaVersionable {
 
 extension ExpansionDirection_V2.ExpansionDirection: StitchVersionedCodable {
     public init(previousInstance: ExpansionDirection_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .topLeft:
+            self = .topLeft
+        case .topRight:
+            self = .topRight
+        case .bottomLeft:
+            self = .bottomLeft
+        case .bottomRight:
+            self = .bottomRight
+        case .none:
+            self = .none
+        }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 public enum MediaObjectId_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.MediaObjectId
+    public typealias PreviousInstance = MediaObjectId_V1.MediaObjectId
     // MARK: - endif
  
 
@@ -37,6 +37,6 @@ public enum MediaObjectId_V2: StitchSchemaVersionable {
 
 extension MediaObjectId_V2.MediaObjectId: StitchVersionedCodable {
     public init(previousInstance: MediaObjectId_V2.PreviousInstance) {
-        fatalError()
+        self.init(nodeId: previousInstance.nodeId, loopIndex: previousInstance.loopIndex)
     }
 }

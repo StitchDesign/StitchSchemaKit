@@ -11,7 +11,7 @@ import Foundation
 public enum InteractionType_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.InteractionType
+    public typealias PreviousInstance = InteractionType_V1.InteractionType
     // MARK: - endif
  
 
@@ -23,6 +23,14 @@ public enum InteractionType_V2: StitchSchemaVersionable {
 
 extension InteractionType_V2.InteractionType: StitchVersionedCodable {
     public init(previousInstance: InteractionType_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .drag:
+            self = .drag
+        case .press:
+            self = .press
+        case .scroll:
+            self = .scroll
+        }
     }
 }

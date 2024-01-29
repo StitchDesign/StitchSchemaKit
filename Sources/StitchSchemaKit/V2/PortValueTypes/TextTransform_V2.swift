@@ -10,7 +10,7 @@ import Foundation
 public enum TextTransform_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.TextTransform
+    public typealias PreviousInstance = TextTransform_V1.TextTransform
     // MARK: - endif
   
     public enum TextTransform: String, CaseIterable {
@@ -21,7 +21,15 @@ public enum TextTransform_V2: StitchSchemaVersionable {
 
 extension TextTransform_V2.TextTransform: StitchVersionedCodable {
     public init(previousInstance: TextTransform_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .uppercase:
+            self = .uppercase
+        case .lowercase:
+            self = .lowercase
+        case .capitalize:
+            self = .capitalize
+        }
     }
 }
 

@@ -14,6 +14,7 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
     static let version = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.StitchDocument
     public typealias NodeEntitySchema = NodeEntity_V1
+    public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData_V1.CommentBoxData]
     // MARK: - end
 
     // TODO: transferable

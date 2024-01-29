@@ -13,7 +13,6 @@ public typealias CurrentAsyncMediaValue = AsyncMediaValue_V1
 public typealias CurrentClassicAnimationCurve = ClassicAnimationCurve_V1
 public typealias CurrentCameraSettings = CameraSettings_V1
 public typealias CurrentCommentBoxData = CommentBoxData_V1
-public typealias CurrentCommentBoxesDict = CommentBoxesDict_V1
 public typealias CurrentCommentExpansionBox = CommentExpansionBox_V1
 public typealias CurrentCustomShape = CustomShape_V1
 public typealias CurrentDataType = DataType_V1
@@ -84,7 +83,6 @@ public typealias ClassicAnimationCurve = CurrentClassicAnimationCurve.ClassicAni
 public typealias CommentExpansionBox = CurrentCommentExpansionBox.CommentExpansionBox
 public typealias CameraSettings = CurrentCameraSettings.CameraSettings
 public typealias CommentBoxData = CurrentCommentBoxData.CommentBoxData
-public typealias CommentBoxesDict = CurrentCommentBoxesDict.CommentBoxesDict
 public typealias CustomShape = CurrentCustomShape.CustomShape
 public typealias DataType = CurrentDataType.DataType
 public typealias DateAndTimeFormat = CurrentDateAndTimeFormat_V1.DateAndTimeFormat
@@ -173,7 +171,8 @@ extension StitchDocumentVersion {
         case ._V1:
             return StitchDocument_V1.StitchDocument.self
         case ._V2:
-            return StitchDocument_V2.StitchDocument.self
+            fatalError()
+//            return StitchDocument_V2.StitchDocument.self
         }
     }
 }

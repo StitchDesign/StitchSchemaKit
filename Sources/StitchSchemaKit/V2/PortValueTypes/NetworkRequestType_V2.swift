@@ -10,7 +10,7 @@ import Foundation
 public enum NetworkRequestType_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.NetworkRequestType
+    public typealias PreviousInstance = NetworkRequestType_V1.NetworkRequestType
     // MARK: - endif
     
     public enum NetworkRequestType: String, CaseIterable {
@@ -21,6 +21,12 @@ public enum NetworkRequestType_V2: StitchSchemaVersionable {
 
 extension NetworkRequestType_V2.NetworkRequestType: StitchVersionedCodable {
     public init(previousInstance: NetworkRequestType_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+            
+        case .get:
+            self = .get
+        case .post:
+            self = .post
+        }
     }
 }

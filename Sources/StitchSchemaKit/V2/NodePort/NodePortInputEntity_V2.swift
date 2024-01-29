@@ -13,7 +13,7 @@ public enum NodePortInputEntity_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V2
     typealias NodeEntitySchema = NodeEntity_V2
-    public typealias PreviousInstance = Self.NodePortInputEntity
+    public typealias PreviousInstance = NodePortInputEntity_V1.NodePortInputEntity
     typealias PatchNodeEntitySchema = PatchNodeEntity_V2
     // MARK: - end
 
@@ -40,6 +40,6 @@ public enum NodePortInputEntity_V2: StitchSchemaVersionable {
 
 extension NodePortInputEntity_V2.NodePortInputEntity: StitchVersionedCodable {
     public init(previousInstance: NodePortInputEntity_V2.PreviousInstance) {
-        fatalError()
+        self.init(id: previousInstance.id, nodeKind: previousInstance.nodeKind, userVisibleType: previousInstance.userVisibleType, values: previousInstance.values, upstreamOutputCoordinate: previousInstance.upstreamOutputCoordinate)
     }
 }

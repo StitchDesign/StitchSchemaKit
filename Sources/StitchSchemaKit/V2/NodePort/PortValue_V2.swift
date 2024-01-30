@@ -19,6 +19,7 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias Plane = Plane_V2.Plane
     public typealias NetworkRequestType = NetworkRequestType_V2.NetworkRequestType
     public typealias LayerSize = LayerSize_V2.LayerSize
+    public typealias Point3D = Point3D_V2.Point3D
 
     // MARK: - end
     
@@ -95,7 +96,7 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .position(let value):
             self = .position(value)
         case .point3D(let value):
-            self = .point3D(value)
+            self = .point3D(PortValue_V2.Point3D(previousInstance: value))
         case .point4D(let value):
             self = .point4D(value)
         case .pulse(let value):

@@ -27,7 +27,7 @@ public enum ShapeCommand_V2: StitchSchemaVersionable {
 }
 
 extension ShapeCommand_V2.ShapeCommand: StitchVersionedCodable {
-    public init(previousInstance: VisualMediaFitStyle_V2.PreviousInstance) {
+    public init(previousInstance: ShapeCommand_V2.PreviousInstance) {
         fatalError()
     }
 }

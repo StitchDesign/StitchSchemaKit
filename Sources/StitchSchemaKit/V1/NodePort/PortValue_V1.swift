@@ -26,8 +26,8 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias Anchoring = Anchoring_V1.Anchoring
     public typealias CameraDirection = CameraDirection_V1.CameraDirection
     public typealias ScrollMode = ScrollMode_V1.ScrollMode
-//    public typealias TextAlignment = LayerTextAlignment_V1.LayerTextAlignment
-//    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V1.LayerTextVerticalAlignment
+    public typealias TextAlignment = LayerTextAlignment_V1.LayerTextAlignment
+    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V1.LayerTextVerticalAlignment
     public typealias VisualMediaFitStyle = VisualMediaFitStyle_V1.VisualMediaFitStyle
     public typealias ClassicAnimationCurve = ClassicAnimationCurve_V1.ClassicAnimationCurve
     public typealias LightType = LightType_V1.LightType

@@ -26,7 +26,16 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias Anchoring = Anchoring_V2.Anchoring
     public typealias CameraDirection = CameraDirection_V2.CameraDirection
     public typealias ScrollMode = ScrollMode_V2.ScrollMode
-    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
+//    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
+
+    
+    public typealias DelayStyle = DelayStyle_V2.DelayStyle
+    public typealias ShapeCoordinates = ShapeCoordinates_V2.ShapeCoordinates
+    public typealias ShapeCommandType = ShapeCommandType_V2.ShapeCommandType
+//    public typealias ShapeCommand = ShapeCommand_V2.ShapeCommand
+    public typealias StitchOrientation = StitchOrientation_V2.StitchOrientation
+    public typealias StitchCameraOrientation = StitchCameraOrientation_V2.StitchCameraOrientation
+    public typealias StitchDeviceOrientation = StitchDeviceOrientation_V2.StitchDeviceOrientation
 
     // MARK: - end
     
@@ -145,19 +154,19 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .comparable(let value):
             self = .comparable(value)
         case .delayStyle(let value):
-            self = .delayStyle(value)
+            self = .delayStyle(PortValue_V2.DelayStyle(previousInstance: value))
         case .shapeCoordinates(let value):
-            self = .shapeCoordinates(value)
+            self = .shapeCoordinates(PortValue_V2.ShapeCoordinates(previousInstance: value))
         case .shapeCommandType(let value):
-            self = .shapeCommandType(value)
+            self = .shapeCommandType(PortValue_V2.ShapeCommandType(previousInstance: value))
         case .shapeCommand(let value):
             self = .shapeCommand(value)
         case .orientation(let value):
-            self = .orientation(value)
+            self = .orientation(PortValue_V2.StitchOrientation(previousInstance: value))
         case .cameraOrientation(let value):
-            self = .cameraOrientation(value)
+            self = .cameraOrientation(PortValue_V2.StitchCameraOrientation(previousInstance: value))
         case .deviceOrientation(let value):
-            self = .deviceOrientation(value)
+            self = .deviceOrientation(PortValue_V2.StitchDeviceOrientation(previousInstance: value))
         case .vnImageCropOption(let value):
             self = .vnImageCropOption(value)
         case .none:

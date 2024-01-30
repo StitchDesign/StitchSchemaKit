@@ -27,7 +27,17 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias CameraDirection = CameraDirection_V1.CameraDirection
     public typealias ScrollMode = ScrollMode_V1.ScrollMode
     public typealias TextAlignment = LayerTextAlignment_V1.LayerTextAlignment
-    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V1.LayerTextVerticalAlignment
+//    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V1.LayerTextVerticalAlignment
+
+    
+    
+    public typealias DelayStyle = DelayStyle_V1.DelayStyle
+    public typealias ShapeCoordinates = ShapeCoordinates_V1.ShapeCoordinates
+    public typealias ShapeCommandType = ShapeCommandType_V1.ShapeCommandType
+//    public typealias ShapeCommand = ShapeCommand_V1.StitchOrientation
+    public typealias StitchOrientation = StitchOrientation_V1.StitchOrientation
+    public typealias StitchCameraOrientation = StitchCameraOrientation_V1.StitchCameraOrientation
+    public typealias StitchDeviceOrientation = StitchDeviceOrientation_V1.StitchDeviceOrientation
 
     // MARK: - end
     

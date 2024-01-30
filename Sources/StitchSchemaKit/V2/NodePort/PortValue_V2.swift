@@ -15,6 +15,36 @@ public enum PortValue_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V2
     public typealias PreviousInstance = PortValue_V1.PortValue
+    public typealias LayerDimension = LayerDimension_V2.LayerDimension
+    public typealias Plane = Plane_V2.Plane
+    public typealias NetworkRequestType = NetworkRequestType_V2.NetworkRequestType
+    public typealias LayerSize = LayerSize_V2.LayerSize
+    public typealias Point3D = Point3D_V2.Point3D
+    public typealias Point4D = Point4D_V2.Point4D
+    public typealias AsyncMediaValue = AsyncMediaValue_V2.AsyncMediaValue
+    public typealias StitchJSON = StitchJSON_V2.StitchJSON
+    public typealias Anchoring = Anchoring_V2.Anchoring
+    public typealias CameraDirection = CameraDirection_V2.CameraDirection
+    public typealias ScrollMode = ScrollMode_V2.ScrollMode
+    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
+    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V2.LayerTextVerticalAlignment
+    public typealias VisualMediaFitStyle = VisualMediaFitStyle_V2.VisualMediaFitStyle
+    public typealias ClassicAnimationCurve = ClassicAnimationCurve_V2.ClassicAnimationCurve
+    public typealias LightType = LightType_V2.LightType
+    public typealias LayerStroke = LayerStroke_V2.LayerStroke
+    public typealias DateAndTimeFormat = DateAndTimeFormat_V2.DateAndTimeFormat
+    public typealias CustomShape = CustomShape_V2.CustomShape
+    public typealias ScrollJumpStyle = ScrollJumpStyle_V2.ScrollJumpStyle
+    public typealias ScrollDecelerationRate = ScrollDecelerationRate_V2.ScrollDecelerationRate
+    public typealias PortValueComparable = PortValueComparable_V2.PortValueComparable
+    public typealias DelayStyle = DelayStyle_V2.DelayStyle
+    public typealias ShapeCoordinates = ShapeCoordinates_V2.ShapeCoordinates
+    public typealias ShapeCommandType = ShapeCommandType_V2.ShapeCommandType
+    public typealias ShapeCommand = ShapeCommand_V2.ShapeCommand
+    public typealias StitchOrientation = StitchOrientation_V2.StitchOrientation
+    public typealias StitchCameraOrientation = StitchCameraOrientation_V2.StitchCameraOrientation
+    public typealias StitchDeviceOrientation = StitchDeviceOrientation_V2.StitchDeviceOrientation
+
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {
@@ -76,75 +106,75 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .number(let value):
             self = .number(value)
         case .layerDimension(let value):
-            self = .layerDimension(value)
+            self = .layerDimension(PortValue_V2.LayerDimension(previousInstance: value))
         case .matrixTransform(let value):
             self = .matrixTransform(value)
         case .plane(let value):
-            self = .plane(value)
+            self = .plane(PortValue_V2.Plane(previousInstance: value))
         case .networkRequestType(let value):
-            self = .networkRequestType(value)
+            self = .networkRequestType(PortValue_V2.NetworkRequestType(previousInstance: value))
         case .color(let value):
             self = .color(value)
         case .size(let value):
-            self = .size(value)
+            self = .size(PortValue_V2.LayerSize(previousInstance: value))
         case .position(let value):
             self = .position(value)
         case .point3D(let value):
-            self = .point3D(value)
+            self = .point3D(PortValue_V2.Point3D(previousInstance: value))
         case .point4D(let value):
-            self = .point4D(value)
+            self = .point4D(PortValue_V2.Point4D(previousInstance: value))
         case .pulse(let value):
             self = .pulse(value)
         case .asyncMedia(let value):
-            self = .asyncMedia(value)
+            self = .asyncMedia(PortValue_V2.AsyncMediaValue(previousInstance: value))
         case .json(let value):
-            self = .json(value)
+            self = .json(PortValue_V2.StitchJSON(previousInstance: value))
         case .anchoring(let value):
-            self = .anchoring(value)
+            self = .anchoring(PortValue_V2.Anchoring(previousInstance: value))
         case .cameraDirection(let value):
-            self = .cameraDirection(value)
+            self = .cameraDirection(PortValue_V2.CameraDirection(previousInstance: value))
         case .assignedLayer(let value):
             self = .assignedLayer(value)
         case .scrollMode(let value):
-            self = .scrollMode(value)
+            self = .scrollMode(PortValue_V2.ScrollMode(previousInstance: value))
         case .textAlignment(let value):
-            self = .textAlignment(value)
+            self = .textAlignment(PortValue_V2.TextAlignment(previousInstance: value))
         case .textVerticalAlignment(let value):
-            self = .textVerticalAlignment(value)
+            self = .textVerticalAlignment(PortValue_V2.TextVerticalAlignment(previousInstance: value))
         case .fitStyle(let value):
-            self = .fitStyle(value)
+            self = .fitStyle(PortValue_V2.VisualMediaFitStyle(previousInstance: value))
         case .animationCurve(let value):
-            self = .animationCurve(value)
+            self = .animationCurve(PortValue_V2.ClassicAnimationCurve(previousInstance: value))
         case .lightType(let value):
-            self = .lightType(value)
+            self = .lightType(PortValue_V2.LightType(previousInstance: value))
         case .layerStroke(let value):
-            self = .layerStroke(value)
+            self = .layerStroke(PortValue_V2.LayerStroke(previousInstance: value))
         case .textTransform(let value):
             self = .textTransform(value)
         case .dateAndTimeFormat(let value):
-            self = .dateAndTimeFormat(value)
+            self = .dateAndTimeFormat(PortValue_V2.DateAndTimeFormat(previousInstance: value))
         case .shape(let value):
-            self = .shape(value)
+            self = .shape(PortValue_V2.CustomShape(previousInstance: value))
         case .scrollJumpStyle(let value):
-            self = .scrollJumpStyle(value)
+            self = .scrollJumpStyle(PortValue_V2.ScrollJumpStyle(previousInstance: value))
         case .scrollDecelerationRate(let value):
-            self = .scrollDecelerationRate(value)
+            self = .scrollDecelerationRate(PortValue_V2.ScrollDecelerationRate(previousInstance: value))
         case .comparable(let value):
-            self = .comparable(value)
+            self = .comparable(PortValue_V2.PortValueComparable(previousInstance: value))
         case .delayStyle(let value):
-            self = .delayStyle(value)
+            self = .delayStyle(PortValue_V2.DelayStyle(previousInstance: value))
         case .shapeCoordinates(let value):
-            self = .shapeCoordinates(value)
+            self = .shapeCoordinates(PortValue_V2.ShapeCoordinates(previousInstance: value))
         case .shapeCommandType(let value):
-            self = .shapeCommandType(value)
+            self = .shapeCommandType(PortValue_V2.ShapeCommandType(previousInstance: value))
         case .shapeCommand(let value):
-            self = .shapeCommand(value)
+            self = .shapeCommand(PortValue_V2.ShapeCommand(previousInstance: value))
         case .orientation(let value):
-            self = .orientation(value)
+            self = .orientation(PortValue_V2.StitchOrientation(previousInstance: value))
         case .cameraOrientation(let value):
-            self = .cameraOrientation(value)
+            self = .cameraOrientation(PortValue_V2.StitchCameraOrientation(previousInstance: value))
         case .deviceOrientation(let value):
-            self = .deviceOrientation(value)
+            self = .deviceOrientation(PortValue_V2.StitchDeviceOrientation(previousInstance: value))
         case .vnImageCropOption(let value):
             self = .vnImageCropOption(value)
         case .none:

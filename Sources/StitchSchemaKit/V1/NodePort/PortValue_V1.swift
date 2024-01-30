@@ -18,7 +18,8 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias LayerDimension = LayerDimension_V1.LayerDimension
     public typealias Plane = Plane_V1.Plane
     public typealias NetworkRequestType = NetworkRequestType_V1.NetworkRequestType
-    
+    public typealias LayerSize = LayerSize_V1.LayerSize
+
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {

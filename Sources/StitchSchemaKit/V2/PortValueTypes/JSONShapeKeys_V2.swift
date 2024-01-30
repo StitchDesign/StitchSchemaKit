@@ -7,10 +7,10 @@
 
 import Foundation
 
-public enum JSONShapeKeys_V1: StitchSchemaVersionable {
+public enum JSONShapeKeys_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V1
-    public typealias PreviousInstance = Self.JSONShapeKeys
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V2
+    public typealias PreviousInstance = JSONShapeKeys_V1.JSONShapeKeys
     // MARK: - endif
  
     public struct JSONShapeKeys {
@@ -29,7 +29,7 @@ public enum JSONShapeKeys_V1: StitchSchemaVersionable {
 
 }
 
-extension JSONShapeKeys_V1.JSONShapeKeys: StitchVersionedCodable {
+extension JSONShapeKeys_V2.JSONShapeKeys: StitchVersionedCodable {
     public init(previousInstance: JSONShapeKeys_V2.PreviousInstance) {
         fatalError()
     }

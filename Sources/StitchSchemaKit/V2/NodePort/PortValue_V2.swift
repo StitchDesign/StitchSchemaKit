@@ -26,12 +26,12 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias Anchoring = Anchoring_V2.Anchoring
     public typealias CameraDirection = CameraDirection_V2.CameraDirection
     public typealias ScrollMode = ScrollMode_V2.ScrollMode
-    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
+//    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
     //    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V1.LayerTextVerticalAlignment
     
     public typealias VisualMediaFitStyle = VisualMediaFitStyle_V2.VisualMediaFitStyle
     public typealias ClassicAnimationCurve = ClassicAnimationCurve_V2.ClassicAnimationCurve
-//    public typealias LightType = LightType_V2.LightType
+    public typealias LightType = LightType_V2.LightType
     public typealias LayerStroke = LayerStroke_V2.LayerStroke
     public typealias DateAndTimeFormat = DateAndTimeFormat_V2.DateAndTimeFormat
     public typealias CustomShape = CustomShape_V2.CustomShape
@@ -147,7 +147,7 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .animationCurve(let value):
             self = .animationCurve(PortValue_V2.ClassicAnimationCurve(previousInstance: value))
         case .lightType(let value):
-            self = .lightType(value)
+            self = .lightType(PortValue_V2.LightType(previousInstance: value))
         case .layerStroke(let value):
             self = .layerStroke(PortValue_V2.LayerStroke(previousInstance: value))
         case .textTransform(let value):

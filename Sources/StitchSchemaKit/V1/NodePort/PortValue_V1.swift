@@ -32,7 +32,7 @@ public enum PortValue_V1: StitchSchemaVersionable {
     
     public typealias VisualMediaFitStyle = VisualMediaFitStyle_V1.VisualMediaFitStyle
     public typealias ClassicAnimationCurve = ClassicAnimationCurve_V1.ClassicAnimationCurve
-//    public typealias LightType = LightType_V1.LightType
+    public typealias LightType = LightType_V1.LightType
     public typealias LayerStroke = LayerStroke_V1.LayerStroke
     public typealias DateAndTimeFormat = DateAndTimeFormat_V1.DateAndTimeFormat
     public typealias CustomShape = CustomShape_V1.CustomShape

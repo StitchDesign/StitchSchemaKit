@@ -12,7 +12,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.StitchDocument
+    public typealias PreviousInstance = StitchDocument_V1.StitchDocument
     public typealias NodeEntitySchema = NodeEntity_V2
     public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData_V2.CommentBoxData]
     // MARK: - end
@@ -73,11 +73,6 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
 
 extension StitchDocument_V2.StitchDocument {
     public init(previousInstance: StitchDocument_V2.PreviousInstance) {
-        fatalError()
-        //            self.projectId = previousInstance.projectId
-        //            self.name = previousInstance.name
-        //            self.previewWindowSizeWidth = previousInstance.previewWindowSizeWidth
-        //            self.previewWindowSizeHeight = previousInstance.previewWindowSizeHeight
-        //            self.nodes = NodeEntitySchema.NodeEntity_Codable.upgradeEntities(previousInstance.nodes)
+//        self.init(projectId: previousInstance.projectId, name: previousInstance.name, previewWindowSize: previousInstance.previewWindowSize, previewSizeDevice: previousInstance.previewSizeDevice, previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor, localPosition: previousInstance.localPosition, zoomData: previousInstance.zoomData, nodes: previousInstance.nodes, orderedSidebarLayers: previousInstance.orderedSidebarLayers, commentBoxesDict: previousInstance.commentBoxesDict, cameraSettings: previousInstance.cameraSettings)
     }
 }

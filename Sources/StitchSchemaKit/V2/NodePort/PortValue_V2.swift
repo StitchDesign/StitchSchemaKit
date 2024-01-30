@@ -29,6 +29,15 @@ public enum PortValue_V2: StitchSchemaVersionable {
 //    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
 
     
+    public typealias VisualMediaFitStyle = VisualMediaFitStyle_V2.VisualMediaFitStyle
+    public typealias ClassicAnimationCurve = ClassicAnimationCurve_V2.ClassicAnimationCurve
+//    public typealias LightType = LightType_V2.LightType
+    public typealias LayerStroke = LayerStroke_V2.LayerStroke
+    public typealias DateAndTimeFormat = DateAndTimeFormat_V2.DateAndTimeFormat
+    public typealias CustomShape = CustomShape_V2.CustomShape
+    public typealias ScrollJumpStyle = ScrollJumpStyle_V2.ScrollJumpStyle
+    public typealias ScrollDecelerationRate = ScrollDecelerationRate_V2.ScrollDecelerationRate
+    public typealias PortValueComparable = PortValueComparable_V2.PortValueComparable
     public typealias DelayStyle = DelayStyle_V2.DelayStyle
     public typealias ShapeCoordinates = ShapeCoordinates_V2.ShapeCoordinates
     public typealias ShapeCommandType = ShapeCommandType_V2.ShapeCommandType
@@ -134,25 +143,25 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .textVerticalAlignment(let value):
             self = .textVerticalAlignment(value)
         case .fitStyle(let value):
-            self = .fitStyle(value)
+            self = .fitStyle(PortValue_V2.VisualMediaFitStyle(previousInstance: value))
         case .animationCurve(let value):
-            self = .animationCurve(value)
+            self = .animationCurve(PortValue_V2.ClassicAnimationCurve(previousInstance: value))
         case .lightType(let value):
             self = .lightType(value)
         case .layerStroke(let value):
-            self = .layerStroke(value)
+            self = .layerStroke(PortValue_V2.LayerStroke(previousInstance: value))
         case .textTransform(let value):
             self = .textTransform(value)
         case .dateAndTimeFormat(let value):
-            self = .dateAndTimeFormat(value)
+            self = .dateAndTimeFormat(PortValue_V2.DateAndTimeFormat(previousInstance: value))
         case .shape(let value):
-            self = .shape(value)
+            self = .shape(PortValue_V2.CustomShape(previousInstance: value))
         case .scrollJumpStyle(let value):
-            self = .scrollJumpStyle(value)
+            self = .scrollJumpStyle(PortValue_V2.ScrollJumpStyle(previousInstance: value))
         case .scrollDecelerationRate(let value):
-            self = .scrollDecelerationRate(value)
+            self = .scrollDecelerationRate(PortValue_V2.ScrollDecelerationRate(previousInstance: value))
         case .comparable(let value):
-            self = .comparable(value)
+            self = .comparable(PortValue_V2.PortValueComparable(previousInstance: value))
         case .delayStyle(let value):
             self = .delayStyle(PortValue_V2.DelayStyle(previousInstance: value))
         case .shapeCoordinates(let value):

@@ -73,6 +73,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
 
 extension StitchDocument_V2.StitchDocument {
     public init(previousInstance: StitchDocument_V2.PreviousInstance) {
+        fatalError()
 //        self.init(projectId: previousInstance.projectId, name: previousInstance.name, previewWindowSize: previousInstance.previewWindowSize, previewSizeDevice: previousInstance.previewSizeDevice, previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor, localPosition: previousInstance.localPosition, zoomData: previousInstance.zoomData, nodes: previousInstance.nodes, orderedSidebarLayers: previousInstance.orderedSidebarLayers, commentBoxesDict: previousInstance.commentBoxesDict, cameraSettings: previousInstance.cameraSettings)
     }
 }

@@ -15,6 +15,9 @@ public enum PortValue_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.PortValue
+    public typealias LayerDimension = LayerDimension_V1.LayerDimension
+    public typealias Plane = Plane_V1.Plane
+    
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {

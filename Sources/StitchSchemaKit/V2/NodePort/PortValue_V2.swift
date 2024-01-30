@@ -40,7 +40,7 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias DelayStyle = DelayStyle_V2.DelayStyle
     public typealias ShapeCoordinates = ShapeCoordinates_V2.ShapeCoordinates
     public typealias ShapeCommandType = ShapeCommandType_V2.ShapeCommandType
-//    public typealias ShapeCommand = ShapeCommand_V2.ShapeCommand
+    public typealias ShapeCommand = ShapeCommand_V2.ShapeCommand
     public typealias StitchOrientation = StitchOrientation_V2.StitchOrientation
     public typealias StitchCameraOrientation = StitchCameraOrientation_V2.StitchCameraOrientation
     public typealias StitchDeviceOrientation = StitchDeviceOrientation_V2.StitchDeviceOrientation
@@ -168,7 +168,7 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .shapeCommandType(let value):
             self = .shapeCommandType(PortValue_V2.ShapeCommandType(previousInstance: value))
         case .shapeCommand(let value):
-            self = .shapeCommand(value)
+            self = .shapeCommand(PortValue_V2.ShapeCommand(previousInstance: value))
         case .orientation(let value):
             self = .orientation(PortValue_V2.StitchOrientation(previousInstance: value))
         case .cameraOrientation(let value):

@@ -21,6 +21,12 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias LayerSize = LayerSize_V2.LayerSize
     public typealias Point3D = Point3D_V2.Point3D
     public typealias Point4D = Point4D_V2.Point4D
+    public typealias AsyncMediaValue = AsyncMediaValue_V2.AsyncMediaValue
+    public typealias StitchJSON = StitchJSON_V2.StitchJSON
+    public typealias Anchoring = Anchoring_V2.Anchoring
+    public typealias CameraDirection = CameraDirection_V2.CameraDirection
+    public typealias ScrollMode = ScrollMode_V2.ScrollMode
+    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
 
     // MARK: - end
     
@@ -103,17 +109,17 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .pulse(let value):
             self = .pulse(value)
         case .asyncMedia(let value):
-            self = .asyncMedia(value)
+            self = .asyncMedia(PortValue_V2.AsyncMediaValue(previousInstance: value))
         case .json(let value):
-            self = .json(value)
+            self = .json(PortValue_V2.StitchJSON(previousInstance: value))
         case .anchoring(let value):
-            self = .anchoring(value)
+            self = .anchoring(PortValue_V2.Anchoring(previousInstance: value))
         case .cameraDirection(let value):
-            self = .cameraDirection(value)
+            self = .cameraDirection(PortValue_V2.CameraDirection(previousInstance: value))
         case .assignedLayer(let value):
             self = .assignedLayer(value)
         case .scrollMode(let value):
-            self = .scrollMode(value)
+            self = .scrollMode(PortValue_V2.ScrollMode(previousInstance: value))
         case .textAlignment(let value):
             self = .textAlignment(value)
         case .textVerticalAlignment(let value):

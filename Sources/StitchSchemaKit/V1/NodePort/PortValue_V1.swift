@@ -21,6 +21,13 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias LayerSize = LayerSize_V1.LayerSize
     public typealias Point3D = Point3D_V1.Point3D
     public typealias Point4D = Point4D_V1.Point4D
+    public typealias AsyncMediaValue = AsyncMediaValue_V1.AsyncMediaValue
+    public typealias StitchJSON = StitchJSON_V1.StitchJSON
+    public typealias Anchoring = Anchoring_V1.Anchoring
+    public typealias CameraDirection = CameraDirection_V1.CameraDirection
+    public typealias ScrollMode = ScrollMode_V1.ScrollMode
+    public typealias TextAlignment = LayerTextAlignment_V1.LayerTextAlignment
+    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V1.LayerTextVerticalAlignment
 
     // MARK: - end
     

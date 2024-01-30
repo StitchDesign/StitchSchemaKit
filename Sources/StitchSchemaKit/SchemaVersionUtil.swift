@@ -84,6 +84,30 @@ extension StitchVersionedCodable {
     }
 }
 
+extension Array where Element: StitchVersionedCodable {
+    init(previousElements: [Element.PreviousCodable]) {
+        self = previousElements.map { Element(previousInstance: $0) }
+    }
+    
+    init?(previousElements: [Element.PreviousCodable]?) {
+        guard let previousElements = previousElements else {
+            return nil
+        }
+        
+        self = previousElements.map { Element(previousInstance: $0) }
+    }
+}
+
+extension StitchVersionedCodable {
+    init?(previousInstance: Self.PreviousCodable?) {
+        guard let previousInstance = previousInstance else {
+            return nil
+        }
+        
+        self = .init(previousInstance: previousInstance)
+    }
+}
+
 extension StitchVersionedData {
     /// Initializer that uses current version.
     public init(currentDoc: StitchDocument) throws {

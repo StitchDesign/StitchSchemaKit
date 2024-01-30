@@ -16,7 +16,7 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
     typealias StitchDocumentSchema = StitchDocument_V2
     public typealias PatchNodeEntitySchema = PatchNodeEntity_V2
     public typealias LayerNodeEntitySchema = LayerNodeEntity_V2
-    public typealias NodePortInputEntitySchema = NodePortInputEntity_V2
+    public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V2.NodePortInputEntity]
     // MARK: - end
 
     public struct NodeEntity {
@@ -28,7 +28,7 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
         public let layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?
         public let isGroupNode: Bool
         public let title: String
-        public let inputs: [NodePortInputEntitySchema.NodePortInputEntity]
+        public let inputs: NodePortInputEntitySchemas
         
         public init(id: NodeId,
              position: CGPoint,
@@ -38,7 +38,7 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
              layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?,
              isGroupNode: Bool,
              title: String,
-             inputs: [NodePortInputEntitySchema.NodePortInputEntity]) {
+             inputs: NodePortInputEntitySchemas) {
             self.id = id
             self.position = position
             self.zIndex = zIndex
@@ -54,31 +54,18 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
 
 extension NodeEntity_V2.NodeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeEntity_V2.PreviousInstance) {
-        fatalError()
+        self.init(
+            id: previousInstance.id,
+            position: previousInstance.position,
+            zIndex: previousInstance.zIndex,
+            parentGroupNodeId: previousInstance.parentGroupNodeId,
+            patchNodeEntity: NodeEntity_V2.PatchNodeEntitySchema
+                .PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity),
+            layerNodeEntity: NodeEntity_V2.LayerNodeEntitySchema
+                .LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity),
+            isGroupNode: previousInstance.isGroupNode,
+            title: previousInstance.title,
+            inputs: NodeEntity_V2.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
+        )
     }
-
-//    init(from viewModel: NodeViewModel) {
-//        var patchNodeEntity: PatchNodeEntity_V2.PatchNodeEntity?
-//        var layerNodeEntity: LayerNodeEntity_V2.LayerNodeEntity?
-//
-//        self.id = viewModel.id
-//        self.position = viewModel.position
-//        self.zIndex = viewModel.zIndex
-//        self.parentGroupNodeId = viewModel.parentGroupNodeId
-//        self.isGroupNode = viewModel.kind.isGroup
-//        self.title = viewModel.title
-//
-//        switch viewModel.nodeType {
-//        case .patch(let patchNode):
-//            patchNodeEntity = .init(from: patchNode)
-//        case .layer(let layerNode):
-//            layerNodeEntity = .init(from: layerNode)
-//        case .group:
-//            break
-//        }
-//
-//        self.patchNodeEntity = patchNodeEntity
-//        self.layerNodeEntity = layerNodeEntity
-//        self.inputs = viewModel.inputsObservers.map { $0.createSchema() }
-//    }
 }

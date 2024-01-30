@@ -39,7 +39,7 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias PortValueComparable = PortValueComparable_V1.PortValueComparable
     public typealias DelayStyle = DelayStyle_V1.DelayStyle
     public typealias ShapeCoordinates = ShapeCoordinates_V1.ShapeCoordinates
-//    public typealias ShapeCommandType = ShapeCommandType_V1.ShapeCommandType
+    public typealias ShapeCommandType = ShapeCommandType_V1.ShapeCommandType
 //    public typealias ShapeCommand = ShapeCommand_V1.ShapeCommand
     public typealias StitchOrientation = StitchOrientation_V1.StitchOrientation
     public typealias StitchCameraOrientation = StitchCameraOrientation_V1.StitchCameraOrientation

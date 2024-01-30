@@ -17,6 +17,7 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.PortValue
     public typealias LayerDimension = LayerDimension_V1.LayerDimension
     public typealias Plane = Plane_V1.Plane
+    public typealias NetworkRequestType = NetworkRequestType_V1.NetworkRequestType
     
     // MARK: - end
     

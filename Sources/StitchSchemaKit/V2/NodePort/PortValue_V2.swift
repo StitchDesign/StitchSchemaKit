@@ -17,6 +17,7 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias PreviousInstance = PortValue_V1.PortValue
     public typealias LayerDimension = LayerDimension_V2.LayerDimension
     public typealias Plane = Plane_V2.Plane
+    public typealias NetworkRequestType = NetworkRequestType_V2.NetworkRequestType
 
     // MARK: - end
     
@@ -85,7 +86,7 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .plane(let value):
             self = .plane(PortValue_V2.Plane(previousInstance: value))
         case .networkRequestType(let value):
-            self = .networkRequestType(value)
+            self = .networkRequestType(NetworkRequestType(previousInstance: value))
         case .color(let value):
             self = .color(value)
         case .size(let value):

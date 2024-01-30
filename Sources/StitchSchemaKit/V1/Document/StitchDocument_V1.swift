@@ -13,8 +13,11 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.StitchDocument
-    public typealias NodeEntitySchema = NodeEntity_V1
+    public typealias NodeEntitySchemas = [NodeEntity_V1.NodeEntity]
     public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData_V1.CommentBoxData]
+    public typealias PreviewSize = PreviewSize_V1.PreviewSize
+    public typealias SidebarLayerTypes = [SidebarLayerType_V1.SidebarLayerType]
+    public typealias CameraSettings = CameraSettings_V1.CameraSettings
     // MARK: - end
 
     // TODO: transferable
@@ -32,8 +35,8 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
         public let zoomData: CGFloat
 
         // Node data
-        public let nodes: [NodeEntitySchema.NodeEntity]
-        public let orderedSidebarLayers: [SidebarLayerType]
+        public let nodes: NodeEntitySchemas
+        public let orderedSidebarLayers: SidebarLayerTypes
         public let commentBoxesDict: CommentBoxesDict
 
         public let cameraSettings: CameraSettings
@@ -45,8 +48,8 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
              previewWindowBackgroundColor: Color,
              localPosition: CGPoint,
              zoomData: CGFloat,
-             nodes: [NodeEntitySchema.NodeEntity],
-             orderedSidebarLayers: [SidebarLayerType],
+             nodes: NodeEntitySchemas,
+             orderedSidebarLayers: SidebarLayerTypes,
              commentBoxesDict: CommentBoxesDict,
              cameraSettings: CameraSettings) {
             self.projectId = projectId

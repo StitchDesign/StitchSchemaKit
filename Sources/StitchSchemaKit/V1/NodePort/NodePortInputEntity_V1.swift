@@ -15,6 +15,10 @@ public enum NodePortInputEntity_V1: StitchSchemaVersionable {
     typealias NodeEntitySchema = NodeEntity_V1
     public typealias PreviousInstance = Self.NodePortInputEntity
     typealias PatchNodeEntitySchema = PatchNodeEntity_V1
+    public typealias PortValueSchema = PortValue_V1.PortValue
+    public typealias NodeIOCoordinate = NodeIOCoordinate_V1.NodeIOCoordinate
+    public typealias NodeKind = NodeKind_V1.NodeKind
+    public typealias UserVisibleType = UserVisibleType_V1.UserVisibleType
     // MARK: - end
 
     public struct NodePortInputEntity {
@@ -22,13 +26,14 @@ public enum NodePortInputEntity_V1: StitchSchemaVersionable {
         public let nodeKind: NodeKind
         public let userVisibleType: UserVisibleType?
         // Either we have values or an upstream connection
-        public let values: PortValues?
+        public let values: [PortValueSchema]?
         public let upstreamOutputCoordinate: NodeIOCoordinate?
         
         public init(id: NodeIOCoordinate,
                     nodeKind: NodeKind,
                     userVisibleType: UserVisibleType?,
-                    values: PortValues?, upstreamOutputCoordinate: NodeIOCoordinate?) {
+                    values: [PortValueSchema]?,
+                    upstreamOutputCoordinate: NodeIOCoordinate?) {
             self.id = id
             self.nodeKind = nodeKind
             self.userVisibleType = userVisibleType

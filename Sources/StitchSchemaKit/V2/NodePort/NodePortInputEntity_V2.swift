@@ -15,6 +15,10 @@ public enum NodePortInputEntity_V2: StitchSchemaVersionable {
     typealias NodeEntitySchema = NodeEntity_V2
     public typealias PreviousInstance = NodePortInputEntity_V1.NodePortInputEntity
     typealias PatchNodeEntitySchema = PatchNodeEntity_V2
+    public typealias PortValueSchemas = [PortValue_V2.PortValue]
+    public typealias NodeIOCoordinate = NodeIOCoordinate_V2.NodeIOCoordinate
+    public typealias NodeKind = NodeKind_V2.NodeKind
+    public typealias UserVisibleType = UserVisibleType_V2.UserVisibleType
     // MARK: - end
 
     public struct NodePortInputEntity {
@@ -22,13 +26,14 @@ public enum NodePortInputEntity_V2: StitchSchemaVersionable {
         public let nodeKind: NodeKind
         public let userVisibleType: UserVisibleType?
         // Either we have values or an upstream connection
-        public let values: PortValues?
+        public let values: PortValueSchemas?
         public let upstreamOutputCoordinate: NodeIOCoordinate?
         
         public init(id: NodeIOCoordinate,
                     nodeKind: NodeKind,
                     userVisibleType: UserVisibleType?,
-                    values: PortValues?, upstreamOutputCoordinate: NodeIOCoordinate?) {
+                    values: PortValueSchemas?,
+                    upstreamOutputCoordinate: NodeIOCoordinate?) {
             self.id = id
             self.nodeKind = nodeKind
             self.userVisibleType = userVisibleType
@@ -40,6 +45,10 @@ public enum NodePortInputEntity_V2: StitchSchemaVersionable {
 
 extension NodePortInputEntity_V2.NodePortInputEntity: StitchVersionedCodable {
     public init(previousInstance: NodePortInputEntity_V2.PreviousInstance) {
-        self.init(id: previousInstance.id, nodeKind: previousInstance.nodeKind, userVisibleType: previousInstance.userVisibleType, values: previousInstance.values, upstreamOutputCoordinate: previousInstance.upstreamOutputCoordinate)
+        self.init(id: NodePortInputEntity_V2.NodeIOCoordinate(previousInstance: previousInstance.id),
+                  nodeKind: NodePortInputEntity_V2.NodeKind(previousInstance: previousInstance.nodeKind),
+                  userVisibleType: NodePortInputEntity_V2.UserVisibleType(previousInstance: previousInstance.userVisibleType),
+                  values: NodePortInputEntity_V2.PortValueSchemas(previousElements: previousInstance.values),
+                  upstreamOutputCoordinate: NodePortInputEntity_V2.NodeIOCoordinate(previousInstance: previousInstance.upstreamOutputCoordinate))
     }
 }

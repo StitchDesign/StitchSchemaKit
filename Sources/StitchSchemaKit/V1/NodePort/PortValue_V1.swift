@@ -20,6 +20,7 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias NetworkRequestType = NetworkRequestType_V1.NetworkRequestType
     public typealias LayerSize = LayerSize_V1.LayerSize
     public typealias Point3D = Point3D_V1.Point3D
+    public typealias Point4D = Point4D_V1.Point4D
 
     // MARK: - end
     

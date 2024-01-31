@@ -35,28 +35,45 @@ extension StitchSchemaVersionType {
     }
 }
 
-public struct StitchVersionedData: Codable {
-    public let version: StitchSchemaVersion
-    public let data: Data
-    
-    public init(version: StitchSchemaVersion, data: Data) {
-        self.version = version
-        self.data = data
+extension URL {
+    /// Parse the version number from some string file extension (i.e. "v2.json")
+    func getSchemaVersion() -> StitchSchemaVersion? {
+        let splitFileExt = self.filename.split { $0 == "." }
+        
+        // File ext should be ["data", "v(n)"] where n is the version number
+        guard let versionSplitString = splitFileExt[safe: 1],
+              let versionString = versionSplitString.split(separator: "v").first else {
+            return nil
+        }
+        
+        guard let versionNum = Int(versionString) else {
+            return nil
+        }
+        
+        let matchedVersion = StitchSchemaVersion(rawValue: versionNum)
+        return matchedVersion
     }
 }
 
 extension StitchDocumentVersion {
-    public func migrate(versionedCodable: StitchVersionedData) throws -> Self.NewestVersionType? {
+    public static func migrate(versionedCodableUrl: URL) throws -> Self.NewestVersionType? {
         // 1. get version
         // 2. call decode with payload
         // 3. get next type
         // 4. call next type's init with decoded data
         // 5. encode, rinse and repeat
         // 6. return when casting successful on newest type
+        
+        // Parse version from data file extension
+        guard var currentVersion = versionedCodableUrl.getSchemaVersion() else {
+            print("StitchDocumentVersion.migrate error: could not parse version number from extension in: \(versionedCodableUrl)")
+            return nil
+        }
 
         let newestVersion = StitchSchemaVersion.getNewestVersion()
-        var currentVersion = versionedCodable.version
-        var currentEntity: any StitchVersionedCodable = try self.decode(versionedCodable.data)
+        let versionedData = try Data(contentsOf: versionedCodableUrl)
+        let documentVersion = StitchDocumentVersion(version: currentVersion)
+        var currentEntity: any StitchVersionedCodable = try documentVersion.decode(versionedData)
 
         // continue so long as current version doesn't match newest
         while currentVersion != newestVersion {
@@ -83,18 +100,6 @@ extension StitchVersionedCodable {
         previousEntities.map { Self.init(previousInstance: $0) }
     }
 }
-
-extension StitchVersionedData {
-    /// Initializer that uses current version.
-    public init(currentDoc: StitchDocument) throws {
-        let encoder = getStitchEncoder()
-        let encodedDoc = try encoder.encode(currentDoc)
-
-        self.version = StitchSchemaVersion.getNewestVersion()
-        self.data = encodedDoc
-    }
-}
-
 public protocol StitchVersionedCodable: Codable, Sendable {
     associatedtype PreviousCodable: StitchVersionedCodable
     init(previousInstance: PreviousCodable)

@@ -16,7 +16,6 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
     public typealias NodeEntitySchema = NodeEntity_V1
     // MARK: - end
 
-    // TODO: transferable
     public struct StitchDocument: StitchVersionedCodable {
         public var projectId: ProjectId
         public var name: String
@@ -60,13 +59,6 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
             self.commentBoxesDict = commentBoxesDict
             self.cameraSettings = cameraSettings
         }
-        
-        // MARK: remove `transferRepresentation` from older `StitchDocument` versions
-//        static var transferRepresentation: some TransferRepresentation {
-//            FileRepresentation(contentType: .stitchDocument,
-//                               exporting: Self.exportDocument,
-//                               importing: Self.importDocument)
-//        }
     }
 }
 

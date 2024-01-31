@@ -11,6 +11,8 @@ public enum CameraSettings_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.CameraSettings
+    public typealias StitchCameraOrientation = StitchCameraOrientation_V1.StitchCameraOrientation
+
     // MARK: - endif
     
     // Used for VStack vs HStack on layer groups

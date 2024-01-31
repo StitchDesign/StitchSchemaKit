@@ -12,6 +12,8 @@ public enum CommentBoxData_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.CommentBoxData
+    public typealias CommentExpansionBox = CommentExpansionBox_V1.CommentExpansionBox
+
     // MARK: - endif
  
 

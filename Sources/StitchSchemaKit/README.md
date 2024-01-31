@@ -16,9 +16,6 @@ Follow these instructions if you plan to make a change to any `SwiftData` entity
     * Also do a find + replace on the old previous version. If V3 is the new version, replace `_V1` with `_V2`.
 6. Add new `StitchSchemaVersion`, incrementing the number. Fix compiler warners for missing case in switch statements.
 7. Update the type aliases at the top of the SchemaVersions.swift file.
-8. The last most-recent `StitchDocument` needs to have its `Transferable` implementation removed. Complete these steps from the old version:
-    1. Remove the `Transferable` inheritance at the class definition inside the enum. 
-    2. Remove `transferRepresentation` requirement static property.
     
 ### Supporting New Schema Entities
 1. Update `StitchDocumentMigratable` with a new dictionary of `PersistentIdentifier` ID's using the following format:

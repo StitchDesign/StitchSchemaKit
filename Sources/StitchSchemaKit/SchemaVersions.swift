@@ -115,7 +115,9 @@ public typealias Patch = CurrentPatch.Patch
 public typealias PatchNodeEntity = CurrentPatchNodeEntity.PatchNodeEntity
 public typealias PathPoint = CurrentPathPoint.PathPoint
 public typealias Plane = CurrentPlane.Plane
+#if !os(visionOS)
 public typealias Point3D = CurrentPoint3D.Point3D
+#endif
 public typealias Point4D = CurrentPoint4D.Point4D
 public typealias PortValue = CurrentPortValue.PortValue
 public typealias PortValueComparable = CurrentPortValueComparable.PortValueComparable

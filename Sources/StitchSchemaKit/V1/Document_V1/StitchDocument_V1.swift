@@ -31,22 +31,22 @@ public enum StitchDocument_V1: StitchSchemaVersionable {
 
         // Node data
         public let nodes: [NodeEntitySchema.NodeEntity]
-        public let orderedSidebarLayers: [SidebarLayerType]
+        public let orderedSidebarLayers: [SidebarLayerData]
         public let commentBoxesDict: CommentBoxesDict
 
         public let cameraSettings: CameraSettings
 
-        public init(projectId: ProjectId,
-             name: String,
-             previewWindowSize: CGSize,
-             previewSizeDevice: PreviewSize,
-             previewWindowBackgroundColor: Color,
-             localPosition: CGPoint,
-             zoomData: CGFloat,
-             nodes: [NodeEntitySchema.NodeEntity],
-             orderedSidebarLayers: [SidebarLayerType],
-             commentBoxesDict: CommentBoxesDict,
-             cameraSettings: CameraSettings) {
+        public init(projectId: ProjectId = .init(),
+                    name: String = Self.defaultName,
+                    previewWindowSize: CGSize = Self.defaultPreviewWindowSize,
+                    previewSizeDevice: PreviewSize = PreviewSize.defaultOption,
+                    previewWindowBackgroundColor: Color = Self.defaultBackgroundColor,
+                    localPosition: CGPoint = .zero,
+                    zoomData: CGFloat = .zero,
+             nodes: [NodeEntitySchema.NodeEntity] = [],
+             orderedSidebarLayers: [SidebarLayerData] = [],
+                    commentBoxesDict: CommentBoxesDict = .init(),
+                    cameraSettings: CameraSettings = .init()) {
             self.projectId = projectId
             self.name = name
             self.previewWindowSize = previewWindowSize

@@ -15,8 +15,14 @@ public enum StitchFont_V1: StitchSchemaVersionable {
 
     // the value that lives in the input's PortValue and which is passed down to view models etc.
     public struct StitchFont: Equatable, Codable, Hashable {
-        var fontChoice: StitchFontChoice
-        var fontWeight: StitchFontWeight
+        public var fontChoice: StitchFontChoice
+        public var fontWeight: StitchFontWeight
+        
+        public init(fontChoice: StitchFontChoice, 
+                    fontWeight: StitchFontWeight) {
+            self.fontChoice = fontChoice
+            self.fontWeight = fontWeight
+        }
     }
 }
 

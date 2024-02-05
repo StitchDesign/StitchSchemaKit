@@ -57,6 +57,8 @@ public enum UserVisibleType_V1: StitchSchemaVersionable {
         case cameraOrientation
         case deviceOrientation
         case vnImageCropOption
+        case textDecoration
+        case textFont
     }
 
 

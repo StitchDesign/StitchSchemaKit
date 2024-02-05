@@ -60,6 +60,8 @@ public enum PortValue_V1: StitchSchemaVersionable {
         case cameraOrientation(StitchCameraOrientation)
         case deviceOrientation(StitchDeviceOrientation)
         case vnImageCropOption(VNImageCropAndScaleOption)
+        case textDecoration(LayerTextDecoration)
+        case textFont(StitchFont)
     }
 }
 

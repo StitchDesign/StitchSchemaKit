@@ -10,7 +10,7 @@ import Foundation
 public enum StitchFontChoice_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.StitchFontChoice
+    public typealias PreviousInstance = StitchFontChoice_V2.StitchFontChoice
     // MARK: - endif
 
     public enum StitchFontChoice: String, Equatable, CaseIterable, Codable, Hashable {
@@ -23,6 +23,15 @@ public enum StitchFontChoice_V2: StitchSchemaVersionable {
 
 extension StitchFontChoice_V2.StitchFontChoice: StitchVersionedCodable {
     public init(previousInstance: StitchFontChoice_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+        case .sf:
+            self = .sf
+        case .sfMono:
+            self = .sfMono
+        case .sfRounded:
+            self = .sfRounded
+        case .newYorkSerif:
+            self = .newYorkSerif
+        }
     }
 }

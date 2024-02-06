@@ -14,8 +14,8 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
     static let version = StitchSchemaVersion._V2
     public typealias PreviousInstance = NodeEntity_V1.NodeEntity
     typealias StitchDocumentSchema = StitchDocument_V2
-    public typealias PatchNodeEntitySchema = PatchNodeEntity_V2
-    public typealias LayerNodeEntitySchema = LayerNodeEntity_V2
+    public typealias PatchNodeEntitySchema = PatchNodeEntity_V2.PatchNodeEntity
+    public typealias LayerNodeEntitySchema = LayerNodeEntity_V2.LayerNodeEntity
     public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V2.NodePortInputEntity]
     // MARK: - end
 
@@ -24,8 +24,8 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
         public let position: CGPoint
         public let zIndex: Double
         public let parentGroupNodeId: NodeId?
-        public let patchNodeEntity: PatchNodeEntitySchema.PatchNodeEntity?
-        public let layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?
+        public let patchNodeEntity: PatchNodeEntitySchema?
+        public let layerNodeEntity: LayerNodeEntitySchema?
         public let isGroupNode: Bool
         public let title: String
         public let inputs: NodePortInputEntitySchemas
@@ -34,8 +34,8 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
              position: CGPoint,
              zIndex: Double,
              parentGroupNodeId: NodeId?,
-             patchNodeEntity: PatchNodeEntitySchema.PatchNodeEntity?,
-             layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?,
+             patchNodeEntity: PatchNodeEntitySchema?,
+             layerNodeEntity: LayerNodeEntitySchema?,
              isGroupNode: Bool,
              title: String,
              inputs: NodePortInputEntitySchemas) {
@@ -59,8 +59,8 @@ extension NodeEntity_V2.NodeEntity: StitchVersionedCodable {
             position: previousInstance.position,
             zIndex: previousInstance.zIndex,
             parentGroupNodeId: previousInstance.parentGroupNodeId,
-            patchNodeEntity: NodeEntity_V2.PatchNodeEntitySchema
-                .PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity),
+            patchNodeEntity:
+                NodeEntity_V2.PatchNodeEntitySchema(previousInstance: previousInstance.patchNodeEntity),
             layerNodeEntity: NodeEntity_V2.LayerNodeEntitySchema
                 .LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity),
             isGroupNode: previousInstance.isGroupNode,

@@ -115,15 +115,15 @@ extension Array where Element: StitchVersionedCodable {
     }
 }
 
-// extension StitchVersionedCodable {
-//     init?(previousInstance: Self.PreviousCodable?) {
-//         guard let previousInstance = previousInstance else {
-//             return nil
-//         }
+ extension StitchVersionedCodable {
+     init?(previousInstance: Self.PreviousCodable?) {
+         guard let previousInstance = previousInstance else {
+             return nil
+         }
         
-//         self = .init(previousInstance: previousInstance)
-//     }
-// }
+         self = .init(previousInstance: previousInstance)
+     }
+ }
 
 // extension StitchVersionedData {
 //     /// Initializer that uses current version.

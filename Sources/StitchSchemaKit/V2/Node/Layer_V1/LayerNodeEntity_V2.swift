@@ -12,7 +12,8 @@ public enum LayerNodeEntity_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V2
     public typealias PreviousInstance = LayerNodeEntity_V1.LayerNodeEntity
-    typealias NodeEntitySchema = NodeEntity_V2
+    public typealias NodeEntitySchema = NodeEntity_V2
+    public typealias Layer = Layer_V2.Layer
     // MARK: - end
 
     public struct LayerNodeEntity {
@@ -38,7 +39,12 @@ public enum LayerNodeEntity_V2: StitchSchemaVersionable {
 
 extension LayerNodeEntity_V2.LayerNodeEntity: StitchVersionedCodable {
     public init(previousInstance: LayerNodeEntity_V2.PreviousInstance) {
-        fatalError()
+        self.init(id: previousInstance.id,
+                  layer:
+                    LayerNodeEntity_V2.Layer(previousInstance: previousInstance.layer),
+                  interactionsDict: previousInstance.interactionsDict,
+                  hasSidebarVisibility: previousInstance.hasSidebarVisibility,
+                  layerGroupId: previousInstance.layerGroupId)
     }
 
 //    init(from viewModel: LayerNodeViewModel) {

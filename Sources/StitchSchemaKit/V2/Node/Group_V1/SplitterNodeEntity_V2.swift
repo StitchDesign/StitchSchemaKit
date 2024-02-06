@@ -11,7 +11,8 @@ public enum SplitterNodeEntity_V2: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V2
-    public typealias PreviousInstance = Self.SplitterNodeEntity
+    public typealias PreviousInstance = SplitterNodeEntity_V1.SplitterNodeEntity
+    public typealias SplitterType = SplitterType_V2.SplitterType
     // MARK: - end
 
     public struct SplitterNodeEntity {
@@ -29,12 +30,10 @@ public enum SplitterNodeEntity_V2: StitchSchemaVersionable {
 }
 
 extension SplitterNodeEntity_V2.SplitterNodeEntity: StitchVersionedCodable {
-    public init(previousInstance: PatchNodeEntity_V2.PreviousInstance) {
-        fatalError()
+    public init(previousInstance: SplitterNodeEntity_V2.PreviousInstance) {
+        self.init(id: previousInstance.id,
+                  lastModifiedDate: previousInstance.lastModifiedDate,
+                  type: 
+                    SplitterNodeEntity_V2.SplitterType(previousInstance: previousInstance.type))
     }
-
-//    init(from viewModel: SplitterNodeEntity_V2.SplitterNodeEntity) {
-//        // Not actually used
-//        fatalError()
-//    }
 }

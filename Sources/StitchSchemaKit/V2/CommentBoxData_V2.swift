@@ -71,6 +71,15 @@ public enum CommentBoxData_V2: StitchSchemaVersionable {
 
 extension CommentBoxData_V2.CommentBoxData: StitchVersionedCodable {
     public init(previousInstance: CommentBoxData_V2.PreviousInstance) {
-        self.init(id: previousInstance.id, groupId: previousInstance.groupId, title: previousInstance.title, color: previousInstance.color, nodes: previousInstance.nodes, position: previousInstance.position, previousPosition: previousInstance.previousPosition, expansionBox: previousInstance.expansionBox, zIndex: previousInstance.zIndex)
+        self.init(id: previousInstance.id,
+                  groupId: previousInstance.groupId,
+                  title: previousInstance.title,
+                  color: previousInstance.color,
+                  nodes: previousInstance.nodes,
+                  position: previousInstance.position,
+                  previousPosition: previousInstance.previousPosition,
+                  expansionBox:
+                    CommentBoxData_V2.CommentExpansionBox(previousInstance: previousInstance.expansionBox),
+                  zIndex: previousInstance.zIndex)
     }
 }

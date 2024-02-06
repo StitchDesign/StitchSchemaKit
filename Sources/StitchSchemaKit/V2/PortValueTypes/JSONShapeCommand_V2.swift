@@ -12,7 +12,6 @@ public enum JSONShapeCommand_V2: StitchSchemaVersionable {
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
     public typealias PreviousInstance = JSONShapeCommand_V1.JSONShapeCommand
     public typealias JSONCurveTo = JSONCurveTo_V2.JSONCurveTo
-
     // MARK: - endif
  
 
@@ -42,7 +41,7 @@ extension JSONShapeCommand_V2.JSONShapeCommand: StitchVersionedCodable {
         case .lineTo(let value):
             self = .lineTo(value)
         case .curveTo(let value):
-            self = .curveTo(value)
+            self = .curveTo(JSONShapeCommand_V2.JSONCurveTo(previousInstance: value))
         }
     }
 }

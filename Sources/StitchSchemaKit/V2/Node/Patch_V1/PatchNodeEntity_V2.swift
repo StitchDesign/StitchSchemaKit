@@ -12,19 +12,21 @@ public enum PatchNodeEntity_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V2
     public typealias PreviousInstance = PatchNodeEntity_V1.PatchNodeEntity
-    public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V2
+    public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V2.SplitterNodeEntity
+    public typealias Patch = Patch_V2.Patch
+    public typealias UserVisibleType = UserVisibleType_V2.UserVisibleType
     // MARK: - end
 
     public struct PatchNodeEntity {
         public let id: NodeId
         public let patch: Patch
         public let userVisibleType: UserVisibleType?
-        public let splitterNode: SplitterNodeEntitySchema.SplitterNodeEntity?
+        public let splitterNode: SplitterNodeEntitySchema?
         
         public init(id: NodeId,
              patch: Patch,
              userVisibleType: UserVisibleType?,
-             splitterNode: SplitterNodeEntitySchema.SplitterNodeEntity?) {
+             splitterNode: SplitterNodeEntitySchema?) {
             self.id = id
             self.patch = patch
             self.userVisibleType = userVisibleType
@@ -35,13 +37,12 @@ public enum PatchNodeEntity_V2: StitchSchemaVersionable {
 
 extension PatchNodeEntity_V2.PatchNodeEntity: StitchVersionedCodable {
     public init(previousInstance: PatchNodeEntity_V2.PreviousInstance) {
-        fatalError()
+        self.init(id: previousInstance.id,
+                  patch:
+                    PatchNodeEntity_V2.Patch(previousInstance: previousInstance.patch),
+                  userVisibleType: 
+                    PatchNodeEntity_V2.UserVisibleType(previousInstance: previousInstance.userVisibleType),
+                  splitterNode:
+                    PatchNodeEntity_V2.SplitterNodeEntitySchema(previousInstance: previousInstance.splitterNode))
     }
-
-//    init(from viewModel: PatchNodeViewModel) {
-//        self.id = viewModel.id
-//        self.patch = viewModel.patch
-//        self.userVisibleType = viewModel.userVisibleType
-//        self.splitterNode = viewModel.splitterNode
-//    }
 }

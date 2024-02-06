@@ -21,8 +21,8 @@ public enum CameraSettings_V2: StitchSchemaVersionable {
         public var direction: CameraDirection = .front
         public var orientation: StitchCameraOrientation
         
-        public init(direction: CameraDirection, 
-                    orientation: StitchCameraOrientation) {
+        public init(direction: CameraDirection = .front,
+                    orientation: StitchCameraOrientation = .defaultCameraOrientation) {
             self.direction = direction
             self.orientation = orientation
         }

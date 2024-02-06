@@ -26,7 +26,6 @@ public enum JSONShapeKeys_V2: StitchSchemaVersionable {
 
         public static let CURVE_FROM = "curveFrom"
     }
-
 }
 
 extension JSONShapeKeys_V2.JSONShapeKeys: StitchVersionedCodable {

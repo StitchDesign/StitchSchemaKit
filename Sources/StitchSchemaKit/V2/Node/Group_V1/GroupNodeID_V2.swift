@@ -29,6 +29,6 @@ public enum GroupNodeID_V2: StitchSchemaVersionable {
 
 extension GroupNodeID_V2.GroupNodeId: StitchVersionedCodable {
     public init(previousInstance: GroupNodeID_V2.PreviousInstance) {
-        fatalError()
+        self.init(previousInstance.id)
     }
 }

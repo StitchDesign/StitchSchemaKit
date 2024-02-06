@@ -28,7 +28,20 @@ public enum ShapeCommand_V2: StitchSchemaVersionable {
 
 extension ShapeCommand_V2.ShapeCommand: StitchVersionedCodable {
     public init(previousInstance: ShapeCommand_V2.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+        case .closePath:
+            self = .closePath
+        case .lineTo(point: let point):
+            self = .lineTo(point: point)
+        case .moveTo(point: let point):
+            self = .moveTo(point: point)
+        case .curveTo(curveFrom: let curveFrom,
+                      point: let point,
+                      curveTo: let curveTo):
+            self = .curveTo(curveFrom: curveFrom,
+                            point: point,
+                            curveTo: curveTo)
+        }
     }
 }
 

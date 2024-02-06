@@ -57,9 +57,9 @@ public enum UserVisibleType_V2: StitchSchemaVersionable {
         case cameraOrientation
         case deviceOrientation
         case vnImageCropOption
+        case textDecoration
+        case textFont
     }
-
-
 }
 
 extension UserVisibleType_V2.UserVisibleType: StitchVersionedCodable {
@@ -146,6 +146,10 @@ extension UserVisibleType_V2.UserVisibleType: StitchVersionedCodable {
             self = .deviceOrientation
         case .vnImageCropOption:
             self = .vnImageCropOption
+        case .textDecoration:
+            self = .textDecoration
+        case .textFont:
+            self = .textFont
         }
     }
 }

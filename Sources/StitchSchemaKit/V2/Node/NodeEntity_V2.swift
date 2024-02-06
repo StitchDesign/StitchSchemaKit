@@ -61,8 +61,8 @@ extension NodeEntity_V2.NodeEntity: StitchVersionedCodable {
             parentGroupNodeId: previousInstance.parentGroupNodeId,
             patchNodeEntity:
                 NodeEntity_V2.PatchNodeEntitySchema(previousInstance: previousInstance.patchNodeEntity),
-            layerNodeEntity: NodeEntity_V2.LayerNodeEntitySchema
-                .LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity),
+            layerNodeEntity:
+                NodeEntity_V2.LayerNodeEntitySchema(previousInstance: previousInstance.layerNodeEntity),
             isGroupNode: previousInstance.isGroupNode,
             title: previousInstance.title,
             inputs: NodeEntity_V2.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)

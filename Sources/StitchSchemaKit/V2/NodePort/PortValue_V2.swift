@@ -44,6 +44,8 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias StitchOrientation = StitchOrientation_V2.StitchOrientation
     public typealias StitchCameraOrientation = StitchCameraOrientation_V2.StitchCameraOrientation
     public typealias StitchDeviceOrientation = StitchDeviceOrientation_V2.StitchDeviceOrientation
+    public typealias StitchFont = StitchFont_V1.StitchFont
+    public typealias LayerTextDecoration = LayerTextDecoration_V1.LayerTextDecoration
 
     // MARK: - end
     
@@ -90,6 +92,8 @@ public enum PortValue_V2: StitchSchemaVersionable {
         case cameraOrientation(StitchCameraOrientation)
         case deviceOrientation(StitchDeviceOrientation)
         case vnImageCropOption(VNImageCropAndScaleOption)
+        case textDecoration(LayerTextDecoration)
+        case textFont(StitchFont)
     }
 }
 
@@ -179,6 +183,10 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
             self = .vnImageCropOption(value)
         case .none:
             self = .none
+        case .textDecoration(let value):
+            self = .textDecoration(value)
+        case .textFont(let value):
+            self = .textFont(value)
         }
     }
 }

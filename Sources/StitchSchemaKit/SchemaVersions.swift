@@ -63,7 +63,6 @@ public typealias CurrentShapeCommand = ShapeCommand_V2
 public typealias CurrentShapeCommandType = ShapeCommandType_V2
 public typealias CurrentShapeCoordinates = ShapeCoordinates_V2
 public typealias CurrentShapeAndRect = ShapeAndRect_V2
-public typealias CurrentSidebarLayerGroupData = SidebarLayerGroupData_V2
 public typealias CurrentStitchDocument = StitchDocument_V2
 public typealias CurrentStitchCameraOrientation = StitchCameraOrientation_V2
 public typealias CurrentStitchDeviceOrientation = StitchDeviceOrientation_V2

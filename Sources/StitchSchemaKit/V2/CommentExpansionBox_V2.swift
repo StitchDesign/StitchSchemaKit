@@ -1,5 +1,5 @@
 //
-//  CommentExpansionBox_V1.swift
+//  CommentExpansionBox_V2.swift
 //  
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -8,11 +8,12 @@
 import Foundation
 
 
-public enum CommentExpansionBox_V1: StitchSchemaVersionable {
+public enum CommentExpansionBox_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V1
-    public typealias PreviousInstance = Self.CommentExpansionBox
-    
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V2
+    public typealias PreviousInstance = CommentExpansionBox_V1.CommentExpansionBox
+    public typealias ExpansionDirection = ExpansionDirection_V2.ExpansionDirection
+
     // MARK: - endif
  
 
@@ -53,8 +54,8 @@ public enum CommentExpansionBox_V1: StitchSchemaVersionable {
 
 }
 
-extension CommentExpansionBox_V1.CommentExpansionBox: StitchVersionedCodable {
-    public init(previousInstance: CommentExpansionBox_V1.PreviousInstance) {
-        fatalError()
+extension CommentExpansionBox_V2.CommentExpansionBox: StitchVersionedCodable {
+    public init(previousInstance: CommentExpansionBox_V2.PreviousInstance) {
+        self.init(size: previousInstance.size, startPoint: previousInstance.startPoint, endPoint: previousInstance.endPoint)
     }
 }

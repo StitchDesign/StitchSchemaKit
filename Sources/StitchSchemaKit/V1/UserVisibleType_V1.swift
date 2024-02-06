@@ -60,8 +60,6 @@ public enum UserVisibleType_V1: StitchSchemaVersionable {
         case textDecoration
         case textFont
     }
-
-
 }
 
 extension UserVisibleType_V1.UserVisibleType: StitchVersionedCodable {

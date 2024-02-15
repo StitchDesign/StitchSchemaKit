@@ -36,7 +36,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
 
         // Node data
         public var nodes: NodeEntitySchemas
-        public let orderedSidebarLayers: SidebarLayerDataList
+        public var orderedSidebarLayers: SidebarLayerDataList
         public let commentBoxesDict: CommentBoxesDict
 
         public let cameraSettings: CameraSettings

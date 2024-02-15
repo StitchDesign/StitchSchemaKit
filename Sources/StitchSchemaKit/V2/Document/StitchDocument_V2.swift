@@ -35,7 +35,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
         public let zoomData: CGFloat
 
         // Node data
-        public let nodes: NodeEntitySchemas
+        public var nodes: NodeEntitySchemas
         public let orderedSidebarLayers: SidebarLayerDataList
         public let commentBoxesDict: CommentBoxesDict
 

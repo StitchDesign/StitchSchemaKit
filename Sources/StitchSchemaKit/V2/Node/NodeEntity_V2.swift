@@ -23,7 +23,7 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
         public let id: NodeId
         public let position: CGPoint
         public let zIndex: Double
-        public let parentGroupNodeId: NodeId?
+        public var parentGroupNodeId: NodeId?
         public let patchNodeEntity: PatchNodeEntitySchema?
         public let layerNodeEntity: LayerNodeEntitySchema?
         public let isGroupNode: Bool

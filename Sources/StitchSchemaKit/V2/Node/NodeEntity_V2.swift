@@ -21,8 +21,8 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
 
     public struct NodeEntity {
         public let id: NodeId
-        public let position: CGPoint
-        public let zIndex: Double
+        public var position: CGPoint
+        public var zIndex: Double
         public var parentGroupNodeId: NodeId?
         public let patchNodeEntity: PatchNodeEntitySchema?
         public let layerNodeEntity: LayerNodeEntitySchema?

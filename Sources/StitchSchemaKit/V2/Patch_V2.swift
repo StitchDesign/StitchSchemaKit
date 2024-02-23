@@ -162,7 +162,17 @@ public enum Patch_V2: StitchSchemaVersionable {
              jsonToShape,
              shapeToCommands = "Shape To Commands",
              commandsToShape = "Commands To Shape",
-             mouse
+             mouse,
+             sizePack = "Size Pack",
+             sizeUnpack = "Size Unpack",
+             positionPack = "Position Pack",
+             positionUnpack = "Position Unpack",
+             point3DPack = "Point 3D Pack",
+             point3DUnpack = "Point 3D Unpack",
+             point4DPack = "Point 4D Pack",
+             point4DUnpack = "Point 4D Unpack",
+             matrixTransformPack = "Matrix Transform Pack",
+             matrixTransformUnpack = "Matrix Transform Unpack"
     }
 
 }

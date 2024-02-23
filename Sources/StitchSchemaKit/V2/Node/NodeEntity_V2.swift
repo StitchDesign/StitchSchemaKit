@@ -19,7 +19,7 @@ public enum NodeEntity_V2: StitchSchemaVersionable {
     public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V2.NodePortInputEntity]
     // MARK: - end
 
-    public struct NodeEntity {
+    public struct NodeEntity: Equatable {
         public let id: NodeId
         public var position: CGPoint
         public var zIndex: Double

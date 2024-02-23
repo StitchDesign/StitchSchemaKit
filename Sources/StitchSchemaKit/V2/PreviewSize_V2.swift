@@ -13,7 +13,7 @@ public enum PreviewSize_V2: StitchSchemaVersionable {
     public typealias PreviousInstance = PreviewSize_V1.PreviewSize
     // MARK: - endif
     
-    public enum PreviewSize: String, CaseIterable, Identifiable {
+    public enum PreviewSize: String, CaseIterable, Identifiable, Equatable {
         public var id: String { self.rawValue }
 
         // iPhones

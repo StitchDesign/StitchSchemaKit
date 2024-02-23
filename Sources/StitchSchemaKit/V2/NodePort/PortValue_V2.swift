@@ -19,7 +19,9 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias Plane = Plane_V2.Plane
     public typealias NetworkRequestType = NetworkRequestType_V2.NetworkRequestType
     public typealias LayerSize = LayerSize_V2.LayerSize
+#if !os(visionOS)
     public typealias Point3D = Point3D_V2.Point3D
+#endif
     public typealias Point4D = Point4D_V2.Point4D
     public typealias AsyncMediaValue = AsyncMediaValue_V2.AsyncMediaValue
     public typealias StitchJSON = StitchJSON_V2.StitchJSON
@@ -124,7 +126,14 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .position(let value):
             self = .position(value)
         case .point3D(let value):
+#if !os(visionOS)
             self = .point3D(PortValue_V2.Point3D(previousInstance: value))
+#else
+            let point3d = Point3D(x: value.x,
+                                  y: value.y,
+                                  z: value.z)
+            self = .point3D(point3d)
+#endif
         case .point4D(let value):
             self = .point4D(PortValue_V2.Point4D(previousInstance: value))
         case .pulse(let value):

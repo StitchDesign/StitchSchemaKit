@@ -17,7 +17,7 @@ public enum PatchNodeEntity_V2: StitchSchemaVersionable {
     public typealias UserVisibleType = UserVisibleType_V2.UserVisibleType
     // MARK: - end
 
-    public struct PatchNodeEntity {
+    public struct PatchNodeEntity: Equatable {
         public let id: NodeId
         public let patch: Patch
         public let userVisibleType: UserVisibleType?

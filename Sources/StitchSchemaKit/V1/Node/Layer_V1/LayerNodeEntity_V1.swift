@@ -16,7 +16,7 @@ public enum LayerNodeEntity_V1: StitchSchemaVersionable {
     public typealias Layer = Layer_V1.Layer
     // MARK: - end
 
-    public struct LayerNodeEntity {
+    public struct LayerNodeEntity: Equatable {
         public  let id: NodeId
         public let layer: Layer
         public let interactionsDict: InteractionsDict

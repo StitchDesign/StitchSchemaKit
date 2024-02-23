@@ -21,7 +21,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
     // MARK: - end
 
     // TODO: transferable
-    public struct StitchDocument: StitchVersionedCodable {
+    public struct StitchDocument: StitchVersionedCodable, Equatable {
         public var projectId: ProjectId
         public var name: String
 

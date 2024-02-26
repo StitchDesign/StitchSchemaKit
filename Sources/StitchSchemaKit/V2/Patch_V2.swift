@@ -172,7 +172,14 @@ public enum Patch_V2: StitchSchemaVersionable {
              point4DPack = "Point 4D Pack",
              point4DUnpack = "Point 4D Unpack",
              matrixTransformPack = "Matrix Transform Pack",
-             matrixTransformUnpack = "Matrix Transform Unpack"
+             matrixTransformUnpack = "Matrix Transform Unpack",
+             closePath,
+             moveToPack = "Move To Pack",
+             moveToUnpack = "Move To Unpack",
+             lineToPack = "Line To Pack",
+             lineToUnpack = "Line To Unpack",
+             curveToPack = "Curve To Pack",
+             curveToUnpack = "Curve To Unpack"
     }
 
 }

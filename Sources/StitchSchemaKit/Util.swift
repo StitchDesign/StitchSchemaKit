@@ -160,12 +160,16 @@ typealias SystemColor = UIColor
                     blue: blue,
                     alpha: alpha)
         
-        let uiColor = UIColor(red: rgba.red,
+        let color = SystemColor(red: rgba.red,
                               green: rgba.green,
                               blue: rgba.blue,
                               alpha: rgba.alpha)
         
-        self = Color(uiColor: uiColor)
+        #if !os(macOS)
+        self = Color(uiColor: color)
+        #else
+        self = Color(nsColor: color)
+        #endif
     }
     
     public var colorComponents: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {

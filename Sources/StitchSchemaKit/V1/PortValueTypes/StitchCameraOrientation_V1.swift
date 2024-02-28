@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
 
 public enum StitchCameraOrientation_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct

@@ -341,5 +341,3 @@ public typealias InteractionsDict = [InteractionType: NodeIdSet]
 
 public typealias ProjectId = UUID
 public typealias CommentBoxId = UUID
-
-public typealias CommentBoxesDict = [CommentBoxId : CommentBoxData]

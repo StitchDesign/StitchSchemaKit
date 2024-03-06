@@ -59,6 +59,7 @@ public enum UserVisibleType_V3: StitchSchemaVersionable {
         case vnImageCropOption
         case textDecoration
         case textFont
+        case blendMode = "Blend Mode"
     }
 }
 

@@ -48,6 +48,7 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias StitchDeviceOrientation = StitchDeviceOrientation_V2.StitchDeviceOrientation
     public typealias StitchFont = StitchFont_V2.StitchFont
     public typealias LayerTextDecoration = LayerTextDecoration_V2.LayerTextDecoration
+    public typealias StitchBlendMode = StitchBlendMode_V2.StitchBlendMode
 
     // MARK: - end
     
@@ -96,6 +97,7 @@ public enum PortValue_V2: StitchSchemaVersionable {
         case vnImageCropOption(VNImageCropAndScaleOption)
         case textDecoration(LayerTextDecoration)
         case textFont(StitchFont)
+        case blendMode(StitchBlendMode)
     }
 }
 

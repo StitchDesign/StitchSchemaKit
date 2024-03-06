@@ -8,16 +8,16 @@
 import Foundation
 import SwiftUI
 
-public enum StitchDocument_V2: StitchSchemaVersionable {
+public enum StitchDocument_V3: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V2
-    public typealias PreviousInstance = StitchDocument_V1.StitchDocument
-    public typealias NodeEntitySchemas = [NodeEntity_V2.NodeEntity]
-    public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData_V2.CommentBoxData]
-    public typealias PreviewSize = PreviewSize_V2.PreviewSize
-    public typealias SidebarLayerDataList = [SidebarLayerData_V2.SidebarLayerData]
-    public typealias CameraSettings = CameraSettings_V2.CameraSettings
+    static let version = StitchSchemaVersion._V3
+    public typealias PreviousInstance = StitchDocument_V2.StitchDocument
+    public typealias NodeEntitySchemas = [NodeEntity_V3.NodeEntity]
+    public typealias CommentBoxes = [CommentBoxData_V3.CommentBoxData]
+    public typealias PreviewSize = PreviewSize_V3.PreviewSize
+    public typealias SidebarLayerDataList = [SidebarLayerData_V3.SidebarLayerData]
+    public typealias CameraSettings = CameraSettings_V3.CameraSettings
     // MARK: - end
 
     // TODO: transferable
@@ -37,7 +37,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
         // Node data
         public var nodes: NodeEntitySchemas
         public var orderedSidebarLayers: SidebarLayerDataList
-        public let commentBoxesDict: CommentBoxesDict
+        public let commentBoxes: CommentBoxes
 
         public let cameraSettings: CameraSettings
 
@@ -50,7 +50,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
              zoomData: CGFloat,
              nodes: NodeEntitySchemas,
              orderedSidebarLayers: SidebarLayerDataList,
-             commentBoxesDict: CommentBoxesDict,
+             commentBoxes: CommentBoxes,
              cameraSettings: CameraSettings) {
             self.projectId = projectId
             self.name = name
@@ -61,7 +61,7 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
             self.zoomData = zoomData
             self.nodes = nodes
             self.orderedSidebarLayers = orderedSidebarLayers
-            self.commentBoxesDict = commentBoxesDict
+            self.commentBoxes = commentBoxes
             self.cameraSettings = cameraSettings
         }
         
@@ -74,23 +74,20 @@ public enum StitchDocument_V2: StitchSchemaVersionable {
     }
 }
 
-extension StitchDocument_V2.StitchDocument {
-    public init(previousInstance: StitchDocument_V2.PreviousInstance) {
+extension StitchDocument_V3.StitchDocument {
+    public init(previousInstance: StitchDocument_V3.PreviousInstance) {
         self.init(
             projectId: previousInstance.projectId,
             name: previousInstance.name,
             previewWindowSize: previousInstance.previewWindowSize,
-            previewSizeDevice: PreviewSize_V2.PreviewSize(previousInstance: previousInstance.previewSizeDevice),
+            previewSizeDevice: PreviewSize_V3.PreviewSize(previousInstance: previousInstance.previewSizeDevice),
             previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor,
             localPosition: previousInstance.localPosition,
             zoomData: previousInstance.zoomData,
-            nodes: StitchDocument_V2.NodeEntitySchemas(previousElements: previousInstance.nodes),
-            orderedSidebarLayers: StitchDocument_V2.SidebarLayerDataList(previousElements: previousInstance.orderedSidebarLayers),
-            commentBoxesDict: previousInstance.commentBoxesDict.reduce(into: .init()) { result, data in
-                result.updateValue(StitchDocument_V2.CommentBoxesDict.Value(previousInstance: data.value),
-                                   forKey: data.key)
-            },
-            cameraSettings: StitchDocument_V2.CameraSettings(previousInstance: previousInstance.cameraSettings)
+            nodes: StitchDocument_V3.NodeEntitySchemas(previousElements: previousInstance.nodes),
+            orderedSidebarLayers: StitchDocument_V3.SidebarLayerDataList(previousElements: previousInstance.orderedSidebarLayers),
+            commentBoxes: StitchDocument_V3.CommentBoxes(previousElements: Array(previousInstance.commentBoxesDict.values)),
+            cameraSettings: StitchDocument_V3.CameraSettings(previousInstance: previousInstance.cameraSettings)
         )
     }
 }

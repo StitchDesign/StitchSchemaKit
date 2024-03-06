@@ -28,8 +28,8 @@ public enum PortValue_V2: StitchSchemaVersionable {
     public typealias Anchoring = Anchoring_V2.Anchoring
     public typealias CameraDirection = CameraDirection_V2.CameraDirection
     public typealias ScrollMode = ScrollMode_V2.ScrollMode
-    public typealias TextAlignment = LayerTextAlignment_V2.LayerTextAlignment
-    public typealias TextVerticalAlignment = LayerTextVerticalAlignment_V2.LayerTextVerticalAlignment
+    public typealias LayerTextAlignment = LayerTextAlignment_V2.LayerTextAlignment
+    public typealias LayerTextVerticalAlignment = LayerTextVerticalAlignment_V2.LayerTextVerticalAlignment
     public typealias VisualMediaFitStyle = VisualMediaFitStyle_V2.VisualMediaFitStyle
     public typealias ClassicAnimationCurve = ClassicAnimationCurve_V2.ClassicAnimationCurve
     public typealias LightType = LightType_V2.LightType
@@ -151,9 +151,9 @@ extension PortValue_V2.PortValue: StitchVersionedCodable {
         case .scrollMode(let value):
             self = .scrollMode(PortValue_V2.ScrollMode(previousInstance: value))
         case .textAlignment(let value):
-            self = .textAlignment(PortValue_V2.TextAlignment(previousInstance: value))
+            self = .textAlignment(PortValue_V2.LayerTextAlignment(previousInstance: value))
         case .textVerticalAlignment(let value):
-            self = .textVerticalAlignment(PortValue_V2.TextVerticalAlignment(previousInstance: value))
+            self = .textVerticalAlignment(PortValue_V2.LayerTextVerticalAlignment(previousInstance: value))
         case .fitStyle(let value):
             self = .fitStyle(PortValue_V2.VisualMediaFitStyle(previousInstance: value))
         case .animationCurve(let value):

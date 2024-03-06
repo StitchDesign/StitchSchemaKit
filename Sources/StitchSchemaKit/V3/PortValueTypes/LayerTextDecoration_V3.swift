@@ -10,7 +10,7 @@ import Foundation
 public enum LayerTextDecoration_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = LayerTextDecoration_V1.LayerTextDecoration
+    public typealias PreviousInstance = LayerTextDecoration_V2.LayerTextDecoration
     // MARK: - endif
 
     public enum LayerTextDecoration: String, Equatable, Codable, CaseIterable {

@@ -12,7 +12,7 @@ public enum StitchDocument_V3: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V3
-    public typealias PreviousInstance = StitchDocument_V1.StitchDocument
+    public typealias PreviousInstance = StitchDocument_V2.StitchDocument
     public typealias NodeEntitySchemas = [NodeEntity_V3.NodeEntity]
     public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData_V3.CommentBoxData]
     public typealias PreviewSize = PreviewSize_V3.PreviewSize

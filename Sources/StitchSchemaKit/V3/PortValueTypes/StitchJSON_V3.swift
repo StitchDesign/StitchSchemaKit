@@ -11,7 +11,7 @@ import SwiftyJSON
 public enum StitchJSON_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = StitchJSON_V1.StitchJSON
+    public typealias PreviousInstance = StitchJSON_V2.StitchJSON
     // MARK: - endif
  
     public struct StitchJSON: Equatable, Hashable {

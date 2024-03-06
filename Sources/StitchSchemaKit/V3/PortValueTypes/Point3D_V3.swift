@@ -10,7 +10,7 @@ import Foundation
 public enum Point3D_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = Point3D_V1.Point3D
+    public typealias PreviousInstance = Point3D_V2.Point3D
     // MARK: - endif
     
 

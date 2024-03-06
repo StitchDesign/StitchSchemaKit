@@ -10,7 +10,7 @@ import Foundation
 public enum StitchFontWeight_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = StitchFontWeight_V1.StitchFontWeight
+    public typealias PreviousInstance = StitchFontWeight_V2.StitchFontWeight
     // MARK: - endif
 
     public enum StitchFontWeight: String, Equatable, CaseIterable, Codable, Hashable {

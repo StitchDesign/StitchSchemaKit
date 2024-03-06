@@ -10,7 +10,7 @@ import Foundation
 public enum Patch_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = Patch_V1.Patch
+    public typealias PreviousInstance = Patch_V2.Patch
     // MARK: - endif
  
 
@@ -466,6 +466,36 @@ extension Patch_V3.Patch: StitchVersionedCodable {
             self = .commandsToShape
         case .mouse:
             self = .mouse
+        case .sizePack:
+            self = .sizePack
+        case .sizeUnpack:
+            self = .sizeUnpack
+        case .positionPack:
+            self = .positionPack
+        case .positionUnpack:
+            self = .positionUnpack
+        case .point3DPack:
+            self = .point3DPack
+        case .point3DUnpack:
+            self = .point3DUnpack
+        case .point4DPack:
+            self = .point4DPack
+        case .point4DUnpack:
+            self = .point4DUnpack
+        case .matrixTransformPack:
+            self = .matrixTransformPack
+        case .matrixTransformUnpack:
+            self = .matrixTransformUnpack
+        case .closePath:
+            self = .closePath
+        case .moveToPack:
+            self = .moveToPack
+        case .lineToPack:
+            self = .lineToPack
+        case .curveToPack:
+            self = .curveToPack
+        case .curveToUnpack:
+            self = .curveToUnpack
         }
     }
 }

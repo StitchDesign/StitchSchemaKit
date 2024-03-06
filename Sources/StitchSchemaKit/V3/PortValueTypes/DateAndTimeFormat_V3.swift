@@ -10,7 +10,7 @@ import Foundation
 public enum DateAndTimeFormat_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = DateAndTimeFormat_V1.DateAndTimeFormat
+    public typealias PreviousInstance = DateAndTimeFormat_V2.DateAndTimeFormat
     // MARK: - endif
     
     public enum DateAndTimeFormat: String, CaseIterable {

@@ -11,7 +11,7 @@ import Foundation
 public enum AsyncMediaValue_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = AsyncMediaValue_V1.AsyncMediaValue
+    public typealias PreviousInstance = AsyncMediaValue_V2.AsyncMediaValue
     // MARK: - endif
  
     public struct AsyncMediaValue: Codable, Equatable, Hashable {

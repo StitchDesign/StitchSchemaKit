@@ -10,7 +10,7 @@ import Foundation
 public enum TextTransform_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = TextTransform_V1.TextTransform
+    public typealias PreviousInstance = TextTransform_V2.TextTransform
     // MARK: - endif
   
     public enum TextTransform: String, CaseIterable {

@@ -10,7 +10,7 @@ import Foundation
 public enum NodeIOCoordinate_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = NodeIOCoordinate_V1.NodeIOCoordinate
+    public typealias PreviousInstance = NodeIOCoordinate_V2.NodeIOCoordinate
     // MARK: - endif
     
     public struct NodeIOCoordinate: Hashable, Equatable {

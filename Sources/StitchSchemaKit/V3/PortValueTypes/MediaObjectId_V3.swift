@@ -10,7 +10,7 @@ import Foundation
 public enum MediaObjectId_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = MediaObjectId_V1.MediaObjectId
+    public typealias PreviousInstance = MediaObjectId_V2.MediaObjectId
     // MARK: - endif
  
 

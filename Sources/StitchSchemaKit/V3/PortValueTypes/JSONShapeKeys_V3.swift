@@ -1,5 +1,5 @@
 //
-//  JSONShapeKeys_V1.swift
+//  JSONShapeKeys_V2.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -10,7 +10,7 @@ import Foundation
 public enum JSONShapeKeys_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = JSONShapeKeys_V1.JSONShapeKeys
+    public typealias PreviousInstance = JSONShapeKeys_V2.JSONShapeKeys
     // MARK: - endif
  
     public struct JSONShapeKeys {

@@ -11,7 +11,7 @@ import Foundation
 public enum CustomShape_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = CustomShape_V1.CustomShape
+    public typealias PreviousInstance = CustomShape_V2.CustomShape
     // MARK: - endif
  
     public struct CustomShape: Equatable, Codable {

@@ -10,7 +10,7 @@ import Foundation
 public enum PreviewSize_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = PreviewSize_V1.PreviewSize
+    public typealias PreviousInstance = PreviewSize_V2.PreviewSize
     // MARK: - endif
     
     public enum PreviewSize: String, CaseIterable, Identifiable, Equatable {

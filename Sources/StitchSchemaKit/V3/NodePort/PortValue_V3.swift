@@ -14,7 +14,7 @@ import SwiftyJSON
 public enum PortValue_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V3
-    public typealias PreviousInstance = PortValue_V1.PortValue
+    public typealias PreviousInstance = PortValue_V2.PortValue
     public typealias LayerDimension = LayerDimension_V3.LayerDimension
     public typealias Plane = Plane_V3.Plane
     public typealias NetworkRequestType = NetworkRequestType_V3.NetworkRequestType

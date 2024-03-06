@@ -10,7 +10,7 @@ import Foundation
 public enum CameraSettings_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = CameraSettings_V1.CameraSettings
+    public typealias PreviousInstance = CameraSettings_V2.CameraSettings
     public typealias CameraDirection = CameraDirection_V3.CameraDirection
     public typealias StitchCameraOrientation = StitchCameraOrientation_V3.StitchCameraOrientation
 

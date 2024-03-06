@@ -11,7 +11,7 @@ import Foundation
 public enum ShapeCommand_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = ShapeCommand_V1.ShapeCommand
+    public typealias PreviousInstance = ShapeCommand_V2.ShapeCommand
     // MARK: - endif
  
 

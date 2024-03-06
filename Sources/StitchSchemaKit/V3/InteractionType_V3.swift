@@ -11,7 +11,7 @@ import Foundation
 public enum InteractionType_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
-    public typealias PreviousInstance = InteractionType_V1.InteractionType
+    public typealias PreviousInstance = InteractionType_V2.InteractionType
     // MARK: - endif
  
 

@@ -13,7 +13,7 @@ public enum NodePortInputEntity_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V3
     typealias NodeEntitySchema = NodeEntity_V3
-    public typealias PreviousInstance = NodePortInputEntity_V1.NodePortInputEntity
+    public typealias PreviousInstance = NodePortInputEntity_V2.NodePortInputEntity
     typealias PatchNodeEntitySchema = PatchNodeEntity_V3
     public typealias PortValueSchemas = [PortValue_V3.PortValue]
     public typealias NodeIOCoordinate = NodeIOCoordinate_V3.NodeIOCoordinate

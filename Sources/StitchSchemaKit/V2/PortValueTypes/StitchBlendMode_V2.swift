@@ -10,6 +10,7 @@ import Foundation
 public enum StitchBlendMode_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
+    public typealias PreviousInstance = Self.StitchBlendMode
     
     // MARK: - endif
  
@@ -47,5 +48,11 @@ public enum StitchBlendMode_V2: StitchSchemaVersionable {
         case sourceAtop = "Source Atop"
         case destinationOver = "Destination Over"
         case destinationOut = "Destination Out"
+    }
+}
+
+extension StitchBlendMode_V2.StitchBlendMode: StitchVersionedCodable {
+    public init(previousInstance: StitchBlendMode_V2.PreviousInstance) {
+        fatalError()
     }
 }

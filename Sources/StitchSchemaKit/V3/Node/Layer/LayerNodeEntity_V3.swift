@@ -14,6 +14,7 @@ public enum LayerNodeEntity_V3: StitchSchemaVersionable {
     public typealias PreviousInstance = LayerNodeEntity_V2.LayerNodeEntity
     public typealias NodeEntitySchema = NodeEntity_V3
     public typealias Layer = Layer_V3.Layer
+    public typealias InteractionsDict = [InteractionType_V1.InteractionType: NodeIdSet]
     // MARK: - end
 
     public struct LayerNodeEntity: Equatable {

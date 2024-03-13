@@ -22,17 +22,20 @@ public enum LayerNodeEntity_V3: StitchSchemaVersionable {
         public let interactionsDict: InteractionsDict
         public let hasSidebarVisibility: Bool
         public let layerGroupId: NodeId?
+        public let isExpandedInSidebar: Bool?
         
         public init(id: NodeId,
-             layer: Layer,
-             interactionsDict: InteractionsDict,
-             hasSidebarVisibility: Bool,
-             layerGroupId: NodeId?) {
+                    layer: Layer,
+                    interactionsDict: InteractionsDict,
+                    hasSidebarVisibility: Bool,
+                    layerGroupId: NodeId?,
+                    isExpandedInSidebar: Bool?) {
             self.id = id
             self.layer = layer
             self.interactionsDict = interactionsDict
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId
+            self.isExpandedInSidebar = isExpandedInSidebar
         }
     }
 }
@@ -44,7 +47,8 @@ extension LayerNodeEntity_V3.LayerNodeEntity: StitchVersionedCodable {
                     LayerNodeEntity_V3.Layer(previousInstance: previousInstance.layer),
                   interactionsDict: previousInstance.interactionsDict,
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
-                  layerGroupId: previousInstance.layerGroupId)
+                  layerGroupId: previousInstance.layerGroupId,
+                  isExpandedInSidebar: nil)
     }
 
 //    init(from viewModel: LayerNodeViewModel) {

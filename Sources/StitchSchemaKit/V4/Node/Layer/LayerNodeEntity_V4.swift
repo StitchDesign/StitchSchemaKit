@@ -21,15 +21,18 @@ public enum LayerNodeEntity_V4: StitchSchemaVersionable {
         public let layer: Layer
         public let hasSidebarVisibility: Bool
         public let layerGroupId: NodeId?
+        public let isExpandedInSidebar: Bool?
         
         public init(id: NodeId,
-             layer: Layer,
-             hasSidebarVisibility: Bool,
-             layerGroupId: NodeId?) {
+                    layer: Layer,
+                    hasSidebarVisibility: Bool,
+                    layerGroupId: NodeId?,
+                    isExpandedInSidebar: Bool?) {
             self.id = id
             self.layer = layer
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId
+            self.isExpandedInSidebar = isExpandedInSidebar
         }
     }
 }
@@ -40,7 +43,8 @@ extension LayerNodeEntity_V4.LayerNodeEntity: StitchVersionedCodable {
                   layer:
                     LayerNodeEntity_V4.Layer(previousInstance: previousInstance.layer),
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
-                  layerGroupId: previousInstance.layerGroupId)
+                  layerGroupId: previousInstance.layerGroupId,
+                  isExpandedInSidebar: previousInstance.isExpandedInSidebar)
     }
 
 //    init(from viewModel: LayerNodeViewModel) {

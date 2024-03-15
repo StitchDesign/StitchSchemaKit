@@ -1,5 +1,5 @@
 //
-//  LayerNodeEntity_V2.swift
+//  LayerNodeEntity_V4.swift
 //  Stitch
 //
 //  Created by Elliot Boschwitz on 12/29/23.
@@ -7,45 +7,44 @@
 
 import SwiftUI
 
-public enum LayerNodeEntity_V2: StitchSchemaVersionable {
+public enum LayerNodeEntity_V4: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V2
-    public typealias PreviousInstance = LayerNodeEntity_V1.LayerNodeEntity
-    public typealias NodeEntitySchema = NodeEntity_V2
-    public typealias Layer = Layer_V2.Layer
-    public typealias InteractionsDict = [InteractionType_V1.InteractionType: NodeIdSet]
+    static var version = StitchSchemaVersion._V4
+    public typealias PreviousInstance = LayerNodeEntity_V3.LayerNodeEntity
+    public typealias NodeEntitySchema = NodeEntity_V4
+    public typealias Layer = Layer_V4.Layer
     // MARK: - end
 
     public struct LayerNodeEntity: Equatable {
         public  let id: NodeId
         public let layer: Layer
-        public let interactionsDict: InteractionsDict
         public let hasSidebarVisibility: Bool
         public let layerGroupId: NodeId?
+        public let isExpandedInSidebar: Bool?
         
         public init(id: NodeId,
-             layer: Layer,
-             interactionsDict: InteractionsDict,
-             hasSidebarVisibility: Bool,
-             layerGroupId: NodeId?) {
+                    layer: Layer,
+                    hasSidebarVisibility: Bool,
+                    layerGroupId: NodeId?,
+                    isExpandedInSidebar: Bool?) {
             self.id = id
             self.layer = layer
-            self.interactionsDict = interactionsDict
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId
+            self.isExpandedInSidebar = isExpandedInSidebar
         }
     }
 }
 
-extension LayerNodeEntity_V2.LayerNodeEntity: StitchVersionedCodable {
-    public init(previousInstance: LayerNodeEntity_V2.PreviousInstance) {
+extension LayerNodeEntity_V4.LayerNodeEntity: StitchVersionedCodable {
+    public init(previousInstance: LayerNodeEntity_V4.PreviousInstance) {
         self.init(id: previousInstance.id,
                   layer:
-                    LayerNodeEntity_V2.Layer(previousInstance: previousInstance.layer),
-                  interactionsDict: previousInstance.interactionsDict,
+                    LayerNodeEntity_V4.Layer(previousInstance: previousInstance.layer),
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
-                  layerGroupId: previousInstance.layerGroupId)
+                  layerGroupId: previousInstance.layerGroupId,
+                  isExpandedInSidebar: previousInstance.isExpandedInSidebar)
     }
 
 //    init(from viewModel: LayerNodeViewModel) {

@@ -177,7 +177,8 @@ public enum Patch_V4: StitchSchemaVersionable {
              moveToPack = "Move To Pack",
              lineToPack = "Line To Pack",
              curveToPack = "Curve To Pack",
-             curveToUnpack = "Curve To Unpack"
+             curveToUnpack = "Curve To Unpack",
+             mathExpression = "Math Expression"
     }
 
 }

@@ -22,15 +22,18 @@ public enum PatchNodeEntity_V4: StitchSchemaVersionable {
         public let patch: Patch
         public let userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema?
+        public let mathExpression: String? // only for Math Expression
         
         public init(id: NodeId,
-             patch: Patch,
-             userVisibleType: UserVisibleType?,
-             splitterNode: SplitterNodeEntitySchema?) {
+                    patch: Patch,
+                    userVisibleType: UserVisibleType?,
+                    splitterNode: SplitterNodeEntitySchema?,
+                    mathExpression: String?) {
             self.id = id
             self.patch = patch
             self.userVisibleType = userVisibleType
             self.splitterNode = splitterNode
+            self.mathExpression = mathExpression
         }
     }
 }
@@ -43,6 +46,7 @@ extension PatchNodeEntity_V4.PatchNodeEntity: StitchVersionedCodable {
                   userVisibleType: 
                     PatchNodeEntity_V4.UserVisibleType(previousInstance: previousInstance.userVisibleType),
                   splitterNode:
-                    PatchNodeEntity_V4.SplitterNodeEntitySchema(previousInstance: previousInstance.splitterNode))
+                    PatchNodeEntity_V4.SplitterNodeEntitySchema(previousInstance: previousInstance.splitterNode), 
+                  mathExpression: nil)
     }
 }

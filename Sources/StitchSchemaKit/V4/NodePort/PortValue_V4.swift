@@ -68,7 +68,6 @@ public enum PortValue_V4: StitchSchemaVersionable {
         case point4D(Point4D)
         case pulse(TimeInterval) // TimeInterval = last time this input/output pulsed
         case asyncMedia(AsyncMediaValue?)
-        //    case json(JSON)
         case json(StitchJSON)
         case none // how to avoid this?
         case anchoring(Anchoring)
@@ -98,6 +97,11 @@ public enum PortValue_V4: StitchSchemaVersionable {
         case textDecoration(LayerTextDecoration)
         case textFont(StitchFont)
         case blendMode(StitchBlendMode)
+        case brightness(amount: Double)
+        case colorInvert(value: Bool)
+        case contrast(amount: Double)
+        case hueRotation(degrees: Double)
+        case saturation(amount: Double)
     }
 }
 

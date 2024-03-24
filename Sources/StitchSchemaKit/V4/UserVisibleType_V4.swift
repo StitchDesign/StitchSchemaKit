@@ -60,11 +60,6 @@ public enum UserVisibleType_V4: StitchSchemaVersionable {
         case textDecoration
         case textFont
         case blendMode = "Blend Mode"
-        case brightness = "Brightness"
-        case colorInvert = "Color Invert"
-        case contrast = "Contrast"
-        case hueRotation = "Hue Rotation"
-        case saturation = "Saturation"
     }
 }
 

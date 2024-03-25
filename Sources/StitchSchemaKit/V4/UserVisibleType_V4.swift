@@ -60,6 +60,7 @@ public enum UserVisibleType_V4: StitchSchemaVersionable {
         case textDecoration
         case textFont
         case blendMode = "Blend Mode"
+        case mapType
     }
 }
 

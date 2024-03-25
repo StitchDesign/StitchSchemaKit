@@ -27,7 +27,8 @@ public enum Layer_V4: StitchSchemaVersionable {
              colorFill,
              hitArea,
              canvasSketch = "Canvas Sketch",
-             textField = "Text Field"
+             textField = "Text Field",
+             map = "Map"
     }
 
 }

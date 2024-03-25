@@ -14,7 +14,7 @@ public enum StitchMapType_V4: StitchSchemaVersionable {
     public typealias PreviousInstance = Self
     
     // MARK: - endif
-    public enum StitchMapType: String, Codable, Equatable {
+    public enum StitchMapType: String, Equatable, Codable, CaseIterable, Sendable {
         case standard = "Standard",
              satellite = "Satellite",
              hybrid = "Hybrid",
@@ -22,21 +22,5 @@ public enum StitchMapType_V4: StitchSchemaVersionable {
              satelliteFlyover = "Satellite Flyover",
              mutedStandard = "Muted Standard"
         
-        var toMKMapType: MKMapType {
-            switch self {
-            case .standard:
-                return .standard
-            case .satellite:
-                return .satellite
-            case .hybrid:
-                return .hybrid
-            case .hybridFlyover:
-                return .hybridFlyover
-            case .satelliteFlyover:
-                 return .satelliteFlyover
-            case .mutedStandard:
-                return .mutedStandard
-            }
-        }
     }
 }

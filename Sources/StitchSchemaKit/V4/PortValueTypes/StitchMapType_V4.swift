@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  StitchMapType.swift
 //  
 //
 //  Created by Nicholas Arner on 3/25/24.

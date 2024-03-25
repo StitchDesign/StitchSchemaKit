@@ -49,6 +49,7 @@ public enum PortValue_V4: StitchSchemaVersionable {
     public typealias StitchFont = StitchFont_V4.StitchFont
     public typealias LayerTextDecoration = LayerTextDecoration_V4.LayerTextDecoration
     public typealias StitchBlendMode = StitchBlendMode_V4.StitchBlendMode
+    public typealias StitchMapType = StitchMapType_V4.StitchMapType
 
     // MARK: - end
     
@@ -98,6 +99,7 @@ public enum PortValue_V4: StitchSchemaVersionable {
         case textDecoration(LayerTextDecoration)
         case textFont(StitchFont)
         case blendMode(StitchBlendMode)
+        case mapType(StitchMapType)
     }
 }
 

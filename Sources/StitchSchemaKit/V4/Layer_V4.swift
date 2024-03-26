@@ -28,7 +28,8 @@ public enum Layer_V4: StitchSchemaVersionable {
              hitArea,
              canvasSketch = "Canvas Sketch",
              textField = "Text Field",
-             map = "Map"
+             map = "Map",
+             progressIndicator = "Progress Indicator"
     }
 
 }

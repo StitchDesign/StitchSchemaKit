@@ -61,6 +61,7 @@ public enum UserVisibleType_V4: StitchSchemaVersionable {
         case textFont
         case blendMode = "Blend Mode"
         case mapType
+        case progressIndicatorStyle
     }
 }
 

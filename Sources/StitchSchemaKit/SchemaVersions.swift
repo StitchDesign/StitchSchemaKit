@@ -157,6 +157,7 @@ public enum StitchSchemaVersion: Int, VersionType {
     case _V2 = 2
     case _V3 = 3
     case _V4 = 4
+    case _V5 = 5
 }
 
 public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
@@ -188,6 +189,8 @@ extension StitchDocumentVersion {
             return StitchDocument_V3.StitchDocument.self
         case ._V4:
             return StitchDocument_V4.StitchDocument.self
+        case ._V5:
+            return StitchDocument_V5.StitchDocument.self
         }
     }
 }

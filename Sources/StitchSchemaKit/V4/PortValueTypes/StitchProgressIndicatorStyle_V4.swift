@@ -10,7 +10,7 @@ import SwiftUI
 public enum StitchProgressIndicatorStyle_V4: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V4
-    public typealias PreviousInstance = Self
+    public typealias PreviousInstance = Self.StitchProgressIndicatorStyle
     
     // MARK: - endif
     public enum StitchProgressIndicatorStyle: String, Equatable, Codable, CaseIterable, Sendable {

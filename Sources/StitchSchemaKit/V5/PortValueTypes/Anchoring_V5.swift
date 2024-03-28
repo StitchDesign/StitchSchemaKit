@@ -17,13 +17,18 @@ public enum Anchoring_V5: StitchSchemaVersionable {
         public var y: Double // top vs middle vs bottom
         public var x: Double // left vs center vs right
 
-        static let top: Double = 0
-        static let middle: Double = Self.center
-        static let bottom: Double = 1
+        public init(y: Double, x: Double) {
+            self.y = y
+            self.x = x
+        }
         
-        static let left: Double = 0
-        static let center: Double = 0.5
-        static let right: Double = 1
+        public static let top: Double = 0
+        public static let middle: Double = Self.center
+        public static let bottom: Double = 1
+        
+        public static let left: Double = 0
+        public static let center: Double = 0.5
+        public static let right: Double = 1
     }
 }
 

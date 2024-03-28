@@ -11,7 +11,7 @@ import MapKit
 public enum StitchMapType_V4: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V4
-    public typealias PreviousInstance = Self
+    public typealias PreviousInstance = Self.StitchMapType
     
     // MARK: - endif
     public enum StitchMapType: String, Equatable, Codable, CaseIterable, Sendable {
@@ -22,5 +22,11 @@ public enum StitchMapType_V4: StitchSchemaVersionable {
              satelliteFlyover = "Satellite Flyover",
              mutedStandard = "Muted Standard"
         
+    }
+}
+
+extension StitchMapType_V4.StitchMapType: StitchVersionedCodable {
+    public init(previousInstance: StitchMapType_V4.PreviousInstance) {
+        fatalError()
     }
 }

@@ -156,8 +156,6 @@ extension UserVisibleType_V5.UserVisibleType: StitchVersionedCodable {
             self = .blendMode
         case .mapType:
             self = .mapType
-        case .progressIndicatorStyle:
-            self = .progressIndicatorStyle
         }
     }
 }

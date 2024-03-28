@@ -206,8 +206,6 @@ extension PortValue_V5.PortValue: StitchVersionedCodable {
             self = .none
         case .mapType(let value):
             self = .mapType(PortValue_V5.StitchMapType(previousInstance: value))
-        case .progressIndicatorStyle(let value):
-            self = .progressIndicatorStyle(PortValue_V5.StitchProgressIndicatorStyle(previousInstance: value))
         }
     }
 }

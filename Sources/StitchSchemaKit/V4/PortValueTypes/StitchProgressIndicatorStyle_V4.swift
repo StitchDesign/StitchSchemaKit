@@ -18,3 +18,9 @@ public enum StitchProgressIndicatorStyle_V4: StitchSchemaVersionable {
              medium = "Medium"        
     }
 }
+
+extension StitchProgressIndicatorStyle_V4.StitchProgressIndicatorStyle: StitchVersionedCodable {
+    public init(previousInstance: StitchProgressIndicatorStyle_V4.PreviousInstance) {
+        fatalError() // first time added
+    }
+}

@@ -29,7 +29,8 @@ public enum Layer_V5: StitchSchemaVersionable {
              canvasSketch = "Canvas Sketch",
              textField = "Text Field",
              map = "Map",
-             progressIndicator = "Progress Indicator"
+             progressIndicator = "Progress Indicator",
+             switchLayer = "Switch"
     }
 
 }

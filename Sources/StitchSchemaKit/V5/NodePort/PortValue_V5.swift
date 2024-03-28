@@ -50,7 +50,6 @@ public enum PortValue_V5: StitchSchemaVersionable {
     public typealias LayerTextDecoration = LayerTextDecoration_V5.LayerTextDecoration
     public typealias StitchBlendMode = StitchBlendMode_V5.StitchBlendMode
     public typealias StitchMapType = StitchMapType_V5.StitchMapType
-    public typealias StitchProgressIndicatorStyle = StitchProgressIndicatorStyle_V5.StitchProgressIndicatorStyle
 
     // MARK: - end
     
@@ -101,7 +100,6 @@ public enum PortValue_V5: StitchSchemaVersionable {
         case textFont(StitchFont)
         case blendMode(StitchBlendMode)
         case mapType(StitchMapType)
-        case progressIndicatorStyle(StitchProgressIndicatorStyle)
     }
 }
 

@@ -21,7 +21,11 @@ public enum LayerDimension_V5: StitchSchemaVersionable {
              auto,
              // parentPercent(100), // use 100% of parent dimenion
              // parentPercent(50) // use 50% of parent dimension
-             parentPercent(Double)
+             parentPercent(Double),
+             
+             // i.e. "Grow", child's dimension fills parent,
+             // but takes into account siblings also using "Grow"/`fill`
+             fill
     }
 
 

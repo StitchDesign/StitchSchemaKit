@@ -9,75 +9,78 @@ import Foundation
 import SwiftUI
 
 // MARK: - UPDATE VERSION NUMBERS HERE
-public typealias CurrentAsyncMediaValue = AsyncMediaValue_V5
-public typealias CurrentClassicAnimationCurve = ClassicAnimationCurve_V5
-public typealias CurrentCameraSettings = CameraSettings_V5
-public typealias CurrentCommentBoxData = CommentBoxData_V5
-public typealias CurrentCustomShape = CustomShape_V5
-public typealias CurrentDataType = DataType_V5
-public typealias CurrentDelayStyle = DelayStyle_V5
-public typealias CurrentDateAndTimeFormat = DateAndTimeFormat_V5
-public typealias CurrentExpansionDirection = ExpansionDirection_V5
-public typealias CurrentGroupNodeIDCoordinate = GroupNodeID_V5
-public typealias CurrentPatch = Patch_V5
-public typealias CurrentPatchNodeEntity = PatchNodeEntity_V5
-public typealias CurrentLayerDimension = LayerDimension_V5
-public typealias CurrentLayerNodeEntity = LayerNodeEntity_V5
-public typealias CurrentLayerNodeId = LayerNodeId_V5
-public typealias CurrentNodeEntity = NodeEntity_V5
-public typealias CurrentNodePortInputEntity = NodePortInputEntity_V5
-public typealias CurrentSplitterNodeEntity = SplitterNodeEntity_V5
-public typealias CurrentSplitterType = SplitterType_V5
-public typealias CurrentNodeIOCoordinate = NodeIOCoordinate_V5
-public typealias CurrentJSONCurveTo = JSONCurveTo_V5
-public typealias CurrentJSONShapeCommand = JSONShapeCommand_V5
-public typealias CurrentJSONShapeKeys = JSONShapeKeys_V5
-public typealias CurrentSidebarLayerData = SidebarLayerData_V5
-public typealias CurrentNodeKind = NodeKind_V5
-public typealias CurrentAnchoring = Anchoring_V5
-public typealias CurrentCameraDirection = CameraDirection_V5
-public typealias CurrentLayer = Layer_V5
-public typealias CurrentLayerSize = LayerSize_V5
-public typealias CurrentLayerTextDecoration = LayerTextDecoration_V5
-public typealias CurrentLayerStroke = LayerStroke_V5
-public typealias CurrentLayerTextAlignment = LayerTextAlignment_V5
-public typealias CurrentLayerTextVerticalAlignment = LayerTextVerticalAlignment_V5
-public typealias CurrentLightType = LightType_V5
-public typealias CurrentMediaKey = MediaKey_V5
-public typealias CurrentMediaObjectId = MediaObjectId_V5
-public typealias CurrentMobileHapticStyle = MobileHapticStyle_V5
-public typealias CurrentNetworkRequestType = NetworkRequestType_V5
-public typealias CurrentPathPoint = PathPoint_V5
-public typealias CurrentPlane = Plane_V5
-public typealias CurrentPoint3D = Point3D_V5
-public typealias CurrentPoint4D = Point4D_V5
-public typealias CurrentPortValueComparable = PortValueComparable_V5
-public typealias CurrentPreviewSize = PreviewSize_V5
-public typealias CurrentRGBA = RGBA_V5
-public typealias CurrentRoundedRectangleData = RoundedRectangleData_V5
-public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V5
-public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V5
-public typealias CurrentScrollMode = ScrollMode_V5
-public typealias CurrentShapeCommand = ShapeCommand_V5
-public typealias CurrentShapeCommandType = ShapeCommandType_V5
-public typealias CurrentShapeCoordinates = ShapeCoordinates_V5
-public typealias CurrentShapeAndRect = ShapeAndRect_V5
-public typealias CurrentStitchDocument = StitchDocument_V5
-public typealias CurrentStitchBlendMode = StitchBlendMode_V5
-public typealias CurrentStitchCameraOrientation = StitchCameraOrientation_V5
-public typealias CurrentStitchDeviceOrientation = StitchDeviceOrientation_V5
-public typealias CurrentStitchMapType = StitchMapType_V5
-public typealias CurrentStitchFont = StitchFont_V5
-public typealias CurrentStitchFontChoice = StitchFontChoice_V5
-public typealias CurrentStitchFontWeight = StitchFontWeight_V5
-public typealias CurrentStitchJSON = StitchJSON_V5
-public typealias CurrentStitchOrientation = StitchOrientation_V5
-public typealias CurrentStitchProgressIndicatorStyle = ProgressIndicatorStyle_V5
-public typealias CurrentTextTransform = TextTransform_V5
-public typealias CurrentTriangleData = TriangleData_V5
-public typealias CurrentPortValue = PortValue_V5
-public typealias CurrentUserVisibleType = UserVisibleType_V5
-public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V5
+public typealias CurrentAsyncMediaValue = AsyncMediaValue_V6
+public typealias CurrentClassicAnimationCurve = ClassicAnimationCurve_V6
+public typealias CurrentCameraSettings = CameraSettings_V6
+public typealias CurrentCommentBoxData = CommentBoxData_V6
+public typealias CurrentCustomShape = CustomShape_V6
+public typealias CurrentDataType = DataType_V6
+public typealias CurrentDelayStyle = DelayStyle_V6
+public typealias CurrentDateAndTimeFormat = DateAndTimeFormat_V6
+public typealias CurrentExpansionDirection = ExpansionDirection_V6
+public typealias CurrentGroupNodeIDCoordinate = GroupNodeID_V6
+public typealias CurrentPatch = Patch_V6
+public typealias CurrentPatchNodeEntity = PatchNodeEntity_V6
+public typealias CurrentLayerDimension = LayerDimension_V6
+public typealias CurrentLayerNodeEntity = LayerNodeEntity_V6
+public typealias CurrentLayerNodeId = LayerNodeId_V6
+public typealias CurrentNodeEntity = NodeEntity_V6
+public typealias CurrentNodePortInputEntity = NodePortInputEntity_V6
+public typealias CurrentSplitterNodeEntity = SplitterNodeEntity_V6
+public typealias CurrentSplitterType = SplitterType_V6
+public typealias CurrentNodeIOCoordinate = NodeIOCoordinate_V6
+public typealias CurrentJSONCurveTo = JSONCurveTo_V6
+public typealias CurrentJSONShapeCommand = JSONShapeCommand_V6
+public typealias CurrentJSONShapeKeys = JSONShapeKeys_V6
+public typealias CurrentSidebarLayerData = SidebarLayerData_V6
+public typealias CurrentNodeKind = NodeKind_V6
+public typealias CurrentAnchoring = Anchoring_V6
+public typealias CurrentCameraDirection = CameraDirection_V6
+public typealias CurrentLayer = Layer_V6
+public typealias CurrentLayerSize = LayerSize_V6
+public typealias CurrentLayerTextDecoration = LayerTextDecoration_V6
+public typealias CurrentLayerStroke = LayerStroke_V6
+public typealias CurrentLayerTextAlignment = LayerTextAlignment_V6
+public typealias CurrentLayerTextVerticalAlignment = LayerTextVerticalAlignment_V6
+public typealias CurrentLightType = LightType_V6
+public typealias CurrentMediaKey = MediaKey_V6
+public typealias CurrentMediaObjectId = MediaObjectId_V6
+public typealias CurrentMobileHapticStyle = MobileHapticStyle_V6
+public typealias CurrentNetworkRequestType = NetworkRequestType_V6
+public typealias CurrentPathPoint = PathPoint_V6
+public typealias CurrentPlane = Plane_V6
+public typealias CurrentPoint3D = Point3D_V6
+public typealias CurrentPoint4D = Point4D_V6
+public typealias CurrentPortValueComparable = PortValueComparable_V6
+public typealias CurrentPreviewSize = PreviewSize_V6
+public typealias CurrentRGBA = RGBA_V6
+public typealias CurrentRoundedRectangleData = RoundedRectangleData_V6
+public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V6
+public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V6
+public typealias CurrentScrollMode = ScrollMode_V6
+public typealias CurrentShapeCommand = ShapeCommand_V6
+public typealias CurrentShapeCommandType = ShapeCommandType_V6
+public typealias CurrentShapeCoordinates = ShapeCoordinates_V6
+public typealias CurrentShapeAndRect = ShapeAndRect_V6
+public typealias CurrentStitchDocument = StitchDocument_V6
+public typealias CurrentStitchBlendMode = StitchBlendMode_V6
+public typealias CurrentStitchCameraOrientation = StitchCameraOrientation_V6
+public typealias CurrentStitchDeviceOrientation = StitchDeviceOrientation_V6
+public typealias CurrentStitchMapType = StitchMapType_V6
+public typealias CurrentStitchFont = StitchFont_V6
+public typealias CurrentStitchFontChoice = StitchFontChoice_V6
+public typealias CurrentStitchFontWeight = StitchFontWeight_V6
+public typealias CurrentStitchJSON = StitchJSON_V6
+public typealias CurrentStitchOrientation = StitchOrientation_V6
+public typealias CurrentStitchProgressIndicatorStyle = ProgressIndicatorStyle_V6
+public typealias CurrentTextTransform = TextTransform_V6
+public typealias CurrentTriangleData = TriangleData_V6
+public typealias CurrentPortValue = PortValue_V6
+public typealias CurrentUserVisibleType = UserVisibleType_V6
+public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V6
+public typealias CurrentNodeConnectionType = NodeConnectionType_V6
+public typealias CurrentLayerInputType = LayerInputType_V6
+public typealias CurrentNodeIOPortType = NodeIOPortType_V6
 
 // MARK: - end
 
@@ -152,6 +155,9 @@ public typealias TextTransform = CurrentTextTransform.TextTransform
 public typealias TriangleData = CurrentTriangleData.TriangleData
 public typealias UserVisibleType = CurrentUserVisibleType.UserVisibleType
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
+public typealias NodeConnectionType = CurrentNodeConnectionType.NodeConnectionType
+public typealias LayerInputType = CurrentLayerInputType.LayerInputType
+public typealias NodeIOPortType = CurrentNodeIOPortType.NodeIOPortType
 
 
 public enum StitchSchemaVersion: Int, VersionType {
@@ -160,6 +166,7 @@ public enum StitchSchemaVersion: Int, VersionType {
     case _V3 = 3
     case _V4 = 4
     case _V5 = 5
+    case _V6 = 6
 }
 
 public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
@@ -193,6 +200,8 @@ extension StitchDocumentVersion {
             return StitchDocument_V4.StitchDocument.self
         case ._V5:
             return StitchDocument_V5.StitchDocument.self
+        case ._V6:
+            return StitchDocument_V6.StitchDocument.self
         }
     }
 }

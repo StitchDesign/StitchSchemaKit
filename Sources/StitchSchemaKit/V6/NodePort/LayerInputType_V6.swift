@@ -44,6 +44,12 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case orientation = "Orientation"
         case padding = "Padding"
         case setupMode = "Setup Mode"
+        
+        // Reality
+        case allAnchors = ""
+        case cameraDirection = "Camera Direction"
+        case isCameraEnabled = "Camera Enabled"
+        case isShadowsEnabled = "Shadows Enabled"
     }
 }
 

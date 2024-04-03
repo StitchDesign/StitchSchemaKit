@@ -11,14 +11,20 @@ public enum NodeIOCoordinate_V6: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V6
     public typealias PreviousInstance = NodeIOCoordinate_V5.NodeIOCoordinate
+    public typealias NodeIOPortType = NodeIOPortType_V6.NodeIOPortType
     // MARK: - endif
     
     public struct NodeIOCoordinate: Hashable, Equatable {
-        public var portId: Int
+        public var portType: NodeIOPortType
         public var nodeId: NodeId
         
+        public init(portType: NodeIOPortType, nodeId: NodeId) {
+            self.portType = portType
+            self.nodeId = nodeId
+        }
+        
         public init(portId: Int, nodeId: NodeId) {
-            self.portId = portId
+            self.portType = .patch(portId)
             self.nodeId = nodeId
         }
     }
@@ -26,6 +32,7 @@ public enum NodeIOCoordinate_V6: StitchSchemaVersionable {
 
 extension NodeIOCoordinate_V6.NodeIOCoordinate: StitchVersionedCodable {
     public init(previousInstance: NodeIOCoordinate_V6.PreviousInstance) {
-        self.init(portId: previousInstance.portId, nodeId: previousInstance.nodeId)
+        self.init(portType: .patch(previousInstance.portId),
+                  nodeId: previousInstance.nodeId)
     }
 }

@@ -62,6 +62,7 @@ public enum UserVisibleType_V5: StitchSchemaVersionable {
         case blendMode = "Blend Mode"
         case mapType
         case progressIndicatorStyle
+        case mobileHapticStyle
     }
 }
 

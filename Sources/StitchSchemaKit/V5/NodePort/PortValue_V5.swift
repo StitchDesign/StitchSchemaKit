@@ -51,6 +51,7 @@ public enum PortValue_V5: StitchSchemaVersionable {
     public typealias StitchBlendMode = StitchBlendMode_V5.StitchBlendMode
     public typealias StitchMapType = StitchMapType_V5.StitchMapType
     public typealias ProgressIndicatorStyle = ProgressIndicatorStyle_V5.ProgressIndicatorStyle
+    public typealias MobileHapticStyle = MobileHapticStyle_V5.MobileHapticStyle
 
     // MARK: - end
     
@@ -102,6 +103,7 @@ public enum PortValue_V5: StitchSchemaVersionable {
         case blendMode(StitchBlendMode)
         case mapType(StitchMapType)
         case progressIndicatorStyle(ProgressIndicatorStyle)
+        case mobileHapticStyle(MobileHapticStyle)
     }
 }
 
@@ -202,10 +204,10 @@ extension PortValue_V5.PortValue: StitchVersionedCodable {
             self = .textFont(PortValue_V5.StitchFont(previousInstance: value))
         case .blendMode(let value):
             self = .blendMode(PortValue_V5.StitchBlendMode(previousInstance: value))
-        case .none:
-            self = .none
         case .mapType(let value):
             self = .mapType(PortValue_V5.StitchMapType(previousInstance: value))
+        case .none:
+            self = .none
         }
     }
 }

@@ -25,10 +25,11 @@ public enum LayerDimension_V5: StitchSchemaVersionable {
              
              // i.e. "Grow", child's dimension fills parent,
              // but takes into account siblings also using "Grow"/`fill`
-             fill
+             fill,
+        
+            // Parent "hugs" children, i.e. only takes up as much space as needed by the children
+            hug
     }
-
-
 }
 
 extension LayerDimension_V5.LayerDimension: StitchVersionedCodable {

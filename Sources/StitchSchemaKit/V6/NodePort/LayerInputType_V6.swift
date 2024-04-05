@@ -22,7 +22,7 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case opacity = "Opacity"
         case zIndex = "Z Index"
         
-        // Others
+        // Common
         case color = "Color"
         case rotationX = "Rotation X"
         case rotationY = "Rotation Y"
@@ -50,6 +50,18 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case cameraDirection = "Camera Direction"
         case isCameraEnabled = "Camera Enabled"
         case isShadowsEnabled = "Shadows Enabled"
+        
+        // Shape
+        case shape = "Shape"
+        case strokePosition = "Stroke Position"
+        case strokeWidth = "Stroke Width"
+        case strokeColor = "Stroke Color"
+        case coordinateSystem = "Coordinate System"
+        
+        // Canvas
+        case canvasLineColor = ""
+        case canvasLineWidth = ""
+        case canvasPosition = ""
     }
 }
 

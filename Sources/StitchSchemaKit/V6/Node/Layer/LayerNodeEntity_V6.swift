@@ -53,6 +53,25 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
         public let cameraDirectionPort: NodeConnectionType
         public let isCameraEnabledPort: NodeConnectionType
         public let isShadowsEnabledPort: NodeConnectionType
+        public let shapePort: NodeConnectionType
+        public let strokePositionPort: NodeConnectionType
+        public let strokeWidthPort: NodeConnectionType
+        public let strokeColorPort: NodeConnectionType
+        public let coordinateSystemPort: NodeConnectionType
+        public let cornerRadiusPort: NodeConnectionType
+        public let canvasLineColorPort: NodeConnectionType
+        public let canvasLineWidthPort: NodeConnectionType
+        public let canvasPositionPort: NodeConnectionType
+        public let textPort: NodeConnectionType
+        public let fontSizePort: NodeConnectionType
+        public let textAlignmentPort: NodeConnectionType
+        public let verticalAlignmentPort: NodeConnectionType
+        public let textDecorationPort: NodeConnectionType
+        public let textFontPort: NodeConnectionType
+        public let imagePort: NodeConnectionType
+        public let videoPort: NodeConnectionType
+        public let fitStylePort: NodeConnectionType
+        public let clippedPort: NodeConnectionType
         
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -92,6 +111,25 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
                     cameraDirectionPort: NodeConnectionType,
                     isCameraEnabledPort: NodeConnectionType,
                     isShadowsEnabledPort: NodeConnectionType,
+                    shapePort: NodeConnectionType,
+                    strokePositionPort: NodeConnectionType,
+                    strokeWidthPort: NodeConnectionType,
+                    strokeColorPort: NodeConnectionType,
+                    coordinateSystemPort: NodeConnectionType,
+                    cornerRadiusPort: NodeConnectionType,
+                    canvasLineColorPort: NodeConnectionType,
+                    canvasLineWidthPort: NodeConnectionType,
+                    canvasPositionPort: NodeConnectionType,
+                    textPort: NodeConnectionType,
+                    fontSizePort: NodeConnectionType,
+                    textAlignmentPort: NodeConnectionType,
+                    verticalAlignmentPort: NodeConnectionType,
+                    textDecorationPort: NodeConnectionType,
+                    textFontPort: NodeConnectionType,
+                    imagePort: NodeConnectionType,
+                    videoPort: NodeConnectionType,
+                    fitStylePort: NodeConnectionType,
+                    clippedPort: NodeConnectionType,
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -142,37 +180,59 @@ extension LayerNodeEntity_V6.LayerNodeEntity: StitchVersionedCodable {
         self.init(id: previousInstance.id,
                   layer:
                     LayerNodeEntity_V6.Layer(previousInstance: previousInstance.layer),
-                  positionPort: .values([.none]),
-                  sizePort: .values([.none]),
-                  scalePort: .values([.none]),
-                  anchoringPort: .values([.none]),
-                  opacityPort: .values([.none]),
-                  zIndexPort: .values([.none]),
-                  colorPort: .values([.none]),
-                  rotationXPort: .values([.none]),
-                  rotationYPort: .values([.none]),
-                  rotationZPort: .values([.none]),
-                  lineColorPort: .values([.none]),
-                  lineWidthPort: .values([.none]),
-                  blurPort: .values([.none]),
-                  blendModePort: .values([.none]),
-                  brightnessPort: .values([.none]),
-                  colorInvertPort: .values([.none]),
-                  contrastPort: .values([.none]),
-                  hueRotationPort: .values([.none]),
-                  saturationPort: .values([.none]),
-                  pivotPort: .values([.none]),
-                  enabledPort: .values([.none]),
-                  blurRadiusPort: .values([.none]),
-                  backgroundColorPort: .values([.none]),
-                  isClippedPort: .values([.none]),
-                  orientationPort: .values([.none]),
-                  paddingPort: .values([.none]),
-                  setupModePort: .values([.none]),
-                  allAnchorsPort: .values([.none]),
-                  cameraDirectionPort: .values([.none]),
-                  isCameraEnabledPort: .values([.none]),
-                  isShadowsEnabledPort: .values([.none]),
+                  
+                  // Empty values that we correct in the running app
+                  positionPort: .values([]),
+                  sizePort: .values([]),
+                  scalePort: .values([]),
+                  anchoringPort: .values([]),
+                  opacityPort: .values([]),
+                  zIndexPort: .values([]),
+                  colorPort: .values([]),
+                  rotationXPort: .values([]),
+                  rotationYPort: .values([]),
+                  rotationZPort: .values([]),
+                  lineColorPort: .values([]),
+                  lineWidthPort: .values([]),
+                  blurPort: .values([]),
+                  blendModePort: .values([]),
+                  brightnessPort: .values([]),
+                  colorInvertPort: .values([]),
+                  contrastPort: .values([]),
+                  hueRotationPort: .values([]),
+                  saturationPort: .values([]),
+                  pivotPort: .values([]),
+                  enabledPort: .values([]),
+                  blurRadiusPort: .values([]),
+                  backgroundColorPort: .values([]),
+                  isClippedPort: .values([]),
+                  orientationPort: .values([]),
+                  paddingPort: .values([]),
+                  setupModePort: .values([]),
+                  allAnchorsPort: .values([]),
+                  cameraDirectionPort: .values([]),
+                  isCameraEnabledPort: .values([]),
+                  isShadowsEnabledPort: .values([]),
+                  shapePort: .values([]),
+                  strokePositionPort: .values([]),
+                  strokeWidthPort: .values([]),
+                  strokeColorPort: .values([]),
+                  coordinateSystemPort: .values([]),
+                  cornerRadiusPort: .values([]),
+                  canvasLineColorPort: .values([]),
+                  canvasLineWidthPort: .values([]),
+                  canvasPositionPort: .values([]),
+                  textPort: .values([]),
+                  fontSizePort: .values([]),
+                  textAlignmentPort: .values([]),
+                  verticalAlignmentPort: .values([]),
+                  textDecorationPort: .values([]),
+                  textFontPort: .values([]),
+                  imagePort: .values([]),
+                  videoPort: .values([]),
+                  fitStylePort: .values([]),
+                  clippedPort: .values([]),
+                  
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,
                   isExpandedInSidebar: previousInstance.isExpandedInSidebar)

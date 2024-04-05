@@ -13,55 +13,55 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.LayerInputType
     // MARK: - endif
     
-    public enum LayerInputType: String {
+    public enum LayerInputType {
         // Required everywhere
-        case position = "Position"
-        case size = "Size"
-        case scale = "Scale"
-        case anchoring = "Anchoring"
-        case opacity = "Opacity"
-        case zIndex = "Z Index"
+        case position
+        case size
+        case scale
+        case anchoring
+        case opacity
+        case zIndex
         
         // Common
-        case color = "Color"
-        case rotationX = "Rotation X"
-        case rotationY = "Rotation Y"
-        case rotationZ = "Rotation Z"
-        case lineColor = "Line Color"
-        case lineWidth = "Line Width"
-        case blur = "Blur"
-        case blendMode = "Blend Mode"
-        case brightness = "Brightness"
-        case colorInvert = "Color Invert"
-        case contrast = "Contrast"
-        case hueRotation = "Hue Rotation"
-        case saturation = "Saturation"
-        case pivot = "Pivot"
-        case enabled = "Enable"
-        case blurRadius = "Blur Radius"
-        case backgroundColor = "Background Color"
-        case isClipped = "Clipped"
-        case orientation = "Orientation"
-        case padding = "Padding"
-        case setupMode = "Setup Mode"
+        case color
+        case rotationX
+        case rotationY
+        case rotationZ
+        case lineColor
+        case lineWidth
+        case blur
+        case blendMode
+        case brightness
+        case colorInvert
+        case contrast
+        case hueRotation
+        case saturation
+        case pivot
+        case enabled
+        case blurRadius
+        case backgroundColor
+        case isClipped
+        case orientation
+        case padding
+        case setupMode
         
         // Reality
-        case allAnchors = ""
-        case cameraDirection = "Camera Direction"
-        case isCameraEnabled = "Camera Enabled"
-        case isShadowsEnabled = "Shadows Enabled"
+        case allAnchors
+        case cameraDirection
+        case isCameraEnabled
+        case isShadowsEnabled
         
         // Shape
-        case shape = "Shape"
-        case strokePosition = "Stroke Position"
-        case strokeWidth = "Stroke Width"
-        case strokeColor = "Stroke Color"
-        case coordinateSystem = "Coordinate System"
+        case shape
+        case strokePosition
+        case strokeWidth
+        case strokeColor
+        case coordinateSystem
         
         // Canvas
-        case canvasLineColor = ""
-        case canvasLineWidth = ""
-        case canvasPosition = ""
+        case canvasLineColor
+        case canvasLineWidth
+        case canvasPosition
     }
 }
 

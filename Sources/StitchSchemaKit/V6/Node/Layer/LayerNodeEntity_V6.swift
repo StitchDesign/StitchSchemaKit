@@ -80,56 +80,56 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
         
         public init(id: NodeId,
                     layer: Layer,
-                    positionPort: NodeConnectionType,
-                    sizePort: NodeConnectionType,
-                    scalePort: NodeConnectionType,
-                    anchoringPort: NodeConnectionType,
-                    opacityPort: NodeConnectionType,
-                    zIndexPort: NodeConnectionType,
-                    colorPort: NodeConnectionType,
-                    rotationXPort: NodeConnectionType,
-                    rotationYPort: NodeConnectionType,
-                    rotationZPort: NodeConnectionType,
-                    lineColorPort: NodeConnectionType,
-                    lineWidthPort: NodeConnectionType,
-                    blurPort: NodeConnectionType,
-                    blendModePort: NodeConnectionType,
-                    brightnessPort: NodeConnectionType,
-                    colorInvertPort: NodeConnectionType,
-                    contrastPort: NodeConnectionType,
-                    hueRotationPort: NodeConnectionType,
-                    saturationPort: NodeConnectionType,
-                    pivotPort: NodeConnectionType,
-                    enabledPort: NodeConnectionType,
-                    blurRadiusPort: NodeConnectionType,
-                    backgroundColorPort: NodeConnectionType,
-                    isClippedPort: NodeConnectionType,
-                    orientationPort: NodeConnectionType,
-                    paddingPort: NodeConnectionType,
-                    setupModePort: NodeConnectionType,
-                    allAnchorsPort: NodeConnectionType,
-                    cameraDirectionPort: NodeConnectionType,
-                    isCameraEnabledPort: NodeConnectionType,
-                    isShadowsEnabledPort: NodeConnectionType,
-                    shapePort: NodeConnectionType,
-                    strokePositionPort: NodeConnectionType,
-                    strokeWidthPort: NodeConnectionType,
-                    strokeColorPort: NodeConnectionType,
-                    coordinateSystemPort: NodeConnectionType,
-                    cornerRadiusPort: NodeConnectionType,
-                    canvasLineColorPort: NodeConnectionType,
-                    canvasLineWidthPort: NodeConnectionType,
-                    canvasPositionPort: NodeConnectionType,
-                    textPort: NodeConnectionType,
-                    fontSizePort: NodeConnectionType,
-                    textAlignmentPort: NodeConnectionType,
-                    verticalAlignmentPort: NodeConnectionType,
-                    textDecorationPort: NodeConnectionType,
-                    textFontPort: NodeConnectionType,
-                    imagePort: NodeConnectionType,
-                    videoPort: NodeConnectionType,
-                    fitStylePort: NodeConnectionType,
-                    clippedPort: NodeConnectionType,
+                    positionPort: NodeConnectionType = .values([]),
+                    sizePort: NodeConnectionType = .values([]),
+                    scalePort: NodeConnectionType = .values([]),
+                    anchoringPort: NodeConnectionType = .values([]),
+                    opacityPort: NodeConnectionType = .values([]),
+                    zIndexPort: NodeConnectionType = .values([]),
+                    colorPort: NodeConnectionType = .values([]),
+                    rotationXPort: NodeConnectionType = .values([]),
+                    rotationYPort: NodeConnectionType = .values([]),
+                    rotationZPort: NodeConnectionType = .values([]),
+                    lineColorPort: NodeConnectionType = .values([]),
+                    lineWidthPort: NodeConnectionType = .values([]),
+                    blurPort: NodeConnectionType = .values([]),
+                    blendModePort: NodeConnectionType = .values([]),
+                    brightnessPort: NodeConnectionType = .values([]),
+                    colorInvertPort: NodeConnectionType = .values([]),
+                    contrastPort: NodeConnectionType = .values([]),
+                    hueRotationPort: NodeConnectionType = .values([]),
+                    saturationPort: NodeConnectionType = .values([]),
+                    pivotPort: NodeConnectionType = .values([]),
+                    enabledPort: NodeConnectionType = .values([]),
+                    blurRadiusPort: NodeConnectionType = .values([]),
+                    backgroundColorPort: NodeConnectionType = .values([]),
+                    isClippedPort: NodeConnectionType = .values([]),
+                    orientationPort: NodeConnectionType = .values([]),
+                    paddingPort: NodeConnectionType = .values([]),
+                    setupModePort: NodeConnectionType = .values([]),
+                    allAnchorsPort: NodeConnectionType = .values([]),
+                    cameraDirectionPort: NodeConnectionType = .values([]),
+                    isCameraEnabledPort: NodeConnectionType = .values([]),
+                    isShadowsEnabledPort: NodeConnectionType = .values([]),
+                    shapePort: NodeConnectionType = .values([]),
+                    strokePositionPort: NodeConnectionType = .values([]),
+                    strokeWidthPort: NodeConnectionType = .values([]),
+                    strokeColorPort: NodeConnectionType = .values([]),
+                    coordinateSystemPort: NodeConnectionType = .values([]),
+                    cornerRadiusPort: NodeConnectionType = .values([]),
+                    canvasLineColorPort: NodeConnectionType = .values([]),
+                    canvasLineWidthPort: NodeConnectionType = .values([]),
+                    canvasPositionPort: NodeConnectionType = .values([]),
+                    textPort: NodeConnectionType = .values([]),
+                    fontSizePort: NodeConnectionType = .values([]),
+                    textAlignmentPort: NodeConnectionType = .values([]),
+                    verticalAlignmentPort: NodeConnectionType = .values([]),
+                    textDecorationPort: NodeConnectionType = .values([]),
+                    textFontPort: NodeConnectionType = .values([]),
+                    imagePort: NodeConnectionType = .values([]),
+                    videoPort: NodeConnectionType = .values([]),
+                    fitStylePort: NodeConnectionType = .values([]),
+                    clippedPort: NodeConnectionType = .values([]),
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -167,6 +167,25 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
             self.cameraDirectionPort = cameraDirectionPort
             self.isCameraEnabledPort = isCameraEnabledPort
             self.isShadowsEnabledPort = isShadowsEnabledPort
+            self.shapePort = shapePort
+            self.strokePositionPort = strokePositionPort
+            self.strokeWidthPort = strokeWidthPort
+            self.strokeColorPort = strokeColorPort
+            self.coordinateSystemPort = coordinateSystemPort
+            self.cornerRadiusPort = cornerRadiusPort
+            self.canvasLineColorPort = canvasLineColorPort
+            self.canvasLineWidthPort = canvasLineWidthPort
+            self.canvasPositionPort = canvasPositionPort
+            self.textPort = textPort
+            self.fontSizePort = fontSizePort
+            self.textAlignmentPort = textAlignmentPort
+            self.verticalAlignmentPort = verticalAlignmentPort
+            self.textDecorationPort = textDecorationPort
+            self.textFontPort = textFontPort
+            self.imagePort = imagePort
+            self.videoPort = videoPort
+            self.fitStylePort = fitStylePort
+            self.clippedPort = clippedPort
             
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId

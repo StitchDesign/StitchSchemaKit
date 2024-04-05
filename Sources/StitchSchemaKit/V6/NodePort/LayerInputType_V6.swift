@@ -57,6 +57,7 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case strokeWidth
         case strokeColor
         case coordinateSystem
+        case cornerRadius
         
         // Canvas
         case canvasLineColor

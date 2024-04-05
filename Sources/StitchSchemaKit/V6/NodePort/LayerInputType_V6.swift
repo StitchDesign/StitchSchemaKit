@@ -71,6 +71,12 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case verticalAlignment
         case textDecoration
         case textFont
+        
+        // Media
+        case image
+        case video
+        case fitStyle
+        case clipped
     }
 }
 

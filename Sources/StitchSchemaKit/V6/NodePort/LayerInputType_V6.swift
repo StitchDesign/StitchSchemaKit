@@ -63,6 +63,14 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case canvasLineColor
         case canvasLineWidth
         case canvasPosition
+        
+        // Text
+        case text
+        case fontSize
+        case textAlignment
+        case verticalAlignment
+        case textDecoration
+        case textFont
     }
 }
 

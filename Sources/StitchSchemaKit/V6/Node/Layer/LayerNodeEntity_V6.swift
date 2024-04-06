@@ -75,6 +75,11 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
         public let isAnimatingPort: NodeConnectionType
         public let progressIndicatorStylePort: NodeConnectionType
         public let progressPort: NodeConnectionType
+        public let model3DPort: NodeConnectionType
+        public let mapTypePort: NodeConnectionType
+        public let mapLatLongPort: NodeConnectionType
+        public let mapSpanPort: NodeConnectionType
+        public let isSwitchToggledPort: NodeConnectionType
         
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -136,6 +141,11 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
                     isAnimatingPort: NodeConnectionType = .values([]),
                     progressIndicatorStylePort: NodeConnectionType = .values([]),
                     progressPort: NodeConnectionType = .values([]),
+                    model3DPort: NodeConnectionType = .values([]),
+                    mapTypePort: NodeConnectionType = .values([]),
+                    mapLatLongPort: NodeConnectionType = .values([]),
+                    mapSpanPort: NodeConnectionType = .values([]),
+                    isSwitchToggledPort: NodeConnectionType = .values([]),
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -195,6 +205,11 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
             self.isAnimatingPort = isAnimatingPort
             self.progressIndicatorStylePort = progressIndicatorStylePort
             self.progressPort = progressPort
+            self.model3DPort = model3DPort
+            self.mapTypePort = mapTypePort
+            self.mapLatLongPort = mapLatLongPort
+            self.mapSpanPort = mapSpanPort
+            self.isSwitchToggledPort = isSwitchToggledPort
             
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId

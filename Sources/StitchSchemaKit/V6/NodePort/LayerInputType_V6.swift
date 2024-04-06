@@ -76,12 +76,21 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         // Media
         case image
         case video
+        case model3D
         case fitStyle
         case clipped
         
         // Progress Indicator
         case progressIndicatorStyle
         case progress
+        
+        // Map
+        case mapType
+        case mapLatLong
+        case mapSpan
+        
+        // Switch
+        case isSwitchToggled
     }
 }
 

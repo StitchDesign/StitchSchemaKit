@@ -72,6 +72,9 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
         public let videoPort: NodeConnectionType
         public let fitStylePort: NodeConnectionType
         public let clippedPort: NodeConnectionType
+        public let isAnimatingPort: NodeConnectionType
+        public let progressIndicatorStylePort: NodeConnectionType
+        public let progressPort: NodeConnectionType
         
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -130,6 +133,9 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
                     videoPort: NodeConnectionType = .values([]),
                     fitStylePort: NodeConnectionType = .values([]),
                     clippedPort: NodeConnectionType = .values([]),
+                    isAnimatingPort: NodeConnectionType = .values([]),
+                    progressIndicatorStylePort: NodeConnectionType = .values([]),
+                    progressPort: NodeConnectionType = .values([]),
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -186,6 +192,9 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
             self.videoPort = videoPort
             self.fitStylePort = fitStylePort
             self.clippedPort = clippedPort
+            self.isAnimatingPort = isAnimatingPort
+            self.progressIndicatorStylePort = progressIndicatorStylePort
+            self.progressPort = progressPort
             
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId

@@ -44,6 +44,7 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case orientation
         case padding
         case setupMode
+        case isAnimating
         
         // Reality
         case allAnchors
@@ -77,6 +78,10 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case video
         case fitStyle
         case clipped
+        
+        // Progress Indicator
+        case progressIndicatorStyle
+        case progress
     }
 }
 

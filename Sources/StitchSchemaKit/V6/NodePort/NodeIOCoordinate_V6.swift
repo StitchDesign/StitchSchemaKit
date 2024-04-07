@@ -22,17 +22,12 @@ public enum NodeIOCoordinate_V6: StitchSchemaVersionable {
             self.portType = portType
             self.nodeId = nodeId
         }
-        
-        public init(portId: Int, nodeId: NodeId) {
-            self.portType = .patch(portId)
-            self.nodeId = nodeId
-        }
     }
 }
 
 extension NodeIOCoordinate_V6.NodeIOCoordinate: StitchVersionedCodable {
     public init(previousInstance: NodeIOCoordinate_V6.PreviousInstance) {
-        self.init(portType: .patch(previousInstance.portId),
+        self.init(portType: .portIndex(previousInstance.portId),
                   nodeId: previousInstance.nodeId)
     }
 }

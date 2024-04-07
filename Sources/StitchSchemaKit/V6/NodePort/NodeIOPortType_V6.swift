@@ -15,8 +15,8 @@ public enum NodeIOPortType_V6: StitchSchemaVersionable {
     // MARK: - endif
     
     public enum NodeIOPortType: Hashable, Equatable {
-        case patch(Int)
-        case layer(LayerInputType)
+        case portIndex(Int)
+        case keyPath(LayerInputType)
     }
 }
 

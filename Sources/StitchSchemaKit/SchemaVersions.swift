@@ -80,6 +80,7 @@ public typealias CurrentUserVisibleType = UserVisibleType_V6
 public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V6
 public typealias CurrentNodeConnectionType = NodeConnectionType_V6
 public typealias CurrentLayerInputType = LayerInputType_V6
+public typealias CurrentNodeIOPortType = NodeIOPortType_V6
 
 // MARK: - end
 
@@ -156,6 +157,7 @@ public typealias UserVisibleType = CurrentUserVisibleType.UserVisibleType
 public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFitStyle
 public typealias NodeConnectionType = CurrentNodeConnectionType.NodeConnectionType
 public typealias LayerInputType = CurrentLayerInputType.LayerInputType
+public typealias NodeIOPortType = CurrentNodeIOPortType.NodeIOPortType
 
 
 public enum StitchSchemaVersion: Int, VersionType {

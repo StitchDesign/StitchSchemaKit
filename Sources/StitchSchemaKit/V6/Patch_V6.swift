@@ -178,9 +178,9 @@ public enum Patch_V6: StitchSchemaVersionable {
              lineToPack = "Line To Pack",
              curveToPack = "Curve To Pack",
              curveToUnpack = "Curve To Unpack",
-             mathExpression = "Math Expression"
+             mathExpression = "Math Expression",
+             qrCodeDetection = "QR Code Detection"
     }
-
 }
 
 extension Patch_V6.Patch: StitchVersionedCodable {
@@ -499,6 +499,8 @@ extension Patch_V6.Patch: StitchVersionedCodable {
             self = .curveToUnpack
         case .mathExpression:
             self = .mathExpression
+        case .qrCodeDetection:
+            self = .qrCodeDetection
         }
     }
 }

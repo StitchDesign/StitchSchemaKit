@@ -80,6 +80,7 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
         public var mapLatLongPort: NodeConnectionType
         public var mapSpanPort: NodeConnectionType
         public var isSwitchToggledPort: NodeConnectionType
+        public var placeholderTextPort: NodeConnectionType
         
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -146,6 +147,7 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
                     mapLatLongPort: NodeConnectionType = .values([]),
                     mapSpanPort: NodeConnectionType = .values([]),
                     isSwitchToggledPort: NodeConnectionType = .values([]),
+                    placeholderTextPort: NodeConnectionType = .values([]),
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -210,6 +212,7 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
             self.mapLatLongPort = mapLatLongPort
             self.mapSpanPort = mapSpanPort
             self.isSwitchToggledPort = isSwitchToggledPort
+            self.placeholderTextPort = placeholderTextPort
             
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId
@@ -283,6 +286,7 @@ extension LayerNodeEntity_V6.LayerNodeEntity: StitchVersionedCodable {
                   mapLatLongPort: .values([]),
                   mapSpanPort: .values([]),
                   isSwitchToggledPort: .values([]),
+                  placeholderTextPort: .values([]),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

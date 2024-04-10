@@ -65,8 +65,9 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case canvasLineWidth
         case canvasPosition
         
-        // Text
+        // Text/Text Field
         case text
+        case placeholderText
         case fontSize
         case textAlignment
         case verticalAlignment
@@ -220,6 +221,8 @@ extension LayerInputType_V6.LayerInputType {
             return \.mapSpanPort
         case .isSwitchToggled:
             return \.isSwitchToggledPort
+        case .placeholderText:
+            return \.placeholderTextPort
         }
     }
 }

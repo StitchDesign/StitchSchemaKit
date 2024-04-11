@@ -2,9 +2,8 @@
 
 Follow these instructions if you plan to make a change to any `SwiftData` entity in `Models/Schemas`.
 
-## Pre-requisite Checklist
-* Run the "Stitch Dev Debug" scheme to enable frequent changes on the same schema.
-* Select a dev container from "iCloud" in "Signing and Capabilities" from Stitch project settings.
+## Prerequisite Checklist
+* Select a dev container from "iCloud" in "Signing and Capabilities" from Stitch project settings if you don't want the possibility of losing your current projects when you test changes.
 
 
 ## Create a New Schema Version

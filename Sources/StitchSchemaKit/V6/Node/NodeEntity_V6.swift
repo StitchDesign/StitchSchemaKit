@@ -299,7 +299,6 @@ extension NodeEntity_V6.NodeEntity: StitchVersionedCodable {
                 .strokePosition,
                 .strokeWidth,
                 .strokeColor,
-                .strokeColor,
                 .coordinateSystem,
                 .blurRadius,
                 .blendMode,

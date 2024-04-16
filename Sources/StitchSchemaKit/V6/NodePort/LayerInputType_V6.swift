@@ -23,7 +23,6 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case zIndex
         
         // Common
-        case masks
         case color
         case rotationX
         case rotationY
@@ -118,8 +117,6 @@ extension LayerInputType_V6.LayerInputType {
             return \.opacityPort
         case .zIndex:
             return \.zIndexPort
-        case .masks:
-            return \.masksPort
         case .color:
             return \.colorPort
         case .rotationX:

@@ -30,7 +30,8 @@ public enum Layer_V6: StitchSchemaVersionable {
              textField = "Text Field",
              map = "Map",
              progressIndicator = "Progress Indicator",
-             switchLayer = "Switch"
+             switchLayer = "Switch",
+             videoStream = "Video Stream"
     }
 
 }

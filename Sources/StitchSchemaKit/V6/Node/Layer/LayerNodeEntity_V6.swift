@@ -28,6 +28,7 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
         public var anchoringPort: NodeConnectionType
         public var opacityPort: NodeConnectionType
         public var zIndexPort: NodeConnectionType
+        public var masksPort: NodeConnectionType
         public var colorPort: NodeConnectionType
         public var rotationXPort: NodeConnectionType
         public var rotationYPort: NodeConnectionType
@@ -95,6 +96,7 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
                     anchoringPort: NodeConnectionType = .values([]),
                     opacityPort: NodeConnectionType = .values([]),
                     zIndexPort: NodeConnectionType = .values([]),
+                    masksPort: NodeConnectionType = .values([]),
                     colorPort: NodeConnectionType = .values([]),
                     rotationXPort: NodeConnectionType = .values([]),
                     rotationYPort: NodeConnectionType = .values([]),
@@ -160,6 +162,7 @@ public enum LayerNodeEntity_V6: StitchSchemaVersionable {
             self.anchoringPort = anchoringPort
             self.opacityPort = opacityPort
             self.zIndexPort = zIndexPort
+            self.masksPort = masksPort
             self.colorPort = colorPort
             self.rotationXPort = rotationXPort
             self.rotationYPort = rotationYPort

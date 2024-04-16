@@ -21,9 +21,9 @@ public enum LayerInputType_V6: StitchSchemaVersionable {
         case anchoring
         case opacity
         case zIndex
-        case masks
         
         // Common
+        case masks
         case color
         case rotationX
         case rotationY

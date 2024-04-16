@@ -22,12 +22,17 @@ public enum LayerNodeEntity_V7: StitchSchemaVersionable {
         public let layer: Layer
         
         // Value data
+        
+        // Required
         public var positionPort: NodeConnectionType
         public var sizePort: NodeConnectionType
         public var scalePort: NodeConnectionType
         public var anchoringPort: NodeConnectionType
         public var opacityPort: NodeConnectionType
         public var zIndexPort: NodeConnectionType
+        
+        // Common
+        public var masksPort: NodeConnectionType
         public var colorPort: NodeConnectionType
         public var rotationXPort: NodeConnectionType
         public var rotationYPort: NodeConnectionType
@@ -95,6 +100,7 @@ public enum LayerNodeEntity_V7: StitchSchemaVersionable {
                     anchoringPort: NodeConnectionType = .values([]),
                     opacityPort: NodeConnectionType = .values([]),
                     zIndexPort: NodeConnectionType = .values([]),
+                    masksPort: NodeConnectionType = .values([]),
                     colorPort: NodeConnectionType = .values([]),
                     rotationXPort: NodeConnectionType = .values([]),
                     rotationYPort: NodeConnectionType = .values([]),
@@ -154,12 +160,16 @@ public enum LayerNodeEntity_V7: StitchSchemaVersionable {
             self.id = id
             self.layer = layer
             
+            // Required
             self.positionPort = positionPort
             self.sizePort = sizePort
             self.scalePort = scalePort
             self.anchoringPort = anchoringPort
             self.opacityPort = opacityPort
             self.zIndexPort = zIndexPort
+            
+            // Common
+            self.masksPort = masksPort
             self.colorPort = colorPort
             self.rotationXPort = rotationXPort
             self.rotationYPort = rotationYPort

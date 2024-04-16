@@ -23,6 +23,7 @@ public enum LayerInputType_V7: StitchSchemaVersionable {
         case zIndex
         
         // Common
+        case masks
         case color
         case rotationX
         case rotationY
@@ -105,6 +106,8 @@ extension LayerInputType_V7.LayerInputType {
     /// Keypath mapping to this schema version.
     public var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V7.LayerNodeEntity, NodeConnectionType_V7.NodeConnectionType> {
         switch self {
+            
+        // Required
         case .position:
             return \.positionPort
         case .size:
@@ -117,6 +120,10 @@ extension LayerInputType_V7.LayerInputType {
             return \.opacityPort
         case .zIndex:
             return \.zIndexPort
+        
+        // Common
+        case .masks:
+            return \.masksPort
         case .color:
             return \.colorPort
         case .rotationX:

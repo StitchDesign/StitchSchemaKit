@@ -247,9 +247,9 @@ extension LayerInputType_V8.LayerInputType {
         case .endColor:
             return \.endColorPort
         case .startAnchor:
-            return \.anchoringPort
+            return \.startAnchorPort
         case .endAnchor:
-            return \.anchoringPort
+            return \.endAnchorPort
         }
     }
 }

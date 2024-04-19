@@ -160,6 +160,8 @@ public enum LayerNodeEntity_V8: StitchSchemaVersionable {
                     mapSpanPort: NodeConnectionType = .values([]),
                     isSwitchToggledPort: NodeConnectionType = .values([]),
                     placeholderTextPort: NodeConnectionType = .values([]),
+                    startColorPort: NodeConnectionType = .values([]),
+                    endColorPort: NodeConnectionType = .values([]),
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {

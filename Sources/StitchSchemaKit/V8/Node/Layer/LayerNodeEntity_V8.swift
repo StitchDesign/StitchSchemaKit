@@ -36,6 +36,8 @@ public enum LayerNodeEntity_V8: StitchSchemaVersionable {
         public var colorPort: NodeConnectionType
         public var startColorPort: NodeConnectionType
         public var endColorPort: NodeConnectionType
+        public var startAnchorPort: NodeConnectionType
+        public var endAnchorPort: NodeConnectionType
         public var rotationXPort: NodeConnectionType
         public var rotationYPort: NodeConnectionType
         public var rotationZPort: NodeConnectionType
@@ -162,6 +164,8 @@ public enum LayerNodeEntity_V8: StitchSchemaVersionable {
                     placeholderTextPort: NodeConnectionType = .values([]),
                     startColorPort: NodeConnectionType = .values([]),
                     endColorPort: NodeConnectionType = .values([]),
+                    startAnchorPort: NodeConnectionType = .values([]),
+                    endAnchorPort: NodeConnectionType = .values([]),
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -240,6 +244,8 @@ public enum LayerNodeEntity_V8: StitchSchemaVersionable {
             
             self.startColorPort = startColorPort
             self.endColorPort = endColorPort
+            self.startAnchorPort = startAnchorPort
+            self.endAnchorPort = endAnchorPort
         }
     }
 }

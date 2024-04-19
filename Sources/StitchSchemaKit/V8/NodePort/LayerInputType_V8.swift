@@ -243,9 +243,9 @@ extension LayerInputType_V8.LayerInputType {
         case .placeholderText:
             return \.placeholderTextPort
         case .startColor:
-            return \.colorPort
+            return \.startColorPort
         case .endColor:
-            return \.colorPort
+            return \.endColorPort
         case .startAnchor:
             return \.anchoringPort
         case .endAnchor:

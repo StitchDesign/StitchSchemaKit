@@ -34,6 +34,8 @@ public enum LayerNodeEntity_V8: StitchSchemaVersionable {
         // Common
         public var masksPort: NodeConnectionType
         public var colorPort: NodeConnectionType
+        public var startColorPort: NodeConnectionType
+        public var endColorPort: NodeConnectionType
         public var rotationXPort: NodeConnectionType
         public var rotationYPort: NodeConnectionType
         public var rotationZPort: NodeConnectionType
@@ -233,6 +235,9 @@ public enum LayerNodeEntity_V8: StitchSchemaVersionable {
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId
             self.isExpandedInSidebar = isExpandedInSidebar
+            
+            self.startColorPort = startColorPort
+            self.endColorPort = endColorPort
         }
     }
 }

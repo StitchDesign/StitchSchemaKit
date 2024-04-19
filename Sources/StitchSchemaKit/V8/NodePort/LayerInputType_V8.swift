@@ -95,6 +95,12 @@ public enum LayerInputType_V8: StitchSchemaVersionable {
         
         // Switch
         case isSwitchToggled
+        
+        // Gradients
+        case startColor
+        case endColor
+        case startAnchor
+        case endAnchor
     }
 }
 
@@ -236,6 +242,14 @@ extension LayerInputType_V8.LayerInputType {
             return \.isSwitchToggledPort
         case .placeholderText:
             return \.placeholderTextPort
+        case .startColor:
+            return \.colorPort
+        case .endColor:
+            return \.colorPort
+        case .startAnchor:
+            return \.anchoringPort
+        case .endAnchor:
+            return \.anchoringPort
         }
     }
 }

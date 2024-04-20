@@ -71,7 +71,8 @@ extension Layer_V9.Layer: StitchVersionedCodable {
             self = .progressIndicator
         case .switchLayer:
             self = .switchLayer
+        case .linearGradient:
+            self = .linearGradient
         }
-        
     }
 }

@@ -100,6 +100,7 @@ public enum LayerInputType_V8: StitchSchemaVersionable {
         case startColor
         case endColor
         case startAnchor
+        case centerAnchor
         case endAnchor
         case startRadius
         case endRadius
@@ -254,6 +255,8 @@ extension LayerInputType_V8.LayerInputType {
             return \.startAnchorPort
         case .endAnchor:
             return \.endAnchorPort
+        case .centerAnchor:
+            return \.centerAnchorPort
         case .startRadius:
             return \.startRadiusPort
         case .endRadius:
@@ -262,6 +265,7 @@ extension LayerInputType_V8.LayerInputType {
             return \.startAnchorPort
         case .endAngle:
             return \.endAnchorPort
+ 
         }
     }
 }

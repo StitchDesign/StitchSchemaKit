@@ -11,7 +11,7 @@ import Foundation
 public enum ExpansionDirection_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = ExpansionDirection_V8.ExpansionDirection
+    public typealias PreviousInstance = ExpansionDirection_V9.ExpansionDirection
     // MARK: - endif
  
 

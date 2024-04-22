@@ -10,7 +10,7 @@ import Foundation
 public enum Plane_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = Plane_V8.Plane
+    public typealias PreviousInstance = Plane_V9.Plane
     // MARK: - endif
   
     public enum Plane: String, CaseIterable {

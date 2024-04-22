@@ -10,7 +10,7 @@ import Foundation
 public enum ScrollJumpStyle_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = ScrollJumpStyle_V8.ScrollJumpStyle
+    public typealias PreviousInstance = ScrollJumpStyle_V9.ScrollJumpStyle
     // MARK: - endif
     
 

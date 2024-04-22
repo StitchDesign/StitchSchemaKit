@@ -11,7 +11,7 @@ public enum LayerNodeEntity_V10: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V10
-    public typealias PreviousInstance = LayerNodeEntity_V8.LayerNodeEntity
+    public typealias PreviousInstance = LayerNodeEntity_V9.LayerNodeEntity
     public typealias NodeEntitySchema = NodeEntity_V10
     public typealias Layer = Layer_V10.Layer
     public typealias NodeConnectionType = NodeConnectionType_V10.NodeConnectionType

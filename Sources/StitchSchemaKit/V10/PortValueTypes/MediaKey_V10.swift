@@ -10,7 +10,7 @@ import Foundation
 public enum MediaKey_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = MediaKey_V8.MediaKey
+    public typealias PreviousInstance = MediaKey_V9.MediaKey
     // MARK: - endif
  
     public struct MediaKey: Codable, Hashable {

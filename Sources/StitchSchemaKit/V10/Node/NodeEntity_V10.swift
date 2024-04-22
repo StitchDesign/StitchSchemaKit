@@ -12,7 +12,7 @@ public enum NodeEntity_V10: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V10
-    public typealias PreviousInstance = NodeEntity_V8.NodeEntity
+    public typealias PreviousInstance = NodeEntity_V9.NodeEntity
     typealias StitchDocumentSchema = StitchDocument_V10
     public typealias PatchNodeEntitySchema = PatchNodeEntity_V10.PatchNodeEntity
     public typealias LayerNodeEntitySchema = LayerNodeEntity_V10.LayerNodeEntity

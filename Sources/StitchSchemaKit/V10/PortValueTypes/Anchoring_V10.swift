@@ -10,7 +10,7 @@ import Foundation
 public enum Anchoring_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = Anchoring_V8.Anchoring
+    public typealias PreviousInstance = Anchoring_V9.Anchoring
     // MARK: - endif
      
     public struct Anchoring: Hashable, Equatable, Codable {

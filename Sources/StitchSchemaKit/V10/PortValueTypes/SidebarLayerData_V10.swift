@@ -10,7 +10,7 @@ import Foundation
 public enum SidebarLayerData_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = SidebarLayerData_V8.SidebarLayerData
+    public typealias PreviousInstance = SidebarLayerData_V9.SidebarLayerData
     // MARK: - endif
     
     public struct SidebarLayerData: Equatable, Hashable {

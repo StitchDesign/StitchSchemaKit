@@ -10,7 +10,7 @@ import Foundation
 public enum RGBA_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = RGBA_V8.RGBA
+    public typealias PreviousInstance = RGBA_V9.RGBA
     // MARK: - endif
     
 

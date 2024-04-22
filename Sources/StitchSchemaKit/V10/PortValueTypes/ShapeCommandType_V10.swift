@@ -10,7 +10,7 @@ import Foundation
 public enum ShapeCommandType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = ShapeCommandType_V8.ShapeCommandType
+    public typealias PreviousInstance = ShapeCommandType_V9.ShapeCommandType
     // MARK: - endif
  
     public enum ShapeCommandType: String, Equatable, Hashable, CaseIterable {

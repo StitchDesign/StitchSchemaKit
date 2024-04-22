@@ -10,7 +10,7 @@ import Foundation
 public enum VisualMediaFitStyle_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V10
-    public typealias PreviousInstance = VisualMediaFitStyle_V8.VisualMediaFitStyle
+    public typealias PreviousInstance = VisualMediaFitStyle_V9.VisualMediaFitStyle
     // MARK: - endif
  
     public enum VisualMediaFitStyle: String, CaseIterable {

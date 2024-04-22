@@ -31,7 +31,9 @@ public enum Layer_V10: StitchSchemaVersionable {
              map = "Map",
              progressIndicator = "Progress Indicator",
              switchLayer = "Switch",
-             linearGradient = "Linear Gradient"
+             linearGradient = "Linear Gradient",
+             radialGradient = "Radial Gradient",
+             angularGradient = "Angular Gradient"
     }
 }
 

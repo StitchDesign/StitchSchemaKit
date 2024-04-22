@@ -8,15 +8,15 @@
 import Foundation
 import SwiftUI
 
-public enum NodeEntity_V9: StitchSchemaVersionable {
+public enum NodeEntity_V10: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V9
+    static let version = StitchSchemaVersion._V10
     public typealias PreviousInstance = NodeEntity_V8.NodeEntity
-    typealias StitchDocumentSchema = StitchDocument_V9
-    public typealias PatchNodeEntitySchema = PatchNodeEntity_V9.PatchNodeEntity
-    public typealias LayerNodeEntitySchema = LayerNodeEntity_V9.LayerNodeEntity
-    public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V9.NodePortInputEntity]
+    typealias StitchDocumentSchema = StitchDocument_V10
+    public typealias PatchNodeEntitySchema = PatchNodeEntity_V10.PatchNodeEntity
+    public typealias LayerNodeEntitySchema = LayerNodeEntity_V10.LayerNodeEntity
+    public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V10.NodePortInputEntity]
     // MARK: - end
 
     public struct NodeEntity: Equatable {
@@ -52,16 +52,16 @@ public enum NodeEntity_V9: StitchSchemaVersionable {
     }
 }
 
-extension NodeEntity_V9.NodeEntity: StitchVersionedCodable {
-    public init(previousInstance: NodeEntity_V9.PreviousInstance) {
+extension NodeEntity_V10.NodeEntity: StitchVersionedCodable {
+    public init(previousInstance: NodeEntity_V10.PreviousInstance) {
         self.id = previousInstance.id
         self.position = previousInstance.position
         self.zIndex = previousInstance.zIndex
         self.parentGroupNodeId = previousInstance.parentGroupNodeId
-        self.patchNodeEntity = PatchNodeEntity_V9.PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity)
-        self.layerNodeEntity = LayerNodeEntity_V9.LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity)
+        self.patchNodeEntity = PatchNodeEntity_V10.PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity)
+        self.layerNodeEntity = LayerNodeEntity_V10.LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity)
         self.isGroupNode = previousInstance.isGroupNode
         self.title = previousInstance.title
-        self.inputs = NodeEntity_V9.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
+        self.inputs = NodeEntity_V10.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
     }
 }

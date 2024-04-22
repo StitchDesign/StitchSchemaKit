@@ -1,5 +1,5 @@
 //
-//  DelayStyle_V9.swift
+//  DelayStyle_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum DelayStyle_V9: StitchSchemaVersionable {
+public enum DelayStyle_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = DelayStyle_V8.DelayStyle
     // MARK: - endif
     
@@ -21,8 +21,8 @@ public enum DelayStyle_V9: StitchSchemaVersionable {
 
 }
 
-extension DelayStyle_V9.DelayStyle: StitchVersionedCodable {
-    public init(previousInstance: DelayStyle_V9.PreviousInstance) {
+extension DelayStyle_V10.DelayStyle: StitchVersionedCodable {
+    public init(previousInstance: DelayStyle_V10.PreviousInstance) {
         switch previousInstance {
             
         case .always:

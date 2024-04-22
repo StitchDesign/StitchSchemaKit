@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum LayerTextDecoration_V9: StitchSchemaVersionable {
+public enum LayerTextDecoration_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = LayerTextDecoration_V8.LayerTextDecoration
     // MARK: - endif
 
@@ -20,8 +20,8 @@ public enum LayerTextDecoration_V9: StitchSchemaVersionable {
     }
 }
 
-extension LayerTextDecoration_V9.LayerTextDecoration: StitchVersionedCodable {
-    public init(previousInstance: LayerTextDecoration_V9.PreviousInstance) {
+extension LayerTextDecoration_V10.LayerTextDecoration: StitchVersionedCodable {
+    public init(previousInstance: LayerTextDecoration_V10.PreviousInstance) {
         switch previousInstance {
         case .none:
             self = .none

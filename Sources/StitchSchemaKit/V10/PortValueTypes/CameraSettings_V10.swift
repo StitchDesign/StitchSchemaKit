@@ -1,5 +1,5 @@
 //
-//  CameraSettings_V9.swift
+//  CameraSettings_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public enum CameraSettings_V9: StitchSchemaVersionable {
+public enum CameraSettings_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = CameraSettings_V8.CameraSettings
-    public typealias CameraDirection = CameraDirection_V9.CameraDirection
-    public typealias StitchCameraOrientation = StitchCameraOrientation_V9.StitchCameraOrientation
+    public typealias CameraDirection = CameraDirection_V10.CameraDirection
+    public typealias StitchCameraOrientation = StitchCameraOrientation_V10.StitchCameraOrientation
 
     // MARK: - endif
     
@@ -30,11 +30,11 @@ public enum CameraSettings_V9: StitchSchemaVersionable {
 
 }
 
-extension CameraSettings_V9.CameraSettings: StitchVersionedCodable {
-    public init(previousInstance: CameraSettings_V9.PreviousInstance) {
+extension CameraSettings_V10.CameraSettings: StitchVersionedCodable {
+    public init(previousInstance: CameraSettings_V10.PreviousInstance) {
         self.init(direction:
-                    CameraSettings_V9.CameraDirection(previousInstance: previousInstance.direction),
+                    CameraSettings_V10.CameraDirection(previousInstance: previousInstance.direction),
                   orientation:
-                    CameraSettings_V9.StitchCameraOrientation(previousInstance: previousInstance.orientation))
+                    CameraSettings_V10.StitchCameraOrientation(previousInstance: previousInstance.orientation))
     }
 }

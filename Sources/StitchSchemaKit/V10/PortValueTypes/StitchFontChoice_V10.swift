@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum StitchFontChoice_V9: StitchSchemaVersionable {
+public enum StitchFontChoice_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchFontChoice_V8.StitchFontChoice
     // MARK: - endif
 
@@ -21,8 +21,8 @@ public enum StitchFontChoice_V9: StitchSchemaVersionable {
     }
 }
 
-extension StitchFontChoice_V9.StitchFontChoice: StitchVersionedCodable {
-    public init(previousInstance: StitchFontChoice_V9.PreviousInstance) {
+extension StitchFontChoice_V10.StitchFontChoice: StitchVersionedCodable {
+    public init(previousInstance: StitchFontChoice_V10.PreviousInstance) {
         switch previousInstance {
         case .sf:
             self = .sf

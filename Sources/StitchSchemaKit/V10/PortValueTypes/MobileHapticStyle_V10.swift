@@ -1,5 +1,5 @@
 //
-//  MobileHapticStyle_V9.swift
+//  MobileHapticStyle_V10.swift
 //  StitchSchemaKit
 //
 //  Created by Nicholas Arner on 4/4/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum MobileHapticStyle_V9: StitchSchemaVersionable {
+public enum MobileHapticStyle_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = MobileHapticStyle_V8.MobileHapticStyle
 
     // MARK: - endif
@@ -21,8 +21,8 @@ public enum MobileHapticStyle_V9: StitchSchemaVersionable {
 }
 
 
-extension MobileHapticStyle_V9.MobileHapticStyle: StitchVersionedCodable {
-    public init(previousInstance: MobileHapticStyle_V9.PreviousInstance) {
+extension MobileHapticStyle_V10.MobileHapticStyle: StitchVersionedCodable {
+    public init(previousInstance: MobileHapticStyle_V10.PreviousInstance) {
         switch previousInstance {
         case .light:
             self = .light

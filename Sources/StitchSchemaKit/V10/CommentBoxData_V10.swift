@@ -1,5 +1,5 @@
 //
-//  CommentBoxData_V9.swift
+//  CommentBoxData_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-public enum CommentBoxData_V9: StitchSchemaVersionable {
+public enum CommentBoxData_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = CommentBoxData_V8.CommentBoxData
     // MARK: - endif
  
@@ -55,8 +55,8 @@ public enum CommentBoxData_V9: StitchSchemaVersionable {
     }
 }
 
-extension CommentBoxData_V9.CommentBoxData: StitchVersionedCodable {
-    public init(previousInstance: CommentBoxData_V9.PreviousInstance) {
+extension CommentBoxData_V10.CommentBoxData: StitchVersionedCodable {
+    public init(previousInstance: CommentBoxData_V10.PreviousInstance) {
         self.init(id: previousInstance.id,
                   groupId: previousInstance.groupId,
                   title: previousInstance.title,

@@ -1,5 +1,5 @@
 //
-//  JSONShapeCommand_V9.swift
+//  JSONShapeCommand_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum JSONShapeCommand_V9: StitchSchemaVersionable {
+public enum JSONShapeCommand_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = JSONShapeCommand_V8.JSONShapeCommand
-    public typealias JSONCurveTo = JSONCurveTo_V9.JSONCurveTo
+    public typealias JSONCurveTo = JSONCurveTo_V10.JSONCurveTo
     // MARK: - endif
  
 
@@ -30,8 +30,8 @@ public enum JSONShapeCommand_V9: StitchSchemaVersionable {
 
 }
 
-extension JSONShapeCommand_V9.JSONShapeCommand: StitchVersionedCodable {
-    public init(previousInstance: JSONShapeCommand_V9.PreviousInstance) {
+extension JSONShapeCommand_V10.JSONShapeCommand: StitchVersionedCodable {
+    public init(previousInstance: JSONShapeCommand_V10.PreviousInstance) {
         switch previousInstance {
             
         case .closePath:
@@ -41,7 +41,7 @@ extension JSONShapeCommand_V9.JSONShapeCommand: StitchVersionedCodable {
         case .lineTo(let value):
             self = .lineTo(value)
         case .curveTo(let value):
-            self = .curveTo(JSONShapeCommand_V9.JSONCurveTo(previousInstance: value))
+            self = .curveTo(JSONShapeCommand_V10.JSONCurveTo(previousInstance: value))
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  NodePortInputEntity_V9.swift
+//  NodePortInputEntity_V10.swift
 //  Stitch
 //
 //  Created by Elliot Boschwitz on 11/1/23.
@@ -8,17 +8,17 @@
 import Foundation
 import SwiftUI
 
-public enum NodePortInputEntity_V9: StitchSchemaVersionable {
+public enum NodePortInputEntity_V10: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V9
-    typealias NodeEntitySchema = NodeEntity_V9
+    static let version = StitchSchemaVersion._V10
+    typealias NodeEntitySchema = NodeEntity_V10
     public typealias PreviousInstance = NodePortInputEntity_V8.NodePortInputEntity
-    typealias PatchNodeEntitySchema = PatchNodeEntity_V9
-    public typealias PortValueSchemas = [PortValue_V9.PortValue]
-    public typealias NodeIOCoordinate = NodeIOCoordinate_V9.NodeIOCoordinate
-    public typealias NodeKind = NodeKind_V9.NodeKind
-    public typealias UserVisibleType = UserVisibleType_V9.UserVisibleType
+    typealias PatchNodeEntitySchema = PatchNodeEntity_V10
+    public typealias PortValueSchemas = [PortValue_V10.PortValue]
+    public typealias NodeIOCoordinate = NodeIOCoordinate_V10.NodeIOCoordinate
+    public typealias NodeKind = NodeKind_V10.NodeKind
+    public typealias UserVisibleType = UserVisibleType_V10.UserVisibleType
     // MARK: - end
 
     public struct NodePortInputEntity: Equatable {
@@ -43,12 +43,12 @@ public enum NodePortInputEntity_V9: StitchSchemaVersionable {
     }
 }
 
-extension NodePortInputEntity_V9.NodePortInputEntity: StitchVersionedCodable {
-    public init(previousInstance: NodePortInputEntity_V9.PreviousInstance) {
-        self.init(id: NodePortInputEntity_V9.NodeIOCoordinate(previousInstance: previousInstance.id),
-                  nodeKind: NodePortInputEntity_V9.NodeKind(previousInstance: previousInstance.nodeKind),
-                  userVisibleType: NodePortInputEntity_V9.UserVisibleType(previousInstance: previousInstance.userVisibleType),
-                  values: NodePortInputEntity_V9.PortValueSchemas(previousElements: previousInstance.values),
-                  upstreamOutputCoordinate: NodePortInputEntity_V9.NodeIOCoordinate(previousInstance: previousInstance.upstreamOutputCoordinate))
+extension NodePortInputEntity_V10.NodePortInputEntity: StitchVersionedCodable {
+    public init(previousInstance: NodePortInputEntity_V10.PreviousInstance) {
+        self.init(id: NodePortInputEntity_V10.NodeIOCoordinate(previousInstance: previousInstance.id),
+                  nodeKind: NodePortInputEntity_V10.NodeKind(previousInstance: previousInstance.nodeKind),
+                  userVisibleType: NodePortInputEntity_V10.UserVisibleType(previousInstance: previousInstance.userVisibleType),
+                  values: NodePortInputEntity_V10.PortValueSchemas(previousElements: previousInstance.values),
+                  upstreamOutputCoordinate: NodePortInputEntity_V10.NodeIOCoordinate(previousInstance: previousInstance.upstreamOutputCoordinate))
     }
 }

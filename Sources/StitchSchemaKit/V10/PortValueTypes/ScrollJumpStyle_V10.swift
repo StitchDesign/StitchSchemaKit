@@ -1,5 +1,5 @@
 //
-//  ScrollJumpStyle_V9.swift
+//  ScrollJumpStyle_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum ScrollJumpStyle_V9: StitchSchemaVersionable {
+public enum ScrollJumpStyle_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ScrollJumpStyle_V8.ScrollJumpStyle
     // MARK: - endif
     
@@ -21,8 +21,8 @@ public enum ScrollJumpStyle_V9: StitchSchemaVersionable {
 
 }
 
-extension ScrollJumpStyle_V9.ScrollJumpStyle: StitchVersionedCodable {
-    public init(previousInstance: ScrollJumpStyle_V9.PreviousInstance) {
+extension ScrollJumpStyle_V10.ScrollJumpStyle: StitchVersionedCodable {
+    public init(previousInstance: ScrollJumpStyle_V10.PreviousInstance) {
         switch previousInstance {
             
         case .animated:

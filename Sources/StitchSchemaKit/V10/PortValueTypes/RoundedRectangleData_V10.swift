@@ -1,5 +1,5 @@
 //
-//  RoundedRectangleData_V9.swift
+//  RoundedRectangleData_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum RoundedRectangleData_V9: StitchSchemaVersionable {
+public enum RoundedRectangleData_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = RoundedRectangleData_V8.RoundedRectangleData
     // MARK: - endif
  
@@ -25,8 +25,8 @@ public enum RoundedRectangleData_V9: StitchSchemaVersionable {
 
 }
 
-extension RoundedRectangleData_V9.RoundedRectangleData: StitchVersionedCodable {
-    public init(previousInstance: RoundedRectangleData_V9.PreviousInstance) {
+extension RoundedRectangleData_V10.RoundedRectangleData: StitchVersionedCodable {
+    public init(previousInstance: RoundedRectangleData_V10.PreviousInstance) {
         self.init(rect: previousInstance.rect, cornerRadius: previousInstance.cornerRadius)
     }
 }

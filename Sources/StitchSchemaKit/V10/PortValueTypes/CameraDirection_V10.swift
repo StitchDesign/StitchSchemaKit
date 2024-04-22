@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum CameraDirection_V9: StitchSchemaVersionable {
+public enum CameraDirection_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = CameraDirection_V8.CameraDirection
     // MARK: - endif
  
@@ -20,8 +20,8 @@ public enum CameraDirection_V9: StitchSchemaVersionable {
 
 }
 
-extension CameraDirection_V9.CameraDirection: StitchVersionedCodable {
-    public init(previousInstance: CameraDirection_V9.PreviousInstance) {
+extension CameraDirection_V10.CameraDirection: StitchVersionedCodable {
+    public init(previousInstance: CameraDirection_V10.PreviousInstance) {
         switch previousInstance {
             
         case .front:

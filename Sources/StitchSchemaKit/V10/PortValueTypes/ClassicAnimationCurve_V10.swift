@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum ClassicAnimationCurve_V9: StitchSchemaVersionable {
+public enum ClassicAnimationCurve_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ClassicAnimationCurve_V8.ClassicAnimationCurve
     // MARK: - endif
  
@@ -35,8 +35,8 @@ public enum ClassicAnimationCurve_V9: StitchSchemaVersionable {
 
 }
 
-extension ClassicAnimationCurve_V9.ClassicAnimationCurve: StitchVersionedCodable {
-    public init(previousInstance: ClassicAnimationCurve_V9.PreviousInstance) {
+extension ClassicAnimationCurve_V10.ClassicAnimationCurve: StitchVersionedCodable {
+    public init(previousInstance: ClassicAnimationCurve_V10.PreviousInstance) {
         switch previousInstance {
             
         case .linear:

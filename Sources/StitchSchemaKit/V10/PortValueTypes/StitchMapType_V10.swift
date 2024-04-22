@@ -8,9 +8,9 @@
 import Foundation
 import MapKit
 
-public enum StitchMapType_V9: StitchSchemaVersionable {
+public enum StitchMapType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchMapType_V8.StitchMapType
     
     // MARK: - endif
@@ -24,8 +24,8 @@ public enum StitchMapType_V9: StitchSchemaVersionable {
     }
 }
 
-extension StitchMapType_V9.StitchMapType: StitchVersionedCodable {
-    public init(previousInstance: StitchMapType_V9.PreviousInstance) {
+extension StitchMapType_V10.StitchMapType: StitchVersionedCodable {
+    public init(previousInstance: StitchMapType_V10.PreviousInstance) {
         switch previousInstance {
         case .standard:
             self = .standard

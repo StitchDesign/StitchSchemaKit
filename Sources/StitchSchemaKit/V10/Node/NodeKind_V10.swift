@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum NodeKind_V9: StitchSchemaVersionable {
+public enum NodeKind_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = NodeKind_V8.NodeKind
     // MARK: - endif
     
@@ -18,8 +18,8 @@ public enum NodeKind_V9: StitchSchemaVersionable {
     }
 }
 
-extension NodeKind_V9.NodeKind: StitchVersionedCodable {
-    public init(previousInstance: NodeKind_V9.PreviousInstance) {
+extension NodeKind_V10.NodeKind: StitchVersionedCodable {
+    public init(previousInstance: NodeKind_V10.PreviousInstance) {
         switch previousInstance {
             
         case .patch(let value):

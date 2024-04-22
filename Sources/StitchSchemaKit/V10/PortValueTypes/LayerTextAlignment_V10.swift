@@ -1,5 +1,5 @@
 //
-//  LayerTextAlignment_V9.swift
+//  LayerTextAlignment_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum LayerTextAlignment_V9: StitchSchemaVersionable {
+public enum LayerTextAlignment_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = LayerTextAlignment_V8.LayerTextAlignment
     // MARK: - endif
 
@@ -19,8 +19,8 @@ public enum LayerTextAlignment_V9: StitchSchemaVersionable {
 
 }
 
-extension LayerTextAlignment_V9.LayerTextAlignment: StitchVersionedCodable {
-    public init(previousInstance: LayerTextAlignment_V9.PreviousInstance) {
+extension LayerTextAlignment_V10.LayerTextAlignment: StitchVersionedCodable {
+    public init(previousInstance: LayerTextAlignment_V10.PreviousInstance) {
         switch previousInstance {
             
         case .left:

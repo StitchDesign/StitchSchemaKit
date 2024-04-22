@@ -1,5 +1,5 @@
 //
-//  AsyncMediaValue_V9.swift
+//  AsyncMediaValue_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum AsyncMediaValue_V9: StitchSchemaVersionable {
+public enum AsyncMediaValue_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = AsyncMediaValue_V8.AsyncMediaValue
     // MARK: - endif
  
@@ -47,8 +47,8 @@ public enum AsyncMediaValue_V9: StitchSchemaVersionable {
 
 }
 
-extension AsyncMediaValue_V9.AsyncMediaValue: StitchVersionedCodable {
-    public init(previousInstance: AsyncMediaValue_V9.PreviousInstance) {
+extension AsyncMediaValue_V10.AsyncMediaValue: StitchVersionedCodable {
+    public init(previousInstance: AsyncMediaValue_V10.PreviousInstance) {
         self.init(id: previousInstance.id, dataType: previousInstance.dataType)
     }
 }

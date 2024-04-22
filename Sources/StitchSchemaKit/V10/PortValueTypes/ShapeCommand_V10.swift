@@ -1,5 +1,5 @@
 //
-//  ShapeCommand_V9.swift
+//  ShapeCommand_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum ShapeCommand_V9: StitchSchemaVersionable {
+public enum ShapeCommand_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ShapeCommand_V8.ShapeCommand
     // MARK: - endif
  
@@ -26,8 +26,8 @@ public enum ShapeCommand_V9: StitchSchemaVersionable {
 
 }
 
-extension ShapeCommand_V9.ShapeCommand: StitchVersionedCodable {
-    public init(previousInstance: ShapeCommand_V9.PreviousInstance) {
+extension ShapeCommand_V10.ShapeCommand: StitchVersionedCodable {
+    public init(previousInstance: ShapeCommand_V10.PreviousInstance) {
         switch previousInstance {
         case .closePath:
             self = .closePath
@@ -45,7 +45,7 @@ extension ShapeCommand_V9.ShapeCommand: StitchVersionedCodable {
     }
 }
 
-extension ShapeCommand_V9.ShapeCommand: Codable {
+extension ShapeCommand_V10.ShapeCommand: Codable {
     enum CodingKeys: String, CodingKey {
         case type, point,
              // added for curveTo case

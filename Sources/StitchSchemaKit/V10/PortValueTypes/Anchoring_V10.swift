@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum Anchoring_V9: StitchSchemaVersionable {
+public enum Anchoring_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Anchoring_V8.Anchoring
     // MARK: - endif
      
@@ -32,8 +32,8 @@ public enum Anchoring_V9: StitchSchemaVersionable {
     }
 }
 
-extension Anchoring_V9.Anchoring: StitchVersionedCodable {
-    public init(previousInstance: Anchoring_V9.PreviousInstance) {
+extension Anchoring_V10.Anchoring: StitchVersionedCodable {
+    public init(previousInstance: Anchoring_V10.PreviousInstance) {
         self.init(x: previousInstance.x,
                   y: previousInstance.y)
     }

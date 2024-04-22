@@ -1,5 +1,5 @@
 //
-//  LayerSize_V9.swift
+//  LayerSize_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum LayerSize_V9: StitchSchemaVersionable {
+public enum LayerSize_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = LayerSize_V8.LayerSize
     // MARK: - endif
     
@@ -47,8 +47,8 @@ public enum LayerSize_V9: StitchSchemaVersionable {
 
 }
 
-extension LayerSize_V9.LayerSize: StitchVersionedCodable {
-    public init(previousInstance: LayerSize_V9.PreviousInstance) {
+extension LayerSize_V10.LayerSize: StitchVersionedCodable {
+    public init(previousInstance: LayerSize_V10.PreviousInstance) {
         self.init(width: previousInstance.width, height: previousInstance.height)
     }
 }

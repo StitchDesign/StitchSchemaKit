@@ -1,5 +1,5 @@
 //
-//  ScrollMode_V9.swift
+//  ScrollMode_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum ScrollMode_V9: StitchSchemaVersionable {
+public enum ScrollMode_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ScrollMode_V8.ScrollMode
     // MARK: - endif
     
@@ -21,8 +21,8 @@ public enum ScrollMode_V9: StitchSchemaVersionable {
 
 }
 
-extension ScrollMode_V9.ScrollMode: StitchVersionedCodable {
-    public init(previousInstance: ScrollMode_V9.PreviousInstance) {
+extension ScrollMode_V10.ScrollMode: StitchVersionedCodable {
+    public init(previousInstance: ScrollMode_V10.PreviousInstance) {
         switch previousInstance {
             
         case .free:

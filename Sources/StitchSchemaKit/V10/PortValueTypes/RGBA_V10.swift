@@ -1,5 +1,5 @@
 //
-//  RGBA_V9.swift
+//  RGBA_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum RGBA_V9: StitchSchemaVersionable {
+public enum RGBA_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = RGBA_V8.RGBA
     // MARK: - endif
     
@@ -30,8 +30,8 @@ public enum RGBA_V9: StitchSchemaVersionable {
 
 }
 
-extension RGBA_V9.RGBA: StitchVersionedCodable {
-    public init(previousInstance: RGBA_V9.PreviousInstance) {
+extension RGBA_V10.RGBA: StitchVersionedCodable {
+    public init(previousInstance: RGBA_V10.PreviousInstance) {
         self.init(red: previousInstance.red, green: previousInstance.green, blue: previousInstance.blue, alpha: previousInstance.alpha)
     }
 }

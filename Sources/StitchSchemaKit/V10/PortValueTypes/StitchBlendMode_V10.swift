@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum StitchBlendMode_V9: StitchSchemaVersionable {
+public enum StitchBlendMode_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchBlendMode_V8.StitchBlendMode
     
     // MARK: - endif
@@ -51,8 +51,8 @@ public enum StitchBlendMode_V9: StitchSchemaVersionable {
     }
 }
 
-extension StitchBlendMode_V9.StitchBlendMode: StitchVersionedCodable {
-    public init(previousInstance: StitchBlendMode_V9.PreviousInstance) {
+extension StitchBlendMode_V10.StitchBlendMode: StitchVersionedCodable {
+    public init(previousInstance: StitchBlendMode_V10.PreviousInstance) {
         switch previousInstance {
         case .normal:
             self = .normal

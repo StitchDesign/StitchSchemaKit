@@ -8,16 +8,16 @@
 import Foundation
 import SwiftUI
 
-public enum StitchDocument_V9: StitchSchemaVersionable {
+public enum StitchDocument_V10: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V9
+    static let version = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchDocument_V8.StitchDocument
-    public typealias NodeEntitySchemas = [NodeEntity_V9.NodeEntity]
-    public typealias CommentBoxes = [CommentBoxData_V9.CommentBoxData]
-    public typealias PreviewSize = PreviewSize_V9.PreviewSize
-    public typealias SidebarLayerDataList = [SidebarLayerData_V9.SidebarLayerData]
-    public typealias CameraSettings = CameraSettings_V9.CameraSettings
+    public typealias NodeEntitySchemas = [NodeEntity_V10.NodeEntity]
+    public typealias CommentBoxes = [CommentBoxData_V10.CommentBoxData]
+    public typealias PreviewSize = PreviewSize_V10.PreviewSize
+    public typealias SidebarLayerDataList = [SidebarLayerData_V10.SidebarLayerData]
+    public typealias CameraSettings = CameraSettings_V10.CameraSettings
     // MARK: - end
 
     // TODO: transferable
@@ -74,20 +74,20 @@ public enum StitchDocument_V9: StitchSchemaVersionable {
     }
 }
 
-extension StitchDocument_V9.StitchDocument {
-    public init(previousInstance: StitchDocument_V9.PreviousInstance) {
+extension StitchDocument_V10.StitchDocument {
+    public init(previousInstance: StitchDocument_V10.PreviousInstance) {
         self.init(
             projectId: previousInstance.projectId,
             name: previousInstance.name,
             previewWindowSize: previousInstance.previewWindowSize,
-            previewSizeDevice: PreviewSize_V9.PreviewSize(previousInstance: previousInstance.previewSizeDevice),
+            previewSizeDevice: PreviewSize_V10.PreviewSize(previousInstance: previousInstance.previewSizeDevice),
             previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor,
             localPosition: previousInstance.localPosition,
             zoomData: previousInstance.zoomData,
-            nodes: StitchDocument_V9.NodeEntitySchemas(previousElements: previousInstance.nodes),
-            orderedSidebarLayers: StitchDocument_V9.SidebarLayerDataList(previousElements: previousInstance.orderedSidebarLayers),
-            commentBoxes: StitchDocument_V9.CommentBoxes(previousElements: previousInstance.commentBoxes),
-            cameraSettings: StitchDocument_V9.CameraSettings(previousInstance: previousInstance.cameraSettings)
+            nodes: StitchDocument_V10.NodeEntitySchemas(previousElements: previousInstance.nodes),
+            orderedSidebarLayers: StitchDocument_V10.SidebarLayerDataList(previousElements: previousInstance.orderedSidebarLayers),
+            commentBoxes: StitchDocument_V10.CommentBoxes(previousElements: previousInstance.commentBoxes),
+            cameraSettings: StitchDocument_V10.CameraSettings(previousInstance: previousInstance.cameraSettings)
         )
     }
 }

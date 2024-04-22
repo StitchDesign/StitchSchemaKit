@@ -1,5 +1,5 @@
 //
-//  PortValueComparable_V9.swift
+//  PortValueComparable_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum PortValueComparable_V9: StitchSchemaVersionable {
+public enum PortValueComparable_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = PortValueComparable_V8.PortValueComparable
     // MARK: - endif
 
@@ -21,8 +21,8 @@ public enum PortValueComparable_V9: StitchSchemaVersionable {
 
 }
 
-extension PortValueComparable_V9.PortValueComparable: StitchVersionedCodable {
-    public init(previousInstance: PortValueComparable_V9.PreviousInstance) {
+extension PortValueComparable_V10.PortValueComparable: StitchVersionedCodable {
+    public init(previousInstance: PortValueComparable_V10.PreviousInstance) {
         switch previousInstance {
             
         case .number(let value):

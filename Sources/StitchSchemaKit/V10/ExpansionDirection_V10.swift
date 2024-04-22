@@ -1,5 +1,5 @@
 //
-//  ExpansionDirection_V9.swift
+//  ExpansionDirection_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum ExpansionDirection_V9: StitchSchemaVersionable {
+public enum ExpansionDirection_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ExpansionDirection_V8.ExpansionDirection
     // MARK: - endif
  
@@ -25,8 +25,8 @@ public enum ExpansionDirection_V9: StitchSchemaVersionable {
 
 }
 
-extension ExpansionDirection_V9.ExpansionDirection: StitchVersionedCodable {
-    public init(previousInstance: ExpansionDirection_V9.PreviousInstance) {
+extension ExpansionDirection_V10.ExpansionDirection: StitchVersionedCodable {
+    public init(previousInstance: ExpansionDirection_V10.PreviousInstance) {
         switch previousInstance {
             
         case .topLeft:

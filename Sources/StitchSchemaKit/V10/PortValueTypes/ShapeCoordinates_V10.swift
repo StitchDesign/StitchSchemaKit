@@ -1,5 +1,5 @@
 //
-//  ShapeCoordinates_V9.swift
+//  ShapeCoordinates_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum ShapeCoordinates_V9: StitchSchemaVersionable {
+public enum ShapeCoordinates_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ShapeCoordinates_V8.ShapeCoordinates
     // MARK: - endif
  
@@ -19,8 +19,8 @@ public enum ShapeCoordinates_V9: StitchSchemaVersionable {
     }
 }
 
-extension ShapeCoordinates_V9.ShapeCoordinates: StitchVersionedCodable {
-    public init(previousInstance: ShapeCoordinates_V9.PreviousInstance) {
+extension ShapeCoordinates_V10.ShapeCoordinates: StitchVersionedCodable {
+    public init(previousInstance: ShapeCoordinates_V10.PreviousInstance) {
         switch previousInstance {
             
         case .relative:

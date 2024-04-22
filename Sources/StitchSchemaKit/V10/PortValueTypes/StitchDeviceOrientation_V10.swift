@@ -1,5 +1,5 @@
 //
-//  StitchDeviceOrientation_V9.swift
+//  StitchDeviceOrientation_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum StitchDeviceOrientation_V9: StitchSchemaVersionable {
+public enum StitchDeviceOrientation_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchDeviceOrientation_V8.StitchDeviceOrientation
     // MARK: - endif
  
@@ -24,8 +24,8 @@ public enum StitchDeviceOrientation_V9: StitchSchemaVersionable {
     }
 }
 
-extension StitchDeviceOrientation_V9.StitchDeviceOrientation: StitchVersionedCodable {
-    public init(previousInstance: StitchDeviceOrientation_V9.PreviousInstance) {
+extension StitchDeviceOrientation_V10.StitchDeviceOrientation: StitchVersionedCodable {
+    public init(previousInstance: StitchDeviceOrientation_V10.PreviousInstance) {
         switch previousInstance {
             
         case .unknown:

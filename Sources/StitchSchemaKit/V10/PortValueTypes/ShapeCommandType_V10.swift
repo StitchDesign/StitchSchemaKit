@@ -1,5 +1,5 @@
 //
-//  ShapeCommandType_V9.swift
+//  ShapeCommandType_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum ShapeCommandType_V9: StitchSchemaVersionable {
+public enum ShapeCommandType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ShapeCommandType_V8.ShapeCommandType
     // MARK: - endif
  
@@ -19,8 +19,8 @@ public enum ShapeCommandType_V9: StitchSchemaVersionable {
 
 }
 
-extension ShapeCommandType_V9.ShapeCommandType: StitchVersionedCodable {
-    public init(previousInstance: ShapeCommandType_V9.PreviousInstance) {
+extension ShapeCommandType_V10.ShapeCommandType: StitchVersionedCodable {
+    public init(previousInstance: ShapeCommandType_V10.PreviousInstance) {
         switch previousInstance {
             
         case .closePath:

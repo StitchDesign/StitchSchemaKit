@@ -1,5 +1,5 @@
 //
-//  JSONCurveTo_V9.swift
+//  JSONCurveTo_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum JSONCurveTo_V9: StitchSchemaVersionable {
+public enum JSONCurveTo_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = JSONCurveTo_V8.JSONCurveTo
     // MARK: - endif
  
@@ -32,8 +32,8 @@ public enum JSONCurveTo_V9: StitchSchemaVersionable {
 
 }
 
-extension JSONCurveTo_V9.JSONCurveTo: StitchVersionedCodable {
-    public init(previousInstance: JSONCurveTo_V9.PreviousInstance) {
+extension JSONCurveTo_V10.JSONCurveTo: StitchVersionedCodable {
+    public init(previousInstance: JSONCurveTo_V10.PreviousInstance) {
         self.init(point: previousInstance.point, controlPoint1: previousInstance.controlPoint1, controlPoint2: previousInstance.controlPoint2)
     }
 }

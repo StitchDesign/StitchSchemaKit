@@ -1,5 +1,5 @@
 //
-//  NodeIOPortType_V9.swift
+//  NodeIOPortType_V10.swift
 //
 //
 //  Created by Elliot Boschwitz on 4/3/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum NodeIOPortType_V9: StitchSchemaVersionable {
+public enum NodeIOPortType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Self.NodeIOPortType
-    public typealias LayerInputType = LayerInputType_V9.LayerInputType
+    public typealias LayerInputType = LayerInputType_V10.LayerInputType
     // MARK: - endif
     
     public enum NodeIOPortType: Hashable, Equatable {
@@ -20,8 +20,8 @@ public enum NodeIOPortType_V9: StitchSchemaVersionable {
     }
 }
 
-extension NodeIOPortType_V9.NodeIOPortType: StitchVersionedCodable {
-    public init(previousInstance: NodeIOPortType_V9.PreviousInstance) {
+extension NodeIOPortType_V10.NodeIOPortType: StitchVersionedCodable {
+    public init(previousInstance: NodeIOPortType_V10.PreviousInstance) {
         fatalError()
     }
 }

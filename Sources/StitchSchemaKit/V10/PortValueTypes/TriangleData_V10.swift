@@ -1,5 +1,5 @@
 //
-//  TriangleData_V9.swift
+//  TriangleData_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum TriangleData_V9: StitchSchemaVersionable {
+public enum TriangleData_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = TriangleData_V8.TriangleData
     // MARK: - endif
  
@@ -32,8 +32,8 @@ public enum TriangleData_V9: StitchSchemaVersionable {
 
 }
 
-extension TriangleData_V9.TriangleData: StitchVersionedCodable {
-    public init(previousInstance: TriangleData_V9.PreviousInstance) {
+extension TriangleData_V10.TriangleData: StitchVersionedCodable {
+    public init(previousInstance: TriangleData_V10.PreviousInstance) {
         self.init(p1: previousInstance.p1, p2: previousInstance.p2, p3: previousInstance.p3)
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum DataType_V9: StitchSchemaVersionable {
+public enum DataType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = DataType_V8.DataType
     // MARK: - endif
     
@@ -22,7 +22,7 @@ public enum DataType_V9: StitchSchemaVersionable {
     }
 }
 
-extension DataType_V9.DataType: StitchVersionedCodable where Value: DataType_V9.ValueType {
+extension DataType_V10.DataType: StitchVersionedCodable where Value: DataType_V10.ValueType {
     public init(previousInstance: DataType_V8.PreviousInstance<Value>) {
         switch previousInstance { 
             

@@ -1,5 +1,5 @@
 //
-//  Point4D_V9.swift
+//  Point4D_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum Point4D_V9: StitchSchemaVersionable {
+public enum Point4D_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Point4D_V8.Point4D
     // MARK: - endif
     
@@ -30,8 +30,8 @@ public enum Point4D_V9: StitchSchemaVersionable {
 
 }
 
-extension Point4D_V9.Point4D: StitchVersionedCodable {
-    public init(previousInstance: Point4D_V9.PreviousInstance) {
+extension Point4D_V10.Point4D: StitchVersionedCodable {
+    public init(previousInstance: Point4D_V10.PreviousInstance) {
         self.init(x: previousInstance.x, y: previousInstance.y, z: previousInstance.z, w: previousInstance.w)
     }
 }

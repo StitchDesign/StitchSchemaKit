@@ -1,5 +1,5 @@
 //
-//  StitchCameraOrientation_V9.swift
+//  StitchCameraOrientation_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 #endif
 
-public enum StitchCameraOrientation_V9: StitchSchemaVersionable {
+public enum StitchCameraOrientation_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchCameraOrientation_V8.StitchCameraOrientation
     // MARK: - endif
     
@@ -25,8 +25,8 @@ public enum StitchCameraOrientation_V9: StitchSchemaVersionable {
     }
 }
 
-extension StitchCameraOrientation_V9.StitchCameraOrientation: StitchVersionedCodable {
-    public init(previousInstance: StitchCameraOrientation_V9.PreviousInstance) {
+extension StitchCameraOrientation_V10.StitchCameraOrientation: StitchVersionedCodable {
+    public init(previousInstance: StitchCameraOrientation_V10.PreviousInstance) {
         switch previousInstance {
             
         case .portrait:

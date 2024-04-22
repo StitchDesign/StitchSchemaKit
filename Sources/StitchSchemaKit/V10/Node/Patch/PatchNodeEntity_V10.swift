@@ -7,14 +7,14 @@
 
 import Foundation
 
-public enum PatchNodeEntity_V9: StitchSchemaVersionable {
+public enum PatchNodeEntity_V10: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V9
+    static var version = StitchSchemaVersion._V10
     public typealias PreviousInstance = PatchNodeEntity_V8.PatchNodeEntity
-    public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V9.SplitterNodeEntity
-    public typealias Patch = Patch_V9.Patch
-    public typealias UserVisibleType = UserVisibleType_V9.UserVisibleType
+    public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V10.SplitterNodeEntity
+    public typealias Patch = Patch_V10.Patch
+    public typealias UserVisibleType = UserVisibleType_V10.UserVisibleType
     // MARK: - end
 
     public struct PatchNodeEntity: Equatable {
@@ -38,15 +38,15 @@ public enum PatchNodeEntity_V9: StitchSchemaVersionable {
     }
 }
 
-extension PatchNodeEntity_V9.PatchNodeEntity: StitchVersionedCodable {
-    public init(previousInstance: PatchNodeEntity_V9.PreviousInstance) {
+extension PatchNodeEntity_V10.PatchNodeEntity: StitchVersionedCodable {
+    public init(previousInstance: PatchNodeEntity_V10.PreviousInstance) {
         self.init(id: previousInstance.id,
                   patch:
-                    PatchNodeEntity_V9.Patch(previousInstance: previousInstance.patch),
+                    PatchNodeEntity_V10.Patch(previousInstance: previousInstance.patch),
                   userVisibleType: 
-                    PatchNodeEntity_V9.UserVisibleType(previousInstance: previousInstance.userVisibleType),
+                    PatchNodeEntity_V10.UserVisibleType(previousInstance: previousInstance.userVisibleType),
                   splitterNode:
-                    PatchNodeEntity_V9.SplitterNodeEntitySchema(previousInstance: previousInstance.splitterNode), 
+                    PatchNodeEntity_V10.SplitterNodeEntitySchema(previousInstance: previousInstance.splitterNode), 
                   mathExpression: nil)
     }
 }

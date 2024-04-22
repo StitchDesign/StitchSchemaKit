@@ -1,5 +1,5 @@
 //
-//  PathPoint_V9.swift
+//  PathPoint_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum PathPoint_V9: StitchSchemaVersionable {
+public enum PathPoint_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = PathPoint_V8.PathPoint
     // MARK: - endif
 
@@ -25,8 +25,8 @@ public enum PathPoint_V9: StitchSchemaVersionable {
     }
 }
 
-extension PathPoint_V9.PathPoint: StitchVersionedCodable {
-    public init(previousInstance: PathPoint_V9.PreviousInstance) {
+extension PathPoint_V10.PathPoint: StitchVersionedCodable {
+    public init(previousInstance: PathPoint_V10.PreviousInstance) {
         self.init(x: previousInstance.x, y: previousInstance.y)
     }
 }

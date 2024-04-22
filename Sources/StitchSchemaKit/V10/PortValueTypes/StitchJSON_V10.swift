@@ -1,5 +1,5 @@
 //
-//  StitchJSON_V9.swift
+//  StitchJSON_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -8,9 +8,9 @@
 import Foundation
 import SwiftyJSON
 
-public enum StitchJSON_V9: StitchSchemaVersionable {
+public enum StitchJSON_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchJSON_V8.StitchJSON
     // MARK: - endif
  
@@ -41,8 +41,8 @@ public enum StitchJSON_V9: StitchSchemaVersionable {
 
 }
 
-extension StitchJSON_V9.StitchJSON: StitchVersionedCodable {
-    public init(previousInstance: StitchJSON_V9.PreviousInstance) {
+extension StitchJSON_V10.StitchJSON: StitchVersionedCodable {
+    public init(previousInstance: StitchJSON_V10.PreviousInstance) {
         self.init(id: previousInstance.id, value: previousInstance.value)
     }
 }

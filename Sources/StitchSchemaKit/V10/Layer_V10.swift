@@ -1,5 +1,5 @@
 //
-//  Layer_V9.swift
+//  Layer_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum Layer_V9: StitchSchemaVersionable {
+public enum Layer_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Layer_V8.Layer
     // MARK: - endif
  
@@ -35,8 +35,8 @@ public enum Layer_V9: StitchSchemaVersionable {
     }
 }
 
-extension Layer_V9.Layer: StitchVersionedCodable {
-    public init(previousInstance: Layer_V9.PreviousInstance) {
+extension Layer_V10.Layer: StitchVersionedCodable {
+    public init(previousInstance: Layer_V10.PreviousInstance) {
         switch previousInstance {
             
         case .text:

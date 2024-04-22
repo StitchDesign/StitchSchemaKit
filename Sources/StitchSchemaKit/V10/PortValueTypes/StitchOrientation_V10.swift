@@ -1,5 +1,5 @@
 //
-//  StitchOrientation_V9.swift
+//  StitchOrientation_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/25/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum StitchOrientation_V9: StitchSchemaVersionable {
+public enum StitchOrientation_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchOrientation_V8.StitchOrientation
     // MARK: - endif
     
@@ -20,8 +20,8 @@ public enum StitchOrientation_V9: StitchSchemaVersionable {
 
 }
 
-extension StitchOrientation_V9.StitchOrientation: StitchVersionedCodable {
-    public init(previousInstance: StitchOrientation_V9.PreviousInstance) {
+extension StitchOrientation_V10.StitchOrientation: StitchVersionedCodable {
+    public init(previousInstance: StitchOrientation_V10.PreviousInstance) {
         switch previousInstance {
             
         case .none:

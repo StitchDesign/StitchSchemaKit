@@ -1,5 +1,5 @@
 //
-//  SidebarLayerData_V9.swift
+//  SidebarLayerData_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum SidebarLayerData_V9: StitchSchemaVersionable {
+public enum SidebarLayerData_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = SidebarLayerData_V8.SidebarLayerData
     // MARK: - endif
     
@@ -24,8 +24,8 @@ public enum SidebarLayerData_V9: StitchSchemaVersionable {
     }
 }
 
-extension SidebarLayerData_V9.SidebarLayerData: StitchVersionedCodable {
-    public init(previousInstance: SidebarLayerData_V9.PreviousInstance) {
+extension SidebarLayerData_V10.SidebarLayerData: StitchVersionedCodable {
+    public init(previousInstance: SidebarLayerData_V10.PreviousInstance) {
         guard let prevChildren = previousInstance.children else {
             self.init(id: previousInstance.id,
                       children: nil)

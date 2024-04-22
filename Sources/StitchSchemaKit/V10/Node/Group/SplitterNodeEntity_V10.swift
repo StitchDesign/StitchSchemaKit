@@ -1,5 +1,5 @@
 //
-//  SplitterNodeEntity_V9.swift
+//  SplitterNodeEntity_V10.swift
 //  Stitch
 //
 //  Created by Elliot Boschwitz on 12/30/23.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public enum SplitterNodeEntity_V9: StitchSchemaVersionable {
+public enum SplitterNodeEntity_V10: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V9
+    static var version = StitchSchemaVersion._V10
     public typealias PreviousInstance = SplitterNodeEntity_V8.SplitterNodeEntity
-    public typealias SplitterType = SplitterType_V9.SplitterType
+    public typealias SplitterType = SplitterType_V10.SplitterType
     // MARK: - end
 
     public struct SplitterNodeEntity: Equatable {
@@ -29,11 +29,11 @@ public enum SplitterNodeEntity_V9: StitchSchemaVersionable {
     }
 }
 
-extension SplitterNodeEntity_V9.SplitterNodeEntity: StitchVersionedCodable {
-    public init(previousInstance: SplitterNodeEntity_V9.PreviousInstance) {
+extension SplitterNodeEntity_V10.SplitterNodeEntity: StitchVersionedCodable {
+    public init(previousInstance: SplitterNodeEntity_V10.PreviousInstance) {
         self.init(id: previousInstance.id,
                   lastModifiedDate: previousInstance.lastModifiedDate,
                   type: 
-                    SplitterNodeEntity_V9.SplitterType(previousInstance: previousInstance.type))
+                    SplitterNodeEntity_V10.SplitterType(previousInstance: previousInstance.type))
     }
 }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum LayerInputType_V9: StitchSchemaVersionable {
+public enum LayerInputType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = LayerInputType_V8.LayerInputType
     // MARK: - endif
     
@@ -104,15 +104,15 @@ public enum LayerInputType_V9: StitchSchemaVersionable {
     }
 }
 
-extension LayerInputType_V9.LayerInputType: StitchVersionedCodable {
-    public init(previousInstance: LayerInputType_V9.PreviousInstance) {
+extension LayerInputType_V10.LayerInputType: StitchVersionedCodable {
+    public init(previousInstance: LayerInputType_V10.PreviousInstance) {
         fatalError()
     }
 }
 
-extension LayerInputType_V9.LayerInputType {
+extension LayerInputType_V10.LayerInputType {
     /// Keypath mapping to this schema version.
-    public var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V9.LayerNodeEntity, NodeConnectionType_V9.NodeConnectionType> {
+    public var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V10.LayerNodeEntity, NodeConnectionType_V10.NodeConnectionType> {
         switch self {
             
         // Required

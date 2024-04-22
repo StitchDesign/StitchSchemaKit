@@ -1,5 +1,5 @@
 //
-//  CustomShape_V9.swift
+//  CustomShape_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum CustomShape_V9: StitchSchemaVersionable {
+public enum CustomShape_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = CustomShape_V8.CustomShape
     // MARK: - endif
  
@@ -89,8 +89,8 @@ public enum CustomShape_V9: StitchSchemaVersionable {
     }
 }
 
-extension CustomShape_V9.CustomShape: StitchVersionedCodable {
-    public init(previousInstance: CustomShape_V9.PreviousInstance) {
+extension CustomShape_V10.CustomShape: StitchVersionedCodable {
+    public init(previousInstance: CustomShape_V10.PreviousInstance) {
         self.init(shapes: previousInstance.shapes)
     }
 }

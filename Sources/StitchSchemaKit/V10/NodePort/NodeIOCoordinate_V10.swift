@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum NodeIOCoordinate_V9: StitchSchemaVersionable {
+public enum NodeIOCoordinate_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = NodeIOCoordinate_V8.NodeIOCoordinate
-    public typealias NodeIOPortType = NodeIOPortType_V9.NodeIOPortType
+    public typealias NodeIOPortType = NodeIOPortType_V10.NodeIOPortType
     // MARK: - endif
     
     public struct NodeIOCoordinate: Hashable, Equatable {
@@ -25,8 +25,8 @@ public enum NodeIOCoordinate_V9: StitchSchemaVersionable {
     }
 }
 
-extension NodeIOCoordinate_V9.NodeIOCoordinate: StitchVersionedCodable {
-    public init(previousInstance: NodeIOCoordinate_V9.PreviousInstance) {
+extension NodeIOCoordinate_V10.NodeIOCoordinate: StitchVersionedCodable {
+    public init(previousInstance: NodeIOCoordinate_V10.PreviousInstance) {
         switch previousInstance.portType {
         case .keyPath(let x):
             self.init(portType: .keyPath(.init(previousInstance: x)),

@@ -1,5 +1,5 @@
 //
-//  ShapeAndRect_V9.swift
+//  ShapeAndRect_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum ShapeAndRect_V9: StitchSchemaVersionable {
+public enum ShapeAndRect_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = ShapeAndRect_V8.ShapeAndRect
     // MARK: - endif
  
@@ -25,8 +25,8 @@ public enum ShapeAndRect_V9: StitchSchemaVersionable {
 
 }
 
-extension ShapeAndRect_V9.ShapeAndRect: StitchVersionedCodable {
-    public init(previousInstance: ShapeAndRect_V9.PreviousInstance) {
+extension ShapeAndRect_V10.ShapeAndRect: StitchVersionedCodable {
+    public init(previousInstance: ShapeAndRect_V10.PreviousInstance) {
         switch previousInstance {
             
         case .oval(let value):

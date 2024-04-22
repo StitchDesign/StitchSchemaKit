@@ -1,5 +1,5 @@
 //
-//  PreviewSize_V9.swift
+//  PreviewSize_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum PreviewSize_V9: StitchSchemaVersionable {
+public enum PreviewSize_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = PreviewSize_V8.PreviewSize
     // MARK: - endif
     
@@ -61,8 +61,8 @@ public enum PreviewSize_V9: StitchSchemaVersionable {
 
 }
 
-extension PreviewSize_V9.PreviewSize: StitchVersionedCodable {
-    public init(previousInstance: PreviewSize_V9.PreviousInstance) {
+extension PreviewSize_V10.PreviewSize: StitchVersionedCodable {
+    public init(previousInstance: PreviewSize_V10.PreviousInstance) {
         switch previousInstance {
             
         case .iPhone14:

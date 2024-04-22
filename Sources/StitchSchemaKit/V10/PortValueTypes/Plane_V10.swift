@@ -1,5 +1,5 @@
 //
-//  Plane_V9.swift
+//  Plane_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum Plane_V9: StitchSchemaVersionable {
+public enum Plane_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Plane_V8.Plane
     // MARK: - endif
   
@@ -18,8 +18,8 @@ public enum Plane_V9: StitchSchemaVersionable {
     }
 }
 
-extension Plane_V9.Plane: StitchVersionedCodable {
-    public init(previousInstance: Plane_V9.PreviousInstance) {
+extension Plane_V10.Plane: StitchVersionedCodable {
+    public init(previousInstance: Plane_V10.PreviousInstance) {
         switch previousInstance {
             
         case .any:

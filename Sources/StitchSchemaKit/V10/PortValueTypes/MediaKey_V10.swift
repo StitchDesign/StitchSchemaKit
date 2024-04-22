@@ -1,5 +1,5 @@
 //
-//  MediaKey_V9.swift
+//  MediaKey_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum MediaKey_V9: StitchSchemaVersionable {
+public enum MediaKey_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = MediaKey_V8.MediaKey
     // MARK: - endif
  
@@ -30,8 +30,8 @@ public enum MediaKey_V9: StitchSchemaVersionable {
 
 }
 
-extension MediaKey_V9.MediaKey: StitchVersionedCodable {
-    public init(previousInstance: MediaKey_V9.PreviousInstance) {
+extension MediaKey_V10.MediaKey: StitchVersionedCodable {
+    public init(previousInstance: MediaKey_V10.PreviousInstance) {
         self.init(filename: previousInstance.filename, fileExtension: previousInstance.fileExtension)
     }
 }

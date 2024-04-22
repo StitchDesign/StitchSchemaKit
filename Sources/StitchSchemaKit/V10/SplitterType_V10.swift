@@ -1,5 +1,5 @@
 //
-//  SplitterType_V9.swift
+//  SplitterType_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-public enum SplitterType_V9: StitchSchemaVersionable {
+public enum SplitterType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = SplitterType_V8.SplitterType
     // MARK: - endif
  
@@ -24,8 +24,8 @@ public enum SplitterType_V9: StitchSchemaVersionable {
 
 }
 
-extension SplitterType_V9.SplitterType: StitchVersionedCodable {
-    public init(previousInstance: SplitterType_V9.PreviousInstance) {
+extension SplitterType_V10.SplitterType: StitchVersionedCodable {
+    public init(previousInstance: SplitterType_V10.PreviousInstance) {
         switch previousInstance {
             
         case .inline:

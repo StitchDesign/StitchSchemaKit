@@ -7,12 +7,12 @@
 
 import Foundation
 
-public enum StitchFont_V9: StitchSchemaVersionable {
+public enum StitchFont_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = StitchFont_V8.StitchFont
-    public typealias StitchFontChoice = StitchFontChoice_V9.StitchFontChoice
-    public typealias StitchFontWeight = StitchFontWeight_V9.StitchFontWeight
+    public typealias StitchFontChoice = StitchFontChoice_V10.StitchFontChoice
+    public typealias StitchFontWeight = StitchFontWeight_V10.StitchFontWeight
     // MARK: - endif
 
     // the value that lives in the input's PortValue and which is passed down to view models etc.
@@ -28,11 +28,11 @@ public enum StitchFont_V9: StitchSchemaVersionable {
     }
 }
 
-extension StitchFont_V9.StitchFont: StitchVersionedCodable {
-    public init(previousInstance: StitchFont_V9.PreviousInstance) {
+extension StitchFont_V10.StitchFont: StitchVersionedCodable {
+    public init(previousInstance: StitchFont_V10.PreviousInstance) {
         self.init(fontChoice: 
-                    StitchFont_V9.StitchFontChoice(previousInstance: previousInstance.fontChoice),
+                    StitchFont_V10.StitchFontChoice(previousInstance: previousInstance.fontChoice),
                   fontWeight:
-                    StitchFont_V9.StitchFontWeight(previousInstance: previousInstance.fontWeight))
+                    StitchFont_V10.StitchFontWeight(previousInstance: previousInstance.fontWeight))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LightType_V9.swift
+//  LightType_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum LightType_V9: StitchSchemaVersionable {
+public enum LightType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = LightType_V8.LightType
     // MARK: - endif
     
@@ -21,8 +21,8 @@ public enum LightType_V9: StitchSchemaVersionable {
 }
 
 
-extension LightType_V9.LightType: StitchVersionedCodable {
-    public init(previousInstance: LightType_V9.PreviousInstance) {
+extension LightType_V10.LightType: StitchVersionedCodable {
+    public init(previousInstance: LightType_V10.PreviousInstance) {
         switch previousInstance {
             
         case .ambient:

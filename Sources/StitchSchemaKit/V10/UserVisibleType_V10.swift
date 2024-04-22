@@ -1,5 +1,5 @@
 //
-//  UserVisibleType_V9.swift
+//  UserVisibleType_V10.swift
 //
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum UserVisibleType_V9: StitchSchemaVersionable {
+public enum UserVisibleType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = UserVisibleType_V8.UserVisibleType
     // MARK: - endif
  
@@ -66,8 +66,8 @@ public enum UserVisibleType_V9: StitchSchemaVersionable {
     }
 }
 
-extension UserVisibleType_V9.UserVisibleType: StitchVersionedCodable {
-    public init(previousInstance: UserVisibleType_V9.PreviousInstance) {
+extension UserVisibleType_V10.UserVisibleType: StitchVersionedCodable {
+    public init(previousInstance: UserVisibleType_V10.PreviousInstance) {
         switch previousInstance {
         case .string:
             self = .string

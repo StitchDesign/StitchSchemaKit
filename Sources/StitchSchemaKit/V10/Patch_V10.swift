@@ -1,5 +1,5 @@
 //
-//  Patch_V9.swift
+//  Patch_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/27/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum Patch_V9: StitchSchemaVersionable {
+public enum Patch_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Patch_V8.Patch
     // MARK: - endif
  
@@ -183,8 +183,8 @@ public enum Patch_V9: StitchSchemaVersionable {
     }
 }
 
-extension Patch_V9.Patch: StitchVersionedCodable {
-    public init(previousInstance: Patch_V9.PreviousInstance) {
+extension Patch_V10.Patch: StitchVersionedCodable {
+    public init(previousInstance: Patch_V10.PreviousInstance) {
         switch previousInstance {
             
         case .splitter:

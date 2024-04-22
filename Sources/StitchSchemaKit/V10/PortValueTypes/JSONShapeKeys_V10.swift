@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum JSONShapeKeys_V9: StitchSchemaVersionable {
+public enum JSONShapeKeys_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = JSONShapeKeys_V8.JSONShapeKeys
     // MARK: - endif
  
@@ -28,8 +28,8 @@ public enum JSONShapeKeys_V9: StitchSchemaVersionable {
     }
 }
 
-extension JSONShapeKeys_V9.JSONShapeKeys: StitchVersionedCodable {
-    public init(previousInstance: JSONShapeKeys_V9.PreviousInstance) {
+extension JSONShapeKeys_V10.JSONShapeKeys: StitchVersionedCodable {
+    public init(previousInstance: JSONShapeKeys_V10.PreviousInstance) {
         fatalError()
     }
 }

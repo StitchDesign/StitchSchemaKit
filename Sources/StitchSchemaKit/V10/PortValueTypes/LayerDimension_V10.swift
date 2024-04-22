@@ -1,5 +1,5 @@
 //
-//  LayerDimension_V9.swift
+//  LayerDimension_V10.swift
 //  
 //
 //  Created by Nicholas Arner on 1/26/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum LayerDimension_V9: StitchSchemaVersionable {
+public enum LayerDimension_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = LayerDimension_V8.LayerDimension
     // MARK: - endif
  
@@ -34,8 +34,8 @@ public enum LayerDimension_V9: StitchSchemaVersionable {
 
 }
 
-extension LayerDimension_V9.LayerDimension: StitchVersionedCodable {
-    public init(previousInstance: LayerDimension_V9.PreviousInstance) {
+extension LayerDimension_V10.LayerDimension: StitchVersionedCodable {
+    public init(previousInstance: LayerDimension_V10.PreviousInstance) {
         switch previousInstance {
             
         case .number(let value):

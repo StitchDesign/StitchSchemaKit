@@ -344,6 +344,7 @@ extension LayerNodeEntity_V11.LayerNodeEntity: StitchVersionedCodable {
                   endAnglePort: NodeConnectionType_V11.NodeConnectionType(previousInstance: previousInstance.endAnglePort),
                   startRadiusPort: NodeConnectionType_V11.NodeConnectionType(previousInstance: previousInstance.startRadiusPort),
                   endRadiusPort: NodeConnectionType_V11.NodeConnectionType(previousInstance: previousInstance.endRadiusPort),
+                  videoURLPort: NodeConnectionType_V11.NodeConnectionType.values([]),
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,
                   isExpandedInSidebar: previousInstance.isExpandedInSidebar)

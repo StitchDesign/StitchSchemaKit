@@ -33,8 +33,7 @@ public enum Layer_V10: StitchSchemaVersionable {
              switchLayer = "Switch",
              linearGradient = "Linear Gradient",
              radialGradient = "Radial Gradient",
-             angularGradient = "Angular Gradient",
-             videoStreaming = "Video Streaming"
+             angularGradient = "Angular Gradient"
     }
 }
 

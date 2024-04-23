@@ -11,7 +11,7 @@ import Foundation
 public enum DataType_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = DataType_V10.DataType
+    public typealias PreviousInstance = DataType_V11.DataType
     // MARK: - endif
     
     public typealias ValueType = Equatable & StitchVersionedCodable & Hashable
@@ -23,7 +23,7 @@ public enum DataType_V12: StitchSchemaVersionable {
 }
 
 extension DataType_V12.DataType: StitchVersionedCodable where Value: DataType_V12.ValueType {
-    public init(previousInstance: DataType_V10.PreviousInstance<Value>) {
+    public init(previousInstance: DataType_V11.PreviousInstance<Value>) {
         switch previousInstance { 
             
         case .source(let value):

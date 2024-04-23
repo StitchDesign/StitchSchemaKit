@@ -10,7 +10,7 @@ import Foundation
 public enum Patch_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = Patch_V10.Patch
+    public typealias PreviousInstance = Patch_V11.Patch
     // MARK: - endif
  
 

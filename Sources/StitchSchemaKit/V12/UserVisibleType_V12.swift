@@ -10,7 +10,7 @@ import Foundation
 public enum UserVisibleType_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = UserVisibleType_V10.UserVisibleType
+    public typealias PreviousInstance = UserVisibleType_V11.UserVisibleType
     // MARK: - endif
  
 

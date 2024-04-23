@@ -11,7 +11,7 @@ import Foundation
 public enum ShapeAndRect_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = ShapeAndRect_V10.ShapeAndRect
+    public typealias PreviousInstance = ShapeAndRect_V11.ShapeAndRect
     // MARK: - endif
  
     public enum ShapeAndRect: Equatable {

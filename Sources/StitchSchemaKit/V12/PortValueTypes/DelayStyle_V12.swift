@@ -10,7 +10,7 @@ import Foundation
 public enum DelayStyle_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = DelayStyle_V10.DelayStyle
+    public typealias PreviousInstance = DelayStyle_V11.DelayStyle
     // MARK: - endif
     
     public enum DelayStyle: String, Equatable, CaseIterable {

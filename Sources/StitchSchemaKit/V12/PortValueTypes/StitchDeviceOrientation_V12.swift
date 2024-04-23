@@ -10,7 +10,7 @@ import Foundation
 public enum StitchDeviceOrientation_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = StitchDeviceOrientation_V10.StitchDeviceOrientation
+    public typealias PreviousInstance = StitchDeviceOrientation_V11.StitchDeviceOrientation
     // MARK: - endif
  
     public enum StitchDeviceOrientation: String, CaseIterable {

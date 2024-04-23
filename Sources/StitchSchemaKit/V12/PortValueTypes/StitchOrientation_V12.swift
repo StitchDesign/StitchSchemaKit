@@ -10,7 +10,7 @@ import Foundation
 public enum StitchOrientation_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = StitchOrientation_V10.StitchOrientation
+    public typealias PreviousInstance = StitchOrientation_V11.StitchOrientation
     // MARK: - endif
     
     // Used for VStack vs HStack on layer groups

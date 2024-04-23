@@ -10,7 +10,7 @@ import Foundation
 public enum PathPoint_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = PathPoint_V10.PathPoint
+    public typealias PreviousInstance = PathPoint_V11.PathPoint
     // MARK: - endif
 
     // Needed so that we can encode CGPoint in the "{ x: 1, y: 2 }" format expected by path json arrays and shape commands

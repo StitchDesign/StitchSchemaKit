@@ -11,7 +11,7 @@ public enum PatchNodeEntity_V12: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V12
-    public typealias PreviousInstance = PatchNodeEntity_V10.PatchNodeEntity
+    public typealias PreviousInstance = PatchNodeEntity_V11.PatchNodeEntity
     public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V12.SplitterNodeEntity
     public typealias Patch = Patch_V12.Patch
     public typealias UserVisibleType = UserVisibleType_V12.UserVisibleType

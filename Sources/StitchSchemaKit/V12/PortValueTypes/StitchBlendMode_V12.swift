@@ -10,7 +10,7 @@ import Foundation
 public enum StitchBlendMode_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = StitchBlendMode_V10.StitchBlendMode
+    public typealias PreviousInstance = StitchBlendMode_V11.StitchBlendMode
     
     // MARK: - endif
  

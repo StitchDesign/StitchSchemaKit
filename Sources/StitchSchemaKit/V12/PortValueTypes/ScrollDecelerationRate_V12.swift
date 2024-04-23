@@ -10,7 +10,7 @@ import Foundation
 public enum ScrollDecelerationRate_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = ScrollDecelerationRate_V10.ScrollDecelerationRate
+    public typealias PreviousInstance = ScrollDecelerationRate_V11.ScrollDecelerationRate
     // MARK: - endif
     
 

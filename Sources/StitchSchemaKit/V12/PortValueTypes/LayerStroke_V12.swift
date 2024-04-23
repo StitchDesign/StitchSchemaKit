@@ -10,7 +10,7 @@ import Foundation
 public enum LayerStroke_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = LayerStroke_V10.LayerStroke
+    public typealias PreviousInstance = LayerStroke_V11.LayerStroke
     // MARK: - endif
     
     public enum LayerStroke: String, Codable, CaseIterable {

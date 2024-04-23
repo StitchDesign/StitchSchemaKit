@@ -10,7 +10,7 @@ import Foundation
 public enum LightType_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = LightType_V10.LightType
+    public typealias PreviousInstance = LightType_V11.LightType
     // MARK: - endif
     
     public enum LightType: String, CaseIterable {

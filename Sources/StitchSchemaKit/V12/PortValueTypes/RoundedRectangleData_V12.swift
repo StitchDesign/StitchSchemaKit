@@ -10,7 +10,7 @@ import Foundation
 public enum RoundedRectangleData_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = RoundedRectangleData_V10.RoundedRectangleData
+    public typealias PreviousInstance = RoundedRectangleData_V11.RoundedRectangleData
     // MARK: - endif
  
     public struct RoundedRectangleData: Equatable {

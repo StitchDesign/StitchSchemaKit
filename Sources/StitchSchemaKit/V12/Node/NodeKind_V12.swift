@@ -10,7 +10,7 @@ import Foundation
 public enum NodeKind_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = NodeKind_V10.NodeKind
+    public typealias PreviousInstance = NodeKind_V11.NodeKind
     // MARK: - endif
     
     public enum NodeKind: Codable, Equatable, Hashable {

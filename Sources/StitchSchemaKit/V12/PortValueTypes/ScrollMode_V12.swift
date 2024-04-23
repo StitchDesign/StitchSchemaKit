@@ -10,7 +10,7 @@ import Foundation
 public enum ScrollMode_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = ScrollMode_V10.ScrollMode
+    public typealias PreviousInstance = ScrollMode_V11.ScrollMode
     // MARK: - endif
     
     public enum ScrollMode: String, CaseIterable {

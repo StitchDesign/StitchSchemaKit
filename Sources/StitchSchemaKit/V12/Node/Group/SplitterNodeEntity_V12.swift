@@ -11,7 +11,7 @@ public enum SplitterNodeEntity_V12: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V12
-    public typealias PreviousInstance = SplitterNodeEntity_V10.SplitterNodeEntity
+    public typealias PreviousInstance = SplitterNodeEntity_V11.SplitterNodeEntity
     public typealias SplitterType = SplitterType_V12.SplitterType
     // MARK: - end
 

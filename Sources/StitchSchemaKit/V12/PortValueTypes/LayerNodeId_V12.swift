@@ -10,7 +10,7 @@ import Foundation
 public enum LayerNodeId_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = LayerNodeId_V10.LayerNodeId
+    public typealias PreviousInstance = LayerNodeId_V11.LayerNodeId
     // MARK: - endif
     
 

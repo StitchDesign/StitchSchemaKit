@@ -10,7 +10,7 @@ import Foundation
 public enum NetworkRequestType_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = NetworkRequestType_V10.NetworkRequestType
+    public typealias PreviousInstance = NetworkRequestType_V11.NetworkRequestType
     // MARK: - endif
     
     public enum NetworkRequestType: String, CaseIterable {

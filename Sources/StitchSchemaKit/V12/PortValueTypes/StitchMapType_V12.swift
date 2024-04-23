@@ -11,7 +11,7 @@ import MapKit
 public enum StitchMapType_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = StitchMapType_V10.StitchMapType
+    public typealias PreviousInstance = StitchMapType_V11.StitchMapType
     
     // MARK: - endif
     public enum StitchMapType: String, Equatable, Codable, CaseIterable, Sendable {

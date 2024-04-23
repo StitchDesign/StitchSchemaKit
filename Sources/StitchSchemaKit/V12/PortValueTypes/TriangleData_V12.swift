@@ -10,7 +10,7 @@ import Foundation
 public enum TriangleData_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = TriangleData_V10.TriangleData
+    public typealias PreviousInstance = TriangleData_V11.TriangleData
     // MARK: - endif
  
     public struct TriangleData: Equatable {

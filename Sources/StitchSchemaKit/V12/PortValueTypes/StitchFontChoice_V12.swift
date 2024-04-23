@@ -10,7 +10,7 @@ import Foundation
 public enum StitchFontChoice_V12: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V12
-    public typealias PreviousInstance = StitchFontChoice_V10.StitchFontChoice
+    public typealias PreviousInstance = StitchFontChoice_V11.StitchFontChoice
     // MARK: - endif
 
     public enum StitchFontChoice: String, Equatable, CaseIterable, Codable, Hashable {

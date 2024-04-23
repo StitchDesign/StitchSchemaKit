@@ -44,6 +44,7 @@ public enum LayerNodeEntity_V11: StitchSchemaVersionable {
         public var endAnglePort: NodeConnectionType
         public var startRadiusPort: NodeConnectionType
         public var endRadiusPort: NodeConnectionType
+        public var videoURLPort: NodeConnectionType
         public var rotationXPort: NodeConnectionType
         public var rotationYPort: NodeConnectionType
         public var rotationZPort: NodeConnectionType
@@ -177,6 +178,7 @@ public enum LayerNodeEntity_V11: StitchSchemaVersionable {
                     endAnglePort: NodeConnectionType,
                     startRadiusPort: NodeConnectionType,
                     endRadiusPort: NodeConnectionType,
+                    videoURLPort: NodeConnectionType,
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -257,6 +259,7 @@ public enum LayerNodeEntity_V11: StitchSchemaVersionable {
             self.endAnglePort = endAnglePort
             self.startRadiusPort = startRadiusPort
             self.endRadiusPort = endRadiusPort
+            self.videoURLPort = videoURLPort
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId
             self.isExpandedInSidebar = isExpandedInSidebar
@@ -341,7 +344,6 @@ extension LayerNodeEntity_V11.LayerNodeEntity: StitchVersionedCodable {
                   endAnglePort: NodeConnectionType_V11.NodeConnectionType(previousInstance: previousInstance.endAnglePort),
                   startRadiusPort: NodeConnectionType_V11.NodeConnectionType(previousInstance: previousInstance.startRadiusPort),
                   endRadiusPort: NodeConnectionType_V11.NodeConnectionType(previousInstance: previousInstance.endRadiusPort),
-                  
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,
                   isExpandedInSidebar: previousInstance.isExpandedInSidebar)

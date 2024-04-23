@@ -82,6 +82,7 @@ public enum LayerInputType_V11: StitchSchemaVersionable {
         case model3D
         case fitStyle
         case clipped
+        case videoURL
         
         // Progress Indicator
         case progressIndicatorStyle
@@ -262,6 +263,8 @@ extension LayerInputType_V11.LayerInputType {
             return \.startRadiusPort
         case .endRadius:
             return \.endRadiusPort
+        case .videoURL:
+            return \.videoURLPort
         }
     }
 }

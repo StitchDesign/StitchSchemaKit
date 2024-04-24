@@ -81,6 +81,8 @@ public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V13
 public typealias CurrentNodeConnectionType = NodeConnectionType_V13
 public typealias CurrentLayerInputType = LayerInputType_V13
 public typealias CurrentNodeIOPortType = NodeIOPortType_V13
+public typealias CurrentStrokeLineCap = StrokeLineCap_V13
+public typealias CurrentStrokeLineJoin = StrokeLineJoin_V13
 
 // MARK: - end
 
@@ -158,7 +160,8 @@ public typealias VisualMediaFitStyle = CurrentVisualMediaFitStyle.VisualMediaFit
 public typealias NodeConnectionType = CurrentNodeConnectionType.NodeConnectionType
 public typealias LayerInputType = CurrentLayerInputType.LayerInputType
 public typealias NodeIOPortType = CurrentNodeIOPortType.NodeIOPortType
-
+public typealias StrokeLineCap = CurrentStrokeLineCap.StrokeLineCap
+public typealias StrokeLineJoin = CurrentStrokeLineJoin.StrokeLineJoin
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

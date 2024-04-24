@@ -44,6 +44,8 @@ public enum UserVisibleType_V13: StitchSchemaVersionable {
         case animationCurve
         case lightType
         case layerStroke
+        case strokeLineCap = "Stroke Line Cap"
+        case strokeLineJoin = "Stroke Line Join"
         case textTransform
         case dateAndTimeFormat
         case shape

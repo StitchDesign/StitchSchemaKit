@@ -60,6 +60,8 @@ public enum LayerInputType_V13: StitchSchemaVersionable {
         case strokeColor
         case strokeStart
         case strokeEnd
+        case strokeLineCap
+        case strokeLineJoin
         case coordinateSystem
         case cornerRadius
         
@@ -195,6 +197,7 @@ extension LayerInputType_V13.LayerInputType {
             return \.isCameraEnabledPort
         case .isShadowsEnabled:
             return \.isShadowsEnabledPort
+        
         case .shape:
             return \.shapePort
         case .strokePosition:
@@ -207,10 +210,15 @@ extension LayerInputType_V13.LayerInputType {
             return \.strokeStartPort
         case .strokeEnd:
             return \.strokeEndPort
+        case .strokeLineCap:
+            return \.strokeLineCapPort
+        case .strokeLineJoin:
+            return \.strokeLineJoinPort
         case .coordinateSystem:
             return \.coordinateSystemPort
         case .cornerRadius:
             return \.cornerRadiusPort
+        
         case .canvasLineColor:
             return \.canvasLineColorPort
         case .canvasLineWidth:

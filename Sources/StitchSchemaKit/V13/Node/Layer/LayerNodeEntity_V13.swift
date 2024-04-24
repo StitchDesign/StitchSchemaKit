@@ -68,13 +68,17 @@ public enum LayerNodeEntity_V13: StitchSchemaVersionable {
         public var cameraDirectionPort: NodeConnectionType
         public var isCameraEnabledPort: NodeConnectionType
         public var isShadowsEnabledPort: NodeConnectionType
+        
         public var shapePort: NodeConnectionType
         public var strokePositionPort: NodeConnectionType
         public var strokeWidthPort: NodeConnectionType
         public var strokeColorPort: NodeConnectionType
         public var strokeStartPort: NodeConnectionType
         public var strokeEndPort: NodeConnectionType
+        public var strokeLineCapPort: NodeConnectionType
+        public var strokeLineJoinPort: NodeConnectionType
         public var coordinateSystemPort: NodeConnectionType
+        
         public var cornerRadiusPort: NodeConnectionType
         public var canvasLineColorPort: NodeConnectionType
         public var canvasLineWidthPort: NodeConnectionType
@@ -145,13 +149,17 @@ public enum LayerNodeEntity_V13: StitchSchemaVersionable {
                     cameraDirectionPort: NodeConnectionType,
                     isCameraEnabledPort: NodeConnectionType,
                     isShadowsEnabledPort: NodeConnectionType,
+                    
                     shapePort: NodeConnectionType,
                     strokePositionPort: NodeConnectionType,
                     strokeWidthPort: NodeConnectionType,
                     strokeColorPort: NodeConnectionType,
                     strokeStartPort: NodeConnectionType,
                     strokeEndPort: NodeConnectionType,
+                    strokeLineCapPort: NodeConnectionType,
+                    strokeLineJoinPort: NodeConnectionType,
                     coordinateSystemPort: NodeConnectionType,
+                    
                     cornerRadiusPort: NodeConnectionType,
                     canvasLineColorPort: NodeConnectionType,
                     canvasLineWidthPort: NodeConnectionType,
@@ -230,12 +238,16 @@ public enum LayerNodeEntity_V13: StitchSchemaVersionable {
             self.cameraDirectionPort = cameraDirectionPort
             self.isCameraEnabledPort = isCameraEnabledPort
             self.isShadowsEnabledPort = isShadowsEnabledPort
+            
             self.shapePort = shapePort
             self.strokePositionPort = strokePositionPort
             self.strokeWidthPort = strokeWidthPort
             self.strokeColorPort = strokeColorPort
             self.strokeStartPort = strokeStartPort
             self.strokeEndPort = strokeEndPort
+            self.strokeLineCapPort = strokeLineCapPort
+            self.strokeLineJoinPort = strokeLineJoinPort
+            
             self.coordinateSystemPort = coordinateSystemPort
             self.cornerRadiusPort = cornerRadiusPort
             self.canvasLineColorPort = canvasLineColorPort
@@ -319,13 +331,17 @@ extension LayerNodeEntity_V13.LayerNodeEntity: StitchVersionedCodable {
                   cameraDirectionPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.cameraDirectionPort),
                   isCameraEnabledPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.isCameraEnabledPort),
                   isShadowsEnabledPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.isShadowsEnabledPort),
+                  
                   shapePort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.shapePort),
                   strokePositionPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.strokePositionPort),
                   strokeWidthPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.strokeWidthPort),
                   strokeColorPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.strokeColorPort),
                   strokeStartPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.strokeStartPort),
                   strokeEndPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.strokeEndPort),
+                  strokeLineCapPort: NodeConnectionType_V13.NodeConnectionType.values([]),
+                  strokeLineJoinPort: NodeConnectionType_V13.NodeConnectionType.values([]),
                   coordinateSystemPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.coordinateSystemPort),
+                  
                   cornerRadiusPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.cornerRadiusPort),
                   canvasLineColorPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.canvasLineColorPort),
                   canvasLineWidthPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.canvasLineWidthPort),

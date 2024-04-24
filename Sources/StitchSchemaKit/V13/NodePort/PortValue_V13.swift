@@ -52,6 +52,8 @@ public enum PortValue_V13: StitchSchemaVersionable {
     public typealias StitchMapType = StitchMapType_V13.StitchMapType
     public typealias ProgressIndicatorStyle = ProgressIndicatorStyle_V13.ProgressIndicatorStyle
     public typealias MobileHapticStyle = MobileHapticStyle_V13.MobileHapticStyle
+    public typealias StrokeLineCap = StrokeLineCap_V13.StrokeLineCap
+    public typealias StrokeLineJoin = StrokeLineJoin_V13.StrokeLineJoin
 
     // MARK: - end
     
@@ -104,6 +106,8 @@ public enum PortValue_V13: StitchSchemaVersionable {
         case mapType(StitchMapType)
         case progressIndicatorStyle(ProgressIndicatorStyle)
         case mobileHapticStyle(MobileHapticStyle)
+        case strokeLineCap(StrokeLineCap)
+        case strokeLineJoin(StrokeLineJoin)
     }
 }
 

@@ -13,7 +13,7 @@ public enum StrokeLineJoin_V13: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.StrokeLineJoin
     // MARK: - endif
      
-    public enum StrokeLineJoin: String, Hashable, Equatable, Codable {
+    public enum StrokeLineJoin: String, Hashable, Equatable, Codable, CaseIterable {
         case bevel = "Bevel",
              miter = "Miter",
              round = "Round"

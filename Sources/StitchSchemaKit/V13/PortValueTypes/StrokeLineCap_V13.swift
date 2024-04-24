@@ -13,7 +13,7 @@ public enum StrokeLineCap_V13: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.StrokeLineCap
     // MARK: - endif
      
-    public enum StrokeLineCap: String, Hashable, Equatable, Codable {
+    public enum StrokeLineCap: String, Hashable, Equatable, Codable, CaseIterable {
         case butt = "Butt",
              square = "Square",
              round = "Round"

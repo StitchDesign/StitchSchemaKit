@@ -125,180 +125,161 @@ public enum LayerInputType_V14: StitchSchemaVersionable {
 
 extension LayerInputType_V14.LayerInputType: StitchVersionedCodable {
     public init(previousInstance: LayerInputType_V14.PreviousInstance) {
-        fatalError()
-    }
-}
-
-extension LayerInputType_V14.LayerInputType {
-    /// Keypath mapping to this schema version.
-    public var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V14.LayerNodeEntity, NodeConnectionType_V14.NodeConnectionType> {
-        switch self {
-            
-        // Required
+        switch previousInstance {
         case .position:
-            return \.positionPort
+            self = .position
         case .size:
-            return \.sizePort
+            self = .size
         case .scale:
-            return \.scalePort
+            self = .scale
         case .anchoring:
-            return \.anchoringPort
+            self = .anchoring
         case .opacity:
-            return \.opacityPort
+            self = .opacity
         case .zIndex:
-            return \.zIndexPort
-        
-        // Common
+            self = .zIndex
         case .masks:
-            return \.masksPort
+            self = .masks
         case .color:
-            return \.colorPort
+            self = .color
         case .rotationX:
-            return \.rotationXPort
+            self = .rotationX
         case .rotationY:
-            return \.rotationYPort
+            self = .rotationY
         case .rotationZ:
-            return \.rotationZPort
+            self = .rotationZ
         case .lineColor:
-            return \.lineColorPort
+            self = .lineColor
         case .lineWidth:
-            return \.lineWidthPort
+            self = .lineWidth
         case .blur:
-            return \.blurPort
+            self = .blur
         case .blendMode:
-            return \.blendModePort
+            self = .blendMode
         case .brightness:
-            return \.brightnessPort
+            self = .brightness
         case .colorInvert:
-            return \.colorInvertPort
+            self = .colorInvert
         case .contrast:
-            return \.contrastPort
+            self = .contrast
         case .hueRotation:
-            return \.hueRotationPort
+            self = .hueRotation
         case .saturation:
-            return \.saturationPort
+            self = .saturation
         case .pivot:
-            return \.pivotPort
+            self = .pivot
         case .enabled:
-            return \.enabledPort
+            self = .enabled
         case .blurRadius:
-            return \.blurRadiusPort
+            self = .blurRadius
         case .backgroundColor:
-            return \.backgroundColorPort
+            self = .backgroundColor
         case .isClipped:
-            return \.isClippedPort
+            self = .isClipped
         case .orientation:
-            return \.orientationPort
+            self = .orientation
         case .padding:
-            return \.paddingPort
+            self = .padding
         case .setupMode:
-            return \.setupModePort
-        case .allAnchors:
-            return \.allAnchorsPort
-        case .cameraDirection:
-            return \.cameraDirectionPort
-        case .isCameraEnabled:
-            return \.isCameraEnabledPort
-        case .isShadowsEnabled:
-            return \.isShadowsEnabledPort
-        
-        case .shape:
-            return \.shapePort
-        case .strokePosition:
-            return \.strokePositionPort
-        case .strokeWidth:
-            return \.strokeWidthPort
-        case .strokeColor:
-            return \.strokeColorPort
-        case .strokeStart:
-            return \.strokeStartPort
-        case .strokeEnd:
-            return \.strokeEndPort
-        case .strokeLineCap:
-            return \.strokeLineCapPort
-        case .strokeLineJoin:
-            return \.strokeLineJoinPort
-        case .coordinateSystem:
-            return \.coordinateSystemPort
-        case .cornerRadius:
-            return \.cornerRadiusPort
-        
-        case .canvasLineColor:
-            return \.canvasLineColorPort
-        case .canvasLineWidth:
-            return \.canvasLineWidthPort
-        case .text:
-            return \.textPort
-        case .fontSize:
-            return \.fontSizePort
-        case .textAlignment:
-            return \.textAlignmentPort
-        case .verticalAlignment:
-            return \.verticalAlignmentPort
-        case .textDecoration:
-            return \.textDecorationPort
-        case .textFont:
-            return \.textFontPort
-        case .image:
-            return \.imagePort
-        case .video:
-            return \.videoPort
-        case .fitStyle:
-            return \.fitStylePort
-        case .clipped:
-            return \.clippedPort
+            self = .setupMode
         case .isAnimating:
-            return \.isAnimatingPort
-        case .progressIndicatorStyle:
-            return \.progressIndicatorStylePort
-        case .progress:
-            return \.progressPort
-        case .model3D:
-            return \.model3DPort
-        case .mapType:
-            return \.mapTypePort
-        case .mapLatLong:
-            return \.mapLatLongPort
-        case .mapSpan:
-            return \.mapSpanPort
-        case .isSwitchToggled:
-            return \.isSwitchToggledPort
+            self = .isAnimating
+        case .allAnchors:
+            self = .allAnchors
+        case .cameraDirection:
+            self = .cameraDirection
+        case .isCameraEnabled:
+            self = .isCameraEnabled
+        case .isShadowsEnabled:
+            self = .isShadowsEnabled
+        case .shape:
+            self = .shape
+        case .strokePosition:
+            self = .strokePosition
+        case .strokeWidth:
+            self = .strokeWidth
+        case .strokeColor:
+            self = .strokeColor
+        case .strokeStart:
+            self = .strokeStart
+        case .strokeEnd:
+            self = .strokeEnd
+        case .strokeLineCap:
+            self = .strokeLineCap
+        case .strokeLineJoin:
+            self = .strokeLineJoin
+        case .coordinateSystem:
+            self = .coordinateSystem
+        case .cornerRadius:
+            self = .cornerRadius
+        case .canvasLineColor:
+            self = .canvasLineColor
+        case .canvasLineWidth:
+            self = .canvasLineWidth
+        case .text:
+            self = .text
         case .placeholderText:
-            return \.placeholderTextPort
+            self = .placeholderText
+        case .fontSize:
+            self = .fontSize
+        case .textAlignment:
+            self = .textAlignment
+        case .verticalAlignment:
+            self = .verticalAlignment
+        case .textDecoration:
+            self = .textDecoration
+        case .textFont:
+            self = .textFont
+        case .image:
+            self = .image
+        case .video:
+            self = .video
+        case .model3D:
+            self = .model3D
+        case .fitStyle:
+            self = .fitStyle
+        case .clipped:
+            self = .clipped
+        case .progressIndicatorStyle:
+            self = .progressIndicatorStyle
+        case .progress:
+            self = .progress
+        case .mapType:
+            self = .mapType
+        case .mapLatLong:
+            self = .mapLatLong
+        case .mapSpan:
+            self = .mapSpan
+        case .isSwitchToggled:
+            self = .isSwitchToggled
         case .startColor:
-            return \.startColorPort
+            self = .startColor
         case .endColor:
-            return \.endColorPort
+            self = .endColor
         case .startAnchor:
-            return \.startAnchorPort
+            self = .startAnchor
         case .endAnchor:
-            return \.endAnchorPort
+            self = .endAnchor
         case .centerAnchor:
-            return \.centerAnchorPort
+            self = .centerAnchor
         case .startAngle:
-            return \.startAnglePort
+            self = .startAngle
         case .endAngle:
-            return \.endAnglePort
+            self = .endAngle
         case .startRadius:
-            return \.startRadiusPort
+            self = .startRadius
         case .endRadius:
-            return \.endRadiusPort
-        
+            self = .endRadius
         case .shadowColor:
-            return \.shadowColorPort
+            self = .shadowColor
         case .shadowOpacity:
-            return \.shadowOpacityPort
+            self = .shadowOpacity
         case .shadowRadius:
-            return \.shadowRadiusPort
+            self = .shadowRadius
         case .shadowOffset:
-            return \.shadowOffsetPort
+            self = .shadowOffset
         case .sfSymbol:
-            return \.sfSymbolPort
-            
-        case .videoURL:
-            return \.videoURLPort
-        case .volume:
-            return \.volumePort
+            self = .sfSymbol
         }
     }
 }

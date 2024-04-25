@@ -110,6 +110,7 @@ public enum LayerNodeEntity_V14: StitchSchemaVersionable {
         
         public var sfSymbolPort: NodeConnectionType
         
+        public var videoURLPort: NodeConnectionType
         public var volumePort: NodeConnectionType
 
         // Sidebar data
@@ -200,6 +201,7 @@ public enum LayerNodeEntity_V14: StitchSchemaVersionable {
                     shadowOffsetPort: NodeConnectionType,
                     sfSymbolPort: NodeConnectionType,
                     volumePort: NodeConnectionType,
+                    videoURLPort: NodeConnectionType,
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -293,6 +295,8 @@ public enum LayerNodeEntity_V14: StitchSchemaVersionable {
             self.shadowRadiusPort = shadowRadiusPort
             self.shadowOffsetPort = shadowOffsetPort
             self.sfSymbolPort = sfSymbolPort
+            
+            self.videoURLPort = videoURLPort
             self.volumePort = volumePort
         }
     }
@@ -386,6 +390,7 @@ extension LayerNodeEntity_V14.LayerNodeEntity: StitchVersionedCodable {
                   
                   sfSymbolPort: NodeConnectionType_V14.NodeConnectionType.values([]),
                   
+                  videoURLPort: NodeConnectionType_V14.NodeConnectionType.values([]),
                   volumePort: NodeConnectionType_V14.NodeConnectionType.values([]),
 
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,

@@ -116,6 +116,9 @@ public enum LayerInputType_V14: StitchSchemaVersionable {
         
         // SFSymbol
         case sfSymbol
+        
+        // Video
+        case volume
     }
 }
 
@@ -290,6 +293,9 @@ extension LayerInputType_V14.LayerInputType {
             return \.shadowOffsetPort
         case .sfSymbol:
             return \.sfSymbolPort
+            
+        case .volume:
+            return \.volumePort
         }
     }
 }

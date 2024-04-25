@@ -83,8 +83,6 @@ extension Layer_V14.Layer: StitchVersionedCodable {
             self = .angularGradient
         case .sfSymbol:
             self = .sfSymbol
-        case .videoStreaming:
-            self = .videoStreaming
         }
         
     }

@@ -22,6 +22,13 @@ public enum StrokeLineJoin_V14: StitchSchemaVersionable {
 
 extension StrokeLineJoin_V14.StrokeLineJoin: StitchVersionedCodable {
     public init(previousInstance: StrokeLineJoin_V14.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+        case .bevel:
+            self = .bevel
+        case .miter:
+            self = .miter
+        case .round:
+            self = .round
+        }
     }
 }

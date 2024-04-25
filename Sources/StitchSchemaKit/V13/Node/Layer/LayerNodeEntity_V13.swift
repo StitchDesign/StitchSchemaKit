@@ -375,12 +375,12 @@ extension LayerNodeEntity_V13.LayerNodeEntity: StitchVersionedCodable {
                   startRadiusPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.startRadiusPort),
                   endRadiusPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.endRadiusPort),
                   
-                  shadowColorPort: NodeConnectionType_V13.NodeConnectionType.values([]),
-                  shadowOpacityPort: NodeConnectionType_V13.NodeConnectionType.values([]),
-                  shadowRadiusPort: NodeConnectionType_V13.NodeConnectionType.values([]),
-                  shadowOffsetPort: NodeConnectionType_V13.NodeConnectionType.values([]),
-                  
-                  sfSymbolPort: NodeConnectionType_V13.NodeConnectionType.values([]),
+                  // V12 first introduced these ports, so on V13 we do have previous values
+                  shadowColorPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.shadowColorPort),
+                  shadowOpacityPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.shadowOpacityPort),
+                  shadowRadiusPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.shadowRadiusPort),
+                  shadowOffsetPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.shadowOffsetPort),
+                  sfSymbolPort: NodeConnectionType_V13.NodeConnectionType(previousInstance: previousInstance.sfSymbolPort),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

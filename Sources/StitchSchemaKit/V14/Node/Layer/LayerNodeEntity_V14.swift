@@ -200,8 +200,8 @@ public enum LayerNodeEntity_V14: StitchSchemaVersionable {
                     shadowRadiusPort: NodeConnectionType,
                     shadowOffsetPort: NodeConnectionType,
                     sfSymbolPort: NodeConnectionType,
-                    volumePort: NodeConnectionType,
                     videoURLPort: NodeConnectionType,
+                    volumePort: NodeConnectionType,
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {

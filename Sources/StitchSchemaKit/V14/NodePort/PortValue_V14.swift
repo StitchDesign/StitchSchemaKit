@@ -11,6 +11,29 @@ import simd
 import Vision
 import SwiftyJSON
 
+/// A wrapper for some Base64 string which also contains an ID mapping to`StitchImage` for perf resasons.
+public struct Base64String: Equatable, Codable, Sendable {
+    public let string: String
+
+    // Uniquness on NodeId not necessary for a base64 string
+    //    var id = MediaObjectId(nodeId: (-1).asNodeId)
+    private var id: UUID = .init()
+
+    public init(_ string: String) {
+        self.string = string
+    }
+    
+    // Improves equality check performance
+    public static func == (lhs: Base64String, rhs: Base64String) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
+public enum StitchStringValue: Equatable, Codable, Sendable {
+    case raw(String)
+    case base64(Base64String)
+}
+
 public enum PortValue_V14: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V14
@@ -58,7 +81,7 @@ public enum PortValue_V14: StitchSchemaVersionable {
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {
-        case string(String)
+        case string(StitchStringValue)
         case bool(Bool)
         case int(Int) // e.g  nodeId or index?
         case number(Double) // e.g. CGFloat, part of CGSize, etc.
@@ -116,7 +139,7 @@ extension PortValue_V14.PortValue: StitchVersionedCodable {
         switch previousInstance {
             
         case .string(let value):
-            self = .string(value)
+            self = .string(.raw(value))
         case .bool(let value):
             self = .bool(value)
         case .int(let value):

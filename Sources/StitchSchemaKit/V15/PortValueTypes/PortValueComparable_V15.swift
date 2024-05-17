@@ -14,7 +14,7 @@ public enum PortValueComparable_V15: StitchSchemaVersionable {
     public typealias StitchStringValue = StitchStringValue_V15.StitchStringValue
     // MARK: - endif
 
-    public enum PortValueComparable: Equatable, Hashable {
+    public enum PortValueComparable: Equatable {
         case number(Double)
         case bool(Bool)
         case string(StitchStringValue)

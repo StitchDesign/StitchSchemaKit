@@ -30,7 +30,7 @@ extension PortValueComparable_V14.PortValueComparable: StitchVersionedCodable {
         case .bool(let value):
             self = .bool(value)
         case .string(let value):
-            self = .string(.raw(value))
+            self = .string(.init(value))
         }
     }
 }

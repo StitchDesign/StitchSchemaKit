@@ -16,7 +16,7 @@ public enum PortValueComparable_V14: StitchSchemaVersionable {
     public enum PortValueComparable: Equatable, Hashable {
         case number(Double)
         case bool(Bool)
-        case string(String)
+        case string(StitchStringValue)
     }
 
 }
@@ -30,7 +30,7 @@ extension PortValueComparable_V14.PortValueComparable: StitchVersionedCodable {
         case .bool(let value):
             self = .bool(value)
         case .string(let value):
-            self = .string(value)
+            self = .string(.raw(value))
         }
     }
 }

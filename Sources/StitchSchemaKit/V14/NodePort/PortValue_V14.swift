@@ -12,7 +12,7 @@ import Vision
 import SwiftyJSON
 
 /// A wrapper for some Base64 string which also contains an ID mapping to`StitchImage` for perf resasons.
-public struct Base64String: Equatable, Codable, Sendable {
+public struct Base64String: Equatable, Codable, Hashable, Sendable {
     public let string: String
 
     // Uniquness on NodeId not necessary for a base64 string
@@ -29,7 +29,7 @@ public struct Base64String: Equatable, Codable, Sendable {
     }
 }
 
-public enum StitchStringValue: Equatable, Codable, Sendable {
+public enum StitchStringValue: Equatable, Codable, Hashable, Sendable {
     case raw(String)
     case base64(Base64String)
 }

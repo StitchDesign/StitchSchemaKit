@@ -20,14 +20,13 @@ public enum StitchStringValue_V15: StitchSchemaVersionable {
         // ID more efficient comparison for large strings
         private var id: UUID = .init()
         
-        public static let largeStringSizeThreshold = 500
+        // Must be manually set since checking string lengths uses too much compute
+        public var isLargeString: Bool = false
         
-        public init(_ string: String) {
+        public init(_ string: String,
+                    isLargeString: Bool = false) {
             self.string = string
-        }
-        
-        public var isLargeString: Bool {
-            self.string.count > Self.largeStringSizeThreshold
+            self.isLargeString = isLargeString
         }
         
         // Improves equality check performance

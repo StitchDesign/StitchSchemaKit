@@ -73,7 +73,6 @@ public enum PortValue_V15: StitchSchemaVersionable {
         case point4D(Point4D)
         case pulse(TimeInterval) // TimeInterval = last time this input/output pulsed
         case asyncMedia(AsyncMediaValue?)
-        //    case json(JSON)
         case json(StitchJSON)
         case none // how to avoid this?
         case anchoring(Anchoring)

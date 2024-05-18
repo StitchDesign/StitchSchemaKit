@@ -22,34 +22,36 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
         
         public var id: MediaObjectId
         public var dataType: DataType<MediaKey>
-        public var mediaObject: Any?
+        public var _mediaObject: Any?
         
-        init(id: MediaObjectId,
-                    dataType: DataType<MediaKey>) {
+        /// **DO NOT USE THIS INITIALIZER FROM STITCH!.**
+        public init(id: MediaObjectId,
+                    dataType: DataType<MediaKey>,
+                    _mediaObject: Any?) {
             self.id = id
             self.dataType = dataType
+            self._mediaObject = _mediaObject
         }
         
-        /// Optional initializer with NodeId and MediaKey.
-        init(nodeId: NodeId,
-             loopIndex: Int,
-             mediaKey: MediaKey) {
-            self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
-            self.dataType = .source(mediaKey)
-        }
-        
-        /// Optional initializer for computed type.
-        init(nodeId: NodeId, loopIndex: Int) {
-            self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
-            self.dataType = .computed
-        }
-        
-        /// Optional initializer for default media, where loopIndex is always 0 but we need the static global id.
-        init(globalId: UUID, nodeId: NodeId, mediaKey: MediaKey) {
-            self.id = .init(globalId: globalId, nodeId: nodeId, loopIndex: 0)
-            self.dataType = .source(mediaKey)
-        }
-        
+//        /// Optional initializer with NodeId and MediaKey.
+//        init(nodeId: NodeId,
+//             loopIndex: Int,
+//             mediaKey: MediaKey) {
+//            self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
+//            self.dataType = .source(mediaKey)
+//        }
+//        
+//        /// Optional initializer for computed type.
+//        init(nodeId: NodeId, loopIndex: Int) {
+//            self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
+//            self.dataType = .computed
+//        }
+//        
+//        /// Optional initializer for default media, where loopIndex is always 0 but we need the static global id.
+//        init(globalId: UUID, nodeId: NodeId, mediaKey: MediaKey) {
+//            self.id = .init(globalId: globalId, nodeId: nodeId, loopIndex: 0)
+//            self.dataType = .source(mediaKey)
+//        }
     }
 }
 
@@ -63,7 +65,8 @@ extension AsyncMediaValue_V15.AsyncMediaValue: Codable {
         let id = try container.decode(MediaObjectId.self, forKey: .id)
         let dataType = try container.decode(DataType<MediaKey>.self, forKey: .dataType)
         self.init(id: id,
-                  dataType: dataType)
+                  dataType: dataType,
+                  _mediaObject: nil)
     }
     
     public func encoder(to encoder: Encoder) throws {
@@ -75,6 +78,8 @@ extension AsyncMediaValue_V15.AsyncMediaValue: Codable {
 
 extension AsyncMediaValue_V15.AsyncMediaValue: StitchVersionedCodable {
     public init(previousInstance: AsyncMediaValue_V15.PreviousInstance) {
-        self.init(id: previousInstance.id, dataType: previousInstance.dataType)
+        self.init(id: previousInstance.id, 
+                  dataType: previousInstance.dataType,
+                  _mediaObject: nil)
     }
 }

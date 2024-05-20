@@ -22,14 +22,13 @@ public enum MediaObjectId_V15: StitchSchemaVersionable {
         
         // Properties specific to the media's location in the node
         public var nodeId: NodeId
-        public var loopIndex: Int
+//        public var loopIndex: Int
         
         public init(globalId: UUID = UUID(),
-                    nodeId: NodeId,
-                    loopIndex: Int) {
+                    nodeId: NodeId) {
             self.globalId = globalId
             self.nodeId = nodeId
-            self.loopIndex = loopIndex
+//            self.loopIndex = loopIndex
         }
     }
  
@@ -37,6 +36,6 @@ public enum MediaObjectId_V15: StitchSchemaVersionable {
 
 extension MediaObjectId_V15.MediaObjectId: StitchVersionedCodable {
     public init(previousInstance: MediaObjectId_V15.PreviousInstance) {
-        self.init(nodeId: previousInstance.nodeId, loopIndex: previousInstance.loopIndex)
+        self.init(nodeId: previousInstance.nodeId)
     }
 }

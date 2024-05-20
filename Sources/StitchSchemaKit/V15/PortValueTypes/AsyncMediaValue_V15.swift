@@ -12,7 +12,7 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V15
     public typealias PreviousInstance = AsyncMediaValue_V14.AsyncMediaValue
-    public typealias MediaObjectId = MediaObjectId_V15.MediaObjectId
+//    public typealias MediaObjectId = MediaObjectId_V15.MediaObjectId
     // MARK: - endif
  
     public struct AsyncMediaValue: Equatable {
@@ -21,7 +21,7 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
             lhs.dataType == rhs.dataType
         }
         
-        public var id: MediaObjectId
+        public var id: UUID
         public var dataType: DataType<MediaKey>
         public var _mediaObject: Any?
         
@@ -59,7 +59,7 @@ extension AsyncMediaValue_V15.AsyncMediaValue: Codable {
 
 extension AsyncMediaValue_V15.AsyncMediaValue: StitchVersionedCodable {
     public init(previousInstance: AsyncMediaValue_V15.PreviousInstance) {
-        self.init(id: .init(globalId: previousInstance.id.globalId, nodeId: previousInstance.id.nodeId), 
+        self.init(id: previousInstance.id.globalId,
                   dataType: previousInstance.dataType,
                   _mediaObject: nil)
     }

@@ -18,7 +18,8 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
     public struct AsyncMediaValue: Equatable {
         public static func == (lhs: Self, rhs: Self) -> Bool {
             lhs.id == rhs.id &&
-            lhs.dataType == rhs.dataType
+            lhs.dataType == rhs.dataType &&
+            lhs._mediaObject == nil && rhs._mediaObject == nil
         }
         
         public var id: UUID

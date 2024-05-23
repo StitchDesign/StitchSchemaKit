@@ -112,7 +112,7 @@ public enum LayerNodeEntity_V15: StitchSchemaVersionable {
         
         public var videoURLPort: NodeConnectionType
         public var volumePort: NodeConnectionType
-
+        
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: NodeId?
@@ -383,15 +383,15 @@ extension LayerNodeEntity_V15.LayerNodeEntity: StitchVersionedCodable {
                   startRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.startRadiusPort),
                   endRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.endRadiusPort),
                   
-                  shadowColorPort: NodeConnectionType_V15.NodeConnectionType.values([]),
-                  shadowOpacityPort: NodeConnectionType_V15.NodeConnectionType.values([]),
-                  shadowRadiusPort: NodeConnectionType_V15.NodeConnectionType.values([]),
-                  shadowOffsetPort: NodeConnectionType_V15.NodeConnectionType.values([]),
+                  shadowColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowColorPort),
+                  shadowOpacityPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowOpacityPort),
+                  shadowRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowRadiusPort),
+                  shadowOffsetPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowOffsetPort),
                   
-                  sfSymbolPort: NodeConnectionType_V15.NodeConnectionType.values([]),
+                  sfSymbolPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.sfSymbolPort),
                   
-                  videoURLPort: NodeConnectionType_V15.NodeConnectionType.values([]),
-                  volumePort: NodeConnectionType_V15.NodeConnectionType.values([]),
+                  videoURLPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.videoURLPort),
+                  volumePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.volumePort),
 
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

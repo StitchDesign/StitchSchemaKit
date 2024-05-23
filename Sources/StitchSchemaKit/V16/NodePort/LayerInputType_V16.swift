@@ -120,6 +120,13 @@ public enum LayerInputType_V16: StitchSchemaVersionable {
         // Video
         case videoURL
         case volume
+        
+        // Grid
+        case spacingBetweenGridColumns
+        case spacingBetweenGridRows
+        case itemAlignmentWithinGridCell
+        // TODO: add HorizontalAlignment for LazyVGrid
+        
     }
 }
 

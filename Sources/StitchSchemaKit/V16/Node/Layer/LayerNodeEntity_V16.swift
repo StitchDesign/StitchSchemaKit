@@ -113,6 +113,10 @@ public enum LayerNodeEntity_V16: StitchSchemaVersionable {
         public var videoURLPort: NodeConnectionType
         public var volumePort: NodeConnectionType
 
+        public var spacingBetweenGridColumnsPort: NodeConnectionType
+        public var spacingBetweenGridRowsPort: NodeConnectionType
+        public var itemAlignmentWithinGridCellPort: NodeConnectionType
+        
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: NodeId?
@@ -195,13 +199,21 @@ public enum LayerNodeEntity_V16: StitchSchemaVersionable {
                     endAnglePort: NodeConnectionType,
                     startRadiusPort: NodeConnectionType,
                     endRadiusPort: NodeConnectionType,
+                    
                     shadowColorPort: NodeConnectionType,
                     shadowOpacityPort: NodeConnectionType,
                     shadowRadiusPort: NodeConnectionType,
                     shadowOffsetPort: NodeConnectionType,
+                    
                     sfSymbolPort: NodeConnectionType,
+                    
                     videoURLPort: NodeConnectionType,
                     volumePort: NodeConnectionType,
+                    
+                    spacingBetweenGridColumnsPort: NodeConnectionType,
+                    spacingBetweenGridRowsPort: NodeConnectionType,
+                    itemAlignmentWithinGridCellPort: NodeConnectionType,
+                    
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -298,6 +310,10 @@ public enum LayerNodeEntity_V16: StitchSchemaVersionable {
             
             self.videoURLPort = videoURLPort
             self.volumePort = volumePort
+            
+            self.spacingBetweenGridColumnsPort = spacingBetweenGridColumnsPort
+            self.spacingBetweenGridRowsPort = spacingBetweenGridRowsPort
+            self.itemAlignmentWithinGridCellPort = itemAlignmentWithinGridCellPort
         }
     }
 }
@@ -383,16 +399,20 @@ extension LayerNodeEntity_V16.LayerNodeEntity: StitchVersionedCodable {
                   startRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.startRadiusPort),
                   endRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.endRadiusPort),
                   
-                  shadowColorPort: NodeConnectionType_V16.NodeConnectionType.values([]),
-                  shadowOpacityPort: NodeConnectionType_V16.NodeConnectionType.values([]),
-                  shadowRadiusPort: NodeConnectionType_V16.NodeConnectionType.values([]),
-                  shadowOffsetPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  shadowColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowColorPort),
+                  shadowOpacityPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowOpacityPort),
+                  shadowRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowRadiusPort),
+                  shadowOffsetPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowOffsetPort),
                   
-                  sfSymbolPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  sfSymbolPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.sfSymbolPort),
                   
-                  videoURLPort: NodeConnectionType_V16.NodeConnectionType.values([]),
-                  volumePort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  videoURLPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.videoURLPort),
+                  volumePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.volumePort),
 
+                  spacingBetweenGridColumnsPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  spacingBetweenGridRowsPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  itemAlignmentWithinGridCellPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,
                   isExpandedInSidebar: previousInstance.isExpandedInSidebar)

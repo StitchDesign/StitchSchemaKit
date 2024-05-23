@@ -11,7 +11,7 @@ public enum PortValueComparable_V16: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V16
     public typealias PreviousInstance = PortValueComparable_V15.PortValueComparable
-    public typealias StitchStringValue = StitchStringValue_V15.StitchStringValue
+    public typealias StitchStringValue = StitchStringValue_V16.StitchStringValue
     // MARK: - endif
 
     public enum PortValueComparable: Equatable {
@@ -31,7 +31,7 @@ extension PortValueComparable_V16.PortValueComparable: StitchVersionedCodable {
         case .bool(let value):
             self = .bool(value)
         case .string(let value):
-            self = .string(value)
+            self = .string(.init(value.string))
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LayerNodeEntity_V15.swift
+//  LayerNodeEntity_V16.swift
 //  Stitch
 //
 //  Created by Elliot Boschwitz on 12/29/23.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public enum LayerNodeEntity_V15: StitchSchemaVersionable {
+public enum LayerNodeEntity_V16: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V15
-    public typealias PreviousInstance = LayerNodeEntity_V14.LayerNodeEntity
-    public typealias NodeEntitySchema = NodeEntity_V15
-    public typealias Layer = Layer_V15.Layer
-    public typealias NodeConnectionType = NodeConnectionType_V15.NodeConnectionType
+    static var version = StitchSchemaVersion._V16
+    public typealias PreviousInstance = LayerNodeEntity_V15.LayerNodeEntity
+    public typealias NodeEntitySchema = NodeEntity_V16
+    public typealias Layer = Layer_V16.Layer
+    public typealias NodeConnectionType = NodeConnectionType_V16.NodeConnectionType
     // MARK: - end
 
     public struct LayerNodeEntity: Equatable {
@@ -112,6 +112,10 @@ public enum LayerNodeEntity_V15: StitchSchemaVersionable {
         
         public var videoURLPort: NodeConnectionType
         public var volumePort: NodeConnectionType
+
+        public var spacingBetweenGridColumnsPort: NodeConnectionType
+        public var spacingBetweenGridRowsPort: NodeConnectionType
+        public var itemAlignmentWithinGridCellPort: NodeConnectionType
         
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -195,13 +199,21 @@ public enum LayerNodeEntity_V15: StitchSchemaVersionable {
                     endAnglePort: NodeConnectionType,
                     startRadiusPort: NodeConnectionType,
                     endRadiusPort: NodeConnectionType,
+                    
                     shadowColorPort: NodeConnectionType,
                     shadowOpacityPort: NodeConnectionType,
                     shadowRadiusPort: NodeConnectionType,
                     shadowOffsetPort: NodeConnectionType,
+                    
                     sfSymbolPort: NodeConnectionType,
+                    
                     videoURLPort: NodeConnectionType,
                     volumePort: NodeConnectionType,
+                    
+                    spacingBetweenGridColumnsPort: NodeConnectionType,
+                    spacingBetweenGridRowsPort: NodeConnectionType,
+                    itemAlignmentWithinGridCellPort: NodeConnectionType,
+                    
                     hasSidebarVisibility: Bool,
                     layerGroupId: NodeId?,
                     isExpandedInSidebar: Bool?) {
@@ -298,101 +310,109 @@ public enum LayerNodeEntity_V15: StitchSchemaVersionable {
             
             self.videoURLPort = videoURLPort
             self.volumePort = volumePort
+            
+            self.spacingBetweenGridColumnsPort = spacingBetweenGridColumnsPort
+            self.spacingBetweenGridRowsPort = spacingBetweenGridRowsPort
+            self.itemAlignmentWithinGridCellPort = itemAlignmentWithinGridCellPort
         }
     }
 }
 
-extension LayerNodeEntity_V15.LayerNodeEntity: StitchVersionedCodable {
-    public init(previousInstance: LayerNodeEntity_V15.PreviousInstance) {
+extension LayerNodeEntity_V16.LayerNodeEntity: StitchVersionedCodable {
+    public init(previousInstance: LayerNodeEntity_V16.PreviousInstance) {
                 
         self.init(id: previousInstance.id,
-                  layer: LayerNodeEntity_V15.Layer(previousInstance: previousInstance.layer),
-                  positionPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.positionPort),
-                  sizePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.sizePort),
-                  scalePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.scalePort),
-                  anchoringPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.anchoringPort),
-                  opacityPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.opacityPort),
-                  zIndexPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.zIndexPort),
-                  masksPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.masksPort),
-                  colorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.colorPort),
-                  rotationXPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.rotationXPort),
-                  rotationYPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.rotationYPort),
-                  rotationZPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.rotationZPort),
-                  lineColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.lineColorPort),
-                  lineWidthPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.lineWidthPort),
-                  blurPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.blurPort),
-                  blendModePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.blendModePort),
-                  brightnessPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.brightnessPort),
-                  colorInvertPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.colorInvertPort),
-                  contrastPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.contrastPort),
-                  hueRotationPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.hueRotationPort),
-                  saturationPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.saturationPort),
-                  pivotPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.pivotPort),
-                  enabledPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.enabledPort),
-                  blurRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.blurRadiusPort),
-                  backgroundColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.backgroundColorPort),
-                  isClippedPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.isClippedPort),
-                  orientationPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.orientationPort),
-                  paddingPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.paddingPort),
-                  setupModePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.setupModePort),
-                  allAnchorsPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.allAnchorsPort),
-                  cameraDirectionPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.cameraDirectionPort),
-                  isCameraEnabledPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.isCameraEnabledPort),
-                  isShadowsEnabledPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.isShadowsEnabledPort),
+                  layer: LayerNodeEntity_V16.Layer(previousInstance: previousInstance.layer),
+                  positionPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.positionPort),
+                  sizePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.sizePort),
+                  scalePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.scalePort),
+                  anchoringPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.anchoringPort),
+                  opacityPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.opacityPort),
+                  zIndexPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.zIndexPort),
+                  masksPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.masksPort),
+                  colorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.colorPort),
+                  rotationXPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.rotationXPort),
+                  rotationYPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.rotationYPort),
+                  rotationZPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.rotationZPort),
+                  lineColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.lineColorPort),
+                  lineWidthPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.lineWidthPort),
+                  blurPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.blurPort),
+                  blendModePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.blendModePort),
+                  brightnessPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.brightnessPort),
+                  colorInvertPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.colorInvertPort),
+                  contrastPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.contrastPort),
+                  hueRotationPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.hueRotationPort),
+                  saturationPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.saturationPort),
+                  pivotPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.pivotPort),
+                  enabledPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.enabledPort),
+                  blurRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.blurRadiusPort),
+                  backgroundColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.backgroundColorPort),
+                  isClippedPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.isClippedPort),
+                  orientationPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.orientationPort),
+                  paddingPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.paddingPort),
+                  setupModePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.setupModePort),
+                  allAnchorsPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.allAnchorsPort),
+                  cameraDirectionPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.cameraDirectionPort),
+                  isCameraEnabledPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.isCameraEnabledPort),
+                  isShadowsEnabledPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.isShadowsEnabledPort),
                   
-                  shapePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shapePort),
-                  strokePositionPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.strokePositionPort),
-                  strokeWidthPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.strokeWidthPort),
-                  strokeColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.strokeColorPort),
-                  strokeStartPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.strokeStartPort),
-                  strokeEndPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.strokeEndPort),
-                  strokeLineCapPort: NodeConnectionType_V15.NodeConnectionType.values([]),
-                  strokeLineJoinPort: NodeConnectionType_V15.NodeConnectionType.values([]),
-                  coordinateSystemPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.coordinateSystemPort),
+                  shapePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shapePort),
+                  strokePositionPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.strokePositionPort),
+                  strokeWidthPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.strokeWidthPort),
+                  strokeColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.strokeColorPort),
+                  strokeStartPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.strokeStartPort),
+                  strokeEndPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.strokeEndPort),
+                  strokeLineCapPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  strokeLineJoinPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  coordinateSystemPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.coordinateSystemPort),
                   
-                  cornerRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.cornerRadiusPort),
-                  canvasLineColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.canvasLineColorPort),
-                  canvasLineWidthPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.canvasLineWidthPort),
-                  canvasPositionPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.canvasPositionPort),
-                  textPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.textPort),
-                  fontSizePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.fontSizePort),
-                  textAlignmentPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.textAlignmentPort),
-                  verticalAlignmentPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.verticalAlignmentPort),
-                  textDecorationPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.textDecorationPort),
-                  textFontPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.textFontPort),
-                  imagePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.imagePort),
-                  videoPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.videoPort),
-                  fitStylePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.fitStylePort),
-                  clippedPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.clippedPort),
-                  isAnimatingPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.isAnimatingPort),
-                  progressIndicatorStylePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.progressIndicatorStylePort),
-                  progressPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.progressPort),
-                  model3DPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.model3DPort),
-                  mapTypePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.mapTypePort),
-                  mapLatLongPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.mapLatLongPort),
-                  mapSpanPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.mapSpanPort),
-                  isSwitchToggledPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.isSwitchToggledPort),
-                  placeholderTextPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.placeholderTextPort),
-                  startColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.startColorPort),
-                  endColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.endColorPort),
-                  startAnchorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.startAnchorPort),
-                  endAnchorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.endAnchorPort),
-                  centerAnchorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.centerAnchorPort),
-                  startAnglePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.startAnglePort),
-                  endAnglePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.endAnglePort),
-                  startRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.startRadiusPort),
-                  endRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.endRadiusPort),
+                  cornerRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.cornerRadiusPort),
+                  canvasLineColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.canvasLineColorPort),
+                  canvasLineWidthPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.canvasLineWidthPort),
+                  canvasPositionPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.canvasPositionPort),
+                  textPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.textPort),
+                  fontSizePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.fontSizePort),
+                  textAlignmentPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.textAlignmentPort),
+                  verticalAlignmentPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.verticalAlignmentPort),
+                  textDecorationPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.textDecorationPort),
+                  textFontPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.textFontPort),
+                  imagePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.imagePort),
+                  videoPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.videoPort),
+                  fitStylePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.fitStylePort),
+                  clippedPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.clippedPort),
+                  isAnimatingPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.isAnimatingPort),
+                  progressIndicatorStylePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.progressIndicatorStylePort),
+                  progressPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.progressPort),
+                  model3DPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.model3DPort),
+                  mapTypePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.mapTypePort),
+                  mapLatLongPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.mapLatLongPort),
+                  mapSpanPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.mapSpanPort),
+                  isSwitchToggledPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.isSwitchToggledPort),
+                  placeholderTextPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.placeholderTextPort),
+                  startColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.startColorPort),
+                  endColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.endColorPort),
+                  startAnchorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.startAnchorPort),
+                  endAnchorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.endAnchorPort),
+                  centerAnchorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.centerAnchorPort),
+                  startAnglePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.startAnglePort),
+                  endAnglePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.endAnglePort),
+                  startRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.startRadiusPort),
+                  endRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.endRadiusPort),
                   
-                  shadowColorPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowColorPort),
-                  shadowOpacityPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowOpacityPort),
-                  shadowRadiusPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowRadiusPort),
-                  shadowOffsetPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.shadowOffsetPort),
+                  shadowColorPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowColorPort),
+                  shadowOpacityPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowOpacityPort),
+                  shadowRadiusPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowRadiusPort),
+                  shadowOffsetPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.shadowOffsetPort),
                   
-                  sfSymbolPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.sfSymbolPort),
+                  sfSymbolPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.sfSymbolPort),
                   
-                  videoURLPort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.videoURLPort),
-                  volumePort: NodeConnectionType_V15.NodeConnectionType(previousInstance: previousInstance.volumePort),
+                  videoURLPort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.videoURLPort),
+                  volumePort: NodeConnectionType_V16.NodeConnectionType(previousInstance: previousInstance.volumePort),
 
+                  spacingBetweenGridColumnsPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  spacingBetweenGridRowsPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  itemAlignmentWithinGridCellPort: NodeConnectionType_V16.NodeConnectionType.values([]),
+                  
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,
                   isExpandedInSidebar: previousInstance.isExpandedInSidebar)

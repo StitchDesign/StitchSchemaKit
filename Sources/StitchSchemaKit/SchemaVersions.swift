@@ -237,7 +237,7 @@ extension StitchDocumentVersion {
         case ._V16:
             return StitchDocument_V16.StitchDocument.self
         case ._V17:
-            return StitchDocument_V16.StitchDocument.self
+            return StitchDocument_V17.StitchDocument.self
         }
     }
 }

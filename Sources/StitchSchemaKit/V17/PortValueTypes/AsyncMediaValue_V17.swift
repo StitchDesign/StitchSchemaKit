@@ -14,7 +14,6 @@ public enum AsyncMediaValue_V17: StitchSchemaVersionable {
     // MARK: - endif
  
     public struct AsyncMediaValue: Equatable {
-        public typealias MediaKey = MediaKey_V17.MediaKey
     
         public static func == (lhs: Self, rhs: Self) -> Bool {
             lhs.id == rhs.id &&
@@ -23,12 +22,12 @@ public enum AsyncMediaValue_V17: StitchSchemaVersionable {
         }
         
         public var id: UUID
-        public var dataType: DataType<MediaKey>
+        public var dataType: DataType_V17.DataType<MediaKey_V17.MediaKey>
         public var _mediaObject: Any?
         
         /// **DO NOT USE THIS INITIALIZER FROM STITCH!.**
         public init(id: UUID,
-                    dataType: DataType<MediaKey>,
+                    dataType: DataType_V17.DataType<MediaKey_V17.MediaKey>,
                     _mediaObject: Any?) {
             self.id = id
             self.dataType = dataType
@@ -45,7 +44,7 @@ extension AsyncMediaValue_V17.AsyncMediaValue: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let id = try container.decode(UUID.self, forKey: .id)
-        let dataType = try container.decode(DataType<Self.MediaKey>.self, forKey: .dataType)
+        let dataType = try container.decode(DataType_V17.DataType<MediaKey_V17.MediaKey>.self, forKey: .dataType)
         
         self.init(id: id,
                   dataType: dataType,
@@ -61,8 +60,18 @@ extension AsyncMediaValue_V17.AsyncMediaValue: Codable {
 
 extension AsyncMediaValue_V17.AsyncMediaValue: StitchVersionedCodable {
     public init(previousInstance: AsyncMediaValue_V17.PreviousInstance) {
-        self.init(id: previousInstance.id.globalId,
-                  dataType: previousInstance.dataType,
-                  _mediaObject: nil)
+        
+        var dataType: DataType_V17.DataType<MediaKey_V17.MediaKey>
+        switch previousInstance.dataType {
+        case .computed:
+            dataType = .computed
+        case .source(let x):
+            dataType = .source(.init(previousInstance: x.self))
+        }
+        
+        self.init(
+            id: previousInstance.id.globalId,
+            dataType: dataType,
+            _mediaObject: nil)
     }
 }

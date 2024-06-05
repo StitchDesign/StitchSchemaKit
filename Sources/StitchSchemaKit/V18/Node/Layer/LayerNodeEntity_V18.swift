@@ -362,8 +362,8 @@ extension LayerNodeEntity_V18.LayerNodeEntity: StitchVersionedCodable {
                   strokeColorPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.strokeColorPort),
                   strokeStartPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.strokeStartPort),
                   strokeEndPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.strokeEndPort),
-                  strokeLineCapPort: NodeConnectionType_V18.NodeConnectionType.values([]),
-                  strokeLineJoinPort: NodeConnectionType_V18.NodeConnectionType.values([]),
+                  strokeLineCapPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.strokeLineCapPort),
+                  strokeLineJoinPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.strokeLineJoinPort),
                   coordinateSystemPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.coordinateSystemPort),
                   
                   cornerRadiusPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.cornerRadiusPort),

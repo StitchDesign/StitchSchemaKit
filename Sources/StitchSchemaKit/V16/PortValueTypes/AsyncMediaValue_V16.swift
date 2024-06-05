@@ -50,6 +50,7 @@ public enum AsyncMediaValue_V16: StitchSchemaVersionable {
 
 extension AsyncMediaValue_V16.AsyncMediaValue: StitchVersionedCodable {
     public init(previousInstance: AsyncMediaValue_V16.PreviousInstance) {
-        self.init(id: previousInstance.id, dataType: previousInstance.dataType)
+        self.init(id: previousInstance.id, 
+                  dataType: previousInstance.dataType)
     }
 }

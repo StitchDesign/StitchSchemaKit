@@ -21,6 +21,18 @@ public enum NodeConnectionType_V17: StitchSchemaVersionable {
     }
 }
 
+extension NodeConnectionType_V17.NodeConnectionType {
+//    var getValues: PortValues? {
+    var getValues: NodeConnectionType_V17.PortValues? {
+        switch self {
+        case .values(let values):
+            return values
+        case .upstreamConnection:
+            return nil
+        }
+    }
+}
+
 extension NodeConnectionType_V17.NodeConnectionType: StitchVersionedCodable {
     public init(previousInstance: NodeConnectionType_V17.PreviousInstance) {
         switch previousInstance {

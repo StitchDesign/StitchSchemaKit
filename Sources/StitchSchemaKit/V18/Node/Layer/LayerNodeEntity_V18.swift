@@ -371,7 +371,15 @@ extension LayerNodeEntity_V18.LayerNodeEntity: StitchVersionedCodable {
                   canvasLineWidthPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.canvasLineWidthPort),
                   canvasPositionPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.canvasPositionPort),
                   textPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.textPort),
-                  fontSizePort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.fontSizePort),
+                  
+                  // Converting `FontSize layer input: Number` to `FontSize layer input: LayerDimension`
+                  fontSizePort: NodeConnectionType_V18.NodeConnectionType.values((previousInstance.fontSizePort.getValues ?? [])
+                    .map({ (portValue: PortValue_V17.PortValue) in
+                        let existingNumber: Double = portValue.getNumber ?? 36.0 // common default FontSize in Stitch
+                        return PortValue_V18.PortValue.layerDimension(PortValue_V18.LayerDimension.number(existingNumber))
+                    })
+                  ),
+                  
                   textAlignmentPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.textAlignmentPort),
                   verticalAlignmentPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.verticalAlignmentPort),
                   textDecorationPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.textDecorationPort),
@@ -409,9 +417,9 @@ extension LayerNodeEntity_V18.LayerNodeEntity: StitchVersionedCodable {
                   videoURLPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.videoURLPort),
                   volumePort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.volumePort),
 
-                  spacingBetweenGridColumnsPort: NodeConnectionType_V18.NodeConnectionType.values([]),
-                  spacingBetweenGridRowsPort: NodeConnectionType_V18.NodeConnectionType.values([]),
-                  itemAlignmentWithinGridCellPort: NodeConnectionType_V18.NodeConnectionType.values([]),
+                  spacingBetweenGridColumnsPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.spacingBetweenGridColumnsPort),
+                  spacingBetweenGridRowsPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.spacingBetweenGridRowsPort),
+                  itemAlignmentWithinGridCellPort: NodeConnectionType_V18.NodeConnectionType(previousInstance: previousInstance.itemAlignmentWithinGridCellPort),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

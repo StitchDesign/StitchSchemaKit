@@ -112,6 +112,15 @@ public enum PortValue_V17: StitchSchemaVersionable {
 }
 
 extension PortValue_V17.PortValue: StitchVersionedCodable {
+    var getNumber: Double? {
+        switch self {
+        case .number(let x): 
+            return x
+        default:
+            return nil
+        }
+    }
+    
     public init(previousInstance: PortValue_V17.PreviousInstance) {
         switch previousInstance {
             

@@ -17,9 +17,9 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
  
     public struct AsyncMediaValue: Codable, Equatable, Hashable {
         public var id: MediaObjectId
-        public var dataType: DataType<MediaKey>
+        public var dataType: DataType_V15.DataType<MediaKey>
         
-        public init(id: MediaObjectId, dataType: DataType<MediaKey>) {
+        public init(id: MediaObjectId, dataType: DataType_V15.DataType<MediaKey>) {
             self.id = id
             self.dataType = dataType
         }

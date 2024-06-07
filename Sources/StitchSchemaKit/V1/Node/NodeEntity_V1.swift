@@ -20,20 +20,20 @@ public enum NodeEntity_V1: StitchSchemaVersionable {
     // MARK: - end
 
     public struct NodeEntity: Equatable {
-        public let id: NodeId
+        public let id: UUID
         public let position: CGPoint
         public let zIndex: Double
-        public let parentGroupNodeId: NodeId?
+        public let parentGroupNodeId: UUID?
         public let patchNodeEntity: PatchNodeEntitySchema.PatchNodeEntity?
         public let layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?
         public let isGroupNode: Bool
         public let title: String
         public let inputs: [NodePortInputEntitySchema.NodePortInputEntity]
         
-        public init(id: NodeId,
+        public init(id: UUID,
              position: CGPoint,
              zIndex: Double,
-             parentGroupNodeId: NodeId?,
+             parentGroupNodeId: UUID?,
              patchNodeEntity: PatchNodeEntitySchema.PatchNodeEntity?,
              layerNodeEntity: LayerNodeEntitySchema.LayerNodeEntity?,
              isGroupNode: Bool,

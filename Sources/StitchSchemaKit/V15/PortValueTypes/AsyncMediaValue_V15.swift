@@ -25,8 +25,8 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
             self.dataType = dataType
         }
         
-        /// Optional initializer with NodeId and MediaKey.
-        public init(nodeId: NodeId,
+        /// Optional initializer with UUID and MediaKey.
+        public init(nodeId: UUID,
                     loopIndex: Int,
                     mediaKey: MediaKey_V15.MediaKey) {
             self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
@@ -34,7 +34,7 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
         }
         
         /// Optional initializer for computed type.
-        public init(nodeId: NodeId, 
+        public init(nodeId: UUID, 
                     loopIndex: Int) {
             self.id = MediaObjectId(nodeId: nodeId, loopIndex: loopIndex)
             self.dataType = .computed
@@ -42,7 +42,7 @@ public enum AsyncMediaValue_V15: StitchSchemaVersionable {
         
         /// Optional initializer for default media, where loopIndex is always 0 but we need the static global id.
         public init(globalId: UUID, 
-                    nodeId: NodeId,
+                    nodeId: UUID,
                     mediaKey: MediaKey_V15.MediaKey) {
             self.id = .init(globalId: globalId, nodeId: nodeId, loopIndex: 0)
             self.dataType = .source(mediaKey)

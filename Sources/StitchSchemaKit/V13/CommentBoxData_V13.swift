@@ -27,19 +27,19 @@ public enum CommentBoxData_V13: StitchSchemaVersionable {
          
          For now we just make all comment boxes top-level.
          */
-        public var groupId: NodeId?
+        public var groupId: UUID?
         public var title: String = "Comment"
         public var color: Color
-        public var nodes: NodeIdSet
+        public var nodes: Set<UUID>
         public var position: CGPoint
         public var size: CGSize
         public var zIndex: Double // = .zero
         
         public init(id: CommentBoxId = .init(),
-                    groupId: NodeId? = nil,
+                    groupId: UUID? = nil,
                     title: String = "Comment",
                     color: Color,
-                    nodes: NodeIdSet = .init(),
+                    nodes: Set<UUID> = .init(),
                     position: CGPoint = .zero,
                     size: CGSize,
                     zIndex: Double) {

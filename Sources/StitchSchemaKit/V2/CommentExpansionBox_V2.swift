@@ -18,7 +18,7 @@ public enum CommentExpansionBox_V2: StitchSchemaVersionable {
  
 
     public struct CommentExpansionBox: Equatable, Hashable {
-        public var nodes: NodeIdSet = .init()
+        public var nodes: Set<UUID> = .init()
         
         // set nil after gesture completes;
         // set non-nil when gesture first starts
@@ -36,7 +36,7 @@ public enum CommentExpansionBox_V2: StitchSchemaVersionable {
         
         public var anchorCorner: CGPoint
         
-        public init(nodes: NodeIdSet = .init(),
+        public init(nodes: Set<UUID> = .init(),
                     expansionDirection: ExpansionDirection? = nil,
                     size: CGSize,
                     startPoint: CGPoint,

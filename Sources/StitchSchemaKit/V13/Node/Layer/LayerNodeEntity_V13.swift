@@ -18,7 +18,7 @@ public enum LayerNodeEntity_V13: StitchSchemaVersionable {
     // MARK: - end
 
     public struct LayerNodeEntity: Equatable {
-        public  let id: NodeId
+        public  let id: UUID
         public let layer: Layer
         
         // Value data
@@ -112,10 +112,10 @@ public enum LayerNodeEntity_V13: StitchSchemaVersionable {
         
         // Sidebar data
         public let hasSidebarVisibility: Bool
-        public let layerGroupId: NodeId?
+        public let layerGroupId: UUID?
         public let isExpandedInSidebar: Bool?
         
-        public init(id: NodeId,
+        public init(id: UUID,
                     layer: Layer,
                     positionPort: NodeConnectionType,
                     sizePort: NodeConnectionType,
@@ -198,7 +198,7 @@ public enum LayerNodeEntity_V13: StitchSchemaVersionable {
                     shadowOffsetPort: NodeConnectionType,
                     sfSymbolPort: NodeConnectionType,
                     hasSidebarVisibility: Bool,
-                    layerGroupId: NodeId?,
+                    layerGroupId: UUID?,
                     isExpandedInSidebar: Bool?) {
             self.id = id
             self.layer = layer

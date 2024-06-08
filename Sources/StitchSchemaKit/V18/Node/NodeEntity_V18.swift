@@ -19,21 +19,21 @@ public enum NodeEntity_V18: StitchSchemaVersionable {
     public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V18.NodePortInputEntity]
     // MARK: - end
 
-    public struct NodeEntity: Equatable {
-        public let id: NodeId
+    public struct NodeEntity: Equatable, Identifiable {
+        public let id: UUID
         public var position: CGPoint
         public var zIndex: Double
-        public var parentGroupNodeId: NodeId?
+        public var parentGroupNodeId: UUID?
         public let patchNodeEntity: PatchNodeEntitySchema?
         public let layerNodeEntity: LayerNodeEntitySchema?
         public let isGroupNode: Bool
         public let title: String
         public let inputs: NodePortInputEntitySchemas
         
-        public init(id: NodeId,
+        public init(id: UUID,
              position: CGPoint,
              zIndex: Double,
-             parentGroupNodeId: NodeId?,
+             parentGroupNodeId: UUID?,
              patchNodeEntity: PatchNodeEntitySchema?,
              layerNodeEntity: LayerNodeEntitySchema?,
              isGroupNode: Bool,

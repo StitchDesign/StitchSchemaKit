@@ -18,13 +18,13 @@ public enum PatchNodeEntity_V17: StitchSchemaVersionable {
     // MARK: - end
 
     public struct PatchNodeEntity: Equatable {
-        public let id: NodeId
+        public let id: UUID
         public let patch: Patch
         public let userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema?
         public let mathExpression: String? // only for Math Expression
         
-        public init(id: NodeId,
+        public init(id: UUID,
                     patch: Patch,
                     userVisibleType: UserVisibleType?,
                     splitterNode: SplitterNodeEntitySchema?,

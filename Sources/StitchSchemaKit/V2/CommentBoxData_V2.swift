@@ -34,7 +34,7 @@ public enum CommentBoxData_V2: StitchSchemaVersionable {
         public var title: String = "Comment"
         public var color: Color
         
-        public var nodes: NodeIdSet
+        public var nodes: Set<UUID>
         
         // TODO: potentially can consolidate CommentBoxData.position and CommentExpansionBox.startingPoint, CommentExpansionBox.anchorPoint, etc.;
         // a little hard to tell, since the trig + gesture logic is complicated;
@@ -49,7 +49,7 @@ public enum CommentBoxData_V2: StitchSchemaVersionable {
                     groupId: GroupNodeId? = nil,
                     title: String = "Comment",
                     color: Color,
-                    nodes: NodeIdSet = .init(),
+                    nodes: Set<UUID> = .init(),
                     position: CGSize = .zero,
                     previousPosition: CGSize = .zero,
                     expansionBox: CommentExpansionBox,

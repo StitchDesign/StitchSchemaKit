@@ -16,9 +16,9 @@ public enum NodeIOCoordinate_V8: StitchSchemaVersionable {
     
     public struct NodeIOCoordinate: Hashable, Equatable {
         public var portType: NodeIOPortType
-        public var nodeId: NodeId
+        public var nodeId: UUID
         
-        public init(portType: NodeIOPortType, nodeId: NodeId) {
+        public init(portType: NodeIOPortType, nodeId: UUID) {
             self.portType = portType
             self.nodeId = nodeId
         }

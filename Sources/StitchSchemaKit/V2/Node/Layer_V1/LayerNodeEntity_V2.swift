@@ -14,21 +14,21 @@ public enum LayerNodeEntity_V2: StitchSchemaVersionable {
     public typealias PreviousInstance = LayerNodeEntity_V1.LayerNodeEntity
     public typealias NodeEntitySchema = NodeEntity_V2
     public typealias Layer = Layer_V2.Layer
-    public typealias InteractionsDict = [InteractionType_V1.InteractionType: NodeIdSet]
+    public typealias InteractionsDict = [InteractionType_V1.InteractionType: Set<UUID>]
     // MARK: - end
 
     public struct LayerNodeEntity: Equatable {
-        public  let id: NodeId
+        public  let id: UUID
         public let layer: Layer
         public let interactionsDict: InteractionsDict
         public let hasSidebarVisibility: Bool
-        public let layerGroupId: NodeId?
+        public let layerGroupId: UUID?
         
-        public init(id: NodeId,
+        public init(id: UUID,
              layer: Layer,
              interactionsDict: InteractionsDict,
              hasSidebarVisibility: Bool,
-             layerGroupId: NodeId?) {
+             layerGroupId: UUID?) {
             self.id = id
             self.layer = layer
             self.interactionsDict = interactionsDict

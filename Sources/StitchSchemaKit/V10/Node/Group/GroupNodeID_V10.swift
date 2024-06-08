@@ -14,9 +14,9 @@ public enum GroupNodeID_V10: StitchSchemaVersionable {
     // MARK: - endif
     
     public struct GroupNodeId: Equatable, Hashable, Identifiable {
-        public let id: NodeId
+        public let id: UUID
         
-        public init(id: NodeId) {
+        public init(id: UUID) {
             self.id = id
         }
         

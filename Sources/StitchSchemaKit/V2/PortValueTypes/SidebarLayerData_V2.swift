@@ -14,10 +14,10 @@ public enum SidebarLayerData_V2: StitchSchemaVersionable {
     // MARK: - endif
     
     public struct SidebarLayerData: Equatable {
-        public let id: NodeId
+        public let id: UUID
         public var children: [Self]?
         
-        public init(id: NodeId, children: [Self]? = nil) {
+        public init(id: UUID, children: [Self]? = nil) {
             self.id = id
             self.children = children
         }

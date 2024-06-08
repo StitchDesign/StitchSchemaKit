@@ -14,9 +14,9 @@ public enum LayerNodeId_V8: StitchSchemaVersionable {
     // MARK: - endif
     
 
-    // a wrapper-type over NodeId, to use in more specific situations
+    // a wrapper-type over UUID, to use in more specific situations
     public struct LayerNodeId: Hashable {
-        public let id: NodeId
+        public let id: UUID
         
         public init(_ id: UUID) {
             self.id = id

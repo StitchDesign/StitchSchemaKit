@@ -324,9 +324,6 @@ extension URL {
     }
 }
 
-public typealias NodeId = UUID
-public typealias NodeIdSet = Set<NodeId>
-
 // the values contained in a single Input or Output
 public typealias PortValues = [PortValue]
 

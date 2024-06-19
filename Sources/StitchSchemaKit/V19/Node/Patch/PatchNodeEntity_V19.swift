@@ -15,22 +15,26 @@ public enum PatchNodeEntity_V19: StitchSchemaVersionable {
     public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V19.SplitterNodeEntity
     public typealias Patch = Patch_V19.Patch
     public typealias UserVisibleType = UserVisibleType_V19.UserVisibleType
+    public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V19.NodePortInputEntity]
     // MARK: - end
 
     public struct PatchNodeEntity: Equatable {
         public let id: UUID
         public let patch: Patch
+        public var inputs: NodePortInputEntitySchemas
         public let userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema?
         public let mathExpression: String? // only for Math Expression
         
         public init(id: UUID,
                     patch: Patch,
+                    inputs: NodePortInputEntitySchemas,
                     userVisibleType: UserVisibleType?,
                     splitterNode: SplitterNodeEntitySchema?,
                     mathExpression: String?) {
             self.id = id
             self.patch = patch
+            self.inputs = inputs
             self.userVisibleType = userVisibleType
             self.splitterNode = splitterNode
             self.mathExpression = mathExpression
@@ -43,7 +47,9 @@ extension PatchNodeEntity_V19.PatchNodeEntity: StitchVersionedCodable {
         self.init(id: previousInstance.id,
                   patch:
                     PatchNodeEntity_V19.Patch(previousInstance: previousInstance.patch),
-                  userVisibleType: 
+                  // We'll fix input from NodeEntity migration
+                  inputs: [],
+                  userVisibleType:
                     PatchNodeEntity_V19.UserVisibleType(previousInstance: previousInstance.userVisibleType),
                   splitterNode:
                     PatchNodeEntity_V19.SplitterNodeEntitySchema(previousInstance: previousInstance.splitterNode), 

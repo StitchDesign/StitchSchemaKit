@@ -1,5 +1,5 @@
 //
-//  NodeEntity.swift
+//  NodeTypeEntity.swift
 //  Stitch
 //
 //  Created by Elliot Boschwitz on 10/19/23.
@@ -13,41 +13,20 @@ public enum NodeEntity_V19: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V19
     public typealias PreviousInstance = NodeEntity_V18.NodeEntity
-    typealias StitchDocumentSchema = StitchDocument_V19
-    public typealias PatchNodeEntitySchema = PatchNodeEntity_V19.PatchNodeEntity
-    public typealias LayerNodeEntitySchema = LayerNodeEntity_V19.LayerNodeEntity
-    public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V19.NodePortInputEntity]
+    public typealias NodeEntityType = NodeEntityType_V19.NodeEntityType
     // MARK: - end
 
-    public struct NodeEntity: Equatable, Identifiable {
+    public struct NodeEntity: Identifiable {
         public let id: UUID
-        public var position: CGPoint
-        public var zIndex: Double
-        public var parentGroupNodeId: UUID?
-        public let patchNodeEntity: PatchNodeEntitySchema?
-        public let layerNodeEntity: LayerNodeEntitySchema?
-        public let isGroupNode: Bool
+        public let nodeEntityType: NodeEntityType
         public let title: String
-        public let inputs: NodePortInputEntitySchemas
         
         public init(id: UUID,
-             position: CGPoint,
-             zIndex: Double,
-             parentGroupNodeId: UUID?,
-             patchNodeEntity: PatchNodeEntitySchema?,
-             layerNodeEntity: LayerNodeEntitySchema?,
-             isGroupNode: Bool,
-             title: String,
-             inputs: NodePortInputEntitySchemas) {
+                    nodeEntityType: NodeEntityType,
+                    title: String) {
             self.id = id
-            self.position = position
-            self.zIndex = zIndex
-            self.parentGroupNodeId = parentGroupNodeId
-            self.patchNodeEntity = patchNodeEntity
-            self.layerNodeEntity = layerNodeEntity
-            self.isGroupNode = isGroupNode
+            self.nodeEntityType = nodeEntityType
             self.title = title
-            self.inputs = inputs
         }
     }
 }
@@ -55,13 +34,31 @@ public enum NodeEntity_V19: StitchSchemaVersionable {
 extension NodeEntity_V19.NodeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeEntity_V19.PreviousInstance) {
         self.id = previousInstance.id
-        self.position = previousInstance.position
-        self.zIndex = previousInstance.zIndex
-        self.parentGroupNodeId = previousInstance.parentGroupNodeId
-        self.patchNodeEntity = PatchNodeEntity_V19.PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity)
-        self.layerNodeEntity = LayerNodeEntity_V19.LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity)
-        self.isGroupNode = previousInstance.isGroupNode
         self.title = previousInstance.title
-        self.inputs = NodeEntity_V19.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
+        var migratedPatchNodeEntity = PatchNodeEntity_V19.PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity)
+        let migratedLayerNodeEntity = LayerNodeEntity_V19.LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity)
+        
+        let canvasNodeEntity = CanvasNodeEntity_V19
+            .CanvasNodeEntity(id: .init(),
+                              position: previousInstance.position,
+                              zIndex: previousInstance.zIndex,
+                              parentGroupNodeId: previousInstance.parentGroupNodeId)
+        
+        if previousInstance.isGroupNode {
+            self.nodeEntityType = .group(canvasNodeEntity)
+        } else if let migratedLayerNodeEntity = migratedLayerNodeEntity {
+            self.nodeEntityType = .layer(migratedLayerNodeEntity)
+        } else if var migratedPatchNodeEntity = migratedPatchNodeEntity {
+            // Set migrated inputs to patch
+            let migratedInputs = PatchNodeEntity_V19.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
+            migratedPatchNodeEntity.inputs = migratedInputs
+            self.nodeEntityType = .patch(migratedPatchNodeEntity)
+        }
+        
+        // Crash on debug if no match found--this shouldn't happen
+        #if DEBUG
+        fatalError()
+        #endif
+        self.nodeEntityType = .group(canvasNodeEntity)
     }
 }

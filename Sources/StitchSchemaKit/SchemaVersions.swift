@@ -83,6 +83,8 @@ public typealias CurrentNodeIOPortType = NodeIOPortType_V19
 public typealias CurrentStrokeLineCap = StrokeLineCap_V19
 public typealias CurrentStrokeLineJoin = StrokeLineJoin_V19
 public typealias CurrentStitchStringValue = StitchStringValue_V19
+public typealias CurrentNodeEntityType = NodeEntityType_V19
+public typealias CurrentCanvasNodeEntity = CanvasNodeEntity_V19
 
 // MARK: - end
 
@@ -162,6 +164,8 @@ public typealias NodeIOPortType = CurrentNodeIOPortType.NodeIOPortType
 public typealias StrokeLineCap = CurrentStrokeLineCap.StrokeLineCap
 public typealias StrokeLineJoin = CurrentStrokeLineJoin.StrokeLineJoin
 public typealias StitchStringValue = CurrentStitchStringValue.StitchStringValue
+public typealias NodeTypeEntity = CurrentNodeEntityType.NodeEntityType
+public typealias CanvasNodeEntity = CurrentCanvasNodeEntity.CanvasNodeEntity
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

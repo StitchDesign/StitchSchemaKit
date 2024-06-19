@@ -87,6 +87,12 @@ public typealias CurrentStitchContentMode = StitchContentMode_V20
 public typealias CurrentStitchSpacing = StitchSpacing_V20
 public typealias CurrentStitchPadding = StitchPadding_V20
 public typealias CurrentSizingScenario = SizingScenario_V20
+public typealias CurrentNodeTypeEntity = NodeTypeEntity_V19
+public typealias CurrentCanvasNodeEntity = CanvasNodeEntity_V19
+public typealias CurrentLayerInputDataEntity = LayerInputDataEntity_V19
+public typealias CurrentCanvasItemId = CanvasItemId_V19
+public typealias CurrentLayerInputCoordinate = LayerInputCoordinate_V19
+public typealias CurrentLayerOutputCoordinate = LayerOutputCoordinate_V19
 
 // MARK: - end
 
@@ -170,6 +176,12 @@ public typealias StitchContentMode = CurrentStitchContentMode.StitchContentMode
 public typealias StitchSpacing = CurrentStitchSpacing.StitchSpacing
 public typealias StitchPadding = CurrentStitchPadding.StitchPadding
 public typealias SizingScenario = CurrentSizingScenario.SizingScenario
+public typealias NodeTypeEntity = CurrentNodeTypeEntity.NodeTypeEntity
+public typealias CanvasNodeEntity = CurrentCanvasNodeEntity.CanvasNodeEntity
+public typealias LayerInputDataEntity = CurrentLayerInputDataEntity.LayerInputDataEntity
+public typealias CanvasItemId = CurrentCanvasItemId.CanvasItemId
+public typealias LayerInputCoordinate = CurrentLayerInputCoordinate.LayerInputCoordinate
+public typealias LayerOutputCoordinate = CurrentLayerOutputCoordinate.LayerOutputCoordinate
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

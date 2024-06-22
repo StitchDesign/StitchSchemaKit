@@ -17,7 +17,7 @@ public enum NodeEntityType_V19: StitchSchemaVersionable {
     public typealias CanvasNodeEntity = CanvasNodeEntity_V19.CanvasNodeEntity
     // MARK: - end
 
-    public enum NodeEntityType {
+    public enum NodeEntityType: Equatable {
         case patch(PatchNodeEntity)
         case layer(LayerNodeEntity)
         case group(CanvasNodeEntity)

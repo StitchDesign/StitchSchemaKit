@@ -20,8 +20,8 @@ public enum StitchDocument_V19: StitchSchemaVersionable {
     public typealias CameraSettings = CameraSettings_V19.CameraSettings
     // MARK: - end
 
-    // TODO: transferable
-    public struct StitchDocument: StitchVersionedCodable {
+    // Equatable for the sharable view
+    public struct StitchDocument: StitchVersionedCodable, Equatable {
         public var projectId: ProjectId
         public var name: String
 

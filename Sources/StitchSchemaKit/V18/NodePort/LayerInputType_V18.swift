@@ -13,7 +13,7 @@ public enum LayerInputType_V18: StitchSchemaVersionable {
     public typealias PreviousInstance = LayerInputType_V17.LayerInputType
     // MARK: - endif
     
-    public enum LayerInputType {
+    public enum LayerInputType: CaseIterable {
         // Required everywhere
         case position
         case size

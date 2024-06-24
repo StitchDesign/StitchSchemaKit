@@ -13,19 +13,19 @@ public enum NodeEntity_V19: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static let version = StitchSchemaVersion._V19
     public typealias PreviousInstance = NodeEntity_V18.NodeEntity
-    public typealias NodeEntityType = NodeEntityType_V19.NodeEntityType
+    public typealias NodeTypeEntity = NodeTypeEntity_V19.NodeTypeEntity
     // MARK: - end
 
     public struct NodeEntity: Equatable, Identifiable {
         public let id: UUID
-        public let nodeEntityType: NodeEntityType
+        public let nodeTypeEntity: NodeTypeEntity
         public let title: String
         
         public init(id: UUID,
-                    nodeEntityType: NodeEntityType,
+                    nodeTypeEntity: NodeTypeEntity,
                     title: String) {
             self.id = id
-            self.nodeEntityType = nodeEntityType
+            self.nodeTypeEntity = nodeTypeEntity
             self.title = title
         }
     }
@@ -45,21 +45,21 @@ extension NodeEntity_V19.NodeEntity: StitchVersionedCodable {
                               parentGroupNodeId: previousInstance.parentGroupNodeId)
         
         if previousInstance.isGroupNode {
-            self.nodeEntityType = .group(canvasNodeEntity)
+            self.nodeTypeEntity = .group(canvasNodeEntity)
         } else if let migratedLayerNodeEntity = migratedLayerNodeEntity {
-            self.nodeEntityType = .layer(migratedLayerNodeEntity)
+            self.nodeTypeEntity = .layer(migratedLayerNodeEntity)
         } else if var migratedPatchNodeEntity = migratedPatchNodeEntity {
             // Set migrated inputs to patch
             let migratedInputs = PatchNodeEntity_V19.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
             migratedPatchNodeEntity.inputs = migratedInputs
             migratedPatchNodeEntity.canvasEntity = canvasNodeEntity
-            self.nodeEntityType = .patch(migratedPatchNodeEntity)
+            self.nodeTypeEntity = .patch(migratedPatchNodeEntity)
         }
         
         // Crash on debug if no match found--this shouldn't happen
         #if DEBUG
         fatalError()
         #endif
-        self.nodeEntityType = .group(canvasNodeEntity)
+        self.nodeTypeEntity = .group(canvasNodeEntity)
     }
 }

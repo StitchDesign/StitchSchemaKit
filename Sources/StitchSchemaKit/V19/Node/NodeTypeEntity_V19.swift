@@ -1,5 +1,5 @@
 //
-//  NodeEntityType_V19.swift
+//  NodeTypeEntity_V19.swift
 //
 //
 //  Created by Elliot Boschwitz on 6/19/24.

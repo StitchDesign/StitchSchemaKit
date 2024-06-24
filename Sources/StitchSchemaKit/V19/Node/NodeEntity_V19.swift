@@ -35,7 +35,7 @@ extension NodeEntity_V19.NodeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeEntity_V19.PreviousInstance) {
         self.id = previousInstance.id
         self.title = previousInstance.title
-        var migratedPatchNodeEntity = PatchNodeEntity_V19.PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity)
+        let migratedPatchNodeEntity = PatchNodeEntity_V19.PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity)
         let migratedLayerNodeEntity = LayerNodeEntity_V19.LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity)
         
         let canvasNodeEntity = CanvasNodeEntity_V19
@@ -52,6 +52,7 @@ extension NodeEntity_V19.NodeEntity: StitchVersionedCodable {
             // Set migrated inputs to patch
             let migratedInputs = PatchNodeEntity_V19.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
             migratedPatchNodeEntity.inputs = migratedInputs
+            migratedPatchNodeEntity.canvasEntity = canvasNodeEntity
             self.nodeEntityType = .patch(migratedPatchNodeEntity)
         }
         

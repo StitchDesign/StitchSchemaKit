@@ -19,16 +19,13 @@ public enum CanvasNodeEntity_V19: StitchSchemaVersionable {
     // MARK: - end
 
     public struct CanvasNodeEntity: Equatable {
-        public let id: UUID
         public var position: CGPoint
         public var zIndex: Double
         public var parentGroupNodeId: UUID?
         
-        public init(id: UUID,
-             position: CGPoint,
-             zIndex: Double,
-             parentGroupNodeId: UUID?) {
-            self.id = id
+        public init(position: CGPoint,
+                    zIndex: Double,
+                    parentGroupNodeId: UUID?) {
             self.position = position
             self.zIndex = zIndex
             self.parentGroupNodeId = parentGroupNodeId

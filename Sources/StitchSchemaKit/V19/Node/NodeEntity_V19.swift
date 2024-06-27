@@ -39,7 +39,8 @@ extension NodeEntity_V19.NodeEntity: StitchVersionedCodable {
         let migratedLayerNodeEntity = LayerNodeEntity_V19.LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity)
         
         let canvasNodeEntity = CanvasNodeEntity_V19
-            .CanvasNodeEntity(position: previousInstance.position,
+            .CanvasNodeEntity(id: .init(),
+                              position: previousInstance.position,
                               zIndex: previousInstance.zIndex,
                               parentGroupNodeId: previousInstance.parentGroupNodeId)
         

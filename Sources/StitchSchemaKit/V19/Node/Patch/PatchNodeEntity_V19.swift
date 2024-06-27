@@ -54,7 +54,8 @@ extension PatchNodeEntity_V19.PatchNodeEntity: StitchVersionedCodable {
                   inputs: [],
                   
                   // We'll also fix this
-                  canvasEntity: .init(position: .zero,
+                  canvasEntity: .init(id: .init(),
+                                      position: .zero,
                                       zIndex: .zero,
                                       parentGroupNodeId: nil),
                   userVisibleType:

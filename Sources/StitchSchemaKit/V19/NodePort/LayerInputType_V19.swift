@@ -128,8 +128,8 @@ public enum LayerInputType_V19: StitchSchemaVersionable {
         // TODO: add HorizontalAlignment for LazyVGrid
         
         // Aspect Ratio
-        case widthAxisPort
-        case heightAxisPort
+        case widthAxis
+        case heightAxis
         case contentMode
         
         // Min/max Size

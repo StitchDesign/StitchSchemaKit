@@ -62,7 +62,9 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
         public var backgroundColorPort: NodeConnectionType
         public var isClippedPort: NodeConnectionType
         public var orientationPort: NodeConnectionType
+        
         public var paddingPort: NodeConnectionType
+        
         public var setupModePort: NodeConnectionType
         public var allAnchorsPort: NodeConnectionType
         public var cameraDirectionPort: NodeConnectionType
@@ -132,9 +134,11 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
                     zIndexPort: NodeConnectionType,
                     masksPort: NodeConnectionType,
                     colorPort: NodeConnectionType,
+                    
                     rotationXPort: NodeConnectionType,
                     rotationYPort: NodeConnectionType,
                     rotationZPort: NodeConnectionType,
+                    
                     lineColorPort: NodeConnectionType,
                     lineWidthPort: NodeConnectionType,
                     blurPort: NodeConnectionType,
@@ -150,7 +154,9 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
                     backgroundColorPort: NodeConnectionType,
                     isClippedPort: NodeConnectionType,
                     orientationPort: NodeConnectionType,
+                    
                     paddingPort: NodeConnectionType,
+                    
                     setupModePort: NodeConnectionType,
                     allAnchorsPort: NodeConnectionType,
                     cameraDirectionPort: NodeConnectionType,
@@ -251,7 +257,9 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
             self.backgroundColorPort = backgroundColorPort
             self.isClippedPort = isClippedPort
             self.orientationPort = orientationPort
+            
             self.paddingPort = paddingPort
+            
             self.setupModePort = setupModePort
             self.allAnchorsPort = allAnchorsPort
             self.cameraDirectionPort = cameraDirectionPort
@@ -353,7 +361,19 @@ extension LayerNodeEntity_V19.LayerNodeEntity: StitchVersionedCodable {
                   backgroundColorPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.backgroundColorPort),
                   isClippedPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.isClippedPort),
                   orientationPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.orientationPort),
-                  paddingPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.paddingPort),
+                  
+                  // Converting padding from `PortValue.number` to `PortValue.point4D`:
+                  paddingPort: .values((previousInstance.paddingPort.getValues ?? [])
+                    .map { portValue in
+                        switch portValue {
+                        case .number(let x):
+                            return .point4D(.init(x: x, y: x, z: x, w: x))
+                        default: // should not happen?
+                            return .point4D(.init(x: 0, y: 0, z: 0, w: 0))
+                        }
+                    }
+                  ),
+                  
                   setupModePort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.setupModePort),
                   allAnchorsPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.allAnchorsPort),
                   cameraDirectionPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.cameraDirectionPort),

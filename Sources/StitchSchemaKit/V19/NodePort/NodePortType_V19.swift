@@ -21,6 +21,18 @@ public enum NodeConnectionType_V19: StitchSchemaVersionable {
     }
 }
 
+// TODO: create a type-general version of this accessor?
+extension NodeConnectionType_V19.NodeConnectionType {
+    var getValues: NodeConnectionType_V19.PortValues? {
+        switch self {
+        case .values(let values):
+            return values
+        case .upstreamConnection:
+            return nil
+        }
+    }
+}
+
 extension NodeConnectionType_V19.NodeConnectionType: StitchVersionedCodable {
     public init(previousInstance: NodeConnectionType_V19.PreviousInstance) {
         switch previousInstance {

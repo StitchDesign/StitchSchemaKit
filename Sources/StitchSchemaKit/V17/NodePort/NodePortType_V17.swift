@@ -22,7 +22,6 @@ public enum NodeConnectionType_V17: StitchSchemaVersionable {
 }
 
 extension NodeConnectionType_V17.NodeConnectionType {
-//    var getValues: PortValues? {
     var getValues: NodeConnectionType_V17.PortValues? {
         switch self {
         case .values(let values):

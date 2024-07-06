@@ -127,6 +127,18 @@ public enum LayerInputType_V19: StitchSchemaVersionable {
         case itemAlignmentWithinGridCell
         // TODO: add HorizontalAlignment for LazyVGrid
         
+        // Aspect Ratio
+        case widthAxisPort
+        case heightAxisPort
+        case contentMode
+        
+        // Min/max Size
+        case minSize
+        case maxSize
+        
+        // Spacing
+        case spacing
+        
     }
 }
 

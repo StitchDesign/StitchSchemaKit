@@ -119,6 +119,18 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
         public var spacingBetweenGridRowsPort: NodeConnectionType
         public var itemAlignmentWithinGridCellPort: NodeConnectionType
         
+        // Aspect ratio
+        public var widthAxisPort: NodeConnectionType
+        public var heightAxisPort: NodeConnectionType
+        public var contentMode: NodeConnectionType
+        
+        // Min/max size
+        public var minSize: NodeConnectionType
+        public var maxSize: NodeConnectionType
+        
+        // Spacing
+        public var spacing: NodeConnectionType
+                
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -222,6 +234,13 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
                     spacingBetweenGridRowsPort: NodeConnectionType,
                     itemAlignmentWithinGridCellPort: NodeConnectionType,
                     
+                    widthAxisPort: NodeConnectionType,
+                    heightAxisPort: NodeConnectionType,
+                    contentMode: NodeConnectionType,
+                    minSize: NodeConnectionType,
+                    maxSize: NodeConnectionType,
+                    spacing: NodeConnectionType,
+                    
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,
                     isExpandedInSidebar: Bool?) {
@@ -324,6 +343,15 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
             self.spacingBetweenGridColumnsPort = spacingBetweenGridColumnsPort
             self.spacingBetweenGridRowsPort = spacingBetweenGridRowsPort
             self.itemAlignmentWithinGridCellPort = itemAlignmentWithinGridCellPort
+            
+            self.widthAxisPort = widthAxisPort
+            self.heightAxisPort = heightAxisPort
+            self.contentMode = contentMode
+            
+            self.minSize = minSize
+            self.maxSize = maxSize
+            
+            self.spacing = spacing
         }
     }
 }
@@ -438,6 +466,15 @@ extension LayerNodeEntity_V19.LayerNodeEntity: StitchVersionedCodable {
                   spacingBetweenGridColumnsPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.spacingBetweenGridColumnsPort),
                   spacingBetweenGridRowsPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.spacingBetweenGridRowsPort),
                   itemAlignmentWithinGridCellPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.itemAlignmentWithinGridCellPort),
+
+                  // Newly introduced
+                  // TODO: should initialize with some default value?
+                  widthAxisPort: .values([]),
+                  heightAxisPort: .values([]),
+                  contentMode: .values([]),
+                  minSize: .values([]),
+                  maxSize: .values([]),
+                  spacing: .values([]),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

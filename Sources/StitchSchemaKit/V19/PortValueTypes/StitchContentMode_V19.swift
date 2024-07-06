@@ -15,7 +15,7 @@ public enum StitchContentMode_V19: StitchSchemaVersionable {
     // MARK: - end
 
     // A version of SwiftUI's ContentMode that is Codable and that we own.
-    public enum StitchContentMode: Equatable, Codable, Hashable, Sendable {
+    public enum StitchContentMode: Equatable, Codable, Hashable, Sendable, CaseIterable {
         case fit, fill
     }
 }

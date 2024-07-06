@@ -66,6 +66,7 @@ public enum UserVisibleType_V19: StitchSchemaVersionable {
         case progressIndicatorStyle
         case mobileHapticStyle
         case contentMode = "Content Mode"
+        case spacing = "Spacing"
     }
 }
 

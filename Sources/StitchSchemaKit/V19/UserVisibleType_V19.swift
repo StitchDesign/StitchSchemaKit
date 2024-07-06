@@ -65,6 +65,7 @@ public enum UserVisibleType_V19: StitchSchemaVersionable {
         case mapType
         case progressIndicatorStyle
         case mobileHapticStyle
+        case contentMode = "Content Mode"
     }
 }
 

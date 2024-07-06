@@ -171,12 +171,14 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
                     canvasLineColorPort: NodeConnectionType,
                     canvasLineWidthPort: NodeConnectionType,
                     canvasPositionPort: NodeConnectionType,
+                    
                     textPort: NodeConnectionType,
                     fontSizePort: NodeConnectionType,
                     textAlignmentPort: NodeConnectionType,
                     verticalAlignmentPort: NodeConnectionType,
                     textDecorationPort: NodeConnectionType,
                     textFontPort: NodeConnectionType,
+                    
                     imagePort: NodeConnectionType,
                     videoPort: NodeConnectionType,
                     fitStylePort: NodeConnectionType,

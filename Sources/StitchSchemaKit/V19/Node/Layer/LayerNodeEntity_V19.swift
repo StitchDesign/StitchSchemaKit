@@ -122,14 +122,14 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
         // Aspect ratio
         public var widthAxisPort: NodeConnectionType
         public var heightAxisPort: NodeConnectionType
-        public var contentMode: NodeConnectionType
+        public var contentModePort: NodeConnectionType
         
         // Min/max size
-        public var minSize: NodeConnectionType
-        public var maxSize: NodeConnectionType
+        public var minSizePort: NodeConnectionType
+        public var maxSizePort: NodeConnectionType
         
         // Spacing
-        public var spacing: NodeConnectionType
+        public var spacingPort: NodeConnectionType
                 
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -236,10 +236,10 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
                     
                     widthAxisPort: NodeConnectionType,
                     heightAxisPort: NodeConnectionType,
-                    contentMode: NodeConnectionType,
-                    minSize: NodeConnectionType,
-                    maxSize: NodeConnectionType,
-                    spacing: NodeConnectionType,
+                    contentModePort: NodeConnectionType,
+                    minSizePort: NodeConnectionType,
+                    maxSizePort: NodeConnectionType,
+                    spacingPort: NodeConnectionType,
                     
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,
@@ -346,12 +346,12 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
             
             self.widthAxisPort = widthAxisPort
             self.heightAxisPort = heightAxisPort
-            self.contentMode = contentMode
+            self.contentModePort = contentModePort
             
-            self.minSize = minSize
-            self.maxSize = maxSize
+            self.minSizePort = minSizePort
+            self.maxSizePort = maxSizePort
             
-            self.spacing = spacing
+            self.spacingPort = spacingPort
         }
     }
 }
@@ -471,10 +471,10 @@ extension LayerNodeEntity_V19.LayerNodeEntity: StitchVersionedCodable {
                   // TODO: should initialize with some default value?
                   widthAxisPort: .values([]),
                   heightAxisPort: .values([]),
-                  contentMode: .values([]),
-                  minSize: .values([]),
-                  maxSize: .values([]),
-                  spacing: .values([]),
+                  contentModePort: .values([]),
+                  minSizePort: .values([]),
+                  maxSizePort: .values([]),
+                  spacingPort: .values([]),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

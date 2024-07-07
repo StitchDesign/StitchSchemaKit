@@ -15,13 +15,15 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
     public typealias NodeEntitySchema = NodeEntity_V19
     public typealias Layer = Layer_V19.Layer
     public typealias NodeConnectionType = NodeConnectionType_V19.NodeConnectionType
+    public typealias CanvasNodeEntity = CanvasNodeEntity_V19.CanvasNodeEntity
     // MARK: - end
 
     public struct LayerNodeEntity: Equatable {
         public  let id: UUID
         public let layer: Layer
         
-        // Value data
+        // TODO: single canvas item for now until we support inspector
+        public var canvasItem: CanvasNodeEntity
         
         // Required
         public var positionPort: NodeConnectionType
@@ -124,6 +126,7 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
         
         public init(id: UUID,
                     layer: Layer,
+                    canvasItem: CanvasNodeEntity,
                     positionPort: NodeConnectionType,
                     sizePort: NodeConnectionType,
                     scalePort: NodeConnectionType,
@@ -219,6 +222,9 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
                     isExpandedInSidebar: Bool?) {
             self.id = id
             self.layer = layer
+            
+            // TODO: remove this when inspector is supported
+            self.canvasItem = canvasItem
             
             // Required
             self.positionPort = positionPort
@@ -320,9 +326,15 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
 
 extension LayerNodeEntity_V19.LayerNodeEntity: StitchVersionedCodable {
     public init(previousInstance: LayerNodeEntity_V19.PreviousInstance) {
+        
+        // We'll update canvas item from node migration
+        let fakeCanvasItem = LayerNodeEntity_V19.CanvasNodeEntity(position: .zero,
+                                                                  zIndex: .zero,
+                                                                  parentGroupNodeId: nil)
                 
         self.init(id: previousInstance.id,
                   layer: LayerNodeEntity_V19.Layer(previousInstance: previousInstance.layer),
+                  canvasItem: fakeCanvasItem,
                   positionPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.positionPort),
                   sizePort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.sizePort),
                   scalePort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.scalePort),

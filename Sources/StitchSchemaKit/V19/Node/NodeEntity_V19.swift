@@ -45,7 +45,13 @@ extension NodeEntity_V19.NodeEntity: StitchVersionedCodable {
         
         if previousInstance.isGroupNode {
             self.nodeTypeEntity = .group(canvasNodeEntity)
-        } else if let migratedLayerNodeEntity = migratedLayerNodeEntity {
+        } else if var migratedLayerNodeEntity = migratedLayerNodeEntity {
+            let canvasItem = CanvasNodeEntity_V19
+                .CanvasNodeEntity(position: previousInstance.position,
+                                  zIndex: previousInstance.zIndex,
+                                  parentGroupNodeId: previousInstance.parentGroupNodeId)
+            migratedLayerNodeEntity.canvasItem = canvasItem
+            
             self.nodeTypeEntity = .layer(migratedLayerNodeEntity)
         } else if var migratedPatchNodeEntity = migratedPatchNodeEntity {
             // Set migrated inputs to patch

@@ -321,7 +321,6 @@ extension LayerNodeEntity_V19.LayerNodeEntity: StitchVersionedCodable {
     public init(previousInstance: LayerNodeEntity_V19.PreviousInstance) {                
         self.init(id: previousInstance.id,
                   layer: LayerNodeEntity_V19.Layer(previousInstance: previousInstance.layer),
-                  canvasItem: fakeCanvasItem,
                   positionPort: .init(inputPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.positionPort)),
                   sizePort: .init(inputPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.sizePort)),
                   scalePort: .init(inputPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.scalePort)),

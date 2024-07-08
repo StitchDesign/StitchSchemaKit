@@ -50,7 +50,9 @@ extension NodeEntity_V19.NodeEntity: StitchVersionedCodable {
                 .CanvasNodeEntity(position: previousInstance.position,
                                   zIndex: previousInstance.zIndex,
                                   parentGroupNodeId: previousInstance.parentGroupNodeId)
-            migratedLayerNodeEntity.canvasItem = canvasItem
+            
+            // MARK: arbitrarily use position port until inspector is supported
+            migratedLayerNodeEntity.positionPort.canvasItem = canvasItem
             
             self.nodeTypeEntity = .layer(migratedLayerNodeEntity)
         } else if var migratedPatchNodeEntity = migratedPatchNodeEntity {

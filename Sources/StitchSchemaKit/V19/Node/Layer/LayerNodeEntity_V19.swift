@@ -126,6 +126,7 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
         
         public init(id: UUID,
                     layer: Layer,
+                    outputCanvasPorts: [CanvasNodeEntity?],
                     positionPort: LayerInputDataEntity,
                     sizePort: LayerInputDataEntity,
                     scalePort: LayerInputDataEntity,
@@ -221,6 +222,7 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
                     isExpandedInSidebar: Bool?) {
             self.id = id
             self.layer = layer
+            self.outputCanvasPorts = outputCanvasPorts
             
             // Required
             self.positionPort = positionPort
@@ -324,6 +326,7 @@ extension LayerNodeEntity_V19.LayerNodeEntity: StitchVersionedCodable {
     public init(previousInstance: LayerNodeEntity_V19.PreviousInstance) {                
         self.init(id: previousInstance.id,
                   layer: LayerNodeEntity_V19.Layer(previousInstance: previousInstance.layer),
+                  outputCanvasPorts: [],
                   positionPort: .init(inputPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.positionPort)),
                   sizePort: .init(inputPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.sizePort)),
                   scalePort: .init(inputPort: NodeConnectionType_V19.NodeConnectionType(previousInstance: previousInstance.scalePort)),

@@ -85,6 +85,7 @@ public typealias CurrentStrokeLineJoin = StrokeLineJoin_V19
 public typealias CurrentStitchStringValue = StitchStringValue_V19
 public typealias CurrentNodeTypeEntity = NodeTypeEntity_V19
 public typealias CurrentCanvasNodeEntity = CanvasNodeEntity_V19
+public typealias CurrentLayerInputDataEntity = LayerInputDataEntity_V19
 
 // MARK: - end
 
@@ -166,6 +167,7 @@ public typealias StrokeLineJoin = CurrentStrokeLineJoin.StrokeLineJoin
 public typealias StitchStringValue = CurrentStitchStringValue.StitchStringValue
 public typealias NodeTypeEntity = CurrentNodeTypeEntity.NodeTypeEntity
 public typealias CanvasNodeEntity = CurrentCanvasNodeEntity.CanvasNodeEntity
+public typealias LayerInputDataEntity = CurrentLayerInputDataEntity.LayerInputDataEntity
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

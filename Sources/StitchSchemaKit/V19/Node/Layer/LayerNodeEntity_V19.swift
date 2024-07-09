@@ -12,7 +12,7 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V19
     public typealias PreviousInstance = LayerNodeEntity_V18.LayerNodeEntity
-    public typealias NodeEntitySchema = NodeEntity_V19
+    public typealias CanvasNodeEntity = CanvasNodeEntity_V19.CanvasNodeEntity
     public typealias Layer = Layer_V19.Layer
     public typealias LayerInputDataEntity = LayerInputDataEntity_V19.LayerInputDataEntity
     public typealias NodeConnectionType = NodeConnectionType_V19.NodeConnectionType
@@ -21,6 +21,9 @@ public enum LayerNodeEntity_V19: StitchSchemaVersionable {
     public struct LayerNodeEntity: Equatable {
         public  let id: UUID
         public let layer: Layer
+        
+        // Optional node entities for layer node outputs
+        public var outputCanvasPorts: [CanvasNodeEntity?]
         
         // Required
         public var positionPort: LayerInputDataEntity

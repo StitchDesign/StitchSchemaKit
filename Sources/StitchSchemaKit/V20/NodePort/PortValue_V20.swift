@@ -58,6 +58,7 @@ public enum PortValue_V20: StitchSchemaVersionable {
     public typealias StitchContentMode = StitchContentMode_V20.StitchContentMode
     public typealias StitchSpacing = StitchSpacing_V20.StitchSpacing
     public typealias StitchPadding = StitchPadding_V20.StitchPadding
+    public typealias SizingScenario = SizingScenario_V20.SizingScenario
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {
@@ -114,6 +115,7 @@ public enum PortValue_V20: StitchSchemaVersionable {
         case contentMode(StitchContentMode)
         case spacing(StitchSpacing)
         case padding(StitchPadding)
+        case sizingScenario(SizingScenario)
     }
 }
 

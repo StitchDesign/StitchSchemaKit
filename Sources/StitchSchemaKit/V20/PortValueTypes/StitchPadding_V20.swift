@@ -16,10 +16,10 @@ public enum StitchPadding_V20: StitchSchemaVersionable {
 
     // TODO: combine with Point4D ? Or will the names `x, y, z, w` be too unfamiliar vers `top`, `bottom` etc.; e.g. does `x` refer to `left` or `right`?
     public struct StitchPadding: Equatable, Hashable, Codable {
-        var top: CGFloat = .zero
-        var right: CGFloat = .zero
-        var bottom: CGFloat = .zero
-        var left: CGFloat = .zero
+        public var top: CGFloat = .zero
+        public var right: CGFloat = .zero
+        public var bottom: CGFloat = .zero
+        public var left: CGFloat = .zero
     }
 }
 

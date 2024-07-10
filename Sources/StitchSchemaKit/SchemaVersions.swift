@@ -85,6 +85,8 @@ public typealias CurrentStrokeLineJoin = StrokeLineJoin_V20
 public typealias CurrentStitchStringValue = StitchStringValue_V20
 public typealias CurrentStitchContentMode = StitchContentMode_V20
 public typealias CurrentStitchSpacing = StitchSpacing_V20
+public typealias CurrentStitchPadding = StitchPadding_V20
+public typealias CurrentSizingScenario = SizingScenario_V20
 
 // MARK: - end
 
@@ -166,6 +168,8 @@ public typealias StrokeLineJoin = CurrentStrokeLineJoin.StrokeLineJoin
 public typealias StitchStringValue = CurrentStitchStringValue.StitchStringValue
 public typealias StitchContentMode = CurrentStitchContentMode.StitchContentMode
 public typealias StitchSpacing = CurrentStitchSpacing.StitchSpacing
+public typealias StitchPadding = CurrentStitchPadding.StitchPadding
+public typealias SizingScenario = CurrentSizingScenario.SizingScenario
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

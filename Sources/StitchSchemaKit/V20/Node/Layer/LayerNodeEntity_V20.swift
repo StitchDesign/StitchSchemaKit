@@ -407,7 +407,10 @@ extension LayerNodeEntity_V20.LayerNodeEntity: StitchVersionedCodable {
                                                   bottom: x.z,
                                                   left: x.w))
                         default:
-                            return .padding(.init())
+                            return .padding(.init(top: .zero,
+                                                  right: .zero,
+                                                  bottom: .zero,
+                                                  left: .zero))
                         }
                     })
                   ),

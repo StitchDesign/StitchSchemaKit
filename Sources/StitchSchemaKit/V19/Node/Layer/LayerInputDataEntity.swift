@@ -18,8 +18,8 @@ public enum LayerInputDataEntity_V19: StitchSchemaVersionable {
     // MARK: - end
 
     public struct LayerInputDataEntity: Equatable {
-        let inputPort: NodeConnectionType
-        var canvasItem: CanvasNodeEntity?
+        public let inputPort: NodeConnectionType
+        public var canvasItem: CanvasNodeEntity?
         
         public init(inputPort: NodeConnectionType, 
                     canvasItem: CanvasNodeEntity? = nil) {

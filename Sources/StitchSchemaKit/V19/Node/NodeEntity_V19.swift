@@ -18,7 +18,7 @@ public enum NodeEntity_V19: StitchSchemaVersionable {
 
     public struct NodeEntity: Equatable, Identifiable {
         public let id: UUID
-        public let nodeTypeEntity: NodeTypeEntity
+        public var nodeTypeEntity: NodeTypeEntity
         public let title: String
         
         public init(id: UUID,

@@ -12,6 +12,7 @@ public enum CommentBoxData_V19: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V19
     public typealias PreviousInstance = CommentBoxData_V18.CommentBoxData
+    public typealias CanvasItemId = CanvasItemId_V19.CanvasItemId
     // MARK: - endif
  
     public struct CommentBoxData: Equatable, Hashable {
@@ -29,7 +30,7 @@ public enum CommentBoxData_V19: StitchSchemaVersionable {
         public var groupId: UUID?
         public var title: String = "Comment"
         public var color: Color
-        public var nodes: Set<UUID>
+        public var nodes: Set<CanvasItemId>
         public var position: CGPoint
         public var size: CGSize
         public var zIndex: Double // = .zero
@@ -38,7 +39,7 @@ public enum CommentBoxData_V19: StitchSchemaVersionable {
                     groupId: UUID? = nil,
                     title: String = "Comment",
                     color: Color,
-                    nodes: Set<UUID> = .init(),
+                    nodes: Set<CanvasItemId> = .init(),
                     position: CGPoint = .zero,
                     size: CGSize,
                     zIndex: Double) {
@@ -60,7 +61,10 @@ extension CommentBoxData_V19.CommentBoxData: StitchVersionedCodable {
                   groupId: previousInstance.groupId,
                   title: previousInstance.title,
                   color: previousInstance.color,
-                  nodes: previousInstance.nodes,
+                  
+                  // MARK: just needed for v19, should point to property in future versions
+                  nodes: .init(),
+                  
                   position: previousInstance.position,
                   size: previousInstance.size,
                   zIndex: previousInstance.zIndex)

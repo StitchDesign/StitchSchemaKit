@@ -18,6 +18,11 @@ public enum LayerOutputCoordinate_V19: StitchSchemaVersionable {
     public struct LayerOutputCoordinate: Equatable, Hashable {
         public var node: UUID // id for the parent layer node
         public var portId: Int
+        
+        public init(node: UUID, portId: Int) {
+            self.node = node
+            self.portId = portId
+        }
     }
 }
 

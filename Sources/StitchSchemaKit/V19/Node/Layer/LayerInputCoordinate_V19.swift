@@ -18,6 +18,11 @@ public enum LayerInputCoordinate_V19: StitchSchemaVersionable {
     public struct LayerInputCoordinate: Equatable, Hashable {
         public var node: UUID // id for the parent layer node
         public var keyPath: LayerInputType // the keypath, i.e. unique port
+        
+        public init(node: UUID, keyPath: LayerInputType) {
+            self.node = node
+            self.keyPath = keyPath
+        }
     }
 }
 

@@ -1,0 +1,31 @@
+//
+//  NodeTypeEntity_V21.swift
+//
+//
+//  Created by Elliot Boschwitz on 6/19/24.
+//
+
+import Foundation
+
+public enum NodeTypeEntity_V21: StitchSchemaVersionable {
+
+    // MARK: - ensure versions are correct
+    static var version = StitchSchemaVersion._V21
+    public typealias PreviousInstance = Self.NodeTypeEntity
+    public typealias PatchNodeEnity = PatchNodeEntity_V21.PatchNodeEntity
+    public typealias LayerNodeEntity = LayerNodeEntity_V21.LayerNodeEntity
+    public typealias CanvasNodeEntity = CanvasNodeEntity_V21.CanvasNodeEntity
+    // MARK: - end
+
+    public enum NodeTypeEntity: Equatable {
+        case patch(PatchNodeEntity)
+        case layer(LayerNodeEntity)
+        case group(CanvasNodeEntity)
+    }
+}
+
+extension NodeTypeEntity_V21.NodeTypeEntity: StitchVersionedCodable {
+    public init(previousInstance: NodeTypeEntity_V21.PreviousInstance) {
+        fatalError()
+    }
+}

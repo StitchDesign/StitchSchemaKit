@@ -61,12 +61,12 @@ extension NodeEntity_V21.NodeEntity: StitchVersionedCodable {
             migratedPatchNodeEntity.inputs = migratedInputs
             migratedPatchNodeEntity.canvasEntity = canvasNodeEntity
             self.nodeTypeEntity = .patch(migratedPatchNodeEntity)
+        } else {
+            // Crash on debug if no match found--this shouldn't happen
+#if DEBUG
+            fatalError()
+#endif
+            self.nodeTypeEntity = .group(canvasNodeEntity)
         }
-        
-        // Crash on debug if no match found--this shouldn't happen
-        #if DEBUG
-        fatalError()
-        #endif
-        self.nodeTypeEntity = .group(canvasNodeEntity)
     }
 }

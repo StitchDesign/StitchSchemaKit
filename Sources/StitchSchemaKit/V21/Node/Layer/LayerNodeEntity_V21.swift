@@ -369,9 +369,12 @@ public enum LayerNodeEntity_V21: StitchSchemaVersionable {
 extension LayerNodeEntity_V21.LayerNodeEntity: StitchVersionedCodable {
     public init(previousInstance: LayerNodeEntity_V21.PreviousInstance) {
                 
+        let outputSupportedLayers: [Layer_V20.Layer] = [.textField, .canvasSketch, .switchLayer]
+        let containsOutputs = outputSupportedLayers.contains(previousInstance.layer)
+        
         self.init(id: previousInstance.id,
                   layer: LayerNodeEntity_V21.Layer(previousInstance: previousInstance.layer),
-                  outputCanvasPorts: [],
+                  outputCanvasPorts: containsOutputs ? [nil] : [],
                   positionPort: .init(inputPort: NodeConnectionType_V21.NodeConnectionType(previousInstance: previousInstance.positionPort)),
                   sizePort: .init(inputPort: NodeConnectionType_V21.NodeConnectionType(previousInstance: previousInstance.sizePort)),
                   scalePort: .init(inputPort: NodeConnectionType_V21.NodeConnectionType(previousInstance: previousInstance.scalePort)),

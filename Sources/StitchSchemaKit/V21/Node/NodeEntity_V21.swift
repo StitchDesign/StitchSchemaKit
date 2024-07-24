@@ -35,8 +35,10 @@ extension NodeEntity_V21.NodeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeEntity_V21.PreviousInstance) {
         self.id = previousInstance.id
         self.title = previousInstance.title
+        
         let migratedPatchNodeEntity = PatchNodeEntity_V21.PatchNodeEntity(previousInstance: previousInstance.patchNodeEntity)
         let migratedLayerNodeEntity = LayerNodeEntity_V21.LayerNodeEntity(previousInstance: previousInstance.layerNodeEntity)
+        
         
         let canvasNodeEntity = CanvasNodeEntity_V21
             .CanvasNodeEntity(position: previousInstance.position,

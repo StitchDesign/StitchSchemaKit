@@ -134,6 +134,12 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         
         // Spacing
         public var spacingPort: LayerInputDataEntity
+        
+//        // Pinning
+//        public var isPinnedPort: LayerInputDataEntity
+//        public var pinToPort: LayerInputDataEntity
+//        public var pinAnchorPort: LayerInputDataEntity
+//        public var pinOffsetPort: LayerInputDataEntity
                 
         // Sidebar data
         public let hasSidebarVisibility: Bool

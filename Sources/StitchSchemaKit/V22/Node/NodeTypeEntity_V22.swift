@@ -11,21 +11,25 @@ public enum NodeTypeEntity_V22: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V22
-    public typealias PreviousInstance = Self.NodeTypeEntity
-    public typealias PatchNodeEnity = PatchNodeEntity_V22.PatchNodeEntity
-    public typealias LayerNodeEntity = LayerNodeEntity_V22.LayerNodeEntity
-    public typealias CanvasNodeEntity = CanvasNodeEntity_V22.CanvasNodeEntity
+    public typealias PreviousInstance = NodeTypeEntity_V21.NodeTypeEntity
     // MARK: - end
 
     public enum NodeTypeEntity: Equatable {
-        case patch(PatchNodeEntity)
-        case layer(LayerNodeEntity)
-        case group(CanvasNodeEntity)
+        case patch(PatchNodeEntity_V22.PatchNodeEntity)
+        case layer(LayerNodeEntity_V22.LayerNodeEntity)
+        case group(CanvasNodeEntity_V22.CanvasNodeEntity)
     }
 }
 
 extension NodeTypeEntity_V22.NodeTypeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeTypeEntity_V22.PreviousInstance) {
-        fatalError()
+        switch previousInstance {
+        case .patch(let x):
+            self = .patch(.init(previousInstance: x))
+        case .layer(let x):
+            self = .layer(.init(previousInstance: x))
+        case .group(let x):
+            self = .group(.init(previousInstance: x))
+        }
     }
 }

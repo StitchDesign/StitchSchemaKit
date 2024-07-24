@@ -12,15 +12,12 @@ public enum NodeTypeEntity_V21: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version = StitchSchemaVersion._V21
     public typealias PreviousInstance = Self.NodeTypeEntity
-    public typealias PatchNodeEnity = PatchNodeEntity_V21.PatchNodeEntity
-    public typealias LayerNodeEntity = LayerNodeEntity_V21.LayerNodeEntity
-    public typealias CanvasNodeEntity = CanvasNodeEntity_V21.CanvasNodeEntity
     // MARK: - end
 
     public enum NodeTypeEntity: Equatable {
-        case patch(PatchNodeEntity)
-        case layer(LayerNodeEntity)
-        case group(CanvasNodeEntity)
+        case patch(PatchNodeEntity_V21.PatchNodeEntity)
+        case layer(LayerNodeEntity_V21.LayerNodeEntity)
+        case group(CanvasNodeEntity_V21.CanvasNodeEntity)
     }
 }
 

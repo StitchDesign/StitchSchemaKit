@@ -141,6 +141,11 @@ public enum LayerInputType_V22: StitchSchemaVersionable {
         // Spacing
         case spacing
         
+        // Pinning
+        case isPinned
+        case pinTo
+        case pinAnchor
+        case pinOffset
     }
 }
 

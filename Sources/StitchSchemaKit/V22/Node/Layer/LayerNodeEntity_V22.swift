@@ -135,11 +135,11 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         // Spacing
         public var spacingPort: LayerInputDataEntity
         
-//        // Pinning
-//        public var isPinnedPort: LayerInputDataEntity
-//        public var pinToPort: LayerInputDataEntity
-//        public var pinAnchorPort: LayerInputDataEntity
-//        public var pinOffsetPort: LayerInputDataEntity
+        // Pinning
+        public var isPinnedPort: LayerInputDataEntity
+        public var pinToPort: LayerInputDataEntity
+        public var pinAnchorPort: LayerInputDataEntity
+        public var pinOffsetPort: LayerInputDataEntity
                 
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -253,6 +253,11 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
                     minSizePort: LayerInputDataEntity,
                     maxSizePort: LayerInputDataEntity,
                     spacingPort: LayerInputDataEntity,
+                    
+                    isPinnedPort: LayerInputDataEntity,
+                    pinToPort: LayerInputDataEntity,
+                    pinAnchorPort: LayerInputDataEntity,
+                    pinOffsetPort: LayerInputDataEntity,
                     
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,
@@ -368,6 +373,11 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
             self.maxSizePort = maxSizePort
             
             self.spacingPort = spacingPort
+            
+            self.isPinnedPort = isPinnedPort
+            self.pinToPort = pinToPort
+            self.pinAnchorPort = pinAnchorPort
+            self.pinOffsetPort = pinOffsetPort
         }
     }
 }
@@ -484,6 +494,12 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
                   minSizePort: .init(previousInstance: previousInstance.minSizePort),
                   maxSizePort: .init(previousInstance: previousInstance.maxSizePort),
                   spacingPort: .init(previousInstance: previousInstance.spacingPort),
+                  
+                  // New, so initialized as empty; will be populated by Stitch's `defaultValue(for:)`
+                  isPinnedPort: .init(inputPort: .values([])),
+                  pinToPort: .init(inputPort: .values([])),
+                  pinAnchorPort: .init(inputPort: .values([])),
+                  pinOffsetPort: .init(inputPort: .values([])),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

@@ -47,20 +47,12 @@ public enum PatchNodeEntity_V22: StitchSchemaVersionable {
 
 extension PatchNodeEntity_V22.PatchNodeEntity: StitchVersionedCodable {
     public init(previousInstance: PatchNodeEntity_V22.PreviousInstance) {
-        self.init(id: previousInstance.id,
-                  patch:
-                    PatchNodeEntity_V22.Patch(previousInstance: previousInstance.patch),
-                  // We'll fix input from NodeEntity migration
-                  inputs: [],
-                  
-                  // We'll also fix this
-                  canvasEntity: .init(position: .zero,
-                                      zIndex: .zero,
-                                      parentGroupNodeId: nil),
-                  userVisibleType: 
-                    PatchNodeEntity_V22.UserVisibleType(previousInstance: previousInstance.userVisibleType),
-                  splitterNode:
-                    PatchNodeEntity_V22.SplitterNodeEntitySchema(previousInstance: previousInstance.splitterNode), 
-                  mathExpression: nil)
+        self.id = previousInstance.id
+        self.patch = .init(previousInstance: previousInstance.patch)
+        self.inputs = .init(previousElements: previousInstance.inputs)
+        self.canvasEntity = .init(previousInstance: previousInstance.canvasEntity)
+        self.userVisibleType = .init(previousInstance: previousInstance.userVisibleType)
+        self.splitterNode = .init(previousInstance: previousInstance.splitterNode)
+        self.mathExpression = previousInstance.mathExpression
     }
 }

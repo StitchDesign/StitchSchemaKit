@@ -10,7 +10,7 @@ import Foundation
 public enum GroupNodeID_V20: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V20
-    public typealias PreviousInstance = Self.GroupNodeId
+    public typealias PreviousInstance = GroupNodeID_V19.GroupNodeId
     // MARK: - endif
     
     public struct GroupNodeId: Equatable, Hashable, Identifiable {

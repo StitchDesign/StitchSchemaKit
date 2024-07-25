@@ -69,6 +69,7 @@ public enum UserVisibleType_V22: StitchSchemaVersionable {
         case spacing = "Spacing"
         case padding = "Padding"
         case sizingScenario = "Sizing Scenario"
+        case pinToId = "Pin To"
     }
 }
 

@@ -59,6 +59,7 @@ public enum PortValue_V22: StitchSchemaVersionable {
     public typealias StitchSpacing = StitchSpacing_V22.StitchSpacing
     public typealias StitchPadding = StitchPadding_V22.StitchPadding
     public typealias SizingScenario = SizingScenario_V22.SizingScenario
+    public typealias PinToId = PinToId_V22.PinToId
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {
@@ -116,6 +117,7 @@ public enum PortValue_V22: StitchSchemaVersionable {
         case spacing(StitchSpacing)
         case padding(StitchPadding)
         case sizingScenario(SizingScenario)
+        case pinTo(PinToId)
     }
 }
 

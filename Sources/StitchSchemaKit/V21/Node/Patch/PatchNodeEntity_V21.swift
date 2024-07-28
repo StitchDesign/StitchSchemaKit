@@ -22,7 +22,7 @@ public enum PatchNodeEntity_V21: StitchSchemaVersionable {
         public let id: UUID
         public let patch: Patch
         public var inputs: NodePortInputEntitySchemas
-        public var canvasEntity: CanvasNodeEntity
+        public var canvasEntity: CanvasNodeEntity_V21.CanvasNodeEntity
         public let userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema?
         public let mathExpression: String? // only for Math Expression
@@ -30,7 +30,7 @@ public enum PatchNodeEntity_V21: StitchSchemaVersionable {
         public init(id: UUID,
                     patch: Patch,
                     inputs: NodePortInputEntitySchemas,
-                    canvasEntity: CanvasNodeEntity,
+                    canvasEntity: CanvasNodeEntity_V21.CanvasNodeEntity,
                     userVisibleType: UserVisibleType?,
                     splitterNode: SplitterNodeEntitySchema?,
                     mathExpression: String?) {

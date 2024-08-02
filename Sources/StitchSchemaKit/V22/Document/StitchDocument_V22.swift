@@ -76,6 +76,22 @@ public enum StitchDocument_V22: StitchSchemaVersionable {
 
 extension StitchDocument_V22.StitchDocument {
     public init(previousInstance: StitchDocument_V22.PreviousInstance) {
+        let nodes = StitchDocument_V22.NodeEntitySchemas(previousElements: previousInstance.nodes)
+        
+        // Using migrated node data, find connected layer inputs lacking a canvas item.
+        // Create the item and locate it near its upstream node
+        let adjustedNodes = nodes.map { node in
+            switch node.nodeTypeEntity {
+            case .layer(var layerNode):
+                var node = node
+                layerNode.createConnectedCanvasItems(nodes: nodes)
+                node.nodeTypeEntity = .layer(layerNode)
+                return node
+            default:
+                return node
+            }
+        }
+        
         self.init(
             projectId: previousInstance.projectId,
             name: previousInstance.name,
@@ -84,7 +100,7 @@ extension StitchDocument_V22.StitchDocument {
             previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor,
             localPosition: previousInstance.localPosition,
             zoomData: previousInstance.zoomData,
-            nodes: StitchDocument_V22.NodeEntitySchemas(previousElements: previousInstance.nodes),
+            nodes: adjustedNodes,
             orderedSidebarLayers: StitchDocument_V22.SidebarLayerDataList(previousElements: previousInstance.orderedSidebarLayers),
             commentBoxes: StitchDocument_V22.CommentBoxes(previousElements: previousInstance.commentBoxes),
             cameraSettings: StitchDocument_V22.CameraSettings(previousInstance: previousInstance.cameraSettings)

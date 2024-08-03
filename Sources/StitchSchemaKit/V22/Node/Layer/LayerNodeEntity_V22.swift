@@ -523,6 +523,8 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
                 }
                 
                 outputLayerCanvas.parentGroupNodeId = groupCanvas.parentGroupNodeId
+                outputLayerCanvas.position = CGPoint(x: groupCanvas.position.x - 450,
+                                                     y: groupCanvas.position.y)
             }
             
         default:

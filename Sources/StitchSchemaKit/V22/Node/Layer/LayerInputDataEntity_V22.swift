@@ -78,6 +78,8 @@ extension LayerInputDataEntity_V22.LayerInputDataEntity: StitchVersionedCodable 
                     }
                     
                     layerInputCanvas.parentGroupNodeId = groupCanvas.parentGroupNodeId
+                    layerInputCanvas.position = CGPoint(x: groupCanvas.position.x + 450,
+                                                        y: groupCanvas.position.y)
                 }
                 
             default:

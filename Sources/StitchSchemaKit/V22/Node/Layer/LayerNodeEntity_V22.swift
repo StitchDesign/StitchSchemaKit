@@ -7,6 +7,40 @@
 
 import SwiftUI
 
+// TODO: will move to persistence
+public enum LayerInputModeEntity: Equatable, Codable {
+    case packed(LayerInputDataEntity_V22.LayerInputDataEntity)
+    case unpacked([LayerInputDataEntity_V22.LayerInputDataEntity])
+}
+
+// TODO: remove this helpers after v22
+extension LayerInputModeEntity {
+    mutating func createConnectedCanvas(nodes: [NodeEntity_V22.NodeEntity]) {
+        switch self {
+        case .packed(var layerInputDataEntity):
+            layerInputDataEntity.createConnectedCanvas(nodes: nodes)
+            self = .packed(layerInputDataEntity)
+        case .unpacked:
+            fatalError()
+        }
+    }
+    
+    func getInputData() -> LayerInputDataEntity {
+        switch self {
+        case .packed(let layerInputDataEntity):
+            return layerInputDataEntity
+        case .unpacked:
+            fatalError()
+        }
+    }
+}
+
+// TODO: will move to persistence
+//struct LayerDoubleInputUnpackedEntity {
+//    let port0: LayerInputDataEntity
+//    let port1: LayerInputDataEntity
+//}
+
 public enum LayerNodeEntity_V22: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
@@ -26,7 +60,7 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         public var outputCanvasPorts: [CanvasNodeEntity?]
         
         // Required
-        public var positionPort: LayerInputDataEntity
+        public var positionPort: LayerInputModeEntity
         public var sizePort: LayerInputDataEntity
         public var scalePort: LayerInputDataEntity
         public var anchoringPort: LayerInputDataEntity
@@ -143,7 +177,7 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         public init(id: UUID,
                     layer: Layer,
                     outputCanvasPorts: [CanvasNodeEntity?],
-                    positionPort: LayerInputDataEntity,
+                    positionPort: LayerInputModeEntity,
                     sizePort: LayerInputDataEntity,
                     scalePort: LayerInputDataEntity,
                     anchoringPort: LayerInputDataEntity,
@@ -371,7 +405,9 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
         self.init(id: previousInstance.id,
                   layer: LayerNodeEntity_V22.Layer(previousInstance: previousInstance.layer),
                   outputCanvasPorts: previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
-                  positionPort: .init(previousInstance: previousInstance.positionPort),
+                  positionPort: .packed(
+                    .init(previousInstance: previousInstance.positionPort)
+                    ),
                   sizePort: .init(previousInstance: previousInstance.sizePort),
                   scalePort: .init(previousInstance: previousInstance.scalePort),
                   anchoringPort: .init(previousInstance: previousInstance.anchoringPort),
@@ -655,7 +691,7 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
     // MARK: remove this helper after V22
     func getAllInputPorts() -> [LayerInputDataEntity] {
         return [
-            positionPort,
+            positionPort.getInputData(),
             sizePort,
             scalePort,
             anchoringPort,

@@ -7,15 +7,26 @@
 
 import Foundation
 
+public enum LayerInputKeyPathType: Hashable, Codable {
+    case packed
+    case unpacked(UnpackedPortType)
+}
+
+public enum UnpackedPortType: Hashable, Codable {
+    case port0
+    case port1
+    case port2
+}
+
 public enum LayerInputType_V22: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V22
     public typealias PreviousInstance = LayerInputType_V21.LayerInputType
     // MARK: - endif
     
-    public enum LayerInputType: CaseIterable {
+    public enum LayerInputType: Hashable {
         // Required everywhere
-        case position
+        case position(LayerInputKeyPathType)
         case size
         case scale
         case anchoring
@@ -148,7 +159,7 @@ extension LayerInputType_V22.LayerInputType: StitchVersionedCodable {
     public init(previousInstance: LayerInputType_V22.PreviousInstance) {
         switch previousInstance {
         case .position:
-            self = .position
+            self = .position(.packed)
         case .size:
             self = .size
         case .scale:

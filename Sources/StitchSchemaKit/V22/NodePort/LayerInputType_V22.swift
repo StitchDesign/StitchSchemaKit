@@ -12,10 +12,10 @@ public enum LayerInputKeyPathType: Hashable, Codable {
     case unpacked(UnpackedPortType)
 }
 
-public enum UnpackedPortType: Hashable, Codable {
-    case port0
-    case port1
-    case port2
+public enum UnpackedPortType: Int, Hashable, Codable, CaseIterable {
+    case port0 = 0
+    case port1 = 1
+    case port2 = 2
 }
 
 public enum LayerInputType_V22: StitchSchemaVersionable {

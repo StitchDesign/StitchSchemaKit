@@ -31,6 +31,15 @@ extension NodeConnectionType_V22.NodeConnectionType {
             return nil
         }
     }
+    
+    var getUpstreamConnection: NodeIOCoordinate_V22.NodeIOCoordinate? {
+        switch self {
+        case .upstreamConnection(let id):
+            return id
+        default:
+            return nil
+        }
+    }
 }
 
 extension NodeConnectionType_V22.NodeConnectionType: StitchVersionedCodable {

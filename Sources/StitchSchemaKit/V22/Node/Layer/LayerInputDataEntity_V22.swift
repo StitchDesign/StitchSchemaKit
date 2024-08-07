@@ -31,7 +31,65 @@ public enum LayerInputDataEntity_V22: StitchSchemaVersionable {
 
 extension LayerInputDataEntity_V22.LayerInputDataEntity: StitchVersionedCodable {
     public init(previousInstance: LayerInputDataEntity_V22.PreviousInstance) {
-        self.inputPort = .init(previousInstance: previousInstance.inputPort)
-        self.canvasItem = .init(previousInstance: previousInstance.canvasItem)
+        self.init(
+            inputPort: .init(previousInstance: previousInstance.inputPort),
+            // TODO: fix canvas migration after v22, for v22 it needs to be nil to reset previous position port hack
+            canvasItem: nil
+        )
+    }
+    
+    // TODO: don't forget about outputs
+    // MARK: delete this after v22
+    mutating func createConnectedCanvas(nodes: [NodeEntity_V22.NodeEntity]) {
+        switch self.inputPort {
+        case .upstreamConnection(let connection):
+            guard let upstreamNode = nodes.first(where: { $0.id == connection.nodeId }),
+                  let upstreamCanvas = upstreamNode.getCanvas() else {
+                #if DEBUG
+                fatalError()
+                #endif
+                
+                // If failure use zero position
+                self.canvasItem = .init(position: .zero,
+                                        zIndex: .zero,
+                                        parentGroupNodeId: nil)
+                return
+            }
+            
+            var layerInputCanvas = upstreamCanvas
+            layerInputCanvas.zIndex += 1
+            
+            // Create staggered location
+            layerInputCanvas.position = CGPoint(x: upstreamCanvas.position.x + 450,
+                                                y: upstreamCanvas.position.y)
+            
+            // Change parent group if upstream connected node is output splitter
+            switch upstreamNode.nodeTypeEntity {
+            case .patch(let patchNode):
+                if patchNode.splitterNode?.type == .output {
+                    guard let groupNodeId = upstreamCanvas.parentGroupNodeId,
+                          let groupNode = nodes.first(where: { $0.id == groupNodeId }),
+                          let groupCanvas = groupNode.getCanvas() else {
+                        #if DEBUG
+                        fatalError()
+                        #endif
+                        self.canvasItem = layerInputCanvas
+                        return
+                    }
+                    
+                    layerInputCanvas.parentGroupNodeId = groupCanvas.parentGroupNodeId
+                    layerInputCanvas.position = CGPoint(x: groupCanvas.position.x + 450,
+                                                        y: groupCanvas.position.y)
+                }
+                
+            default:
+                break
+            }
+            
+            self.canvasItem = layerInputCanvas
+         
+        default:
+            return
+        }
     }
 }

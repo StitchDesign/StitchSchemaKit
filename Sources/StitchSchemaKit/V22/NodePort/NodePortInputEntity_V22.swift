@@ -41,9 +41,9 @@ public enum NodePortInputEntity_V22: StitchSchemaVersionable {
 
 extension NodePortInputEntity_V22.NodePortInputEntity: StitchVersionedCodable {
     public init(previousInstance: NodePortInputEntity_V22.PreviousInstance) {
-        self.init(id: NodePortInputEntity_V22.NodeIOCoordinate(previousInstance: previousInstance.id),
+        self.init(id: .init(previousInstance: previousInstance.id),
                   portData: .init(previousInstance: previousInstance.portData),
-                  nodeKind: NodePortInputEntity_V22.NodeKind(previousInstance: previousInstance.nodeKind),
-                  userVisibleType: NodePortInputEntity_V22.UserVisibleType(previousInstance: previousInstance.userVisibleType))
+                  nodeKind: .init(previousInstance: previousInstance.nodeKind),
+                  userVisibleType: .init(previousInstance: previousInstance.userVisibleType))
     }
 }

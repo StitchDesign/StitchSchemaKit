@@ -62,7 +62,7 @@ extension CommentBoxData_V22.CommentBoxData: StitchVersionedCodable {
                   title: previousInstance.title,
                   color: previousInstance.color,
 
-                  // MARK: just needed for V22, should point to property in future versions
+                  // MARK: just needed for v21, should point to property in future versions
                   nodes: .init(),
 
                   position: previousInstance.position,

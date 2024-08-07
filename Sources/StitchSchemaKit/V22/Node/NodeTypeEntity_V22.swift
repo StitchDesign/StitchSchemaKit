@@ -24,12 +24,12 @@ public enum NodeTypeEntity_V22: StitchSchemaVersionable {
 extension NodeTypeEntity_V22.NodeTypeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeTypeEntity_V22.PreviousInstance) {
         switch previousInstance {
-        case .patch(let x):
-            self = .patch(.init(previousInstance: x))
-        case .layer(let x):
-            self = .layer(.init(previousInstance: x))
-        case .group(let x):
-            self = .group(.init(previousInstance: x))
+        case .patch(let patchNodeEntity):
+            self = .patch(.init(previousInstance: patchNodeEntity))
+        case .layer(let layerNodeEntity):
+            self = .layer(.init(previousInstance: layerNodeEntity))
+        case .group(let canvasNodeEntity):
+            self = .group(.init(previousInstance: canvasNodeEntity))
         }
     }
 }

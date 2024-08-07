@@ -93,7 +93,7 @@ public typealias CurrentLayerInputDataEntity = LayerInputDataEntity_V22
 public typealias CurrentCanvasItemId = CanvasItemId_V22
 public typealias CurrentLayerInputCoordinate = LayerInputCoordinate_V22
 public typealias CurrentLayerOutputCoordinate = LayerOutputCoordinate_V22
-public typealias CurrentPinToId = PinToId_V22
+//public typealias CurrentPinToId = PinToId_V22
 
 // MARK: - end
 
@@ -183,7 +183,7 @@ public typealias LayerInputDataEntity = CurrentLayerInputDataEntity.LayerInputDa
 public typealias CanvasItemId = CurrentCanvasItemId.CanvasItemId
 public typealias LayerInputCoordinate = CurrentLayerInputCoordinate.LayerInputCoordinate
 public typealias LayerOutputCoordinate = CurrentLayerOutputCoordinate.LayerOutputCoordinate
-public typealias PinToId = CurrentPinToId.PinToId
+//public typealias PinToId = CurrentPinToId.PinToId
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

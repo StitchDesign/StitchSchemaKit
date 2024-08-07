@@ -22,7 +22,7 @@ public enum PatchNodeEntity_V22: StitchSchemaVersionable {
         public let id: UUID
         public let patch: Patch
         public var inputs: NodePortInputEntitySchemas
-        public var canvasEntity: CanvasNodeEntity
+        public var canvasEntity: CanvasNodeEntity_V22.CanvasNodeEntity
         public let userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema?
         public let mathExpression: String? // only for Math Expression
@@ -30,7 +30,7 @@ public enum PatchNodeEntity_V22: StitchSchemaVersionable {
         public init(id: UUID,
                     patch: Patch,
                     inputs: NodePortInputEntitySchemas,
-                    canvasEntity: CanvasNodeEntity,
+                    canvasEntity: CanvasNodeEntity_V22.CanvasNodeEntity,
                     userVisibleType: UserVisibleType?,
                     splitterNode: SplitterNodeEntitySchema?,
                     mathExpression: String?) {
@@ -47,12 +47,12 @@ public enum PatchNodeEntity_V22: StitchSchemaVersionable {
 
 extension PatchNodeEntity_V22.PatchNodeEntity: StitchVersionedCodable {
     public init(previousInstance: PatchNodeEntity_V22.PreviousInstance) {
-        self.id = previousInstance.id
-        self.patch = .init(previousInstance: previousInstance.patch)
-        self.inputs = .init(previousElements: previousInstance.inputs)
-        self.canvasEntity = .init(previousInstance: previousInstance.canvasEntity)
-        self.userVisibleType = .init(previousInstance: previousInstance.userVisibleType)
-        self.splitterNode = .init(previousInstance: previousInstance.splitterNode)
-        self.mathExpression = previousInstance.mathExpression
+        self.init(id: previousInstance.id,
+                  patch: .init(previousInstance: previousInstance.patch),
+                  inputs:.init(previousElements: previousInstance.inputs),
+                  canvasEntity: .init(previousInstance: previousInstance.canvasEntity),
+                  userVisibleType: .init(previousInstance: previousInstance.userVisibleType),
+                  splitterNode: .init(previousInstance: previousInstance.splitterNode),
+                  mathExpression: previousInstance.mathExpression)
     }
 }

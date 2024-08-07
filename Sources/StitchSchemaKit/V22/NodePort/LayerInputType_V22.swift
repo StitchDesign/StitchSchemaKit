@@ -21,6 +21,12 @@ public enum UnpackedPortType: Int, Hashable, Codable, CaseIterable {
 public struct LayerInputType: Hashable, Codable {
     public var layerInput: LayerInputPort_V22.LayerInputPort
     public var portType: LayerInputKeyPathType
+    
+    public init(layerInput: LayerInputPort_V22.LayerInputPort, 
+                portType: LayerInputKeyPathType) {
+        self.layerInput = layerInput
+        self.portType = portType
+    }
 }
 
 public enum LayerInputPort_V22: StitchSchemaVersionable {

@@ -7,32 +7,46 @@
 
 import SwiftUI
 
-// TODO: will move to persistence
-public enum LayerInputModeEntity: Equatable, Codable {
-    case packed(LayerInputDataEntity_V22.LayerInputDataEntity)
-    case unpacked([LayerInputDataEntity_V22.LayerInputDataEntity])
+// TODO: will move to new file
+public enum LayerInputMode: Codable {
+    case packed
+    case unpacked
+}
+
+// TODO: will move to new file
+public struct LayerInputEntity: Equatable, Codable {
+    public var packedData: LayerInputDataEntity_V22.LayerInputDataEntity
+    public var unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity]
+    public var mode: LayerInputMode
+    
+    init(packedData: LayerInputDataEntity_V22.LayerInputDataEntity,
+         unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity],
+         mode: LayerInputMode) {
+        self.packedData = packedData
+        self.unpackedData = unpackedData
+        self.mode = mode
+    }
 }
 
 // TODO: remove this helpers after v22
-extension LayerInputModeEntity {
+extension LayerInputEntity {
     mutating func createConnectedCanvas(nodes: [NodeEntity_V22.NodeEntity]) {
-        switch self {
-        case .packed(var layerInputDataEntity):
-            layerInputDataEntity.createConnectedCanvas(nodes: nodes)
-            self = .packed(layerInputDataEntity)
-        case .unpacked:
-            fatalError()
+        self.packedData.createConnectedCanvas(nodes: nodes)
+        self.unpackedData = self.unpackedData.map { inputData in
+            var inputData = inputData
+            inputData.createConnectedCanvas(nodes: nodes)
+            return inputData
         }
     }
     
-    func getInputData() -> LayerInputDataEntity {
-        switch self {
-        case .packed(let layerInputDataEntity):
-            return layerInputDataEntity
-        case .unpacked:
-            fatalError()
-        }
-    }
+//    func getInputData() -> LayerInputDataEntity {
+//        switch self.mode {
+//        case .packed(let layerInputDataEntity):
+//            return layerInputDataEntity
+//        case .unpacked:
+//            fatalError()
+//        }
+//    }
 }
 
 // TODO: will move to persistence
@@ -60,7 +74,7 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         public var outputCanvasPorts: [CanvasNodeEntity?]
         
         // Required
-        public var positionPort: LayerInputModeEntity
+        public var positionPort: LayerInputEntity
         public var sizePort: LayerInputDataEntity
         public var scalePort: LayerInputDataEntity
         public var anchoringPort: LayerInputDataEntity
@@ -177,7 +191,7 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         public init(id: UUID,
                     layer: Layer,
                     outputCanvasPorts: [CanvasNodeEntity?],
-                    positionPort: LayerInputModeEntity,
+                    positionPort: LayerInputEntity,
                     sizePort: LayerInputDataEntity,
                     scalePort: LayerInputDataEntity,
                     anchoringPort: LayerInputDataEntity,
@@ -402,124 +416,125 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
 
 extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
     public init(previousInstance: LayerNodeEntity_V22.PreviousInstance) {
-        self.init(id: previousInstance.id,
-                  layer: LayerNodeEntity_V22.Layer(previousInstance: previousInstance.layer),
-                  outputCanvasPorts: previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
-                  positionPort: .packed(
-                    .init(previousInstance: previousInstance.positionPort)
-                    ),
-                  sizePort: .init(previousInstance: previousInstance.sizePort),
-                  scalePort: .init(previousInstance: previousInstance.scalePort),
-                  anchoringPort: .init(previousInstance: previousInstance.anchoringPort),
-                  opacityPort: .init(previousInstance: previousInstance.opacityPort),
-                  zIndexPort: .init(previousInstance: previousInstance.zIndexPort),
-                  masksPort: .init(previousInstance: previousInstance.masksPort),
-                  colorPort: .init(previousInstance: previousInstance.colorPort),
-                  
-                  rotationXPort: .init(previousInstance: previousInstance.rotationXPort),
-                  rotationYPort: .init(previousInstance: previousInstance.rotationYPort),
-                  rotationZPort: .init(previousInstance: previousInstance.rotationZPort),
-                  
-                  lineColorPort: .init(previousInstance: previousInstance.lineColorPort),
-                  lineWidthPort: .init(previousInstance: previousInstance.lineWidthPort),
-                  blurPort: .init(previousInstance: previousInstance.blurPort),
-                  blendModePort: .init(previousInstance: previousInstance.blendModePort),
-                  brightnessPort: .init(previousInstance: previousInstance.brightnessPort),
-                  colorInvertPort: .init(previousInstance: previousInstance.colorInvertPort),
-                  contrastPort: .init(previousInstance: previousInstance.contrastPort),
-                  hueRotationPort: .init(previousInstance: previousInstance.hueRotationPort),
-                  saturationPort: .init(previousInstance: previousInstance.saturationPort),
-                  pivotPort: .init(previousInstance: previousInstance.pivotPort),
-                  enabledPort: .init(previousInstance: previousInstance.enabledPort),
-                  blurRadiusPort: .init(previousInstance: previousInstance.blurRadiusPort),
-                  backgroundColorPort: .init(previousInstance: previousInstance.backgroundColorPort),
-                  isClippedPort: .init(previousInstance: previousInstance.isClippedPort),
-                  orientationPort: .init(previousInstance: previousInstance.orientationPort),
-                  paddingPort: .init(previousInstance: previousInstance.paddingPort),
-                  
-                  setupModePort: .init(previousInstance: previousInstance.setupModePort),
-                  allAnchorsPort: .init(previousInstance: previousInstance.allAnchorsPort),
-                  cameraDirectionPort: .init(previousInstance: previousInstance.cameraDirectionPort),
-                  isCameraEnabledPort: .init(previousInstance: previousInstance.isCameraEnabledPort),
-                  isShadowsEnabledPort: .init(previousInstance: previousInstance.isShadowsEnabledPort),
-                  
-                  shapePort: .init(previousInstance: previousInstance.shapePort),
-                  strokePositionPort: .init(previousInstance: previousInstance.strokePositionPort),
-                  strokeWidthPort: .init(previousInstance: previousInstance.strokeWidthPort),
-                  strokeColorPort: .init(previousInstance: previousInstance.strokeColorPort),
-                  strokeStartPort: .init(previousInstance: previousInstance.strokeStartPort),
-                  strokeEndPort: .init(previousInstance: previousInstance.strokeEndPort),
-                  strokeLineCapPort: .init(previousInstance: previousInstance.strokeLineCapPort),
-                  strokeLineJoinPort: .init(previousInstance: previousInstance.strokeLineJoinPort),
-                  coordinateSystemPort: .init(previousInstance: previousInstance.coordinateSystemPort),
-                  
-                  cornerRadiusPort: .init(previousInstance: previousInstance.cornerRadiusPort),
-                  canvasLineColorPort: .init(previousInstance: previousInstance.canvasLineColorPort),
-                  canvasLineWidthPort: .init(previousInstance: previousInstance.canvasLineWidthPort),
-                  canvasPositionPort: .init(previousInstance: previousInstance.canvasPositionPort),
-                  textPort: .init(previousInstance: previousInstance.textPort),
-                  fontSizePort: .init(previousInstance: previousInstance.fontSizePort),
-                                    
-                  textAlignmentPort: .init(previousInstance: previousInstance.textAlignmentPort),
-                  verticalAlignmentPort: .init(previousInstance: previousInstance.verticalAlignmentPort),
-                  textDecorationPort: .init(previousInstance: previousInstance.textDecorationPort),
-                  textFontPort: .init(previousInstance: previousInstance.textFontPort),
-                  
-                  imagePort: .init(previousInstance: previousInstance.imagePort),
-                  videoPort: .init(previousInstance: previousInstance.videoPort),
-                  fitStylePort: .init(previousInstance: previousInstance.fitStylePort),
-                  clippedPort: .init(previousInstance: previousInstance.clippedPort),
-                  isAnimatingPort: .init(previousInstance: previousInstance.isAnimatingPort),
-                  progressIndicatorStylePort: .init(previousInstance: previousInstance.progressIndicatorStylePort),
-                  progressPort: .init(previousInstance: previousInstance.progressPort),
-                  model3DPort: .init(previousInstance: previousInstance.model3DPort),
-                  mapTypePort: .init(previousInstance: previousInstance.mapTypePort),
-                  mapLatLongPort: .init(previousInstance: previousInstance.mapLatLongPort),
-                  mapSpanPort: .init(previousInstance: previousInstance.mapSpanPort),
-                  isSwitchToggledPort: .init(previousInstance: previousInstance.isSwitchToggledPort),
-                  placeholderTextPort: .init(previousInstance: previousInstance.placeholderTextPort),
-                  startColorPort: .init(previousInstance: previousInstance.startColorPort),
-                  endColorPort: .init(previousInstance: previousInstance.endColorPort),
-                  startAnchorPort: .init(previousInstance: previousInstance.startAnchorPort),
-                  endAnchorPort: .init(previousInstance: previousInstance.endAnchorPort),
-                  centerAnchorPort: .init(previousInstance: previousInstance.centerAnchorPort),
-                  startAnglePort: .init(previousInstance: previousInstance.startAnglePort),
-                  endAnglePort: .init(previousInstance: previousInstance.endAnglePort),
-                  startRadiusPort: .init(previousInstance: previousInstance.startRadiusPort),
-                  endRadiusPort: .init(previousInstance: previousInstance.endRadiusPort),
-                  
-                  shadowColorPort: .init(previousInstance: previousInstance.shadowColorPort),
-                  shadowOpacityPort: .init(previousInstance: previousInstance.shadowOpacityPort),
-                  shadowRadiusPort: .init(previousInstance: previousInstance.shadowRadiusPort),
-                  shadowOffsetPort: .init(previousInstance: previousInstance.shadowOffsetPort),
-                  
-                  sfSymbolPort: .init(previousInstance: previousInstance.sfSymbolPort),
-                  
-                  videoURLPort: .init(previousInstance: previousInstance.videoURLPort),
-                  volumePort: .init(previousInstance: previousInstance.volumePort),
-
-                  spacingBetweenGridColumnsPort: .init(previousInstance: previousInstance.spacingBetweenGridColumnsPort),
-                  spacingBetweenGridRowsPort: .init(previousInstance: previousInstance.spacingBetweenGridRowsPort),
-                  itemAlignmentWithinGridCellPort: .init(previousInstance: previousInstance.itemAlignmentWithinGridCellPort),
-
-                  sizingScenarioPort: .init(inputPort: NodeConnectionType_V22.NodeConnectionType.values([])),
-                  
-                  widthAxisPort: .init(previousInstance: previousInstance.widthAxisPort),
-                  heightAxisPort: .init(previousInstance: previousInstance.heightAxisPort),
-                  contentModePort: .init(previousInstance: previousInstance.contentModePort),
-                  minSizePort: .init(previousInstance: previousInstance.minSizePort),
-                  maxSizePort: .init(previousInstance: previousInstance.maxSizePort),
-                  spacingPort: .init(previousInstance: previousInstance.spacingPort),
-                  
-                  // New, so initialized as empty; will be populated by Stitch's `defaultValue(for:)`
-//                  isPinnedPort: .init(inputPort: .values([])),
-//                  pinToPort: .init(inputPort: .values([])),
-//                  pinAnchorPort: .init(inputPort: .values([])),
-//                  pinOffsetPort: .init(inputPort: .values([])),
-                  
-                  hasSidebarVisibility: previousInstance.hasSidebarVisibility,
-                  layerGroupId: previousInstance.layerGroupId,
-                  isExpandedInSidebar: previousInstance.isExpandedInSidebar)
+        fatalError()
+//        self.init(id: previousInstance.id,
+//                  layer: LayerNodeEntity_V22.Layer(previousInstance: previousInstance.layer),
+//                  outputCanvasPorts: previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
+//                  positionPort: .packed(
+//                    .init(previousInstance: previousInstance.positionPort)
+//                    ),
+//                  sizePort: .init(previousInstance: previousInstance.sizePort),
+//                  scalePort: .init(previousInstance: previousInstance.scalePort),
+//                  anchoringPort: .init(previousInstance: previousInstance.anchoringPort),
+//                  opacityPort: .init(previousInstance: previousInstance.opacityPort),
+//                  zIndexPort: .init(previousInstance: previousInstance.zIndexPort),
+//                  masksPort: .init(previousInstance: previousInstance.masksPort),
+//                  colorPort: .init(previousInstance: previousInstance.colorPort),
+//                  
+//                  rotationXPort: .init(previousInstance: previousInstance.rotationXPort),
+//                  rotationYPort: .init(previousInstance: previousInstance.rotationYPort),
+//                  rotationZPort: .init(previousInstance: previousInstance.rotationZPort),
+//                  
+//                  lineColorPort: .init(previousInstance: previousInstance.lineColorPort),
+//                  lineWidthPort: .init(previousInstance: previousInstance.lineWidthPort),
+//                  blurPort: .init(previousInstance: previousInstance.blurPort),
+//                  blendModePort: .init(previousInstance: previousInstance.blendModePort),
+//                  brightnessPort: .init(previousInstance: previousInstance.brightnessPort),
+//                  colorInvertPort: .init(previousInstance: previousInstance.colorInvertPort),
+//                  contrastPort: .init(previousInstance: previousInstance.contrastPort),
+//                  hueRotationPort: .init(previousInstance: previousInstance.hueRotationPort),
+//                  saturationPort: .init(previousInstance: previousInstance.saturationPort),
+//                  pivotPort: .init(previousInstance: previousInstance.pivotPort),
+//                  enabledPort: .init(previousInstance: previousInstance.enabledPort),
+//                  blurRadiusPort: .init(previousInstance: previousInstance.blurRadiusPort),
+//                  backgroundColorPort: .init(previousInstance: previousInstance.backgroundColorPort),
+//                  isClippedPort: .init(previousInstance: previousInstance.isClippedPort),
+//                  orientationPort: .init(previousInstance: previousInstance.orientationPort),
+//                  paddingPort: .init(previousInstance: previousInstance.paddingPort),
+//                  
+//                  setupModePort: .init(previousInstance: previousInstance.setupModePort),
+//                  allAnchorsPort: .init(previousInstance: previousInstance.allAnchorsPort),
+//                  cameraDirectionPort: .init(previousInstance: previousInstance.cameraDirectionPort),
+//                  isCameraEnabledPort: .init(previousInstance: previousInstance.isCameraEnabledPort),
+//                  isShadowsEnabledPort: .init(previousInstance: previousInstance.isShadowsEnabledPort),
+//                  
+//                  shapePort: .init(previousInstance: previousInstance.shapePort),
+//                  strokePositionPort: .init(previousInstance: previousInstance.strokePositionPort),
+//                  strokeWidthPort: .init(previousInstance: previousInstance.strokeWidthPort),
+//                  strokeColorPort: .init(previousInstance: previousInstance.strokeColorPort),
+//                  strokeStartPort: .init(previousInstance: previousInstance.strokeStartPort),
+//                  strokeEndPort: .init(previousInstance: previousInstance.strokeEndPort),
+//                  strokeLineCapPort: .init(previousInstance: previousInstance.strokeLineCapPort),
+//                  strokeLineJoinPort: .init(previousInstance: previousInstance.strokeLineJoinPort),
+//                  coordinateSystemPort: .init(previousInstance: previousInstance.coordinateSystemPort),
+//                  
+//                  cornerRadiusPort: .init(previousInstance: previousInstance.cornerRadiusPort),
+//                  canvasLineColorPort: .init(previousInstance: previousInstance.canvasLineColorPort),
+//                  canvasLineWidthPort: .init(previousInstance: previousInstance.canvasLineWidthPort),
+//                  canvasPositionPort: .init(previousInstance: previousInstance.canvasPositionPort),
+//                  textPort: .init(previousInstance: previousInstance.textPort),
+//                  fontSizePort: .init(previousInstance: previousInstance.fontSizePort),
+//                                    
+//                  textAlignmentPort: .init(previousInstance: previousInstance.textAlignmentPort),
+//                  verticalAlignmentPort: .init(previousInstance: previousInstance.verticalAlignmentPort),
+//                  textDecorationPort: .init(previousInstance: previousInstance.textDecorationPort),
+//                  textFontPort: .init(previousInstance: previousInstance.textFontPort),
+//                  
+//                  imagePort: .init(previousInstance: previousInstance.imagePort),
+//                  videoPort: .init(previousInstance: previousInstance.videoPort),
+//                  fitStylePort: .init(previousInstance: previousInstance.fitStylePort),
+//                  clippedPort: .init(previousInstance: previousInstance.clippedPort),
+//                  isAnimatingPort: .init(previousInstance: previousInstance.isAnimatingPort),
+//                  progressIndicatorStylePort: .init(previousInstance: previousInstance.progressIndicatorStylePort),
+//                  progressPort: .init(previousInstance: previousInstance.progressPort),
+//                  model3DPort: .init(previousInstance: previousInstance.model3DPort),
+//                  mapTypePort: .init(previousInstance: previousInstance.mapTypePort),
+//                  mapLatLongPort: .init(previousInstance: previousInstance.mapLatLongPort),
+//                  mapSpanPort: .init(previousInstance: previousInstance.mapSpanPort),
+//                  isSwitchToggledPort: .init(previousInstance: previousInstance.isSwitchToggledPort),
+//                  placeholderTextPort: .init(previousInstance: previousInstance.placeholderTextPort),
+//                  startColorPort: .init(previousInstance: previousInstance.startColorPort),
+//                  endColorPort: .init(previousInstance: previousInstance.endColorPort),
+//                  startAnchorPort: .init(previousInstance: previousInstance.startAnchorPort),
+//                  endAnchorPort: .init(previousInstance: previousInstance.endAnchorPort),
+//                  centerAnchorPort: .init(previousInstance: previousInstance.centerAnchorPort),
+//                  startAnglePort: .init(previousInstance: previousInstance.startAnglePort),
+//                  endAnglePort: .init(previousInstance: previousInstance.endAnglePort),
+//                  startRadiusPort: .init(previousInstance: previousInstance.startRadiusPort),
+//                  endRadiusPort: .init(previousInstance: previousInstance.endRadiusPort),
+//                  
+//                  shadowColorPort: .init(previousInstance: previousInstance.shadowColorPort),
+//                  shadowOpacityPort: .init(previousInstance: previousInstance.shadowOpacityPort),
+//                  shadowRadiusPort: .init(previousInstance: previousInstance.shadowRadiusPort),
+//                  shadowOffsetPort: .init(previousInstance: previousInstance.shadowOffsetPort),
+//                  
+//                  sfSymbolPort: .init(previousInstance: previousInstance.sfSymbolPort),
+//                  
+//                  videoURLPort: .init(previousInstance: previousInstance.videoURLPort),
+//                  volumePort: .init(previousInstance: previousInstance.volumePort),
+//
+//                  spacingBetweenGridColumnsPort: .init(previousInstance: previousInstance.spacingBetweenGridColumnsPort),
+//                  spacingBetweenGridRowsPort: .init(previousInstance: previousInstance.spacingBetweenGridRowsPort),
+//                  itemAlignmentWithinGridCellPort: .init(previousInstance: previousInstance.itemAlignmentWithinGridCellPort),
+//
+//                  sizingScenarioPort: .init(inputPort: NodeConnectionType_V22.NodeConnectionType.values([])),
+//                  
+//                  widthAxisPort: .init(previousInstance: previousInstance.widthAxisPort),
+//                  heightAxisPort: .init(previousInstance: previousInstance.heightAxisPort),
+//                  contentModePort: .init(previousInstance: previousInstance.contentModePort),
+//                  minSizePort: .init(previousInstance: previousInstance.minSizePort),
+//                  maxSizePort: .init(previousInstance: previousInstance.maxSizePort),
+//                  spacingPort: .init(previousInstance: previousInstance.spacingPort),
+//                  
+//                  // New, so initialized as empty; will be populated by Stitch's `defaultValue(for:)`
+////                  isPinnedPort: .init(inputPort: .values([])),
+////                  pinToPort: .init(inputPort: .values([])),
+////                  pinAnchorPort: .init(inputPort: .values([])),
+////                  pinOffsetPort: .init(inputPort: .values([])),
+//                  
+//                  hasSidebarVisibility: previousInstance.hasSidebarVisibility,
+//                  layerGroupId: previousInstance.layerGroupId,
+//                  isExpandedInSidebar: previousInstance.isExpandedInSidebar)
     }
     
     // MARK: remove this helper after V22
@@ -690,110 +705,111 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
     
     // MARK: remove this helper after V22
     func getAllInputPorts() -> [LayerInputDataEntity] {
-        return [
-            positionPort.getInputData(),
-            sizePort,
-            scalePort,
-            anchoringPort,
-            opacityPort,
-            zIndexPort,
-            masksPort,
-            colorPort,
-            
-            rotationXPort,
-            rotationYPort,
-            rotationZPort,
-            
-            lineColorPort,
-            lineWidthPort,
-            blurPort,
-            blendModePort,
-            brightnessPort,
-            colorInvertPort,
-            contrastPort,
-            hueRotationPort,
-            saturationPort,
-            pivotPort,
-            enabledPort,
-            blurRadiusPort,
-            backgroundColorPort,
-            isClippedPort,
-            orientationPort,
-            paddingPort,
-            
-            setupModePort,
-            allAnchorsPort,
-            cameraDirectionPort,
-            isCameraEnabledPort,
-            isShadowsEnabledPort,
-            
-            shapePort,
-            strokePositionPort,
-            strokeWidthPort,
-            strokeColorPort,
-            strokeStartPort,
-            strokeEndPort,
-            strokeLineCapPort,
-            strokeLineJoinPort,
-            coordinateSystemPort,
-            
-            cornerRadiusPort,
-            canvasLineColorPort,
-            canvasLineWidthPort,
-            canvasPositionPort,
-            textPort,
-            fontSizePort,
-            
-            textAlignmentPort,
-            verticalAlignmentPort,
-            textDecorationPort,
-            textFontPort,
-            
-            imagePort,
-            videoPort,
-            fitStylePort,
-            clippedPort,
-            isAnimatingPort,
-            progressIndicatorStylePort,
-            progressPort,
-            model3DPort,
-            mapTypePort,
-            mapLatLongPort,
-            mapSpanPort,
-            isSwitchToggledPort,
-            placeholderTextPort,
-            startColorPort,
-            endColorPort,
-            startAnchorPort,
-            endAnchorPort,
-            centerAnchorPort,
-            startAnglePort,
-            endAnglePort,
-            startRadiusPort,
-            endRadiusPort,
-            
-            shadowColorPort,
-            shadowOpacityPort,
-            shadowRadiusPort,
-            shadowOffsetPort,
-            
-            sfSymbolPort,
-            
-            videoURLPort,
-            volumePort,
-            
-            spacingBetweenGridColumnsPort,
-            spacingBetweenGridRowsPort,
-            itemAlignmentWithinGridCellPort,
-            
-            sizingScenarioPort,
-            
-            widthAxisPort,
-            heightAxisPort,
-            contentModePort,
-            minSizePort,
-            maxSizePort,
-            spacingPort
-        ]
+        fatalError()
+//        return [
+//            positionPort.getInputData(),
+//            sizePort,
+//            scalePort,
+//            anchoringPort,
+//            opacityPort,
+//            zIndexPort,
+//            masksPort,
+//            colorPort,
+//            
+//            rotationXPort,
+//            rotationYPort,
+//            rotationZPort,
+//            
+//            lineColorPort,
+//            lineWidthPort,
+//            blurPort,
+//            blendModePort,
+//            brightnessPort,
+//            colorInvertPort,
+//            contrastPort,
+//            hueRotationPort,
+//            saturationPort,
+//            pivotPort,
+//            enabledPort,
+//            blurRadiusPort,
+//            backgroundColorPort,
+//            isClippedPort,
+//            orientationPort,
+//            paddingPort,
+//            
+//            setupModePort,
+//            allAnchorsPort,
+//            cameraDirectionPort,
+//            isCameraEnabledPort,
+//            isShadowsEnabledPort,
+//            
+//            shapePort,
+//            strokePositionPort,
+//            strokeWidthPort,
+//            strokeColorPort,
+//            strokeStartPort,
+//            strokeEndPort,
+//            strokeLineCapPort,
+//            strokeLineJoinPort,
+//            coordinateSystemPort,
+//            
+//            cornerRadiusPort,
+//            canvasLineColorPort,
+//            canvasLineWidthPort,
+//            canvasPositionPort,
+//            textPort,
+//            fontSizePort,
+//            
+//            textAlignmentPort,
+//            verticalAlignmentPort,
+//            textDecorationPort,
+//            textFontPort,
+//            
+//            imagePort,
+//            videoPort,
+//            fitStylePort,
+//            clippedPort,
+//            isAnimatingPort,
+//            progressIndicatorStylePort,
+//            progressPort,
+//            model3DPort,
+//            mapTypePort,
+//            mapLatLongPort,
+//            mapSpanPort,
+//            isSwitchToggledPort,
+//            placeholderTextPort,
+//            startColorPort,
+//            endColorPort,
+//            startAnchorPort,
+//            endAnchorPort,
+//            centerAnchorPort,
+//            startAnglePort,
+//            endAnglePort,
+//            startRadiusPort,
+//            endRadiusPort,
+//            
+//            shadowColorPort,
+//            shadowOpacityPort,
+//            shadowRadiusPort,
+//            shadowOffsetPort,
+//            
+//            sfSymbolPort,
+//            
+//            videoURLPort,
+//            volumePort,
+//            
+//            spacingBetweenGridColumnsPort,
+//            spacingBetweenGridRowsPort,
+//            itemAlignmentWithinGridCellPort,
+//            
+//            sizingScenarioPort,
+//            
+//            widthAxisPort,
+//            heightAxisPort,
+//            contentModePort,
+//            minSizePort,
+//            maxSizePort,
+//            spacingPort
+//        ]
     }
 }

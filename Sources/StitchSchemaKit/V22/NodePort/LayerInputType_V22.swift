@@ -18,15 +18,20 @@ public enum UnpackedPortType: Int, Hashable, Codable, CaseIterable {
     case port2 = 2
 }
 
-public enum LayerInputType_V22: StitchSchemaVersionable {
+public struct LayerInputType: Hashable, Codable {
+    public var layerInput: LayerInputPort_V22.LayerInputPort
+    public var portType: LayerInputKeyPathType
+}
+
+public enum LayerInputPort_V22: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V22
     public typealias PreviousInstance = LayerInputType_V21.LayerInputType
     // MARK: - endif
     
-    public enum LayerInputType: Hashable {
+    public enum LayerInputPort: CaseIterable {
         // Required everywhere
-        case position(LayerInputKeyPathType)
+        case position
         case size
         case scale
         case anchoring
@@ -155,11 +160,11 @@ public enum LayerInputType_V22: StitchSchemaVersionable {
     }
 }
 
-extension LayerInputType_V22.LayerInputType: StitchVersionedCodable {
-    public init(previousInstance: LayerInputType_V22.PreviousInstance) {
+extension LayerInputPort_V22.LayerInputPort: StitchVersionedCodable {
+    public init(previousInstance: LayerInputPort_V22.PreviousInstance) {
         switch previousInstance {
         case .position:
-            self = .position(.packed)
+            self = .position
         case .size:
             self = .size
         case .scale:

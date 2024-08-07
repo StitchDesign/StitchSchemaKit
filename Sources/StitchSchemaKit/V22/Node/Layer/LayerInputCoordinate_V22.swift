@@ -11,7 +11,9 @@ public enum LayerInputCoordinate_V22: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V22
     public typealias PreviousInstance = Self.LayerInputCoordinate
-    public typealias LayerInputType = LayerInputType_V22.LayerInputType
+    
+    // TODO: uncomment
+//    public typealias LayerInputType = LayerInputType_V22.LayerInputType
     // MARK: - endif
  
 

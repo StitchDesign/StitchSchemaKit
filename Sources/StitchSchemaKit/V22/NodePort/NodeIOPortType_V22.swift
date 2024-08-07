@@ -11,7 +11,9 @@ public enum NodeIOPortType_V22: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V22
     public typealias PreviousInstance = Self.NodeIOPortType
-    public typealias LayerInputType = LayerInputType_V22.LayerInputType
+    
+    // TODO: uncomment!
+//    public typealias LayerInputType = LayerInputType_V22.LayerInputType
     // MARK: - endif
     
     public enum NodeIOPortType: Hashable, Equatable {

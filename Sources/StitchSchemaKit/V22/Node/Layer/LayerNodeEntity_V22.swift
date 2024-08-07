@@ -19,9 +19,9 @@ public struct LayerInputEntity: Equatable, Codable {
     public var unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity]
     public var mode: LayerInputMode
     
-    init(packedData: LayerInputDataEntity_V22.LayerInputDataEntity,
-         unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity],
-         mode: LayerInputMode) {
+    public init(packedData: LayerInputDataEntity_V22.LayerInputDataEntity,
+                unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity],
+                mode: LayerInputMode) {
         self.packedData = packedData
         self.unpackedData = unpackedData
         self.mode = mode

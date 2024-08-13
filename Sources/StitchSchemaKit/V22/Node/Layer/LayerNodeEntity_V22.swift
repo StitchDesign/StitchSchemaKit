@@ -75,113 +75,113 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         
         // Required
         public var positionPort: LayerInputEntity
-        public var sizePort: LayerInputDataEntity
-        public var scalePort: LayerInputDataEntity
-        public var anchoringPort: LayerInputDataEntity
-        public var opacityPort: LayerInputDataEntity
-        public var zIndexPort: LayerInputDataEntity
+        public var sizePort: LayerInputEntity
+        public var scalePort: LayerInputEntity
+        public var anchoringPort: LayerInputEntity
+        public var opacityPort: LayerInputEntity
+        public var zIndexPort: LayerInputEntity
         
         // Common
-        public var masksPort: LayerInputDataEntity
-        public var colorPort: LayerInputDataEntity
-        public var startColorPort: LayerInputDataEntity
-        public var endColorPort: LayerInputDataEntity
-        public var startAnchorPort: LayerInputDataEntity
-        public var endAnchorPort: LayerInputDataEntity
+        public var masksPort: LayerInputEntity
+        public var colorPort: LayerInputEntity
+        public var startColorPort: LayerInputEntity
+        public var endColorPort: LayerInputEntity
+        public var startAnchorPort: LayerInputEntity
+        public var endAnchorPort: LayerInputEntity
         
-        public var centerAnchorPort: LayerInputDataEntity
-        public var startAnglePort: LayerInputDataEntity
-        public var endAnglePort: LayerInputDataEntity
-        public var startRadiusPort: LayerInputDataEntity
-        public var endRadiusPort: LayerInputDataEntity
-        public var rotationXPort: LayerInputDataEntity
-        public var rotationYPort: LayerInputDataEntity
-        public var rotationZPort: LayerInputDataEntity
-        public var lineColorPort: LayerInputDataEntity
-        public var lineWidthPort: LayerInputDataEntity
-        public var blurPort: LayerInputDataEntity
-        public var blendModePort: LayerInputDataEntity
-        public var brightnessPort: LayerInputDataEntity
-        public var colorInvertPort: LayerInputDataEntity
-        public var contrastPort: LayerInputDataEntity
-        public var hueRotationPort: LayerInputDataEntity
-        public var saturationPort: LayerInputDataEntity
-        public var pivotPort: LayerInputDataEntity
-        public var enabledPort: LayerInputDataEntity
-        public var blurRadiusPort: LayerInputDataEntity
-        public var backgroundColorPort: LayerInputDataEntity
-        public var isClippedPort: LayerInputDataEntity
-        public var orientationPort: LayerInputDataEntity
+        public var centerAnchorPort: LayerInputEntity
+        public var startAnglePort: LayerInputEntity
+        public var endAnglePort: LayerInputEntity
+        public var startRadiusPort: LayerInputEntity
+        public var endRadiusPort: LayerInputEntity
+        public var rotationXPort: LayerInputEntity
+        public var rotationYPort: LayerInputEntity
+        public var rotationZPort: LayerInputEntity
+        public var lineColorPort: LayerInputEntity
+        public var lineWidthPort: LayerInputEntity
+        public var blurPort: LayerInputEntity
+        public var blendModePort: LayerInputEntity
+        public var brightnessPort: LayerInputEntity
+        public var colorInvertPort: LayerInputEntity
+        public var contrastPort: LayerInputEntity
+        public var hueRotationPort: LayerInputEntity
+        public var saturationPort: LayerInputEntity
+        public var pivotPort: LayerInputEntity
+        public var enabledPort: LayerInputEntity
+        public var blurRadiusPort: LayerInputEntity
+        public var backgroundColorPort: LayerInputEntity
+        public var isClippedPort: LayerInputEntity
+        public var orientationPort: LayerInputEntity
         
-        public var paddingPort: LayerInputDataEntity
+        public var paddingPort: LayerInputEntity
         
-        public var setupModePort: LayerInputDataEntity
-        public var allAnchorsPort: LayerInputDataEntity
-        public var cameraDirectionPort: LayerInputDataEntity
-        public var isCameraEnabledPort: LayerInputDataEntity
-        public var isShadowsEnabledPort: LayerInputDataEntity
+        public var setupModePort: LayerInputEntity
+        public var allAnchorsPort: LayerInputEntity
+        public var cameraDirectionPort: LayerInputEntity
+        public var isCameraEnabledPort: LayerInputEntity
+        public var isShadowsEnabledPort: LayerInputEntity
         
-        public var shapePort: LayerInputDataEntity
-        public var strokePositionPort: LayerInputDataEntity
-        public var strokeWidthPort: LayerInputDataEntity
-        public var strokeColorPort: LayerInputDataEntity
-        public var strokeStartPort: LayerInputDataEntity
-        public var strokeEndPort: LayerInputDataEntity
-        public var strokeLineCapPort: LayerInputDataEntity
-        public var strokeLineJoinPort: LayerInputDataEntity
-        public var coordinateSystemPort: LayerInputDataEntity
+        public var shapePort: LayerInputEntity
+        public var strokePositionPort: LayerInputEntity
+        public var strokeWidthPort: LayerInputEntity
+        public var strokeColorPort: LayerInputEntity
+        public var strokeStartPort: LayerInputEntity
+        public var strokeEndPort: LayerInputEntity
+        public var strokeLineCapPort: LayerInputEntity
+        public var strokeLineJoinPort: LayerInputEntity
+        public var coordinateSystemPort: LayerInputEntity
         
-        public var cornerRadiusPort: LayerInputDataEntity
-        public var canvasLineColorPort: LayerInputDataEntity
-        public var canvasLineWidthPort: LayerInputDataEntity
-        public var canvasPositionPort: LayerInputDataEntity
-        public var textPort: LayerInputDataEntity
-        public var fontSizePort: LayerInputDataEntity
-        public var textAlignmentPort: LayerInputDataEntity
-        public var verticalAlignmentPort: LayerInputDataEntity
-        public var textDecorationPort: LayerInputDataEntity
-        public var textFontPort: LayerInputDataEntity
-        public var imagePort: LayerInputDataEntity
-        public var videoPort: LayerInputDataEntity
-        public var fitStylePort: LayerInputDataEntity
-        public var clippedPort: LayerInputDataEntity
-        public var isAnimatingPort: LayerInputDataEntity
-        public var progressIndicatorStylePort: LayerInputDataEntity
-        public var progressPort: LayerInputDataEntity
-        public var model3DPort: LayerInputDataEntity
-        public var mapTypePort: LayerInputDataEntity
-        public var mapLatLongPort: LayerInputDataEntity
-        public var mapSpanPort: LayerInputDataEntity
-        public var isSwitchToggledPort: LayerInputDataEntity
-        public var placeholderTextPort: LayerInputDataEntity
+        public var cornerRadiusPort: LayerInputEntity
+        public var canvasLineColorPort: LayerInputEntity
+        public var canvasLineWidthPort: LayerInputEntity
+        public var canvasPositionPort: LayerInputEntity
+        public var textPort: LayerInputEntity
+        public var fontSizePort: LayerInputEntity
+        public var textAlignmentPort: LayerInputEntity
+        public var verticalAlignmentPort: LayerInputEntity
+        public var textDecorationPort: LayerInputEntity
+        public var textFontPort: LayerInputEntity
+        public var imagePort: LayerInputEntity
+        public var videoPort: LayerInputEntity
+        public var fitStylePort: LayerInputEntity
+        public var clippedPort: LayerInputEntity
+        public var isAnimatingPort: LayerInputEntity
+        public var progressIndicatorStylePort: LayerInputEntity
+        public var progressPort: LayerInputEntity
+        public var model3DPort: LayerInputEntity
+        public var mapTypePort: LayerInputEntity
+        public var mapLatLongPort: LayerInputEntity
+        public var mapSpanPort: LayerInputEntity
+        public var isSwitchToggledPort: LayerInputEntity
+        public var placeholderTextPort: LayerInputEntity
         
-        public var shadowColorPort: LayerInputDataEntity
-        public var shadowOpacityPort: LayerInputDataEntity
-        public var shadowRadiusPort: LayerInputDataEntity
-        public var shadowOffsetPort: LayerInputDataEntity
+        public var shadowColorPort: LayerInputEntity
+        public var shadowOpacityPort: LayerInputEntity
+        public var shadowRadiusPort: LayerInputEntity
+        public var shadowOffsetPort: LayerInputEntity
         
-        public var sfSymbolPort: LayerInputDataEntity
+        public var sfSymbolPort: LayerInputEntity
         
-        public var videoURLPort: LayerInputDataEntity
-        public var volumePort: LayerInputDataEntity
+        public var videoURLPort: LayerInputEntity
+        public var volumePort: LayerInputEntity
 
-        public var spacingBetweenGridColumnsPort: LayerInputDataEntity
-        public var spacingBetweenGridRowsPort: LayerInputDataEntity
-        public var itemAlignmentWithinGridCellPort: LayerInputDataEntity
+        public var spacingBetweenGridColumnsPort: LayerInputEntity
+        public var spacingBetweenGridRowsPort: LayerInputEntity
+        public var itemAlignmentWithinGridCellPort: LayerInputEntity
         
-        public var sizingScenarioPort: LayerInputDataEntity
+        public var sizingScenarioPort: LayerInputEntity
         
         // Aspect ratio
-        public var widthAxisPort: LayerInputDataEntity
-        public var heightAxisPort: LayerInputDataEntity
-        public var contentModePort: LayerInputDataEntity
+        public var widthAxisPort: LayerInputEntity
+        public var heightAxisPort: LayerInputEntity
+        public var contentModePort: LayerInputEntity
         
         // Min/max size
-        public var minSizePort: LayerInputDataEntity
-        public var maxSizePort: LayerInputDataEntity
+        public var minSizePort: LayerInputEntity
+        public var maxSizePort: LayerInputEntity
         
         // Spacing
-        public var spacingPort: LayerInputDataEntity
+        public var spacingPort: LayerInputEntity
                 
         // Sidebar data
         public let hasSidebarVisibility: Bool
@@ -192,109 +192,109 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
                     layer: Layer,
                     outputCanvasPorts: [CanvasNodeEntity?],
                     positionPort: LayerInputEntity,
-                    sizePort: LayerInputDataEntity,
-                    scalePort: LayerInputDataEntity,
-                    anchoringPort: LayerInputDataEntity,
-                    opacityPort: LayerInputDataEntity,
-                    zIndexPort: LayerInputDataEntity,
-                    masksPort: LayerInputDataEntity,
-                    colorPort: LayerInputDataEntity,
+                    sizePort: LayerInputEntity,
+                    scalePort: LayerInputEntity,
+                    anchoringPort: LayerInputEntity,
+                    opacityPort: LayerInputEntity,
+                    zIndexPort: LayerInputEntity,
+                    masksPort: LayerInputEntity,
+                    colorPort: LayerInputEntity,
                     
-                    rotationXPort: LayerInputDataEntity,
-                    rotationYPort: LayerInputDataEntity,
-                    rotationZPort: LayerInputDataEntity,
+                    rotationXPort: LayerInputEntity,
+                    rotationYPort: LayerInputEntity,
+                    rotationZPort: LayerInputEntity,
                     
-                    lineColorPort: LayerInputDataEntity,
-                    lineWidthPort: LayerInputDataEntity,
-                    blurPort: LayerInputDataEntity,
-                    blendModePort: LayerInputDataEntity,
-                    brightnessPort: LayerInputDataEntity,
-                    colorInvertPort: LayerInputDataEntity,
-                    contrastPort: LayerInputDataEntity,
-                    hueRotationPort: LayerInputDataEntity,
-                    saturationPort: LayerInputDataEntity,
-                    pivotPort: LayerInputDataEntity,
-                    enabledPort: LayerInputDataEntity,
-                    blurRadiusPort: LayerInputDataEntity,
-                    backgroundColorPort: LayerInputDataEntity,
-                    isClippedPort: LayerInputDataEntity,
-                    orientationPort: LayerInputDataEntity,
+                    lineColorPort: LayerInputEntity,
+                    lineWidthPort: LayerInputEntity,
+                    blurPort: LayerInputEntity,
+                    blendModePort: LayerInputEntity,
+                    brightnessPort: LayerInputEntity,
+                    colorInvertPort: LayerInputEntity,
+                    contrastPort: LayerInputEntity,
+                    hueRotationPort: LayerInputEntity,
+                    saturationPort: LayerInputEntity,
+                    pivotPort: LayerInputEntity,
+                    enabledPort: LayerInputEntity,
+                    blurRadiusPort: LayerInputEntity,
+                    backgroundColorPort: LayerInputEntity,
+                    isClippedPort: LayerInputEntity,
+                    orientationPort: LayerInputEntity,
                     
-                    paddingPort: LayerInputDataEntity,
+                    paddingPort: LayerInputEntity,
                     
-                    setupModePort: LayerInputDataEntity,
-                    allAnchorsPort: LayerInputDataEntity,
-                    cameraDirectionPort: LayerInputDataEntity,
-                    isCameraEnabledPort: LayerInputDataEntity,
-                    isShadowsEnabledPort: LayerInputDataEntity,
+                    setupModePort: LayerInputEntity,
+                    allAnchorsPort: LayerInputEntity,
+                    cameraDirectionPort: LayerInputEntity,
+                    isCameraEnabledPort: LayerInputEntity,
+                    isShadowsEnabledPort: LayerInputEntity,
                     
-                    shapePort: LayerInputDataEntity,
-                    strokePositionPort: LayerInputDataEntity,
-                    strokeWidthPort: LayerInputDataEntity,
-                    strokeColorPort: LayerInputDataEntity,
-                    strokeStartPort: LayerInputDataEntity,
-                    strokeEndPort: LayerInputDataEntity,
-                    strokeLineCapPort: LayerInputDataEntity,
-                    strokeLineJoinPort: LayerInputDataEntity,
-                    coordinateSystemPort: LayerInputDataEntity,
+                    shapePort: LayerInputEntity,
+                    strokePositionPort: LayerInputEntity,
+                    strokeWidthPort: LayerInputEntity,
+                    strokeColorPort: LayerInputEntity,
+                    strokeStartPort: LayerInputEntity,
+                    strokeEndPort: LayerInputEntity,
+                    strokeLineCapPort: LayerInputEntity,
+                    strokeLineJoinPort: LayerInputEntity,
+                    coordinateSystemPort: LayerInputEntity,
                     
-                    cornerRadiusPort: LayerInputDataEntity,
-                    canvasLineColorPort: LayerInputDataEntity,
-                    canvasLineWidthPort: LayerInputDataEntity,
-                    canvasPositionPort: LayerInputDataEntity,
+                    cornerRadiusPort: LayerInputEntity,
+                    canvasLineColorPort: LayerInputEntity,
+                    canvasLineWidthPort: LayerInputEntity,
+                    canvasPositionPort: LayerInputEntity,
                     
-                    textPort: LayerInputDataEntity,
-                    fontSizePort: LayerInputDataEntity,
-                    textAlignmentPort: LayerInputDataEntity,
-                    verticalAlignmentPort: LayerInputDataEntity,
-                    textDecorationPort: LayerInputDataEntity,
-                    textFontPort: LayerInputDataEntity,
+                    textPort: LayerInputEntity,
+                    fontSizePort: LayerInputEntity,
+                    textAlignmentPort: LayerInputEntity,
+                    verticalAlignmentPort: LayerInputEntity,
+                    textDecorationPort: LayerInputEntity,
+                    textFontPort: LayerInputEntity,
                     
-                    imagePort: LayerInputDataEntity,
-                    videoPort: LayerInputDataEntity,
-                    fitStylePort: LayerInputDataEntity,
-                    clippedPort: LayerInputDataEntity,
-                    isAnimatingPort: LayerInputDataEntity,
-                    progressIndicatorStylePort: LayerInputDataEntity,
-                    progressPort: LayerInputDataEntity,
-                    model3DPort: LayerInputDataEntity,
-                    mapTypePort: LayerInputDataEntity,
-                    mapLatLongPort: LayerInputDataEntity,
-                    mapSpanPort: LayerInputDataEntity,
-                    isSwitchToggledPort: LayerInputDataEntity,
-                    placeholderTextPort: LayerInputDataEntity,
-                    startColorPort: LayerInputDataEntity,
-                    endColorPort: LayerInputDataEntity,
-                    startAnchorPort: LayerInputDataEntity,
-                    endAnchorPort: LayerInputDataEntity,
-                    centerAnchorPort: LayerInputDataEntity,
-                    startAnglePort: LayerInputDataEntity,
-                    endAnglePort: LayerInputDataEntity,
-                    startRadiusPort: LayerInputDataEntity,
-                    endRadiusPort: LayerInputDataEntity,
+                    imagePort: LayerInputEntity,
+                    videoPort: LayerInputEntity,
+                    fitStylePort: LayerInputEntity,
+                    clippedPort: LayerInputEntity,
+                    isAnimatingPort: LayerInputEntity,
+                    progressIndicatorStylePort: LayerInputEntity,
+                    progressPort: LayerInputEntity,
+                    model3DPort: LayerInputEntity,
+                    mapTypePort: LayerInputEntity,
+                    mapLatLongPort: LayerInputEntity,
+                    mapSpanPort: LayerInputEntity,
+                    isSwitchToggledPort: LayerInputEntity,
+                    placeholderTextPort: LayerInputEntity,
+                    startColorPort: LayerInputEntity,
+                    endColorPort: LayerInputEntity,
+                    startAnchorPort: LayerInputEntity,
+                    endAnchorPort: LayerInputEntity,
+                    centerAnchorPort: LayerInputEntity,
+                    startAnglePort: LayerInputEntity,
+                    endAnglePort: LayerInputEntity,
+                    startRadiusPort: LayerInputEntity,
+                    endRadiusPort: LayerInputEntity,
                     
-                    shadowColorPort: LayerInputDataEntity,
-                    shadowOpacityPort: LayerInputDataEntity,
-                    shadowRadiusPort: LayerInputDataEntity,
-                    shadowOffsetPort: LayerInputDataEntity,
+                    shadowColorPort: LayerInputEntity,
+                    shadowOpacityPort: LayerInputEntity,
+                    shadowRadiusPort: LayerInputEntity,
+                    shadowOffsetPort: LayerInputEntity,
                     
-                    sfSymbolPort: LayerInputDataEntity,
+                    sfSymbolPort: LayerInputEntity,
                     
-                    videoURLPort: LayerInputDataEntity,
-                    volumePort: LayerInputDataEntity,
+                    videoURLPort: LayerInputEntity,
+                    volumePort: LayerInputEntity,
                     
-                    spacingBetweenGridColumnsPort: LayerInputDataEntity,
-                    spacingBetweenGridRowsPort: LayerInputDataEntity,
-                    itemAlignmentWithinGridCellPort: LayerInputDataEntity,
+                    spacingBetweenGridColumnsPort: LayerInputEntity,
+                    spacingBetweenGridRowsPort: LayerInputEntity,
+                    itemAlignmentWithinGridCellPort: LayerInputEntity,
                     
-                    sizingScenarioPort: LayerInputDataEntity,
+                    sizingScenarioPort: LayerInputEntity,
                     
-                    widthAxisPort: LayerInputDataEntity,
-                    heightAxisPort: LayerInputDataEntity,
-                    contentModePort: LayerInputDataEntity,
-                    minSizePort: LayerInputDataEntity,
-                    maxSizePort: LayerInputDataEntity,
-                    spacingPort: LayerInputDataEntity,
+                    widthAxisPort: LayerInputEntity,
+                    heightAxisPort: LayerInputEntity,
+                    contentModePort: LayerInputEntity,
+                    minSizePort: LayerInputEntity,
+                    maxSizePort: LayerInputEntity,
+                    spacingPort: LayerInputEntity,
                     
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,

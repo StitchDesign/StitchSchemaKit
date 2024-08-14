@@ -8,23 +8,21 @@
 import SwiftUI
 
 // TODO: will move to new file
-public enum LayerInputMode: Codable {
-    case packed
-    case unpacked
-}
+//public enum LayerInputMode: Codable {
+//    case packed
+//    case unpacked
+//}
 
 // TODO: will move to new file
-public struct LayerInputEntity: Equatable, Codable {
+public struct LayerInputEntity: Equatable, Codable, Sendable {
     public var packedData: LayerInputDataEntity_V22.LayerInputDataEntity
     public var unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity]
-    public var mode: LayerInputMode
+//    public var mode: LayerInputMode
     
     public init(packedData: LayerInputDataEntity_V22.LayerInputDataEntity,
-                unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity],
-                mode: LayerInputMode) {
+                unpackedData: [LayerInputDataEntity_V22.LayerInputDataEntity]) {
         self.packedData = packedData
         self.unpackedData = unpackedData
-        self.mode = mode
     }
 }
 

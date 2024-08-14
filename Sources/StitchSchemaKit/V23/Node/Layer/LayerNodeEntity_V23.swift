@@ -1,5 +1,5 @@
 //
-//  LayerNodeEntity_V22.swift
+//  LayerNodeEntity_V23.swift
 //  Stitch
 //
 //  Created by Elliot Boschwitz on 12/29/23.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public enum LayerNodeEntity_V22: StitchSchemaVersionable {
+public enum LayerNodeEntity_V23: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V22
-    public typealias PreviousInstance = LayerNodeEntity_V21.LayerNodeEntity
-    public typealias CanvasNodeEntity = CanvasNodeEntity_V22.CanvasNodeEntity
-    public typealias Layer = Layer_V22.Layer
-    public typealias LayerInputDataEntity = LayerInputDataEntity_V22.LayerInputDataEntity
-    public typealias NodeConnectionType = NodeConnectionType_V22.NodeConnectionType
+    static var version = StitchSchemaVersion._V23
+    public typealias PreviousInstance = LayerNodeEntity_V22.LayerNodeEntity
+    public typealias CanvasNodeEntity = CanvasNodeEntity_V23.CanvasNodeEntity
+    public typealias Layer = Layer_V23.Layer
+    public typealias LayerInputDataEntity = LayerInputDataEntity_V23.LayerInputDataEntity
+    public typealias NodeConnectionType = NodeConnectionType_V23.NodeConnectionType
     // MARK: - end
 
     public struct LayerNodeEntity: Equatable {
@@ -135,6 +135,12 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
         // Spacing
         public var spacingPort: LayerInputDataEntity
                 
+        // Pinning
+        public var isPinnedPort: LayerInputDataEntity
+        public var pinToPort: LayerInputDataEntity
+        public var pinAnchorPort: LayerInputDataEntity
+        public var pinOffsetPort: LayerInputDataEntity
+        
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -247,6 +253,11 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
                     minSizePort: LayerInputDataEntity,
                     maxSizePort: LayerInputDataEntity,
                     spacingPort: LayerInputDataEntity,
+                    
+                    isPinnedPort: LayerInputDataEntity,
+                    pinToPort: LayerInputDataEntity,
+                    pinAnchorPort: LayerInputDataEntity,
+                    pinOffsetPort: LayerInputDataEntity,
                     
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,
@@ -362,14 +373,19 @@ public enum LayerNodeEntity_V22: StitchSchemaVersionable {
             self.maxSizePort = maxSizePort
             
             self.spacingPort = spacingPort
+            
+            self.isPinnedPort = isPinnedPort
+            self.pinToPort = pinToPort
+            self.pinAnchorPort = pinAnchorPort
+            self.pinOffsetPort = pinOffsetPort
         }
     }
 }
 
-extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
-    public init(previousInstance: LayerNodeEntity_V22.PreviousInstance) {
+extension LayerNodeEntity_V23.LayerNodeEntity: StitchVersionedCodable {
+    public init(previousInstance: LayerNodeEntity_V23.PreviousInstance) {
         self.init(id: previousInstance.id,
-                  layer: LayerNodeEntity_V22.Layer(previousInstance: previousInstance.layer),
+                  layer: LayerNodeEntity_V23.Layer(previousInstance: previousInstance.layer),
                   outputCanvasPorts: previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
                   positionPort: .init(previousInstance: previousInstance.positionPort),
                   sizePort: .init(previousInstance: previousInstance.sizePort),
@@ -466,7 +482,7 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
                   spacingBetweenGridRowsPort: .init(previousInstance: previousInstance.spacingBetweenGridRowsPort),
                   itemAlignmentWithinGridCellPort: .init(previousInstance: previousInstance.itemAlignmentWithinGridCellPort),
 
-                  sizingScenarioPort: .init(inputPort: NodeConnectionType_V22.NodeConnectionType.values([])),
+                  sizingScenarioPort: .init(inputPort: NodeConnectionType_V23.NodeConnectionType.values([])),
                   
                   widthAxisPort: .init(previousInstance: previousInstance.widthAxisPort),
                   heightAxisPort: .init(previousInstance: previousInstance.heightAxisPort),
@@ -476,288 +492,13 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
                   spacingPort: .init(previousInstance: previousInstance.spacingPort),
                   
                   // New, so initialized as empty; will be populated by Stitch's `defaultValue(for:)`
-//                  isPinnedPort: .init(inputPort: .values([])),
-//                  pinToPort: .init(inputPort: .values([])),
-//                  pinAnchorPort: .init(inputPort: .values([])),
-//                  pinOffsetPort: .init(inputPort: .values([])),
+                  isPinnedPort: .init(inputPort: .values([])),
+                  pinToPort: .init(inputPort: .values([])),
+                  pinAnchorPort: .init(inputPort: .values([])),
+                  pinOffsetPort: .init(inputPort: .values([])),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,
                   isExpandedInSidebar: previousInstance.isExpandedInSidebar)
-    }
-    
-    // MARK: remove this helper after V22
-    func createConnectedOutputCanvases(nodes: [NodeEntity_V22.NodeEntity]) -> [CanvasNodeEntity_V22.CanvasNodeEntity?] {
-        let outputSupportedLayers: [Layer_V22.Layer] = [.textField, .canvasSketch, .switchLayer]
-        
-        guard let connectedDownstreamNode = nodes.first(where: { node in
-            node.getUpstreamNodeIds().contains(self.id)
-        }) else {
-            // No connection to this node
-            return []
-        }
-        
-        guard let downstreamCanvas = connectedDownstreamNode.getCanvas() else {
-            #if DEBUG
-            fatalError()
-            #endif
-            return []
-        }
-        
-        var outputLayerCanvas = downstreamCanvas
-        outputLayerCanvas.zIndex += 1
-        outputLayerCanvas.position = .init(x: downstreamCanvas.position.x - 450,
-                                           y: downstreamCanvas.position.y)
-        
-        // Change parent group if downstream node is input splitter
-        switch connectedDownstreamNode.nodeTypeEntity {
-        case .patch(let patchNode):
-            if patchNode.splitterNode?.type == .input {
-                guard let groupNodeId = downstreamCanvas.parentGroupNodeId,
-                      let groupNode = nodes.first(where: { $0.id == groupNodeId }),
-                      let groupCanvas = groupNode.getCanvas() else {
-                    #if DEBUG
-                    fatalError()
-                    #endif
-                    return []
-                }
-                
-                outputLayerCanvas.parentGroupNodeId = groupCanvas.parentGroupNodeId
-                outputLayerCanvas.position = CGPoint(x: groupCanvas.position.x - 450,
-                                                     y: groupCanvas.position.y)
-            }
-            
-        default:
-            break
-        }
-        
-        return [outputLayerCanvas]
-    }
-    
-    // MARK: remove this helper after V22
-    mutating func createConnectedCanvasItems(nodes: [NodeEntity_V22.NodeEntity]) {
-        self.outputCanvasPorts = self.createConnectedOutputCanvases(nodes: nodes)
-        
-        self.positionPort.createConnectedCanvas(nodes: nodes)
-        self.sizePort.createConnectedCanvas(nodes: nodes)
-        self.scalePort.createConnectedCanvas(nodes: nodes)
-        self.anchoringPort.createConnectedCanvas(nodes: nodes)
-        self.opacityPort.createConnectedCanvas(nodes: nodes)
-        self.zIndexPort.createConnectedCanvas(nodes: nodes)
-        self.masksPort.createConnectedCanvas(nodes: nodes)
-        self.colorPort.createConnectedCanvas(nodes: nodes)
-    
-        self.rotationXPort.createConnectedCanvas(nodes: nodes)
-        self.rotationYPort.createConnectedCanvas(nodes: nodes)
-        self.rotationZPort.createConnectedCanvas(nodes: nodes)
-    
-        self.lineColorPort.createConnectedCanvas(nodes: nodes)
-        self.lineWidthPort.createConnectedCanvas(nodes: nodes)
-        self.blurPort.createConnectedCanvas(nodes: nodes)
-        self.blendModePort.createConnectedCanvas(nodes: nodes)
-        self.brightnessPort.createConnectedCanvas(nodes: nodes)
-        self.colorInvertPort.createConnectedCanvas(nodes: nodes)
-        self.contrastPort.createConnectedCanvas(nodes: nodes)
-        self.hueRotationPort.createConnectedCanvas(nodes: nodes)
-        self.saturationPort.createConnectedCanvas(nodes: nodes)
-        self.pivotPort.createConnectedCanvas(nodes: nodes)
-        self.enabledPort.createConnectedCanvas(nodes: nodes)
-        self.blurRadiusPort.createConnectedCanvas(nodes: nodes)
-        self.backgroundColorPort.createConnectedCanvas(nodes: nodes)
-        self.isClippedPort.createConnectedCanvas(nodes: nodes)
-        self.orientationPort.createConnectedCanvas(nodes: nodes)
-        self.paddingPort.createConnectedCanvas(nodes: nodes)
-    
-        self.setupModePort.createConnectedCanvas(nodes: nodes)
-        self.allAnchorsPort.createConnectedCanvas(nodes: nodes)
-        self.cameraDirectionPort.createConnectedCanvas(nodes: nodes)
-        self.isCameraEnabledPort.createConnectedCanvas(nodes: nodes)
-        self.isShadowsEnabledPort.createConnectedCanvas(nodes: nodes)
-    
-        self.shapePort.createConnectedCanvas(nodes: nodes)
-        self.strokePositionPort.createConnectedCanvas(nodes: nodes)
-        self.strokeWidthPort.createConnectedCanvas(nodes: nodes)
-        self.strokeColorPort.createConnectedCanvas(nodes: nodes)
-        self.strokeStartPort.createConnectedCanvas(nodes: nodes)
-        self.strokeEndPort.createConnectedCanvas(nodes: nodes)
-        self.strokeLineCapPort.createConnectedCanvas(nodes: nodes)
-        self.strokeLineJoinPort.createConnectedCanvas(nodes: nodes)
-        self.coordinateSystemPort.createConnectedCanvas(nodes: nodes)
-    
-        self.cornerRadiusPort.createConnectedCanvas(nodes: nodes)
-        self.canvasLineColorPort.createConnectedCanvas(nodes: nodes)
-        self.canvasLineWidthPort.createConnectedCanvas(nodes: nodes)
-        self.canvasPositionPort.createConnectedCanvas(nodes: nodes)
-        self.textPort.createConnectedCanvas(nodes: nodes)
-        self.fontSizePort.createConnectedCanvas(nodes: nodes)
-                      
-        self.textAlignmentPort.createConnectedCanvas(nodes: nodes)
-        self.verticalAlignmentPort.createConnectedCanvas(nodes: nodes)
-        self.textDecorationPort.createConnectedCanvas(nodes: nodes)
-        self.textFontPort.createConnectedCanvas(nodes: nodes)
-    
-        self.imagePort.createConnectedCanvas(nodes: nodes)
-        self.videoPort.createConnectedCanvas(nodes: nodes)
-        self.fitStylePort.createConnectedCanvas(nodes: nodes)
-        self.clippedPort.createConnectedCanvas(nodes: nodes)
-        self.isAnimatingPort.createConnectedCanvas(nodes: nodes)
-        self.progressIndicatorStylePort.createConnectedCanvas(nodes: nodes)
-        self.progressPort.createConnectedCanvas(nodes: nodes)
-        self.model3DPort.createConnectedCanvas(nodes: nodes)
-        self.mapTypePort.createConnectedCanvas(nodes: nodes)
-        self.mapLatLongPort.createConnectedCanvas(nodes: nodes)
-        self.mapSpanPort.createConnectedCanvas(nodes: nodes)
-        self.isSwitchToggledPort.createConnectedCanvas(nodes: nodes)
-        self.placeholderTextPort.createConnectedCanvas(nodes: nodes)
-        self.startColorPort.createConnectedCanvas(nodes: nodes)
-        self.endColorPort.createConnectedCanvas(nodes: nodes)
-        self.startAnchorPort.createConnectedCanvas(nodes: nodes)
-        self.endAnchorPort.createConnectedCanvas(nodes: nodes)
-        self.centerAnchorPort.createConnectedCanvas(nodes: nodes)
-        self.startAnglePort.createConnectedCanvas(nodes: nodes)
-        self.endAnglePort.createConnectedCanvas(nodes: nodes)
-        self.startRadiusPort.createConnectedCanvas(nodes: nodes)
-        self.endRadiusPort.createConnectedCanvas(nodes: nodes)
-    
-        self.shadowColorPort.createConnectedCanvas(nodes: nodes)
-        self.shadowOpacityPort.createConnectedCanvas(nodes: nodes)
-        self.shadowRadiusPort.createConnectedCanvas(nodes: nodes)
-        self.shadowOffsetPort.createConnectedCanvas(nodes: nodes)
-    
-        self.sfSymbolPort.createConnectedCanvas(nodes: nodes)
-    
-        self.videoURLPort.createConnectedCanvas(nodes: nodes)
-        self.volumePort.createConnectedCanvas(nodes: nodes)
-
-        self.spacingBetweenGridColumnsPort.createConnectedCanvas(nodes: nodes)
-        self.spacingBetweenGridRowsPort.createConnectedCanvas(nodes: nodes)
-        self.itemAlignmentWithinGridCellPort.createConnectedCanvas(nodes: nodes)
-
-        self.sizingScenarioPort.createConnectedCanvas(nodes: nodes)
-    
-        self.widthAxisPort.createConnectedCanvas(nodes: nodes)
-        self.heightAxisPort.createConnectedCanvas(nodes: nodes)
-        self.contentModePort.createConnectedCanvas(nodes: nodes)
-        self.minSizePort.createConnectedCanvas(nodes: nodes)
-        self.maxSizePort.createConnectedCanvas(nodes: nodes)
-        self.spacingPort.createConnectedCanvas(nodes: nodes)
-    }
-    
-    // MARK: remove this helper after V22
-    func getConnectedUpstreamNodeIds() -> Set<UUID> {
-        let ids = self.getAllInputPorts().compactMap {
-            $0.inputPort.getUpstreamConnection?.nodeId
-        }
-        
-        return Set(ids)
-    }
-    
-    // MARK: remove this helper after V22
-    func getAllInputPorts() -> [LayerInputDataEntity_V22.LayerInputDataEntity] {
-        return [
-            positionPort,
-            sizePort,
-            scalePort,
-            anchoringPort,
-            opacityPort,
-            zIndexPort,
-            masksPort,
-            colorPort,
-            
-            rotationXPort,
-            rotationYPort,
-            rotationZPort,
-            
-            lineColorPort,
-            lineWidthPort,
-            blurPort,
-            blendModePort,
-            brightnessPort,
-            colorInvertPort,
-            contrastPort,
-            hueRotationPort,
-            saturationPort,
-            pivotPort,
-            enabledPort,
-            blurRadiusPort,
-            backgroundColorPort,
-            isClippedPort,
-            orientationPort,
-            paddingPort,
-            
-            setupModePort,
-            allAnchorsPort,
-            cameraDirectionPort,
-            isCameraEnabledPort,
-            isShadowsEnabledPort,
-            
-            shapePort,
-            strokePositionPort,
-            strokeWidthPort,
-            strokeColorPort,
-            strokeStartPort,
-            strokeEndPort,
-            strokeLineCapPort,
-            strokeLineJoinPort,
-            coordinateSystemPort,
-            
-            cornerRadiusPort,
-            canvasLineColorPort,
-            canvasLineWidthPort,
-            canvasPositionPort,
-            textPort,
-            fontSizePort,
-            
-            textAlignmentPort,
-            verticalAlignmentPort,
-            textDecorationPort,
-            textFontPort,
-            
-            imagePort,
-            videoPort,
-            fitStylePort,
-            clippedPort,
-            isAnimatingPort,
-            progressIndicatorStylePort,
-            progressPort,
-            model3DPort,
-            mapTypePort,
-            mapLatLongPort,
-            mapSpanPort,
-            isSwitchToggledPort,
-            placeholderTextPort,
-            startColorPort,
-            endColorPort,
-            startAnchorPort,
-            endAnchorPort,
-            centerAnchorPort,
-            startAnglePort,
-            endAnglePort,
-            startRadiusPort,
-            endRadiusPort,
-            
-            shadowColorPort,
-            shadowOpacityPort,
-            shadowRadiusPort,
-            shadowOffsetPort,
-            
-            sfSymbolPort,
-            
-            videoURLPort,
-            volumePort,
-            
-            spacingBetweenGridColumnsPort,
-            spacingBetweenGridRowsPort,
-            itemAlignmentWithinGridCellPort,
-            
-            sizingScenarioPort,
-            
-            widthAxisPort,
-            heightAxisPort,
-            contentModePort,
-            minSizePort,
-            maxSizePort,
-            spacingPort
-        ]
     }
 }

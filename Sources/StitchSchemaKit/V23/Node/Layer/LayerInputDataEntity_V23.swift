@@ -33,8 +33,7 @@ extension LayerInputDataEntity_V23.LayerInputDataEntity: StitchVersionedCodable 
     public init(previousInstance: LayerInputDataEntity_V23.PreviousInstance) {
         self.init(
             inputPort: .init(previousInstance: previousInstance.inputPort),
-            // TODO: fix canvas migration after V23, for V23 it needs to be nil to reset previous position port hack
-            canvasItem: nil
+            canvasItem: .init(previousInstance: previousInstance.canvasItem)
         )
     }
 }

@@ -327,10 +327,15 @@ extension URL {
 // the values contained in a single Input or Output
 public typealias PortValues = [PortValue]
 
-public typealias StitchMatrix = matrix_float4x4
 public typealias StitchPosition = CGSize
 public typealias ShapeDataArray = [ShapeAndRect]
 public typealias JSONShapeCommands = [JSONShapeCommand]
 
 public typealias ProjectId = UUID
 public typealias CommentBoxId = UUID
+
+
+public typealias StitchMatrix = matrix_float4x4
+
+public typealias StitchTransform = matrix_float4x4
+

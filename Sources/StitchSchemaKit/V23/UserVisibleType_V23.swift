@@ -27,7 +27,7 @@ public enum UserVisibleType_V23: StitchSchemaVersionable {
         case position
         case point3D
         case point4D
-        case matrixTransform
+        case transform
         case plane
         case pulse
         case media
@@ -97,7 +97,7 @@ extension UserVisibleType_V23.UserVisibleType: StitchVersionedCodable {
         case .point4D:
             self = .point4D
         case .matrixTransform:
-            self = .matrixTransform
+            self = .transform
         case .plane:
             self = .plane
         case .pulse:

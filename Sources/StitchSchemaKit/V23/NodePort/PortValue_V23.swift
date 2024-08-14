@@ -68,7 +68,7 @@ public enum PortValue_V23: StitchSchemaVersionable {
         case int(Int) // e.g  nodeId or index?
         case number(Double) // e.g. CGFloat, part of CGSize, etc.
         case layerDimension(LayerDimension)
-        case matrixTransform(StitchMatrix)
+        case transform(StitchTransform)
         case plane(Plane)
         case networkRequestType(NetworkRequestType)
         case color(Color)
@@ -136,7 +136,7 @@ extension PortValue_V23.PortValue: StitchVersionedCodable {
         case .layerDimension(let value):
             self = .layerDimension(PortValue_V23.LayerDimension(previousInstance: value))
         case .matrixTransform(let value):
-            self = .matrixTransform(value)
+            self = .transform(value)
         case .plane(let value):
             self = .plane(PortValue_V23.Plane(previousInstance: value))
         case .networkRequestType(let value):

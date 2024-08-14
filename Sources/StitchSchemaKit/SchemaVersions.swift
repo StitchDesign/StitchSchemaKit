@@ -188,10 +188,10 @@ public typealias CanvasItemId = CurrentCanvasItemId.CanvasItemId
 public typealias LayerInputCoordinate = CurrentLayerInputCoordinate.LayerInputCoordinate
 public typealias LayerOutputCoordinate = CurrentLayerOutputCoordinate.LayerOutputCoordinate
 public typealias PinToId = CurrentPinToId.PinToId
-public typealias LayerInputEntity = CurrentLayerInputEntity
-public typealias LayerInputPort = CurrentLayerInputPort
-public typealias LayerInputKeyPathType = CurrentLayerInputKeyPathType
-public typealias UnpackedPortType = CurrentUnpackedPortType
+public typealias LayerInputEntity = CurrentLayerInputEntity.LayerInputEntity
+public typealias LayerInputPort = CurrentLayerInputPort.LayerInputPort
+public typealias LayerInputKeyPathType = CurrentLayerInputKeyPathType.LayerInputKeyPathType
+public typealias UnpackedPortType = CurrentUnpackedPortType.UnpackedPortType
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

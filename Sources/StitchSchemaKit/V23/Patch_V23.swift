@@ -171,8 +171,8 @@ public enum Patch_V23: StitchSchemaVersionable {
              point3DUnpack = "Point 3D Unpack",
              point4DPack = "Point 4D Pack",
              point4DUnpack = "Point 4D Unpack",
-             matrixTransformPack = "Matrix Transform Pack",
-             matrixTransformUnpack = "Matrix Transform Unpack",
+             transformPack = "Transform Pack",
+             transformUnpack = "Transform Unpack",
              closePath = "Close Path",
              moveToPack = "Move To Pack",
              lineToPack = "Line To Pack",
@@ -484,9 +484,9 @@ extension Patch_V23.Patch: StitchVersionedCodable {
         case .point4DUnpack:
             self = .point4DUnpack
         case .matrixTransformPack:
-            self = .matrixTransformPack
+            self = .transformPack
         case .matrixTransformUnpack:
-            self = .matrixTransformUnpack
+            self = .transformUnpack
         case .closePath:
             self = .closePath
         case .moveToPack:

@@ -17,9 +17,6 @@ public enum PatchNodeEntity_V24: StitchSchemaVersionable {
     public typealias UserVisibleType = UserVisibleType_V24.UserVisibleType
     public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V24.NodePortInputEntity]
     // MARK: - end
-    
-    
-   
 
     public struct PatchNodeEntity: Equatable {
         public let id: UUID
@@ -49,14 +46,10 @@ public enum PatchNodeEntity_V24: StitchSchemaVersionable {
 }
 
 extension PatchNodeEntity_V24.PatchNodeEntity: StitchVersionedCodable {
-    
     public init(previousInstance: PatchNodeEntity_V24.PreviousInstance) {
-        
-        var migratedInputs = PatchNodeEntity_V24.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
-        
         self.init(id: previousInstance.id,
                   patch: .init(previousInstance: previousInstance.patch),
-                  inputs: migratedInputs,
+                  inputs:.init(previousElements: previousInstance.inputs),
                   canvasEntity: .init(previousInstance: previousInstance.canvasEntity),
                   userVisibleType: .init(previousInstance: previousInstance.userVisibleType),
                   splitterNode: .init(previousInstance: previousInstance.splitterNode),

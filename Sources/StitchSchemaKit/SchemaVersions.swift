@@ -99,6 +99,8 @@ public typealias CurrentLayerInputPort = LayerInputPort_V24
 public typealias CurrentLayerInputKeyPathType = LayerInputKeyPathType_V24
 public typealias CurrentUnpackedPortType = UnpackedPortType_V24
 public typealias CurrentStitchTransform = StitchTransform_V24
+public typealias CurrentStitchComponent = StitchComponent_V24
+
 // MARK: - end
 
 public enum StitchSchemaVersion: Int, VersionType {
@@ -126,24 +128,6 @@ public enum StitchSchemaVersion: Int, VersionType {
     case _V22 = 22
     case _V23 = 23
     case _V24 = 24
-}
-
-public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
-
-extension VersionType where RawValue: Comparable {
-    public static func < (a: Self, b: Self) -> Bool {
-        return a.rawValue < b.rawValue
-    }
-}
-
-public struct StitchDocumentVersion: StitchSchemaVersionType {
-    public typealias NewestVersionType = CurrentStitchDocument.StitchDocument
-    
-    public var version: StitchSchemaVersion
-    
-    public init(version: StitchSchemaVersion) {
-        self.version = version
-    }
 }
 
 extension StitchDocumentVersion {
@@ -201,42 +185,14 @@ extension StitchDocumentVersion {
     }
 }
 
-// extension CurrentStitchDocument.StitchDocument_Codable {
-//    func convertToSwiftData() -> StitchDocument {
-//        let nodes = self.nodes.map { $0.convertToSwiftData() }
-//        let doc = StitchDocument(nodes: nodes)
-//        return doc
-//    }
-// }
-//
-// extension CurrentNodeEntity.NodeEntity_Codable {
-//    func convertToSwiftData() -> NodeEntity {
-//        NodeEntity(id: self.nodeId,
-//                   position: self.position,
-//                   zIndex: self.zIndex,
-//                   customName: self.customName,
-//                   parentGroupNodeId: self.parentGroupNodeId,
-//                   patchNodeEntity: self.patchNodeEntity?.convertToSwiftData(),
-//                   // Nil for now
-//                   layerNodeEntity: nil)
-//    }
-// }
-//
-// extension CurrentPatchNodeEntity.PatchNodeEntity_Codable {
-//    func convertToSwiftData() -> PatchNodeEntity {
-//        PatchNodeEntity(patch: self.patch,
-//                        userVisibleType: self.userVisibleType,
-//                        // Nil for now
-//                        splitterNode: nil)
-//    }
-// }
-//
-// extension CurrentNodePortInputEntity.NodePortInputEntity_Codable {
-//    func convertToSwiftData() -> NodePortInputEntity {
-//        NodePortInputEntity(portId: self.portId,
-//                            label: self.label,
-//                            // TODO: blank for now
-//                            valueEntities: [],
-//                            connectedOutputEntity: nil)
-//    }
-// }
+extension StitchComonentVersion {
+    public static func getCodableType(from version: StitchSchemaVersion) -> any StitchVersionedCodable.Type {
+        switch version {
+        case ._V1, ._V2, ._V3, ._V4, ._V5, ._V6, ._V7, ._V8, ._V9, ._V10, ._V11, ._V12, ._V13, ._V14, ._V15, ._V16, ._V17, ._V18, ._V19, ._V20, ._V21, ._V22, ._V23:
+            fatalError("No StitchComponent version expected before v24.")
+            
+        case ._V24:
+            return StitchComponent_V24.StitchComponent.self
+        }
+    }
+}

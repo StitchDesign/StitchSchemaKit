@@ -524,9 +524,9 @@ extension LayerNodeEntity_V24.LayerNodeEntity: StitchVersionedCodable {
                   pinOffsetPort: .init(previousInstance: previousInstance.pinOffsetPort),
 
                   // TODO: fix after version 24
-                  layerPaddingPort: .init(inputPort: .values([])),
-                  layerMarginPort: .init(inputPort: .values([])),
-                  offsetInGroupPort: .init(inputPort: .values([])),
+                  layerPaddingPort: .createEmpty(),
+                  layerMarginPort: .createEmpty(),
+                  offsetInGroupPort: .createEmpty(),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

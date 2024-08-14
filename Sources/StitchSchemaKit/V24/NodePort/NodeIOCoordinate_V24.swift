@@ -27,14 +27,7 @@ public enum NodeIOCoordinate_V24: StitchSchemaVersionable {
 
 extension NodeIOCoordinate_V24.NodeIOCoordinate: StitchVersionedCodable {
     public init(previousInstance: NodeIOCoordinate_V24.PreviousInstance) {
-        switch previousInstance.portType {
-        case .keyPath(let x):
-            self.init(portType: .keyPath(.init(layerInput: .init(previousInstance: x.layerInput),
-                                               portType: .packed)),
-                      nodeId: previousInstance.nodeId)
-        case .portIndex(let x):
-            self.init(portType: .portIndex(x),
-                      nodeId: previousInstance.nodeId)
-        }
+        self.portType = .init(previousInstance: previousInstance.portType)
+        self.nodeId = previousInstance.nodeId
     }
 }

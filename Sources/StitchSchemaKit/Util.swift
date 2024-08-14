@@ -205,6 +205,5 @@ extension URL {
     }
 }
 
-public typealias StitchPosition = CGSize
 public typealias ProjectId = UUID
 public typealias CommentBoxId = UUID

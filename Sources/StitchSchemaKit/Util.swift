@@ -342,15 +342,20 @@ public struct StitchTransform: Codable, Equatable {
     var positionX: Double
     var positionY: Double
     var positionZ: Double
+    var scaleX: Double
+    var scaleY: Double
+    var scaleZ: Double
     var rotationX: Double
     var rotationY: Double
     var rotationZ: Double
     
-    init(positionX: Double = 0, positionY: Double = 0, positionZ: Double = 0,
-         rotationX: Double = 0, rotationY: Double = 0, rotationZ: Double = 0) {
+    public init(positionX: Double = 0, positionY: Double = 0, positionZ: Double = 0, scaleX: Double = 0, scaleY: Double = 0, scaleZ: Double = 0, rotationX: Double = 0, rotationY: Double = 0, rotationZ: Double = 0) {
         self.positionX = positionX
         self.positionY = positionY
         self.positionZ = positionZ
+        self.scaleX = scaleX
+        self.scaleY = scaleY
+        self.scaleZ = scaleZ
         self.rotationX = rotationX
         self.rotationY = rotationY
         self.rotationZ = rotationZ

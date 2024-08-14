@@ -29,7 +29,8 @@ extension NodeIOCoordinate_V23.NodeIOCoordinate: StitchVersionedCodable {
     public init(previousInstance: NodeIOCoordinate_V23.PreviousInstance) {
         switch previousInstance.portType {
         case .keyPath(let x):
-            self.init(portType: .keyPath(.init(previousInstance: x)),
+            self.init(portType: .keyPath(.init(layerInput: .init(previousInstance: x),
+                                               portType: .packed)),
                       nodeId: previousInstance.nodeId)
         case .portIndex(let x):
             self.init(portType: .portIndex(x),

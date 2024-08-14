@@ -337,5 +337,23 @@ public typealias CommentBoxId = UUID
 
 public typealias StitchMatrix = matrix_float4x4
 
-public typealias StitchTransform = matrix_float4x4
 
+public struct StitchTransform: Codable, Equatable {
+    var positionX: Double
+    var positionY: Double
+    var positionZ: Double
+    var rotationX: Double
+    var rotationY: Double
+    var rotationZ: Double
+    
+    init(positionX: Double = 0, positionY: Double = 0, positionZ: Double = 0,
+         rotationX: Double = 0, rotationY: Double = 0, rotationZ: Double = 0) {
+        self.positionX = positionX
+        self.positionY = positionY
+        self.positionZ = positionZ
+        self.rotationX = rotationX
+        self.rotationY = rotationY
+        self.rotationZ = rotationZ
+    }
+    
+}

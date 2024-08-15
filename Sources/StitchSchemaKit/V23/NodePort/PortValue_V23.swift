@@ -136,7 +136,8 @@ extension PortValue_V23.PortValue: StitchVersionedCodable {
         case .layerDimension(let value):
             self = .layerDimension(PortValue_V23.LayerDimension(previousInstance: value))
         case .matrixTransform(let value):
-            self = .transform(value)
+            //MARK: NFA: TODO proper conversion attempt
+            self = .transform(StitchTransform())
         case .plane(let value):
             self = .plane(PortValue_V23.Plane(previousInstance: value))
         case .networkRequestType(let value):

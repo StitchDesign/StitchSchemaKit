@@ -1,19 +1,21 @@
 //
-//  File.swift
-//  
+//  LayerInputPort_V23.swift
+//
 //
 //  Created by Elliot Boschwitz on 4/3/24.
 //
 
 import Foundation
 
-public enum LayerInputType_V23: StitchSchemaVersionable {
+public enum LayerInputPort_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
+    
+    // TODO: change previous instance to use LayerInputPort after version 23
     public typealias PreviousInstance = LayerInputType_V22.LayerInputType
     // MARK: - endif
     
-    public enum LayerInputType: CaseIterable {
+    public enum LayerInputPort: CaseIterable {
         // Required everywhere
         case position
         case size
@@ -149,8 +151,8 @@ public enum LayerInputType_V23: StitchSchemaVersionable {
     }
 }
 
-extension LayerInputType_V23.LayerInputType: StitchVersionedCodable {
-    public init(previousInstance: LayerInputType_V23.PreviousInstance) {
+extension LayerInputPort_V23.LayerInputPort: StitchVersionedCodable {
+    public init(previousInstance: LayerInputPort_V23.PreviousInstance) {
         switch previousInstance {
         case .position:
             self = .position

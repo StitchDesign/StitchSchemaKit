@@ -29,4 +29,5 @@ chmod +x versioning.sh
 3. Update **all** `StitchDocument versions to fix compiler errors from `StitchDocumentMigratable` changes.
 
 ## Tips
+* **Please mark custom migration code with `// TODO: ...` comment code.** It makes identifying custom migration code easier for subsequent versions.
 * In the Stitch codebase, use the `DEV_DEBUG` scheme if you expect to make more edits to the schema version. This fixes migration issues caused by making changes to existing versions.

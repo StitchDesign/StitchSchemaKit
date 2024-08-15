@@ -339,15 +339,15 @@ public typealias StitchMatrix = matrix_float4x4
 
 
 public struct StitchTransform: Codable, Equatable {
-    var positionX: Double
-    var positionY: Double
-    var positionZ: Double
-    var scaleX: Double
-    var scaleY: Double
-    var scaleZ: Double
-    var rotationX: Double
-    var rotationY: Double
-    var rotationZ: Double
+    public var positionX: Double
+    public var positionY: Double
+    public var positionZ: Double
+    public var scaleX: Double
+    public var scaleY: Double
+    public var scaleZ: Double
+    public var rotationX: Double
+    public var rotationY: Double
+    public var rotationZ: Double
     
     public init(positionX: Double = 0, positionY: Double = 0, positionZ: Double = 0, scaleX: Double = 0, scaleY: Double = 0, scaleZ: Double = 0, rotationX: Double = 0, rotationY: Double = 0, rotationZ: Double = 0) {
         self.positionX = positionX

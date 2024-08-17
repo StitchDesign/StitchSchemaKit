@@ -92,10 +92,6 @@ extension StitchDocumentVersion {
 }
 
 extension StitchVersionedCodable {
-    //    static func createVersionedEntities(from models: [Self.ViewModel]) -> [Self] {
-    //        models.map { Self.init(from: $0) }
-    //    }
-
     public static func upgradeEntities(_ previousEntities: [Self.PreviousCodable]) -> [Self] {
         previousEntities.map { Self.init(previousInstance: $0) }
     }
@@ -123,18 +119,7 @@ extension Array where Element: StitchVersionedCodable {
         
          self = .init(previousInstance: previousInstance)
      }
- }
-
-// extension StitchVersionedData {
-//     /// Initializer that uses current version.
-//     public init(currentDoc: StitchDocument) throws {
-//         let encoder = getStitchEncoder()
-//         let encodedDoc = try encoder.encode(currentDoc)
-
-//         self.version = StitchSchemaVersion.getNewestVersion()
-//         self.data = encodedDoc
-//     }
-// }
+}
 
 public protocol StitchVersionedCodable: Codable, Sendable {
     associatedtype PreviousCodable: StitchVersionedCodable

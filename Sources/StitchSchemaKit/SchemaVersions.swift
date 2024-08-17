@@ -219,24 +219,6 @@ public enum StitchSchemaVersion: Int, VersionType {
     case _V23 = 23
 }
 
-public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
-
-extension VersionType where RawValue: Comparable {
-    public static func < (a: Self, b: Self) -> Bool {
-        return a.rawValue < b.rawValue
-    }
-}
-
-public struct StitchDocumentVersion: StitchSchemaVersionType {
-    public typealias NewestVersionType = CurrentStitchDocument.StitchDocument
-    
-    public var version: StitchSchemaVersion
-    
-    public init(version: StitchSchemaVersion) {
-        self.version = version
-    }
-}
-
 extension StitchDocumentVersion {
     public static func getCodableType(from version: StitchSchemaVersion) -> any StitchVersionedCodable.Type {
         switch version {

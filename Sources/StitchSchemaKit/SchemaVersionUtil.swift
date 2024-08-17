@@ -73,6 +73,16 @@ public struct StitchDocumentVersion: StitchSchemaVersionType {
     }
 }
 
+public struct StitchComonentVersion: StitchSchemaVersionType {
+    public typealias NewestVersionType = CurrentStitchComponent.StitchComponent
+    
+    public var version: StitchSchemaVersion
+    
+    public init(version: StitchSchemaVersion) {
+        self.version = version
+    }
+}
+
 extension StitchSchemaVersionType {
     public static func migrate(versionedCodableUrl: URL) throws -> Self.NewestVersionType? {
         // 1. get version

@@ -13,7 +13,7 @@ protocol StitchSchemaVersionable {
     static var version: StitchSchemaVersion { get }
 }
 
-protocol StitchSchemaVersionType {
+public protocol StitchSchemaVersionType {
     associatedtype NewestVersionType: StitchVersionedCodable
 
     var version: StitchSchemaVersion { get }

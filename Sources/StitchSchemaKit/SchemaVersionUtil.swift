@@ -73,7 +73,7 @@ public struct StitchDocumentVersion: StitchSchemaVersionType {
     }
 }
 
-extension StitchDocumentVersion {
+extension StitchSchemaVersionType {
     public static func migrate(versionedCodableUrl: URL) throws -> Self.NewestVersionType? {
         // 1. get version
         // 2. call decode with payload

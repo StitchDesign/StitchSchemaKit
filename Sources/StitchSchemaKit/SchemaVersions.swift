@@ -9,95 +9,96 @@ import Foundation
 import SwiftUI
 
 // MARK: - UPDATE VERSION NUMBERS HERE
-public typealias CurrentAsyncMediaValue = AsyncMediaValue_V23
-public typealias CurrentClassicAnimationCurve = ClassicAnimationCurve_V23
-public typealias CurrentCameraSettings = CameraSettings_V23
-public typealias CurrentCommentBoxData = CommentBoxData_V23
-public typealias CurrentCustomShape = CustomShape_V23
-public typealias CurrentDataType = DataType_V23
-public typealias CurrentDelayStyle = DelayStyle_V23
-public typealias CurrentDateAndTimeFormat = DateAndTimeFormat_V23
-public typealias CurrentExpansionDirection = ExpansionDirection_V23
-public typealias CurrentGroupNodeIDCoordinate = GroupNodeID_V23
-public typealias CurrentPatch = Patch_V23
-public typealias CurrentPatchNodeEntity = PatchNodeEntity_V23
-public typealias CurrentLayerDimension = LayerDimension_V23
-public typealias CurrentLayerNodeEntity = LayerNodeEntity_V23
-public typealias CurrentLayerNodeId = LayerNodeId_V23
-public typealias CurrentNodeEntity = NodeEntity_V23
-public typealias CurrentNodePortInputEntity = NodePortInputEntity_V23
-public typealias CurrentSplitterNodeEntity = SplitterNodeEntity_V23
-public typealias CurrentSplitterType = SplitterType_V23
-public typealias CurrentNodeIOCoordinate = NodeIOCoordinate_V23
-public typealias CurrentJSONCurveTo = JSONCurveTo_V23
-public typealias CurrentJSONShapeCommand = JSONShapeCommand_V23
-public typealias CurrentJSONShapeKeys = JSONShapeKeys_V23
-public typealias CurrentSidebarLayerData = SidebarLayerData_V23
-public typealias CurrentNodeKind = NodeKind_V23
-public typealias CurrentAnchoring = Anchoring_V23
-public typealias CurrentCameraDirection = CameraDirection_V23
-public typealias CurrentLayer = Layer_V23
-public typealias CurrentLayerSize = LayerSize_V23
-public typealias CurrentLayerTextDecoration = LayerTextDecoration_V23
-public typealias CurrentLayerStroke = LayerStroke_V23
-public typealias CurrentLayerTextAlignment = LayerTextAlignment_V23
-public typealias CurrentLayerTextVerticalAlignment = LayerTextVerticalAlignment_V23
-public typealias CurrentLightType = LightType_V23
-public typealias CurrentMediaKey = MediaKey_V23
-public typealias CurrentMobileHapticStyle = MobileHapticStyle_V23
-public typealias CurrentNetworkRequestType = NetworkRequestType_V23
-public typealias CurrentPathPoint = PathPoint_V23
-public typealias CurrentPlane = Plane_V23
-public typealias CurrentPoint3D = Point3D_V23
-public typealias CurrentPoint4D = Point4D_V23
-public typealias CurrentPortValueComparable = PortValueComparable_V23
-public typealias CurrentPreviewSize = PreviewSize_V23
-public typealias CurrentRGBA = RGBA_V23
-public typealias CurrentRoundedRectangleData = RoundedRectangleData_V23
-public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V23
-public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V23
-public typealias CurrentScrollMode = ScrollMode_V23
-public typealias CurrentShapeCommand = ShapeCommand_V23
-public typealias CurrentShapeCommandType = ShapeCommandType_V23
-public typealias CurrentShapeCoordinates = ShapeCoordinates_V23
-public typealias CurrentShapeAndRect = ShapeAndRect_V23
-public typealias CurrentStitchDocument = StitchDocument_V23
-public typealias CurrentStitchBlendMode = StitchBlendMode_V23
-public typealias CurrentStitchCameraOrientation = StitchCameraOrientation_V23
-public typealias CurrentStitchDeviceOrientation = StitchDeviceOrientation_V23
-public typealias CurrentStitchMapType = StitchMapType_V23
-public typealias CurrentStitchFont = StitchFont_V23
-public typealias CurrentStitchFontChoice = StitchFontChoice_V23
-public typealias CurrentStitchFontWeight = StitchFontWeight_V23
-public typealias CurrentStitchJSON = StitchJSON_V23
-public typealias CurrentStitchOrientation = StitchOrientation_V23
-public typealias CurrentStitchProgressIndicatorStyle = ProgressIndicatorStyle_V23
-public typealias CurrentTextTransform = TextTransform_V23
-public typealias CurrentTriangleData = TriangleData_V23
-public typealias CurrentPortValue = PortValue_V23
-public typealias CurrentUserVisibleType = UserVisibleType_V23
-public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V23
-public typealias CurrentNodeConnectionType = NodeConnectionType_V23
-public typealias CurrentLayerInputType = LayerInputType_V23
-public typealias CurrentNodeIOPortType = NodeIOPortType_V23
-public typealias CurrentStrokeLineCap = StrokeLineCap_V23
-public typealias CurrentStrokeLineJoin = StrokeLineJoin_V23
-public typealias CurrentStitchStringValue = StitchStringValue_V23
-public typealias CurrentStitchContentMode = StitchContentMode_V23
-public typealias CurrentStitchSpacing = StitchSpacing_V23
-public typealias CurrentStitchPadding = StitchPadding_V23
-public typealias CurrentSizingScenario = SizingScenario_V23
-public typealias CurrentNodeTypeEntity = NodeTypeEntity_V23
-public typealias CurrentCanvasNodeEntity = CanvasNodeEntity_V23
-public typealias CurrentLayerInputDataEntity = LayerInputDataEntity_V23
-public typealias CurrentCanvasItemId = CanvasItemId_V23
-public typealias CurrentLayerInputCoordinate = LayerInputCoordinate_V23
-public typealias CurrentLayerOutputCoordinate = LayerOutputCoordinate_V23
-public typealias CurrentPinToId = PinToId_V23
-public typealias CurrentLayerInputEntity = LayerInputEntity_V23
-public typealias CurrentLayerInputPort = LayerInputPort_V23
-public typealias CurrentLayerInputKeyPathType = LayerInputKeyPathType_V23
-public typealias CurrentUnpackedPortType = UnpackedPortType_V23
+public typealias CurrentAsyncMediaValue = AsyncMediaValue_V24
+public typealias CurrentClassicAnimationCurve = ClassicAnimationCurve_V24
+public typealias CurrentCameraSettings = CameraSettings_V24
+public typealias CurrentCommentBoxData = CommentBoxData_V24
+public typealias CurrentCustomShape = CustomShape_V24
+public typealias CurrentDataType = DataType_V24
+public typealias CurrentDelayStyle = DelayStyle_V24
+public typealias CurrentDateAndTimeFormat = DateAndTimeFormat_V24
+public typealias CurrentExpansionDirection = ExpansionDirection_V24
+public typealias CurrentGroupNodeIDCoordinate = GroupNodeID_V24
+public typealias CurrentPatch = Patch_V24
+public typealias CurrentPatchNodeEntity = PatchNodeEntity_V24
+public typealias CurrentLayerDimension = LayerDimension_V24
+public typealias CurrentLayerNodeEntity = LayerNodeEntity_V24
+public typealias CurrentLayerNodeId = LayerNodeId_V24
+public typealias CurrentNodeEntity = NodeEntity_V24
+public typealias CurrentNodePortInputEntity = NodePortInputEntity_V24
+public typealias CurrentSplitterNodeEntity = SplitterNodeEntity_V24
+public typealias CurrentSplitterType = SplitterType_V24
+public typealias CurrentNodeIOCoordinate = NodeIOCoordinate_V24
+public typealias CurrentJSONCurveTo = JSONCurveTo_V24
+public typealias CurrentJSONShapeCommand = JSONShapeCommand_V24
+public typealias CurrentJSONShapeKeys = JSONShapeKeys_V24
+public typealias CurrentSidebarLayerData = SidebarLayerData_V24
+public typealias CurrentNodeKind = NodeKind_V24
+public typealias CurrentAnchoring = Anchoring_V24
+public typealias CurrentCameraDirection = CameraDirection_V24
+public typealias CurrentLayer = Layer_V24
+public typealias CurrentLayerSize = LayerSize_V24
+public typealias CurrentLayerTextDecoration = LayerTextDecoration_V24
+public typealias CurrentLayerStroke = LayerStroke_V24
+public typealias CurrentLayerTextAlignment = LayerTextAlignment_V24
+public typealias CurrentLayerTextVerticalAlignment = LayerTextVerticalAlignment_V24
+public typealias CurrentLightType = LightType_V24
+public typealias CurrentMediaKey = MediaKey_V24
+public typealias CurrentMobileHapticStyle = MobileHapticStyle_V24
+public typealias CurrentNetworkRequestType = NetworkRequestType_V24
+public typealias CurrentPathPoint = PathPoint_V24
+public typealias CurrentPlane = Plane_V24
+public typealias CurrentPoint3D = Point3D_V24
+public typealias CurrentPoint4D = Point4D_V24
+public typealias CurrentPortValueComparable = PortValueComparable_V24
+public typealias CurrentPreviewSize = PreviewSize_V24
+public typealias CurrentRGBA = RGBA_V24
+public typealias CurrentRoundedRectangleData = RoundedRectangleData_V24
+public typealias CurrentScrollDecelerationRate = ScrollDecelerationRate_V24
+public typealias CurrentScrollJumpStyle = ScrollJumpStyle_V24
+public typealias CurrentScrollMode = ScrollMode_V24
+public typealias CurrentShapeCommand = ShapeCommand_V24
+public typealias CurrentShapeCommandType = ShapeCommandType_V24
+public typealias CurrentShapeCoordinates = ShapeCoordinates_V24
+public typealias CurrentShapeAndRect = ShapeAndRect_V24
+public typealias CurrentStitchDocument = StitchDocument_V24
+public typealias CurrentStitchBlendMode = StitchBlendMode_V24
+public typealias CurrentStitchCameraOrientation = StitchCameraOrientation_V24
+public typealias CurrentStitchDeviceOrientation = StitchDeviceOrientation_V24
+public typealias CurrentStitchMapType = StitchMapType_V24
+public typealias CurrentStitchFont = StitchFont_V24
+public typealias CurrentStitchFontChoice = StitchFontChoice_V24
+public typealias CurrentStitchFontWeight = StitchFontWeight_V24
+public typealias CurrentStitchJSON = StitchJSON_V24
+public typealias CurrentStitchOrientation = StitchOrientation_V24
+public typealias CurrentStitchProgressIndicatorStyle = ProgressIndicatorStyle_V24
+public typealias CurrentTextTransform = TextTransform_V24
+public typealias CurrentTriangleData = TriangleData_V24
+public typealias CurrentPortValue = PortValue_V24
+public typealias CurrentUserVisibleType = UserVisibleType_V24
+public typealias CurrentVisualMediaFitStyle = VisualMediaFitStyle_V24
+public typealias CurrentNodeConnectionType = NodeConnectionType_V24
+public typealias CurrentLayerInputType = LayerInputType_V24
+public typealias CurrentNodeIOPortType = NodeIOPortType_V24
+public typealias CurrentStrokeLineCap = StrokeLineCap_V24
+public typealias CurrentStrokeLineJoin = StrokeLineJoin_V24
+public typealias CurrentStitchStringValue = StitchStringValue_V24
+public typealias CurrentStitchContentMode = StitchContentMode_V24
+public typealias CurrentStitchSpacing = StitchSpacing_V24
+public typealias CurrentStitchPadding = StitchPadding_V24
+public typealias CurrentSizingScenario = SizingScenario_V24
+public typealias CurrentNodeTypeEntity = NodeTypeEntity_V24
+public typealias CurrentCanvasNodeEntity = CanvasNodeEntity_V24
+public typealias CurrentLayerInputDataEntity = LayerInputDataEntity_V24
+public typealias CurrentCanvasItemId = CanvasItemId_V24
+public typealias CurrentLayerInputCoordinate = LayerInputCoordinate_V24
+public typealias CurrentLayerOutputCoordinate = LayerOutputCoordinate_V24
+public typealias CurrentPinToId = PinToId_V24
+public typealias CurrentLayerInputEntity = LayerInputEntity_V24
+public typealias CurrentLayerInputPort = LayerInputPort_V24
+public typealias CurrentLayerInputKeyPathType = LayerInputKeyPathType_V24
+public typealias CurrentUnpackedPortType = UnpackedPortType_V24
+public typealias CurrentStitchComponent = StitchComponent_V24
 
 // MARK: - end
 
@@ -192,6 +193,7 @@ public typealias LayerInputEntity = CurrentLayerInputEntity.LayerInputEntity
 public typealias LayerInputPort = CurrentLayerInputPort.LayerInputPort
 public typealias LayerInputKeyPathType = CurrentLayerInputKeyPathType.LayerInputKeyPathType
 public typealias UnpackedPortType = CurrentUnpackedPortType.UnpackedPortType
+public typealias StitchComponent = CurrentStitchComponent.StitchComponent
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1
@@ -217,24 +219,7 @@ public enum StitchSchemaVersion: Int, VersionType {
     case _V21 = 21
     case _V22 = 22
     case _V23 = 23
-}
-
-public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
-
-extension VersionType where RawValue: Comparable {
-    public static func < (a: Self, b: Self) -> Bool {
-        return a.rawValue < b.rawValue
-    }
-}
-
-public struct StitchDocumentVersion: StitchSchemaVersionType {
-    public typealias NewestVersionType = CurrentStitchDocument.StitchDocument
-    
-    public var version: StitchSchemaVersion
-    
-    public init(version: StitchSchemaVersion) {
-        self.version = version
-    }
+    case _V24 = 24
 }
 
 extension StitchDocumentVersion {
@@ -286,46 +271,20 @@ extension StitchDocumentVersion {
             return StitchDocument_V22.StitchDocument.self
         case ._V23:
             return StitchDocument_V23.StitchDocument.self
+        case ._V24:
+            return StitchDocument_V24.StitchDocument.self
         }
     }
 }
 
-// extension CurrentStitchDocument.StitchDocument_Codable {
-//    func convertToSwiftData() -> StitchDocument {
-//        let nodes = self.nodes.map { $0.convertToSwiftData() }
-//        let doc = StitchDocument(nodes: nodes)
-//        return doc
-//    }
-// }
-//
-// extension CurrentNodeEntity.NodeEntity_Codable {
-//    func convertToSwiftData() -> NodeEntity {
-//        NodeEntity(id: self.nodeId,
-//                   position: self.position,
-//                   zIndex: self.zIndex,
-//                   customName: self.customName,
-//                   parentGroupNodeId: self.parentGroupNodeId,
-//                   patchNodeEntity: self.patchNodeEntity?.convertToSwiftData(),
-//                   // Nil for now
-//                   layerNodeEntity: nil)
-//    }
-// }
-//
-// extension CurrentPatchNodeEntity.PatchNodeEntity_Codable {
-//    func convertToSwiftData() -> PatchNodeEntity {
-//        PatchNodeEntity(patch: self.patch,
-//                        userVisibleType: self.userVisibleType,
-//                        // Nil for now
-//                        splitterNode: nil)
-//    }
-// }
-//
-// extension CurrentNodePortInputEntity.NodePortInputEntity_Codable {
-//    func convertToSwiftData() -> NodePortInputEntity {
-//        NodePortInputEntity(portId: self.portId,
-//                            label: self.label,
-//                            // TODO: blank for now
-//                            valueEntities: [],
-//                            connectedOutputEntity: nil)
-//    }
-// }
+extension StitchComonentVersion {
+    public static func getCodableType(from version: StitchSchemaVersion) -> any StitchVersionedCodable.Type {
+        switch version {
+        case ._V1, ._V2, ._V3, ._V4, ._V5, ._V6, ._V7, ._V8, ._V9, ._V10, ._V11, ._V12, ._V13, ._V14, ._V15, ._V16, ._V17, ._V18, ._V19, ._V20, ._V21, ._V22, ._V23:
+            fatalError("No StitchComponent version expected before v24.")
+            
+        case ._V24:
+            return StitchComponent_V24.StitchComponent.self
+        }
+    }
+}

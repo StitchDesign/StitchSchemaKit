@@ -54,11 +54,10 @@ extension PatchNodeEntity_V23.PatchNodeEntity: StitchVersionedCodable {
         
         var migratedInputs = PatchNodeEntity_V23.NodePortInputEntitySchemas(previousElements: previousInstance.inputs)
         
-        if previousInstance.patch == .matrixTransformPack {
-            #if DEBUG
-            assert(migratedInputs.count == 10)
-            #endif
-            migratedInputs.dropLast()
+        // TODO: remove transform pack migration changes after v23
+        if previousInstance.patch == .pack &&
+            migratedInputs.count == 10 {
+            migratedInputs = migratedInputs.dropLast()
         }
         
         self.init(id: previousInstance.id,

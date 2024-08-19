@@ -327,10 +327,38 @@ extension URL {
 // the values contained in a single Input or Output
 public typealias PortValues = [PortValue]
 
-public typealias StitchMatrix = matrix_float4x4
 public typealias StitchPosition = CGSize
 public typealias ShapeDataArray = [ShapeAndRect]
 public typealias JSONShapeCommands = [JSONShapeCommand]
 
 public typealias ProjectId = UUID
 public typealias CommentBoxId = UUID
+
+
+public typealias StitchMatrix = matrix_float4x4
+
+
+public struct StitchTransform: Codable, Equatable {
+    public var positionX: Double
+    public var positionY: Double
+    public var positionZ: Double
+    public var scaleX: Double
+    public var scaleY: Double
+    public var scaleZ: Double
+    public var rotationX: Double
+    public var rotationY: Double
+    public var rotationZ: Double
+    
+    public init(positionX: Double = 0, positionY: Double = 0, positionZ: Double = 0, scaleX: Double = 0, scaleY: Double = 0, scaleZ: Double = 0, rotationX: Double = 0, rotationY: Double = 0, rotationZ: Double = 0) {
+        self.positionX = positionX
+        self.positionY = positionY
+        self.positionZ = positionZ
+        self.scaleX = scaleX
+        self.scaleY = scaleY
+        self.scaleZ = scaleZ
+        self.rotationX = rotationX
+        self.rotationY = rotationY
+        self.rotationZ = rotationZ
+    }
+    
+}

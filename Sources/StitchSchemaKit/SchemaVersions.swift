@@ -98,6 +98,7 @@ public typealias CurrentLayerInputEntity = LayerInputEntity_V23
 public typealias CurrentLayerInputPort = LayerInputPort_V23
 public typealias CurrentLayerInputKeyPathType = LayerInputKeyPathType_V23
 public typealias CurrentUnpackedPortType = UnpackedPortType_V23
+public typealias CurrentStitchTransform = StitchTransform_V23
 
 // MARK: - end
 
@@ -192,6 +193,7 @@ public typealias LayerInputEntity = CurrentLayerInputEntity.LayerInputEntity
 public typealias LayerInputPort = CurrentLayerInputPort.LayerInputPort
 public typealias LayerInputKeyPathType = CurrentLayerInputKeyPathType.LayerInputKeyPathType
 public typealias UnpackedPortType = CurrentUnpackedPortType.UnpackedPortType
+public typealias StitchTransform = CurrentStitchTransform.StitchTransform
 
 public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1

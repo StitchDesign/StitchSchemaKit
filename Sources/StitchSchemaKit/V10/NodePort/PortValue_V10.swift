@@ -61,7 +61,7 @@ public enum PortValue_V10: StitchSchemaVersionable {
         case int(Int) // e.g  nodeId or index?
         case number(Double) // e.g. CGFloat, part of CGSize, etc.
         case layerDimension(LayerDimension)
-        case matrixTransform(StitchMatrix)
+        case matrixTransform(matrix_float4x4)
         case plane(Plane)
         case networkRequestType(NetworkRequestType)
         case color(Color)

@@ -653,7 +653,7 @@ extension LayerNodeEntity_V22.LayerNodeEntity: StitchVersionedCodable {
     }
     
     // MARK: remove this helper after V22
-    func getAllInputPorts() -> [LayerInputDataEntity] {
+    func getAllInputPorts() -> [LayerInputDataEntity_V22.LayerInputDataEntity] {
         return [
             positionPort,
             sizePort,

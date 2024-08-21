@@ -12,6 +12,7 @@ public enum ShapeCommand_V13: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V13
     public typealias PreviousInstance = ShapeCommand_V12.ShapeCommand
+    public typealias PathPoint = PathPoint_V1.PathPoint
     // MARK: - endif
  
 
@@ -68,18 +69,18 @@ extension ShapeCommand_V13.ShapeCommand: Codable {
             self = .closePath
 
         case .lineTo:
-            let point = try container.decode(PathPoint.self, forKey: .point)
+            let point = try container.decode(PathPoint_V1.PathPoint.self, forKey: .point)
             self = .lineTo(point: point)
 
         case .moveTo:
-            let point = try container.decode(PathPoint.self, forKey: .point)
+            let point = try container.decode(PathPoint_V1.PathPoint.self, forKey: .point)
             self = .moveTo(point: point)
 
         case .curveTo:
-            let point = try container.decode(PathPoint.self, forKey: .point)
+            let point = try container.decode(PathPoint_V1.PathPoint.self, forKey: .point)
             // .curveTo case means we have type, point AND curveFrom, and curveTo keys
-            let curveFrom: PathPoint = try container.decode(PathPoint.self, forKey: .curveFrom)
-            let curveTo: PathPoint = try container.decode(PathPoint.self, forKey: .curveTo)
+            let curveFrom = try container.decode(PathPoint_V1.PathPoint.self, forKey: .curveFrom)
+            let curveTo = try container.decode(PathPoint_V1.PathPoint.self, forKey: .curveTo)
 
             self = .curveTo(curveFrom: curveFrom,
                             point: point,

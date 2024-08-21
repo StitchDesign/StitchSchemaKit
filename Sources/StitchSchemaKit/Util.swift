@@ -324,12 +324,6 @@ extension URL {
     }
 }
 
-// the values contained in a single Input or Output
-public typealias PortValues = [PortValue]
-
 public typealias StitchPosition = CGSize
-public typealias ShapeDataArray = [ShapeAndRect]
-public typealias JSONShapeCommands = [JSONShapeCommand]
-
 public typealias ProjectId = UUID
 public typealias CommentBoxId = UUID

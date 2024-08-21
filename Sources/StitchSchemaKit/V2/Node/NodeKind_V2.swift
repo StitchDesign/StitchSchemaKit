@@ -11,6 +11,8 @@ public enum NodeKind_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V2
     public typealias PreviousInstance = NodeKind_V1.NodeKind
+    public typealias Patch = Patch_V2.Patch
+    public typealias Layer = Layer_V2.Layer
     // MARK: - endif
     
     public enum NodeKind: Codable, Equatable, Hashable {
@@ -23,9 +25,9 @@ extension NodeKind_V2.NodeKind: StitchVersionedCodable {
         switch previousInstance {
             
         case .patch(let value):
-            self = .patch(value)
+            self = .patch(.init(previousInstance: value))
         case .layer(let value):
-            self = .layer(value)
+            self = .layer(.init(previousInstance: value))
         case .group:
             self = .group
         }

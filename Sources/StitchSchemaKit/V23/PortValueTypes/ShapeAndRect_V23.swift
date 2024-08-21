@@ -12,6 +12,9 @@ public enum ShapeAndRect_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = ShapeAndRect_V22.ShapeAndRect
+    public typealias RoundedRectangleData = RoundedRectangleData_V1.RoundedRectangleData
+    public typealias TriangleData = TriangleData_V1.TriangleData
+    public typealias JSONShapeCommands = [JSONShapeCommand_V1.JSONShapeCommand]
     // MARK: - endif
  
     public enum ShapeAndRect: Equatable {

@@ -52,6 +52,8 @@ public enum PortValue_V8: StitchSchemaVersionable {
     public typealias StitchMapType = StitchMapType_V8.StitchMapType
     public typealias ProgressIndicatorStyle = ProgressIndicatorStyle_V8.ProgressIndicatorStyle
     public typealias MobileHapticStyle = MobileHapticStyle_V8.MobileHapticStyle
+    public typealias LayerNodeId = LayerNodeId_V1.LayerNodeId
+    public typealias TextTransform = TextTransform_V1.TextTransform
 
     // MARK: - end
     

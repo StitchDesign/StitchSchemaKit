@@ -11,6 +11,8 @@ public enum NodeKind_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.NodeKind
+    public typealias Patch = Patch_V1.Patch
+    public typealias Layer = Layer_V1.Layer
     // MARK: - endif
     
     public enum NodeKind: Codable, Equatable, Hashable {

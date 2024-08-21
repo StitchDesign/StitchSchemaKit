@@ -49,6 +49,8 @@ public enum PortValue_V3: StitchSchemaVersionable {
     public typealias StitchFont = StitchFont_V3.StitchFont
     public typealias LayerTextDecoration = LayerTextDecoration_V3.LayerTextDecoration
     public typealias StitchBlendMode = StitchBlendMode_V3.StitchBlendMode
+    public typealias LayerNodeId = LayerNodeId_V1.LayerNodeId
+    public typealias TextTransform = TextTransform_V1.TextTransform
 
     // MARK: - end
     

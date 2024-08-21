@@ -55,6 +55,8 @@ public enum PortValue_V17: StitchSchemaVersionable {
     public typealias MobileHapticStyle = MobileHapticStyle_V17.MobileHapticStyle
     public typealias StrokeLineCap = StrokeLineCap_V17.StrokeLineCap
     public typealias StrokeLineJoin = StrokeLineJoin_V17.StrokeLineJoin
+    public typealias LayerNodeId = LayerNodeId_V1.LayerNodeId
+    public typealias TextTransform = TextTransform_V1.TextTransform
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {

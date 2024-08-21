@@ -60,6 +60,8 @@ public enum PortValue_V23: StitchSchemaVersionable {
     public typealias StitchPadding = StitchPadding_V23.StitchPadding
     public typealias SizingScenario = SizingScenario_V23.SizingScenario
     public typealias PinToId = PinToId_V23.PinToId
+    public typealias LayerNodeId = LayerNodeId_V23.LayerNodeId
+    public typealias TextTransform = TextTransform_V23.TextTransform
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {

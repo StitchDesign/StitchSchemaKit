@@ -57,6 +57,8 @@ public enum PortValue_V19: StitchSchemaVersionable {
     public typealias StrokeLineJoin = StrokeLineJoin_V19.StrokeLineJoin
     public typealias StitchContentMode = StitchContentMode_V19.StitchContentMode
     public typealias StitchSpacing = StitchSpacing_V19.StitchSpacing
+    public typealias LayerNodeId = LayerNodeId_V1.LayerNodeId
+    public typealias TextTransform = TextTransform_V1.TextTransform
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {

@@ -62,6 +62,7 @@ public enum PortValue_V23: StitchSchemaVersionable {
     public typealias PinToId = PinToId_V23.PinToId
     public typealias LayerNodeId = LayerNodeId_V23.LayerNodeId
     public typealias TextTransform = TextTransform_V23.TextTransform
+    public typealias StitchTransform = StitchTransform_V23.StitchTransform
     // MARK: - end
     
     public enum PortValue: Codable, Equatable {
@@ -139,7 +140,7 @@ extension PortValue_V23.PortValue: StitchVersionedCodable {
             self = .layerDimension(PortValue_V23.LayerDimension(previousInstance: value))
         case .matrixTransform(let value):
             //MARK: NFA: TODO proper conversion attempt
-            self = .transform(StitchTransform())
+            self = .transform(StitchTransform_V23.StitchTransform())
         case .plane(let value):
             self = .plane(PortValue_V23.Plane(previousInstance: value))
         case .networkRequestType(let value):
@@ -172,7 +173,7 @@ extension PortValue_V23.PortValue: StitchVersionedCodable {
         case .cameraDirection(let value):
             self = .cameraDirection(PortValue_V23.CameraDirection(previousInstance: value))
         case .assignedLayer(let value):
-            self = .assignedLayer(value)
+            self = .assignedLayer(.init(previousInstance: value))
         case .scrollMode(let value):
             self = .scrollMode(PortValue_V23.ScrollMode(previousInstance: value))
         case .textAlignment(let value):
@@ -188,7 +189,7 @@ extension PortValue_V23.PortValue: StitchVersionedCodable {
         case .layerStroke(let value):
             self = .layerStroke(PortValue_V23.LayerStroke(previousInstance: value))
         case .textTransform(let value):
-            self = .textTransform(value)
+            self = .textTransform(.init(previousInstance: value))
         case .dateAndTimeFormat(let value):
             self = .dateAndTimeFormat(PortValue_V23.DateAndTimeFormat(previousInstance: value))
         case .shape(let value):

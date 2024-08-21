@@ -16,7 +16,7 @@ public enum PortValue_V22: StitchSchemaVersionable {
     static let version = StitchSchemaVersion._V22
     public typealias PreviousInstance = PortValue_V21.PortValue
     public typealias StitchStringValue = StitchStringValue_V22.StitchStringValue
-    public typealias LayerDimension = LayerDimension_V22.LayerDimension
+    public typealias LayerDimension = LayerDimension_V5.LayerDimension
     public typealias Plane = Plane_V22.Plane
     public typealias NetworkRequestType = NetworkRequestType_V22.NetworkRequestType
     public typealias LayerSize = LayerSize_V22.LayerSize
@@ -134,7 +134,7 @@ extension PortValue_V22.PortValue: StitchVersionedCodable {
         case .number(let value):
             self = .number(value)
         case .layerDimension(let value):
-            self = .layerDimension(PortValue_V22.LayerDimension(previousInstance: value))
+            self = .layerDimension(value)
         case .matrixTransform(let value):
             self = .matrixTransform(value)
         case .plane(let value):

@@ -16,7 +16,7 @@ public enum ShapeAndRect_V1: StitchSchemaVersionable {
     public typealias TriangleData = TriangleData_V1.TriangleData
     public typealias JSONShapeCommands = [JSONShapeCommand_V1.JSONShapeCommand]
     // MARK: - endif
- 
+    
     public enum ShapeAndRect: Equatable {
         case oval(CGRect),
              circle(CGRect),
@@ -25,7 +25,9 @@ public enum ShapeAndRect_V1: StitchSchemaVersionable {
              // more like "path", since was created from a path json
              custom(JSONShapeCommands)
     }
+}
 
+extension ShapeAndRect_V1.ShapeAndRect {
     public var rect: CGRect {
         switch self {
         case .oval(let x):

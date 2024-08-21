@@ -107,7 +107,6 @@ extension ShapeAndRect_V1.ShapeAndRect {
             return jsonShapeCommands.getPoints().mostPostiveX
         }
     }
-
 }
 
 extension ShapeAndRect_V1.ShapeAndRect: StitchVersionedCodable {

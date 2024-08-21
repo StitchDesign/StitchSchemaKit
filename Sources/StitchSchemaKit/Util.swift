@@ -198,28 +198,6 @@ extension matrix_float4x4: Codable {
 
 extension VNImageCropAndScaleOption: Codable { }
 
-extension JSONShapeCommands {
-    public func getPoints() -> [CGPoint] {
-        self.map { $0.point }
-    }
-}
-
-extension JSONShapeCommand {
-    public var point: CGPoint {
-        switch self {
-        // TODO: handle this case properly?
-        case .closePath:
-            return .zero
-        case .moveTo(let cgPoint):
-            return cgPoint
-        case .lineTo(let cgPoint):
-            return cgPoint
-        case .curveTo(let jsonCurveTo):
-            return jsonCurveTo.point
-        }
-    }
-}
-
 extension URL {
     public var filename: String {
         let pathExtension = "." + self.pathExtension

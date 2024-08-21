@@ -11,7 +11,7 @@ public enum LayerSize_V6: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V6
     public typealias PreviousInstance = LayerSize_V5.LayerSize
-    public typealias LayerDimension = LayerDimension_V1.LayerDimension
+    public typealias LayerDimension = LayerDimension_V5.LayerDimension
     // MARK: - endif
     
 

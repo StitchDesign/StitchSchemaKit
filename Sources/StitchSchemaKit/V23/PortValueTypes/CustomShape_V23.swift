@@ -12,7 +12,7 @@ public enum CustomShape_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = CustomShape_V22.CustomShape
-    public typealias ShapeAndRect = ShapeAndRect_V1.ShapeAndRect
+    public typealias ShapeAndRect = ShapeAndRect_V23.ShapeAndRect
     public typealias ShapeDataArray = [ShapeAndRect]
     // MARK: - endif
  
@@ -93,6 +93,6 @@ public enum CustomShape_V23: StitchSchemaVersionable {
 
 extension CustomShape_V23.CustomShape: StitchVersionedCodable {
     public init(previousInstance: CustomShape_V23.PreviousInstance) {
-        self.init(shapes: previousInstance.shapes)
+        self.init(shapes: .init(previousElements: previousInstance.shapes))
     }
 }

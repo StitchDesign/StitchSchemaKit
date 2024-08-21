@@ -12,6 +12,8 @@ public enum CustomShape_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V3
     public typealias PreviousInstance = CustomShape_V2.CustomShape
+    public typealias ShapeAndRect = ShapeAndRect_V1.ShapeAndRect
+    public typealias ShapeDataArray = [ShapeAndRect]
     // MARK: - endif
  
     public struct CustomShape: Equatable, Codable {

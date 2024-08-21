@@ -97,21 +97,6 @@ extension CGSize {
     }
 }
 
-extension StitchDocument {
-    public static let defaultName = "Untitled"
-    
-    /// Matches iPHone 12, 13, 14 etc
-    public static let defaultPreviewWindowSize = CGSize(width: 390, height: 844)
-    
-    public static let defaultBackgroundColor = Color.white
-    
-    public var id: ProjectId { self.projectId }
-}
-
-extension PreviewSize {
-    public static let defaultOption = Self.iPhone14
-}
-
 extension Color: Codable {
     public enum CodingKeys: String, CodingKey {
         case red, green, blue, alpha
@@ -155,7 +140,7 @@ typealias SystemColor = UIColor
          blue: CGFloat,
          alpha: CGFloat) {
 
-        let rgba = RGBA(red: red,
+        let rgba = CurrentRGBA.RGBA(red: red,
                     green: green,
                     blue: blue,
                     alpha: alpha)

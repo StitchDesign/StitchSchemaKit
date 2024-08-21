@@ -13,6 +13,7 @@ public enum CommentBoxData_V1: StitchSchemaVersionable {
     static var version: StitchSchemaVersion = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.CommentBoxData
     public typealias CommentExpansionBox = CommentExpansionBox_V1.CommentExpansionBox
+    public typealias GroupNodeId = GroupNodeID_V1.GroupNodeId
 
     // MARK: - endif
  

@@ -11,7 +11,9 @@ import Foundation
 public enum JSONCurveTo_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
-    public typealias PreviousInstance = JSONCurveTo_V22.JSONCurveTo
+    
+    // TODO: fix after version 23
+    public typealias PreviousInstance = JSONCurveTo_V1.JSONCurveTo
     // MARK: - endif
  
     public struct JSONCurveTo: Equatable, Hashable {

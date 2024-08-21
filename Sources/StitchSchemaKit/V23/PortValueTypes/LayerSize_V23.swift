@@ -11,6 +11,7 @@ public enum LayerSize_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = LayerSize_V22.LayerSize
+    public typealias LayerDimension = LayerDimension_V23.LayerDimension
     // MARK: - endif
     
 
@@ -49,6 +50,7 @@ public enum LayerSize_V23: StitchSchemaVersionable {
 
 extension LayerSize_V23.LayerSize: StitchVersionedCodable {
     public init(previousInstance: LayerSize_V23.PreviousInstance) {
-        self.init(width: previousInstance.width, height: previousInstance.height)
+        self.init(width: .init(previousInstance: previousInstance.width),
+                  height: .init(previousInstance: previousInstance.height))
     }
 }

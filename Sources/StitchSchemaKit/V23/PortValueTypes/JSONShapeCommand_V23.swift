@@ -10,7 +10,9 @@ import Foundation
 public enum JSONShapeCommand_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
-    public typealias PreviousInstance = JSONShapeCommand_V22.JSONShapeCommand
+    
+    // TODO: fix after version 23
+    public typealias PreviousInstance = JSONShapeCommand_V1.JSONShapeCommand
     public typealias JSONCurveTo = JSONCurveTo_V23.JSONCurveTo
     // MARK: - endif
  
@@ -28,6 +30,28 @@ public enum JSONShapeCommand_V23: StitchSchemaVersionable {
         case curveTo(JSONCurveTo)
     }
 
+}
+
+extension JSONShapeCommand_V23.JSONShapeCommand {
+    public var point: CGPoint {
+        switch self {
+        // TODO: handle this case properly?
+        case .closePath:
+            return .zero
+        case .moveTo(let cgPoint):
+            return cgPoint
+        case .lineTo(let cgPoint):
+            return cgPoint
+        case .curveTo(let jsonCurveTo):
+            return jsonCurveTo.point
+        }
+    }
+}
+
+extension Array where Element == JSONShapeCommand_V23.JSONShapeCommand {
+    public func getPoints() -> [CGPoint] {
+        self.map { $0.point }
+    }
 }
 
 extension JSONShapeCommand_V23.JSONShapeCommand: StitchVersionedCodable {

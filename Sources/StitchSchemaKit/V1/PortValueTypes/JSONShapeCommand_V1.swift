@@ -31,6 +31,28 @@ public enum JSONShapeCommand_V1: StitchSchemaVersionable {
 
 }
 
+extension JSONShapeCommand_V1.JSONShapeCommand {
+    public var point: CGPoint {
+        switch self {
+        // TODO: handle this case properly?
+        case .closePath:
+            return .zero
+        case .moveTo(let cgPoint):
+            return cgPoint
+        case .lineTo(let cgPoint):
+            return cgPoint
+        case .curveTo(let jsonCurveTo):
+            return jsonCurveTo.point
+        }
+    }
+}
+
+extension Array where Element == JSONShapeCommand_V1.JSONShapeCommand {
+    public func getPoints() -> [CGPoint] {
+        self.map { $0.point }
+    }
+}
+
 extension JSONShapeCommand_V1.JSONShapeCommand: StitchVersionedCodable {
     public init(previousInstance: JSONShapeCommand_V1.PreviousInstance) {
         fatalError()

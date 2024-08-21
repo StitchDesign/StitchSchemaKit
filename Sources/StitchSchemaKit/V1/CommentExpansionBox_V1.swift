@@ -12,6 +12,7 @@ public enum CommentExpansionBox_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.CommentExpansionBox
+    public typealias ExpansionDirection = ExpansionDirection_V1.ExpansionDirection
     
     // MARK: - endif
  

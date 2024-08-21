@@ -46,6 +46,8 @@ public enum PortValue_V1: StitchSchemaVersionable {
     public typealias StitchDeviceOrientation = StitchDeviceOrientation_V1.StitchDeviceOrientation
     public typealias StitchFont = StitchFont_V1.StitchFont
     public typealias LayerTextDecoration = LayerTextDecoration_V1.LayerTextDecoration
+    public typealias LayerNodeId = LayerNodeId_V1.LayerNodeId
+    public typealias TextTransform = TextTransform_V1.TextTransform
 
     // MARK: - end
     

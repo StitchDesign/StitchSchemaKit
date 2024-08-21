@@ -12,7 +12,7 @@ public enum TextTransform_V23: StitchSchemaVersionable {
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
     
     // TODO: fix after version 23
-    public typealias PreviousInstance = TextTransform_V23.TextTransform
+    public typealias PreviousInstance = TextTransform_V1.TextTransform
     // MARK: - endif
   
     public enum TextTransform: String, CaseIterable {

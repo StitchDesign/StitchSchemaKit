@@ -124,6 +124,50 @@ public enum PortValue_V23: StitchSchemaVersionable {
     }
 }
 
+// TODO: remove helpers after version 23
+extension matrix_float4x4 {
+    var scale: SIMD3<Float> {
+        .init(
+            simd_length(SIMD3<Float>(columns.0.x, columns.0.y, columns.0.z)),
+            simd_length(SIMD3<Float>(columns.1.x, columns.1.y, columns.1.z)),
+            simd_length(SIMD3<Float>(columns.2.x, columns.2.y, columns.2.z))
+        )
+    }
+    
+    // Extract rotation matrix (3x3)
+    var rotationMatrix: simd_float3x3 {
+        let scale = self.scale
+        return simd_float3x3(
+            SIMD3<Float>(columns.0.x, columns.0.y, columns.0.z) / scale.x,
+            SIMD3<Float>(columns.1.x, columns.1.y, columns.1.z) / scale.y,
+            SIMD3<Float>(columns.2.x, columns.2.y, columns.2.z) / scale.z
+        )
+    }
+    
+    var rotationInRadians: SIMD3<Float> {
+        let rotMatrix = rotationMatrix
+        var angles = SIMD3<Float>()
+
+        // Extract rotation angles using atan2 for better accuracy
+        angles.y = asin(-rotMatrix[0, 2])
+        
+        if cos(angles.y) != 0 {
+            angles.x = atan2(rotMatrix[1, 2], rotMatrix[2, 2])
+            angles.z = atan2(rotMatrix[0, 1], rotMatrix[0, 0])
+        } else {
+            // Gimbal lock case
+            angles.x = 0
+            angles.z = atan2(-rotMatrix[1, 0], rotMatrix[1, 1])
+        }
+        
+        return angles
+    }
+    
+    var position: SIMD3<Float> {
+        .init(columns.3.x, columns.3.y, columns.3.z)
+    }
+}
+
 extension PortValue_V23.PortValue: StitchVersionedCodable {
     public init(previousInstance: PortValue_V23.PreviousInstance) {
         switch previousInstance {
@@ -139,8 +183,16 @@ extension PortValue_V23.PortValue: StitchVersionedCodable {
         case .layerDimension(let value):
             self = .layerDimension(PortValue_V23.LayerDimension(previousInstance: value))
         case .matrixTransform(let value):
-            //MARK: NFA: TODO proper conversion attempt
-            self = .transform(StitchTransform_V23.StitchTransform())
+            let newTransform = StitchTransform_V23.StitchTransform(positionX: Double(value.position.x),
+                                                                   positionY: Double(value.position.y),
+                                                                   positionZ: Double(value.position.z),
+                                                                   scaleX: Double(value.scale.x),
+                                                                   scaleY: Double(value.scale.y),
+                                                                   scaleZ: Double(value.scale.z),
+                                                                   rotationX: Double(value.rotationInRadians.x),
+                                                                   rotationY: Double(value.rotationInRadians.y),
+                                                                   rotationZ: Double(value.rotationInRadians.z))
+            self = .transform(newTransform)
         case .plane(let value):
             self = .plane(PortValue_V23.Plane(previousInstance: value))
         case .networkRequestType(let value):

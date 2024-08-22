@@ -12,6 +12,7 @@ public enum ShapeCommand_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = ShapeCommand_V22.ShapeCommand
+    public typealias PathPoint = PathPoint_V23.PathPoint
     // MARK: - endif
  
 
@@ -32,15 +33,15 @@ extension ShapeCommand_V23.ShapeCommand: StitchVersionedCodable {
         case .closePath:
             self = .closePath
         case .lineTo(point: let point):
-            self = .lineTo(point: point)
+            self = .lineTo(point: .init(previousInstance: point))
         case .moveTo(point: let point):
-            self = .moveTo(point: point)
+            self = .moveTo(point: .init(previousInstance: point))
         case .curveTo(curveFrom: let curveFrom,
                       point: let point,
                       curveTo: let curveTo):
-            self = .curveTo(curveFrom: curveFrom,
-                            point: point,
-                            curveTo: curveTo)
+            self = .curveTo(curveFrom: .init(previousInstance: curveFrom),
+                            point: .init(previousInstance: point),
+                            curveTo: .init(previousInstance: curveTo))
         }
     }
 }
@@ -68,18 +69,18 @@ extension ShapeCommand_V23.ShapeCommand: Codable {
             self = .closePath
 
         case .lineTo:
-            let point = try container.decode(PathPoint.self, forKey: .point)
+            let point = try container.decode(PathPoint_V23.PathPoint.self, forKey: .point)
             self = .lineTo(point: point)
 
         case .moveTo:
-            let point = try container.decode(PathPoint.self, forKey: .point)
+            let point = try container.decode(PathPoint_V23.PathPoint.self, forKey: .point)
             self = .moveTo(point: point)
 
         case .curveTo:
-            let point = try container.decode(PathPoint.self, forKey: .point)
+            let point = try container.decode(PathPoint_V23.PathPoint.self, forKey: .point)
             // .curveTo case means we have type, point AND curveFrom, and curveTo keys
-            let curveFrom: PathPoint = try container.decode(PathPoint.self, forKey: .curveFrom)
-            let curveTo: PathPoint = try container.decode(PathPoint.self, forKey: .curveTo)
+            let curveFrom = try container.decode(PathPoint_V23.PathPoint.self, forKey: .curveFrom)
+            let curveTo = try container.decode(PathPoint_V23.PathPoint.self, forKey: .curveTo)
 
             self = .curveTo(curveFrom: curveFrom,
                             point: point,
@@ -95,15 +96,15 @@ extension ShapeCommand_V23.ShapeCommand: Codable {
 
         switch self {
         case .closePath:
-            try container.encode(JSONShapeKeys.CLOSE_PATH, forKey: .type)
+            try container.encode(JSONShapeKeys_V1.JSONShapeKeys.CLOSE_PATH, forKey: .type)
         case .moveTo(let point):
-            try container.encode(JSONShapeKeys.MOVE_TO, forKey: .type)
+            try container.encode(JSONShapeKeys_V1.JSONShapeKeys.MOVE_TO, forKey: .type)
             try container.encode(point, forKey: .point)
         case .lineTo(let point):
-            try container.encode(JSONShapeKeys.LINE_TO, forKey: .type)
+            try container.encode(JSONShapeKeys_V1.JSONShapeKeys.LINE_TO, forKey: .type)
             try container.encode(point, forKey: .point)
         case .curveTo(let curveFrom, let point, let curveTo):
-            try container.encode(JSONShapeKeys.CURVE_TO, forKey: .type)
+            try container.encode(JSONShapeKeys_V1.JSONShapeKeys.CURVE_TO, forKey: .type)
             try container.encode(point, forKey: .point)
             try container.encode(curveFrom, forKey: .curveFrom)
             try container.encode(curveTo, forKey: .curveTo)

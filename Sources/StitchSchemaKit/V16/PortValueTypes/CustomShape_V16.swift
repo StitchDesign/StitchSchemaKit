@@ -12,6 +12,8 @@ public enum CustomShape_V16: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V16
     public typealias PreviousInstance = CustomShape_V15.CustomShape
+    public typealias ShapeAndRect = ShapeAndRect_V1.ShapeAndRect
+    public typealias ShapeDataArray = [ShapeAndRect]
     // MARK: - endif
  
     public struct CustomShape: Equatable, Codable {
@@ -51,7 +53,7 @@ public enum CustomShape_V16: StitchSchemaVersionable {
         
         mutating func setCachedValues() {
             let baseFrame = self.getBaseFrame()
-
+            
             self._baseFrame = baseFrame
             self._west = maxWest(baseFrame)
             self._east = maxEast(baseFrame)
@@ -71,17 +73,17 @@ public enum CustomShape_V16: StitchSchemaVersionable {
             self.shapes.map { $0.north(smallestShape) }
                 .min { $0 < $1 } ?? .zero
         }
-
+        
         private func maxSouth(_ smallestShape: CGRect) -> CGFloat {
             self.shapes.map { $0.south(smallestShape) }
                 .max { $0 < $1 } ?? .zero
         }
-
+        
         private func maxWest(_ smallestShape: CGRect) -> CGFloat {
             self.shapes.map { $0.west(smallestShape) }
                 .min { $0 < $1 } ?? .zero
         }
-
+        
         private func maxEast(_ smallestShape: CGRect) -> CGFloat {
             self.shapes.map { $0.east(smallestShape) }
                 .max { $0 < $1 } ?? .zero

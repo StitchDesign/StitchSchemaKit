@@ -115,7 +115,7 @@ extension StitchDocument_V23.StitchDocument {
             previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor,
             localPosition: previousInstance.localPosition,
             zoomData: previousInstance.zoomData,
-            nodes: StitchDocument_V23.NodeEntitySchemas(previousElements: previousInstance.nodes),
+            nodes: newMigratedNodes,
             orderedSidebarLayers: StitchDocument_V23.SidebarLayerDataList(previousElements: previousInstance.orderedSidebarLayers),
             commentBoxes: StitchDocument_V23.CommentBoxes(previousElements: previousInstance.commentBoxes),
             cameraSettings: StitchDocument_V23.CameraSettings(previousInstance: previousInstance.cameraSettings)

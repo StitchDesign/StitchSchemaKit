@@ -97,21 +97,6 @@ extension CGSize {
     }
 }
 
-extension StitchDocument {
-    public static let defaultName = "Untitled"
-    
-    /// Matches iPHone 12, 13, 14 etc
-    public static let defaultPreviewWindowSize = CGSize(width: 390, height: 844)
-    
-    public static let defaultBackgroundColor = Color.white
-    
-    public var id: ProjectId { self.projectId }
-}
-
-extension PreviewSize {
-    public static let defaultOption = Self.iPhone14
-}
-
 extension Color: Codable {
     public enum CodingKeys: String, CodingKey {
         case red, green, blue, alpha
@@ -155,7 +140,7 @@ typealias SystemColor = UIColor
          blue: CGFloat,
          alpha: CGFloat) {
 
-        let rgba = RGBA(red: red,
+        let rgba = CurrentRGBA.RGBA(red: red,
                     green: green,
                     blue: blue,
                     alpha: alpha)
@@ -213,110 +198,6 @@ extension matrix_float4x4: Codable {
 
 extension VNImageCropAndScaleOption: Codable { }
 
-extension ShapeAndRect {
-    public var rect: CGRect {
-        switch self {
-        case .oval(let x):
-            return x
-        case .circle(let x):
-            return x
-        case .rectangle(let x):
-            return x.rect
-
-        // self.rect not really used in most case
-        case .triangle(let trianglePoints):
-            // Assuming `.p1` is the proper origin here:
-            return .init(
-                origin: trianglePoints.p1,
-                size: .init(width: abs(trianglePoints.points.boundingBoxWidth),
-                            height: abs(trianglePoints.points.boundingBoxHeight)))
-
-        case .custom(let commands):
-            return .init(
-                // .first not accurate for e.g. the curveTo ?
-                // also, this is ALL points for all instructions
-                origin: commands.getPoints().first ?? .zero,
-                size: .init(width: abs(commands.getPoints().boundingBoxWidth),
-                            height: abs(commands.getPoints().boundingBoxHeight)))
-        }
-    }
-    
-    // the northern bound for a given shape
-    public func north(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .triangle(let trianglePoints):
-            return trianglePoints.points.mostNegativeY
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostNegativeY
-        case .oval, .circle, .rectangle:
-            return self.rect.yBound(smallestShape.origin.y,
-                                    smallestShape.height,
-                                    isNorth: true)
-        }
-    }
-
-    public func south(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .oval, .circle, .rectangle:
-            return self.rect.yBound(smallestShape.origin.y,
-                                    smallestShape.height)
-        case .triangle(let trianglePoints):
-            // double check that south logic is correct
-            return trianglePoints.points.mostPostiveY
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostPostiveY
-        }
-    }
-
-    public func west(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .oval, .circle, .rectangle:
-            return self.rect.xBound(smallestShape.origin.x,
-                                    smallestShape.width,
-                                    isWest: true)
-        case .triangle(let trianglePoints):
-            return trianglePoints.points.mostNegativeX
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostNegativeX
-        }
-    }
-
-    public func east(_ smallestShape: CGRect) -> CGFloat {
-        switch self {
-        case .oval, .circle, .rectangle:
-            return self.rect.xBound(smallestShape.origin.x,
-                                    smallestShape.width)
-        case .triangle(let trianglePoints):
-            // double check that east logic is correct
-            return trianglePoints.points.mostPostiveX
-        case .custom(let jsonShapeCommands):
-            return jsonShapeCommands.getPoints().mostPostiveX
-        }
-    }
-}
-
-extension JSONShapeCommands {
-    public func getPoints() -> [CGPoint] {
-        self.map { $0.point }
-    }
-}
-
-extension JSONShapeCommand {
-    public var point: CGPoint {
-        switch self {
-        // TODO: handle this case properly?
-        case .closePath:
-            return .zero
-        case .moveTo(let cgPoint):
-            return cgPoint
-        case .lineTo(let cgPoint):
-            return cgPoint
-        case .curveTo(let jsonCurveTo):
-            return jsonCurveTo.point
-        }
-    }
-}
-
 extension URL {
     public var filename: String {
         let pathExtension = "." + self.pathExtension
@@ -324,12 +205,6 @@ extension URL {
     }
 }
 
-// the values contained in a single Input or Output
-public typealias PortValues = [PortValue]
-
 public typealias StitchPosition = CGSize
-public typealias ShapeDataArray = [ShapeAndRect]
-public typealias JSONShapeCommands = [JSONShapeCommand]
-
 public typealias ProjectId = UUID
 public typealias CommentBoxId = UUID

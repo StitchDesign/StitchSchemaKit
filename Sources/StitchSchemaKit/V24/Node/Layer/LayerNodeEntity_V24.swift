@@ -141,6 +141,11 @@ public enum LayerNodeEntity_V24: StitchSchemaVersionable {
         public var pinAnchorPort: LayerInputEntity
         public var pinOffsetPort: LayerInputEntity
         
+        // Padding, margin; offset in group
+        public var layerPaddingPort: LayerInputEntity
+        public var layerMarginPort: LayerInputEntity
+        public var offsetInGroupPort: LayerInputEntity
+        
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -258,6 +263,10 @@ public enum LayerNodeEntity_V24: StitchSchemaVersionable {
                     pinToPort: LayerInputEntity,
                     pinAnchorPort: LayerInputEntity,
                     pinOffsetPort: LayerInputEntity,
+                    
+                    layerPaddingPort: LayerInputEntity,
+                    layerMarginPort: LayerInputEntity,
+                    offsetInGroupPort: LayerInputEntity,
                     
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,
@@ -378,6 +387,10 @@ public enum LayerNodeEntity_V24: StitchSchemaVersionable {
             self.pinToPort = pinToPort
             self.pinAnchorPort = pinAnchorPort
             self.pinOffsetPort = pinOffsetPort
+            
+            self.layerPaddingPort = layerPaddingPort
+            self.layerMarginPort = layerMarginPort
+            self.offsetInGroupPort = offsetInGroupPort
         }
     }
 }
@@ -510,6 +523,11 @@ extension LayerNodeEntity_V24.LayerNodeEntity: StitchVersionedCodable {
                   pinAnchorPort: .init(previousInstance: previousInstance.pinAnchorPort),
                   pinOffsetPort: .init(previousInstance: previousInstance.pinOffsetPort),
 
+                  // TODO: fix after version 24
+                  layerPaddingPort: .init(inputPort: .values([])),
+                  layerMarginPort: .init(inputPort: .values([])),
+                  offsetInGroupPort: .init(inputPort: .values([])),
+                  
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,
                   isExpandedInSidebar: previousInstance.isExpandedInSidebar)

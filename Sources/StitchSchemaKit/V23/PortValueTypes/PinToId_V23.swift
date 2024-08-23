@@ -23,6 +23,13 @@ public enum PinToId_V23: StitchSchemaVersionable {
 
 extension PinToId_V23.PinToId: StitchVersionedCodable {
     public init(previousInstance: PinToId_V23.PreviousInstance) {
-        fatalError() // Added in V22
+        switch previousInstance {
+        case .root:
+            self = .root
+        case .parent:
+            self = .parent
+        case .layer(let x):
+            self = .layer(.init(x.id)) // Not necessary after version 23
+        }
     }
 }

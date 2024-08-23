@@ -28,6 +28,7 @@ public enum LayerInputCoordinate_V24: StitchSchemaVersionable {
 
 extension LayerInputCoordinate_V24.LayerInputCoordinate: StitchVersionedCodable {
     public init(previousInstance: LayerInputCoordinate_V24.PreviousInstance) {
-        fatalError()
+        self.node = previousInstance.node
+        self.keyPath = .init(previousInstance: previousInstance.keyPath)
     }
 }

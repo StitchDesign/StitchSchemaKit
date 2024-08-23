@@ -12,7 +12,7 @@ public enum UnpackedPortType_V24: StitchSchemaVersionable {
     static var version: StitchSchemaVersion = StitchSchemaVersion._V24
     
     // TODO: change previous instance version
-    public typealias PreviousInstance = Self.UnpackedPortType
+    public typealias PreviousInstance = UnpackedPortType_V24.UnpackedPortType
     // MARK: - endif
     
     public enum UnpackedPortType: Int, Hashable, Codable, CaseIterable {
@@ -25,7 +25,15 @@ public enum UnpackedPortType_V24: StitchSchemaVersionable {
 
 extension UnpackedPortType_V24.UnpackedPortType: StitchVersionedCodable {
     public init(previousInstance: UnpackedPortType_V24.PreviousInstance) {
-        // TODO: fix migration here
-        fatalError()
+        switch previousInstance {
+        case .port0:
+            self = .port0
+        case .port1:
+            self = .port1
+        case .port2:
+            self = .port2
+        case .port3:
+            self = .port3
+        }
     }
 }

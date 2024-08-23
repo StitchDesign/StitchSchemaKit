@@ -42,8 +42,8 @@ public enum LayerInputPort_V24: StitchSchemaVersionable {
         case blurRadius
         case backgroundColor
         case isClipped
-        case orientation
-        case padding
+        case orientation // Group
+        case padding // Group
         case setupMode
         case isAnimating
         
@@ -145,6 +145,13 @@ public enum LayerInputPort_V24: StitchSchemaVersionable {
         case pinTo
         case pinAnchor
         case pinOffset
+        
+        // Individual layer's padding, margin (whether in Group or not)
+        case layerPadding
+        case layerMargin
+        
+        // Layer's offset when in a Group
+        case offsetInGroup
     }
 }
 

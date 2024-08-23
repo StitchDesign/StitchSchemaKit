@@ -10,7 +10,7 @@ import Foundation
 public enum LayerOutputCoordinate_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V23
-    public typealias PreviousInstance = Self.LayerOutputCoordinate
+    public typealias PreviousInstance = LayerOutputCoordinate_V22.LayerOutputCoordinate
     typealias LayerInputType = LayerInputType_V23.LayerInputType
     // MARK: - endif
  
@@ -28,6 +28,7 @@ public enum LayerOutputCoordinate_V23: StitchSchemaVersionable {
 
 extension LayerOutputCoordinate_V23.LayerOutputCoordinate: StitchVersionedCodable {
     public init(previousInstance: LayerOutputCoordinate_V23.PreviousInstance) {
-        fatalError()
+        self.node = previousInstance.node
+        self.portId = previousInstance.portId
     }
 }

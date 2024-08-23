@@ -15,7 +15,7 @@ public enum LayerInputType_V24: StitchSchemaVersionable {
     public typealias LayerInputKeyPathType = LayerInputKeyPathType_V24.LayerInputKeyPathType
     
     // TODO: change previous instance version
-    public typealias PreviousInstance = Self.LayerInputType
+    public typealias PreviousInstance = LayerInputType_V23.LayerInputType
     // MARK: - endif
     
     public struct LayerInputType: Hashable, Codable {
@@ -33,6 +33,8 @@ public enum LayerInputType_V24: StitchSchemaVersionable {
 extension LayerInputType_V24.LayerInputType: StitchVersionedCodable {
     public init(previousInstance: LayerInputType_V24.PreviousInstance) {
         // TODO: fix migration here
-        fatalError()
+//        fatalError()
+        self.layerInput = .init(previousInstance: previousInstance.layerInput)
+        self.portType = .packed
     }
 }

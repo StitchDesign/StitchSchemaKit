@@ -148,6 +148,13 @@ public enum LayerInputPort_V24: StitchSchemaVersionable {
         case pinTo
         case pinAnchor
         case pinOffset
+        
+        // Individual layer's padding, margin (whether in Group or not)
+        case layerPadding
+        case layerMargin
+
+        // Layer's offset when in a Group
+        case offsetInGroup
     }
 }
 

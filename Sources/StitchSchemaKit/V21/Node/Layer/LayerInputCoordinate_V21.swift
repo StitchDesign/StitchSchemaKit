@@ -28,6 +28,6 @@ public enum LayerInputCoordinate_V21: StitchSchemaVersionable {
 
 extension LayerInputCoordinate_V21.LayerInputCoordinate: StitchVersionedCodable {
     public init(previousInstance: LayerInputCoordinate_V21.PreviousInstance) {
-        fatalError()
+        fatalError() // added in version 21
     }
 }

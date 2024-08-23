@@ -28,6 +28,6 @@ public enum LayerOutputCoordinate_V21: StitchSchemaVersionable {
 
 extension LayerOutputCoordinate_V21.LayerOutputCoordinate: StitchVersionedCodable {
     public init(previousInstance: LayerOutputCoordinate_V21.PreviousInstance) {
-        fatalError()
+        fatalError() // added in version 21
     }
 }

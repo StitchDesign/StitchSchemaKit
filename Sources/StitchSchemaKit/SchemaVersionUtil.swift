@@ -13,7 +13,7 @@ protocol StitchSchemaVersionable {
     static var version: StitchSchemaVersion { get }
 }
 
-protocol StitchSchemaVersionType {
+public protocol StitchSchemaVersionType {
     associatedtype NewestVersionType: StitchVersionedCodable
 
     var version: StitchSchemaVersion { get }
@@ -55,7 +55,35 @@ extension URL {
     }
 }
 
-extension StitchDocumentVersion {
+public protocol VersionType: CaseIterable, Codable, Comparable, RawRepresentable {}
+
+extension VersionType where RawValue: Comparable {
+    public static func < (a: Self, b: Self) -> Bool {
+        return a.rawValue < b.rawValue
+    }
+}
+
+public struct StitchDocumentVersion: StitchSchemaVersionType {
+    public typealias NewestVersionType = CurrentStitchDocument.StitchDocument
+    
+    public var version: StitchSchemaVersion
+    
+    public init(version: StitchSchemaVersion) {
+        self.version = version
+    }
+}
+
+public struct StitchComonentVersion: StitchSchemaVersionType {
+    public typealias NewestVersionType = CurrentStitchComponent.StitchComponent
+    
+    public var version: StitchSchemaVersion
+    
+    public init(version: StitchSchemaVersion) {
+        self.version = version
+    }
+}
+
+extension StitchSchemaVersionType {
     public static func migrate(versionedCodableUrl: URL) throws -> Self.NewestVersionType? {
         // 1. get version
         // 2. call decode with payload
@@ -92,10 +120,6 @@ extension StitchDocumentVersion {
 }
 
 extension StitchVersionedCodable {
-    //    static func createVersionedEntities(from models: [Self.ViewModel]) -> [Self] {
-    //        models.map { Self.init(from: $0) }
-    //    }
-
     public static func upgradeEntities(_ previousEntities: [Self.PreviousCodable]) -> [Self] {
         previousEntities.map { Self.init(previousInstance: $0) }
     }
@@ -123,18 +147,7 @@ extension Array where Element: StitchVersionedCodable {
         
          self = .init(previousInstance: previousInstance)
      }
- }
-
-// extension StitchVersionedData {
-//     /// Initializer that uses current version.
-//     public init(currentDoc: StitchDocument) throws {
-//         let encoder = getStitchEncoder()
-//         let encodedDoc = try encoder.encode(currentDoc)
-
-//         self.version = StitchSchemaVersion.getNewestVersion()
-//         self.data = encodedDoc
-//     }
-// }
+}
 
 public protocol StitchVersionedCodable: Codable, Sendable {
     associatedtype PreviousCodable: StitchVersionedCodable

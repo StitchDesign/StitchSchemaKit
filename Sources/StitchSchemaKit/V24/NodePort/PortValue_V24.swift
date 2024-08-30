@@ -76,7 +76,7 @@ public enum PortValue_V24: StitchSchemaVersionable {
         case networkRequestType(NetworkRequestType)
         case color(Color)
         case size(LayerSize)
-        case position(StitchPosition) // TODO: use `CGPoint` instead of `CGSize`
+        case position(CGPoint)
         case point3D(Point3D)
         case point4D(Point4D)
         case pulse(TimeInterval) // TimeInterval = last time this input/output pulsed
@@ -149,7 +149,7 @@ extension PortValue_V24.PortValue: StitchVersionedCodable {
         case .size(let value):
             self = .size(PortValue_V24.LayerSize(previousInstance: value))
         case .position(let value):
-            self = .position(value)
+            self = .position(.init(x: value.width, y: value.height))
         case .point3D(let value):
 #if !os(visionOS)
             self = .point3D(PortValue_V24.Point3D(previousInstance: value))

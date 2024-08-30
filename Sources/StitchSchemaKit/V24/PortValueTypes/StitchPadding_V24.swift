@@ -14,7 +14,6 @@ public enum StitchPadding_V24: StitchSchemaVersionable {
     public typealias PreviousInstance = StitchPadding_V23.StitchPadding
     // MARK: - end
 
-    // TODO: combine with Point4D ? Or will the names `x, y, z, w` be too unfamiliar vers `top`, `bottom` etc.; e.g. does `x` refer to `left` or `right`?
     public struct StitchPadding: Equatable, Hashable, Codable {
         public var top: CGFloat
         public var right: CGFloat

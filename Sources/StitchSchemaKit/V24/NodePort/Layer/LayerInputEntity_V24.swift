@@ -25,20 +25,18 @@ public enum LayerInputEntity_V24: StitchSchemaVersionable {
             self.packedData = packedData
             self.unpackedData = unpackedData
         }
+    
+        /// Used for migrations when a port hasn't been created yet.
+        static func createEmpty() -> LayerInputEntity {
+            .init(packedData: .init(inputPort: .values([])),
+                  unpackedData: .init())
+        }
     }
 }
 
 extension LayerInputEntity_V24.LayerInputEntity: StitchVersionedCodable {
-    // TODO: correct post version 23 to use LayerInputEntity instead of LayerInputDataEntity
     public init(previousInstance: LayerInputEntity_V24.PreviousInstance) {
-//        self.init(packedData:  .init(previousInstance: previousInstance),
         self.init(packedData: .init(previousInstance: previousInstance.packedData),
-                  unpackedData: [])
-    }
-    
-    // TODO: remove after version 23
-    public init(inputPort: NodeConnectionType_V24.NodeConnectionType) {
-        self.init(packedData: .init(inputPort: inputPort),
-                  unpackedData: [])
+                  unpackedData: .init(previousElements: previousInstance.unpackedData))
     }
 }

@@ -10,9 +10,7 @@ import Foundation
 public enum UnpackedPortType_V24: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     static var version: StitchSchemaVersion = StitchSchemaVersion._V24
-    
-    // TODO: change previous instance version
-    public typealias PreviousInstance = UnpackedPortType_V24.UnpackedPortType
+    public typealias PreviousInstance = UnpackedPortType_V23.UnpackedPortType
     // MARK: - endif
     
     public enum UnpackedPortType: Int, Hashable, Codable, CaseIterable {

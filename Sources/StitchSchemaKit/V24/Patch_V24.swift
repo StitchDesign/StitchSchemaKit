@@ -501,7 +501,6 @@ extension Patch_V24.Patch: StitchVersionedCodable {
             self = .mathExpression
         case .qrCodeDetection:
             self = .qrCodeDetection
-
         }
     }
 }

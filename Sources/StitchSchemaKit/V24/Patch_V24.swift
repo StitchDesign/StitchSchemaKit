@@ -179,7 +179,8 @@ public enum Patch_V24: StitchSchemaVersionable {
              curveToPack = "Curve To Pack",
              curveToUnpack = "Curve To Unpack",
              mathExpression = "Math Expression",
-             qrCodeDetection = "QR Code Detection"
+             qrCodeDetection = "QR Code Detection",
+             delayOne
     }
 }
 

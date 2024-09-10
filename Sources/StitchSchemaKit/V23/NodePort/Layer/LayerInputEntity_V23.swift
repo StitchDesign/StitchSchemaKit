@@ -10,7 +10,7 @@ import Foundation
 public enum LayerInputEntity_V23: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V23
+    public static let version = StitchSchemaVersion._V23
     public typealias PreviousInstance = Self.LayerInputEntity
     public typealias LayerInputDataEntity = LayerInputDataEntity_V23.LayerInputDataEntity
     public typealias CanvasNodeEntity = CanvasNodeEntity_V23.CanvasNodeEntity

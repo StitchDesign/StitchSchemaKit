@@ -9,7 +9,7 @@ import Foundation
 
 public enum LayerInputType_V17: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V17
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V17
     public typealias PreviousInstance = LayerInputType_V16.LayerInputType
     // MARK: - endif
     

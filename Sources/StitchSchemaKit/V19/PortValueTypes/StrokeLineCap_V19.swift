@@ -9,7 +9,7 @@ import Foundation
 
 public enum StrokeLineCap_V19: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V19
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V19
     public typealias PreviousInstance = StrokeLineCap_V18.StrokeLineCap
     // MARK: - endif
      

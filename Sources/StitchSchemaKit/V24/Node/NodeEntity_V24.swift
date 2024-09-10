@@ -11,7 +11,7 @@ import SwiftUI
 public enum NodeEntity_V24: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V23
+    public static let version = StitchSchemaVersion._V23
     public typealias PreviousInstance = NodeEntity_V23.NodeEntity
     public typealias NodeTypeEntity = NodeTypeEntity_V24.NodeTypeEntity
     // MARK: - end

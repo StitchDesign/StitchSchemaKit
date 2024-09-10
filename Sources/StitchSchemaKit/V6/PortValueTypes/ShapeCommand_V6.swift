@@ -10,7 +10,7 @@ import Foundation
 
 public enum ShapeCommand_V6: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V6
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V6
     public typealias PreviousInstance = ShapeCommand_V5.ShapeCommand
     public typealias PathPoint = PathPoint_V1.PathPoint
     // MARK: - endif

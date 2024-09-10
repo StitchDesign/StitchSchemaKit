@@ -9,7 +9,7 @@ import Foundation
 
 public enum Patch_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Patch_V9.Patch
     // MARK: - endif
  

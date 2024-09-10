@@ -10,7 +10,7 @@ import Foundation
 public enum PatchNodeEntity_V20: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V20
+    public static let version = StitchSchemaVersion._V20
     public typealias PreviousInstance = PatchNodeEntity_V19.PatchNodeEntity
     public typealias SplitterNodeEntitySchema = SplitterNodeEntity_V20.SplitterNodeEntity
     public typealias Patch = Patch_V20.Patch

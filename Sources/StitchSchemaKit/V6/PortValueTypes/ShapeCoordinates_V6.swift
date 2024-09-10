@@ -9,7 +9,7 @@ import Foundation
 
 public enum ShapeCoordinates_V6: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V6
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V6
     public typealias PreviousInstance = ShapeCoordinates_V5.ShapeCoordinates
     // MARK: - endif
  

@@ -10,7 +10,7 @@ import Foundation
 
 public enum SplitterType_V5: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V5
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V5
     public typealias PreviousInstance = SplitterType_V4.SplitterType
     // MARK: - endif
  

@@ -9,7 +9,7 @@ import Foundation
 
 public enum PinToId_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V23
+    public static let version = StitchSchemaVersion._V23
     public typealias PreviousInstance = Self.PinToId
     // MARK: - end
 

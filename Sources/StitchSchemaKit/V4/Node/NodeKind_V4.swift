@@ -9,7 +9,7 @@ import Foundation
 
 public enum NodeKind_V4: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V4
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V4
     public typealias PreviousInstance = NodeKind_V3.NodeKind
     public typealias Patch = Patch_V4.Patch
     public typealias Layer = Layer_V4.Layer

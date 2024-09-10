@@ -9,7 +9,7 @@ import Foundation
 
 public enum DelayStyle_V9: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V9
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V9
     public typealias PreviousInstance = DelayStyle_V8.DelayStyle
     // MARK: - endif
     

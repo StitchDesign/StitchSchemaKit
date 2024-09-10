@@ -9,7 +9,7 @@ import Foundation
 
 public enum LayerInputPort_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V23
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V23
     
     // TODO: change previous instance to use LayerInputPort after version 23
     public typealias PreviousInstance = LayerInputType_V22.LayerInputType

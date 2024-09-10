@@ -9,7 +9,7 @@ import Foundation
 
 public enum ScrollMode_V6: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V6
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V6
     public typealias PreviousInstance = ScrollMode_V5.ScrollMode
     // MARK: - endif
     

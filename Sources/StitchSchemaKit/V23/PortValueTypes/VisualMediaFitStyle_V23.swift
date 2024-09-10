@@ -9,7 +9,7 @@ import Foundation
 
 public enum VisualMediaFitStyle_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V23
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = VisualMediaFitStyle_V22.VisualMediaFitStyle
     // MARK: - endif
  

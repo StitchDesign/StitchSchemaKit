@@ -10,7 +10,7 @@ import Foundation
 
 public enum CustomShape_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = CustomShape_V9.CustomShape
     public typealias ShapeAndRect = ShapeAndRect_V1.ShapeAndRect
     public typealias ShapeDataArray = [ShapeAndRect]

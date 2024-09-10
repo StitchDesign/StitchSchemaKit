@@ -9,7 +9,7 @@ import Foundation
 
 public enum LayerOutputCoordinate_V22: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V22
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V22
     public typealias PreviousInstance = LayerOutputCoordinate_V21.LayerOutputCoordinate
     typealias LayerInputType = LayerInputType_V22.LayerInputType
     // MARK: - endif

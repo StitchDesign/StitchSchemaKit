@@ -11,7 +11,7 @@ import SwiftUI
 public enum StitchDocument_V2: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V2
+    public static let version = StitchSchemaVersion._V2
     public typealias PreviousInstance = StitchDocument_V1.StitchDocument
     public typealias NodeEntitySchemas = [NodeEntity_V2.NodeEntity]
     public typealias CommentBoxesDict = [CommentBoxId: CommentBoxData_V2.CommentBoxData]

@@ -9,7 +9,7 @@ import Foundation
 
 public enum ProgressIndicatorStyle_V19: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V19
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V19
     public typealias PreviousInstance = ProgressIndicatorStyle_V18.ProgressIndicatorStyle
 
     // MARK: - endif

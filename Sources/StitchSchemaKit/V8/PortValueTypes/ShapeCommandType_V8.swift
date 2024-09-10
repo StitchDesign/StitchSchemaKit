@@ -9,7 +9,7 @@ import Foundation
 
 public enum ShapeCommandType_V8: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V8
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V8
     public typealias PreviousInstance = ShapeCommandType_V7.ShapeCommandType
     // MARK: - endif
  

@@ -11,7 +11,7 @@ import Foundation
 public enum StitchComponent_V24: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V24
+    public static let version = StitchSchemaVersion._V24
     public typealias PreviousInstance = Self.StitchComponent
     public typealias NodeEntity = NodeEntity_V24.NodeEntity
     public typealias SidebarLayerList = [SidebarLayerData_V24.SidebarLayerData]

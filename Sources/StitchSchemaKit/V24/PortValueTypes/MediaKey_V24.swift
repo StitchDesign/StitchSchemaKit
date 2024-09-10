@@ -9,7 +9,7 @@ import Foundation
 
 public enum MediaKey_V24: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V24
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V24
     public typealias PreviousInstance = MediaKey_V23.MediaKey
     // MARK: - endif
  

@@ -9,7 +9,7 @@ import Foundation
 
 public enum PathPoint_V3: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V3
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V3
     public typealias PreviousInstance = PathPoint_V2.PathPoint
     // MARK: - endif
 

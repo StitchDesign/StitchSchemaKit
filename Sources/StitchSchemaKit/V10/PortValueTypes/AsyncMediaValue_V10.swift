@@ -10,7 +10,7 @@ import Foundation
 
 public enum AsyncMediaValue_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = AsyncMediaValue_V9.AsyncMediaValue
     public typealias MediaObjectId = MediaObjectId_V1.MediaObjectId
     // MARK: - endif

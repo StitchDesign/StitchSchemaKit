@@ -9,7 +9,7 @@ import Foundation
 
 public enum StitchOrientation_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V2
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V2
     public typealias PreviousInstance = StitchOrientation_V1.StitchOrientation
     // MARK: - endif
     

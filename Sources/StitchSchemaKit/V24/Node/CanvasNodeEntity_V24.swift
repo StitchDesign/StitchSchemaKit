@@ -10,7 +10,7 @@ import Foundation
 public enum CanvasNodeEntity_V24: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V24
+    public static let version = StitchSchemaVersion._V24
     public typealias PreviousInstance = CanvasNodeEntity_V23.CanvasNodeEntity
     typealias StitchDocumentSchema = StitchDocument_V24
     public typealias PatchNodeEntitySchema = PatchNodeEntity_V24.PatchNodeEntity

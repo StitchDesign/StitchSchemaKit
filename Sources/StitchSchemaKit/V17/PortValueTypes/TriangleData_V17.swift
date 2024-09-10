@@ -9,7 +9,7 @@ import Foundation
 
 public enum TriangleData_V17: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V17
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V17
     public typealias PreviousInstance = TriangleData_V16.TriangleData
     // MARK: - endif
  

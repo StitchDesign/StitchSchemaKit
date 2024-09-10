@@ -9,7 +9,7 @@ import Foundation
 
 public enum ScrollDecelerationRate_V17: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V17
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V17
     public typealias PreviousInstance = ScrollDecelerationRate_V16.ScrollDecelerationRate
     // MARK: - endif
     

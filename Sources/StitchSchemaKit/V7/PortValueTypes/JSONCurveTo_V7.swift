@@ -10,7 +10,7 @@ import Foundation
 
 public enum JSONCurveTo_V7: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V7
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V7
     public typealias PreviousInstance = JSONCurveTo_V6.JSONCurveTo
     // MARK: - endif
  

@@ -9,7 +9,7 @@ import Foundation
 
 public enum Point4D_V14: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V14
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V14
     public typealias PreviousInstance = Point4D_V13.Point4D
     // MARK: - endif
     

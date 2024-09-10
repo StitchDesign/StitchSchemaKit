@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import SwiftyJSON
 
-protocol StitchSchemaVersionable {
+public protocol StitchSchemaVersionable {
     static var version: StitchSchemaVersion { get }
 }
 

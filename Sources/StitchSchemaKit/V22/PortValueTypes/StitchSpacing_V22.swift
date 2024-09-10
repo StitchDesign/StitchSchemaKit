@@ -10,7 +10,7 @@ import SwiftUI
 
 public enum StitchSpacing_V22: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V22
+    public static let version = StitchSchemaVersion._V22
     public typealias PreviousInstance = StitchSpacing_V21.StitchSpacing
     // MARK: - end
 

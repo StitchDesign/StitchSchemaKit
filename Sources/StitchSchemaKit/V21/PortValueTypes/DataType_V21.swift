@@ -10,7 +10,7 @@ import Foundation
 
 public enum DataType_V21: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V21
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V21
 //    public typealias PreviousInstance = DataType_V20.DataType
     // MARK: - endif
     

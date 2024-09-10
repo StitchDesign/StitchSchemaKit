@@ -9,7 +9,7 @@ import Foundation
 
 public enum ClassicAnimationCurve_V19: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V19
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V19
     public typealias PreviousInstance = ClassicAnimationCurve_V18.ClassicAnimationCurve
     // MARK: - endif
  

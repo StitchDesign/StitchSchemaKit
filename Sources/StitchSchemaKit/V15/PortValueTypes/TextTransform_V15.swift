@@ -9,7 +9,7 @@ import Foundation
 
 public enum TextTransform_V15: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V15
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V15
     public typealias PreviousInstance = TextTransform_V14.TextTransform
     // MARK: - endif
   

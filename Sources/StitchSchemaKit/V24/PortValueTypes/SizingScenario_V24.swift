@@ -10,7 +10,7 @@ import SwiftUI
 
 public enum SizingScenario_V24: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V24
+    public static let version = StitchSchemaVersion._V24
     public typealias PreviousInstance = SizingScenario_V23.SizingScenario
     // MARK: - end
 

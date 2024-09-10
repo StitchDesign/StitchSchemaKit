@@ -10,7 +10,7 @@ import MapKit
 
 public enum StitchMapType_V11: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V11
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V11
     public typealias PreviousInstance = StitchMapType_V10.StitchMapType
     
     // MARK: - endif

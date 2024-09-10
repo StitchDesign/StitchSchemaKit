@@ -9,7 +9,7 @@ import Foundation
 
 public enum DateAndTimeFormat_V20: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V20
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V20
     public typealias PreviousInstance = DateAndTimeFormat_V19.DateAndTimeFormat
     // MARK: - endif
     

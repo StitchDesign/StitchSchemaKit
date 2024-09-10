@@ -9,7 +9,7 @@ import Foundation
 
 public enum LightType_V5: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V5
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V5
     public typealias PreviousInstance = LightType_V4.LightType
     // MARK: - endif
     

@@ -21,6 +21,8 @@ public protocol StitchSchemaVersionType {
     var codableType: any StitchVersionedCodable.Type { get }
 
     static func getCodableType(from version: StitchSchemaVersion) -> any StitchVersionedCodable.Type
+    
+    init(version: StitchSchemaVersion)
 }
 
 extension StitchSchemaVersionType {
@@ -63,26 +65,6 @@ extension VersionType where RawValue: Comparable {
     }
 }
 
-public struct StitchDocumentVersion: StitchSchemaVersionType {
-    public typealias NewestVersionType = CurrentStitchDocument.StitchDocument
-    
-    public var version: StitchSchemaVersion
-    
-    public init(version: StitchSchemaVersion) {
-        self.version = version
-    }
-}
-
-public struct StitchComonentVersion: StitchSchemaVersionType {
-    public typealias NewestVersionType = CurrentStitchComponent.StitchComponent
-    
-    public var version: StitchSchemaVersion
-    
-    public init(version: StitchSchemaVersion) {
-        self.version = version
-    }
-}
-
 extension StitchSchemaVersionType {
     public static func migrate(versionedCodableUrl: URL) throws -> Self.NewestVersionType? {
         // 1. get version
@@ -100,7 +82,7 @@ extension StitchSchemaVersionType {
 
         let newestVersion = StitchSchemaVersion.getNewestVersion()
         let versionedData = try Data(contentsOf: versionedCodableUrl)
-        let documentVersion = StitchDocumentVersion(version: currentVersion)
+        let documentVersion = Self(version: currentVersion)
         var currentEntity: any StitchVersionedCodable = try documentVersion.decode(versionedData)
 
         // continue so long as current version doesn't match newest

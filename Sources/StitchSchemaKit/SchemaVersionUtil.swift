@@ -94,7 +94,12 @@ extension StitchSchemaVersionType {
             let nextType = Self.getCodableType(from: nextVersion)
 
             currentVersion = nextVersion
-            currentEntity = nextType.init(anyCodable: currentEntity)
+            
+            guard let entity = nextType.init(anyCodable: currentEntity) else {
+                print("StitchSchemaVersionType.migrate: couldn't migrate version.")
+                return nil
+            }
+            currentEntity = entity
         }
 
         return currentEntity as? Self.NewestVersionType
@@ -137,8 +142,8 @@ public protocol StitchVersionedCodable: Codable, Sendable {
 }
 
 extension StitchVersionedCodable {
-    public init(anyCodable: any StitchVersionedCodable) {
-        self.init(previousInstance: anyCodable as! Self.PreviousCodable)
+    public init?(anyCodable: any StitchVersionedCodable) {
+        self.init(previousInstance: anyCodable as? Self.PreviousCodable)
     }
 }
 

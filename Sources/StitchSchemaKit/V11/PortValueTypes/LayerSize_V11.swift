@@ -9,7 +9,7 @@ import Foundation
 
 public enum LayerSize_V11: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V11
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V11
     public typealias PreviousInstance = LayerSize_V10.LayerSize
     public typealias LayerDimension = LayerDimension_V5.LayerDimension
     // MARK: - endif

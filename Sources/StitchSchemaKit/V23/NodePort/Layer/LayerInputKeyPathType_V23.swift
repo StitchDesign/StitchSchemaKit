@@ -9,7 +9,7 @@ import Foundation
 
 public enum LayerInputKeyPathType_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V23
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias UnpackedPortType = UnpackedPortType_V23.UnpackedPortType
     
     // TODO: change previous instance version

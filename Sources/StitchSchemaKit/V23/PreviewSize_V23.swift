@@ -9,7 +9,7 @@ import Foundation
 
 public enum PreviewSize_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V23
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = PreviewSize_V22.PreviewSize
     // MARK: - endif
     

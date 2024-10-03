@@ -10,7 +10,7 @@ import SwiftUI
 
 public enum StitchContentMode_V21: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V21
+    public static let version = StitchSchemaVersion._V21
     public typealias PreviousInstance = StitchContentMode_V20.StitchContentMode
     // MARK: - end
 

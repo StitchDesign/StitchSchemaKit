@@ -11,7 +11,7 @@ import SwiftUI
 public enum NodePortInputEntity_V24: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V24
+    public static let version = StitchSchemaVersion._V24
     typealias NodeEntitySchema = NodeEntity_V24
     public typealias PreviousInstance = NodePortInputEntity_V23.NodePortInputEntity
     typealias PatchNodeEntitySchema = PatchNodeEntity_V24
@@ -21,7 +21,7 @@ public enum NodePortInputEntity_V24: StitchSchemaVersionable {
     public typealias UserVisibleType = UserVisibleType_V24.UserVisibleType
     // MARK: - end
 
-    public struct NodePortInputEntity: Equatable {
+    public struct NodePortInputEntity: Equatable, Identifiable {
         public let id: NodeIOCoordinate
         public let portData: NodeConnectionType
         public let nodeKind: NodeKind

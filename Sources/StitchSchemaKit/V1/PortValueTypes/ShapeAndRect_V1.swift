@@ -10,7 +10,7 @@ import Foundation
 
 public enum ShapeAndRect_V1: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V1
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V1
     public typealias PreviousInstance = Self.ShapeAndRect
     public typealias RoundedRectangleData = RoundedRectangleData_V1.RoundedRectangleData
     public typealias TriangleData = TriangleData_V1.TriangleData

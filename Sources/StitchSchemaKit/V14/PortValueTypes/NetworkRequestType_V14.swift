@@ -9,7 +9,7 @@ import Foundation
 
 public enum NetworkRequestType_V14: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V14
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V14
     public typealias PreviousInstance = NetworkRequestType_V13.NetworkRequestType
     // MARK: - endif
     

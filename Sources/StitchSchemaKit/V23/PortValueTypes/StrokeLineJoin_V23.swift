@@ -9,7 +9,7 @@ import Foundation
 
 public enum StrokeLineJoin_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V23
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = StrokeLineJoin_V22.StrokeLineJoin
     // MARK: - endif
      

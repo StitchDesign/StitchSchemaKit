@@ -13,7 +13,7 @@ import SwiftyJSON
 
 public enum PortValue_V15: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V15
+    public static let version = StitchSchemaVersion._V15
     public typealias PreviousInstance = PortValue_V14.PortValue
     public typealias StitchStringValue = StitchStringValue_V15.StitchStringValue
     public typealias LayerDimension = LayerDimension_V5.LayerDimension

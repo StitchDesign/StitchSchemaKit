@@ -9,7 +9,7 @@ import Foundation
 
 public enum LayerTextVerticalAlignment_V20: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V20
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V20
     public typealias PreviousInstance = LayerTextVerticalAlignment_V19.LayerTextVerticalAlignment
     
     // MARK: - endif

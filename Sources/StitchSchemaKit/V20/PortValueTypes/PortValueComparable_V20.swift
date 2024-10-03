@@ -9,7 +9,7 @@ import Foundation
 
 public enum PortValueComparable_V20: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V20
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V20
     public typealias PreviousInstance = PortValueComparable_V19.PortValueComparable
     public typealias StitchStringValue = StitchStringValue_V20.StitchStringValue
     // MARK: - endif

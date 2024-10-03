@@ -11,7 +11,7 @@ import SwiftUI
 public enum NodePortInputEntity_V16: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V16
+    public static let version = StitchSchemaVersion._V16
     typealias NodeEntitySchema = NodeEntity_V16
     public typealias PreviousInstance = NodePortInputEntity_V15.NodePortInputEntity
     typealias PatchNodeEntitySchema = PatchNodeEntity_V16

@@ -10,7 +10,7 @@ import Foundation
 
 public enum InteractionType_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V2
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V2
     public typealias PreviousInstance = InteractionType_V1.InteractionType
     // MARK: - endif
  

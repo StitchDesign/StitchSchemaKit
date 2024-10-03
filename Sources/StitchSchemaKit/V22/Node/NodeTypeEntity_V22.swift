@@ -10,7 +10,7 @@ import Foundation
 public enum NodeTypeEntity_V22: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V22
+    public static let version = StitchSchemaVersion._V22
     public typealias PreviousInstance = NodeTypeEntity_V21.NodeTypeEntity
     // MARK: - end
 

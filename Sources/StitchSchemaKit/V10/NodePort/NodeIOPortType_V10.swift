@@ -9,7 +9,7 @@ import Foundation
 
 public enum NodeIOPortType_V10: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V10
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V10
     public typealias PreviousInstance = Self.NodeIOPortType
     public typealias LayerInputType = LayerInputType_V10.LayerInputType
     // MARK: - endif

@@ -9,7 +9,7 @@ import Foundation
 
 public enum StitchStringValue_V22: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static let version = StitchSchemaVersion._V22
+    public static let version = StitchSchemaVersion._V22
     public typealias PreviousInstance = StitchStringValue_V21.StitchStringValue
     // MARK: - end
     

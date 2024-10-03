@@ -10,7 +10,7 @@ import SwiftUI
 public enum LayerNodeEntity_V7: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    static var version = StitchSchemaVersion._V7
+    public static let version = StitchSchemaVersion._V7
     public typealias PreviousInstance = LayerNodeEntity_V6.LayerNodeEntity
     public typealias NodeEntitySchema = NodeEntity_V7
     public typealias Layer = Layer_V7.Layer

@@ -9,7 +9,7 @@ import Foundation
 
 public enum MobileHapticStyle_V8: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V8
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V8
     public typealias PreviousInstance = MobileHapticStyle_V7.MobileHapticStyle
 
     // MARK: - endif

@@ -10,7 +10,7 @@ import SwiftyJSON
 
 public enum StitchJSON_V11: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V11
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V11
     public typealias PreviousInstance = StitchJSON_V10.StitchJSON
     // MARK: - endif
  

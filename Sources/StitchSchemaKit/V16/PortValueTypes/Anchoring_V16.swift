@@ -9,7 +9,7 @@ import Foundation
 
 public enum Anchoring_V16: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V16
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V16
     public typealias PreviousInstance = Anchoring_V15.Anchoring
     // MARK: - endif
      

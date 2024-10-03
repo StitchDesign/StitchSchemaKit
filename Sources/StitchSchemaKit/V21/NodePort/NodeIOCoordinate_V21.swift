@@ -9,7 +9,7 @@ import Foundation
 
 public enum NodeIOCoordinate_V21: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V21
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V21
     public typealias PreviousInstance = NodeIOCoordinate_V20.NodeIOCoordinate
     public typealias NodeIOPortType = NodeIOPortType_V21.NodeIOPortType
     // MARK: - endif

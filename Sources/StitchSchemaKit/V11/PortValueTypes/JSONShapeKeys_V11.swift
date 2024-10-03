@@ -9,7 +9,7 @@ import Foundation
 
 public enum JSONShapeKeys_V11: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V11
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V11
     public typealias PreviousInstance = JSONShapeKeys_V10.JSONShapeKeys
     // MARK: - endif
  

@@ -12,7 +12,7 @@ import UIKit
 
 public enum StitchCameraOrientation_V2: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V2
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V2
     public typealias PreviousInstance = StitchCameraOrientation_V1.StitchCameraOrientation
     // MARK: - endif
     

@@ -10,7 +10,7 @@ import SwiftUI
 
 public enum CommentBoxData_V14: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V14
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V14
     public typealias PreviousInstance = CommentBoxData_V13.CommentBoxData
     // MARK: - endif
  

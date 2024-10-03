@@ -9,7 +9,7 @@ import Foundation
 
 public enum Plane_V23: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    static var version: StitchSchemaVersion = StitchSchemaVersion._V23
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V23
     public typealias PreviousInstance = Plane_V22.Plane
     // MARK: - endif
   

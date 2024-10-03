@@ -15,8 +15,14 @@ public enum GraphDocumentPath_V25: StitchSchemaVersionable {
     // MARK: - end
 
     public struct GraphDocumentPath: Codable, Equatable, Sendable {
-        let docId: UUID
-        let componentsPath: [UUID]
+        public let docId: UUID
+        public let componentsPath: [UUID]
+        
+        public init(docId: UUID,
+                    componentsPath: [UUID]) {
+            self.docId = docId
+            self.componentsPath = componentsPath
+        }
     }
 }
 

@@ -15,7 +15,7 @@ public enum GraphSaveLocation_V25: StitchSchemaVersionable {
     public typealias GraphDocumentPath = GraphDocumentPath_V25.GraphDocumentPath
     // MARK: - end
 
-    public enum GraphSaveLocation: Equatable, Sendable {
+    public enum GraphSaveLocation: Codable, Equatable, Sendable {
         case document(GraphDocumentPath)
         case userLibrary
         // TODO: system

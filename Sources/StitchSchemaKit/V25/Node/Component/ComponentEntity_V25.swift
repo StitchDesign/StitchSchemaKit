@@ -15,13 +15,13 @@ public enum ComponentEntity_V25: StitchSchemaVersionable {
     // MARK: - end
 
     public struct ComponentEntity: Codable, Equatable {
-        let componentId: UUID
-        var inputs: [NodeConnectionType_V24.NodeConnectionType]
-        var canvasEntity: CanvasNodeEntity_V24.CanvasNodeEntity
+        public let componentId: UUID
+        public var inputs: [NodeConnectionType_V25.NodeConnectionType]
+        public var canvasEntity: CanvasNodeEntity_V25.CanvasNodeEntity
         
-        init(componentId: UUID,
-             inputs: [NodeConnectionType_V24.NodeConnectionType],
-             canvasEntity: CanvasNodeEntity_V24.CanvasNodeEntity) {
+        public init(componentId: UUID,
+                    inputs: [NodeConnectionType_V25.NodeConnectionType],
+                    canvasEntity: CanvasNodeEntity_V25.CanvasNodeEntity) {
             self.componentId = componentId
             self.inputs = inputs
             self.canvasEntity = canvasEntity

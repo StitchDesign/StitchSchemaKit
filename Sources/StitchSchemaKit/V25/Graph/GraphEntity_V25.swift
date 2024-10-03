@@ -17,18 +17,18 @@ public enum GraphEntity_V25: StitchSchemaVersionable {
     public typealias CommentBoxData = CommentBoxData_V25.CommentBoxData
     // MARK: - end
 
-    public struct GraphEntity: Codable, Equatable, Sendable {
+    public struct GraphEntity: Equatable, Sendable {
         public var id: UUID
         public var name: String
         public var nodes: [NodeEntity]
         public var orderedSidebarLayers: [SidebarLayerData]
         public let commentBoxes: [CommentBoxData]
         
-        init(id: UUID,
-             name: String,
-             nodes: [NodeEntity],
-             orderedSidebarLayers: [SidebarLayerData],
-             commentBoxes: [CommentBoxData]) {
+        public init(id: UUID,
+                    name: String,
+                    nodes: [NodeEntity],
+                    orderedSidebarLayers: [SidebarLayerData],
+                    commentBoxes: [CommentBoxData]) {
             self.id = id
             self.name = name
             self.nodes = nodes

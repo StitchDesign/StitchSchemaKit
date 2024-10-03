@@ -18,6 +18,7 @@ public enum NodeTypeEntity_V25: StitchSchemaVersionable {
         case patch(PatchNodeEntity_V25.PatchNodeEntity)
         case layer(LayerNodeEntity_V25.LayerNodeEntity)
         case group(CanvasNodeEntity_V25.CanvasNodeEntity)
+        case component(ComponentEntity_V25.ComponentEntity)
     }
 }
 

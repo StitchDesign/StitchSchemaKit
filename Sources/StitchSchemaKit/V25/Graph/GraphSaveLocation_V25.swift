@@ -17,6 +17,7 @@ public enum GraphSaveLocation_V25: StitchSchemaVersionable {
 
     public enum GraphSaveLocation: Codable, Equatable, Sendable {
         case document(GraphDocumentPath)
+        case userLibrary
         case system(UUID)
     }
 }

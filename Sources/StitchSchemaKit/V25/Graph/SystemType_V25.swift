@@ -14,10 +14,28 @@ public enum StitchSystemType_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = Self.StitchSystemType
     // MARK: - end
     
-    public enum StitchSystemType: Codable, Hashable, Sendable {
+    public enum StitchSystemType: Codable, Hashable, Identifiable, CustomStringConvertible, Sendable {
         case userLibrary
         case system(UUID)
+        
+        public var id: Int {
+            switch self {
+            case .userLibrary:
+                return Self.userLibraryName.hashValue
+                
+            case .system(let id):
+                return id.hashValue
+            }
+        }
+        
+        public var description: String {
+            "\(self.hashValue)"
+        }
     }
+}
+
+extension StitchSystemType_V25.StitchSystemType {
+    public static let userLibraryName = "User Library"
 }
 
 extension StitchSystemType_V25.StitchSystemType {

@@ -12,13 +12,14 @@ public enum StitchSystem_V25: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
     public static let version = StitchSchemaVersion._V25
     public typealias PreviousInstance = Self.StitchSystem
+    public typealias StitchSystemType = StitchSystemType_V25.StitchSystemType
     // MARK: - end
 
     public struct StitchSystem: StitchVersionedCodable, Equatable, Sendable {
-        public var id: UUID
+        public var id: StitchSystemType
         public var name: String
         
-        public init(id: UUID,
+        public init(id: StitchSystemType,
                     name: String) {
             self.id = id
             self.name = name

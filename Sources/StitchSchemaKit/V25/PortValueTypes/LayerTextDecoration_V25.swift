@@ -13,7 +13,7 @@ public enum LayerTextDecoration_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = LayerTextDecoration_V24.LayerTextDecoration
     // MARK: - endif
 
-    public enum LayerTextDecoration: String, Equatable, Codable, CaseIterable {
+    public enum LayerTextDecoration: String, Equatable, Codable, CaseIterable, Hashable {
         case none = "None",
              underline = "Underline",
              strikethrough = "Strikethrough"

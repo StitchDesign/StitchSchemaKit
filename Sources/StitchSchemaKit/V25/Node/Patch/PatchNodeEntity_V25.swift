@@ -18,7 +18,7 @@ public enum PatchNodeEntity_V25: StitchSchemaVersionable {
     public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V25.NodePortInputEntity]
     // MARK: - end
 
-    public struct PatchNodeEntity: Equatable {
+    public struct PatchNodeEntity: Hashable {
         public let id: UUID
         public let patch: Patch
         public var inputs: NodePortInputEntitySchemas

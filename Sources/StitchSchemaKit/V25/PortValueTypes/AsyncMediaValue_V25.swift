@@ -13,12 +13,17 @@ public enum AsyncMediaValue_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = AsyncMediaValue_V24.AsyncMediaValue
     // MARK: - endif
  
-    public struct AsyncMediaValue: Equatable {
+    public struct AsyncMediaValue: Hashable {
     
         public static func == (lhs: Self, rhs: Self) -> Bool {
             lhs.id == rhs.id &&
             lhs.dataType == rhs.dataType &&
             lhs._mediaObject == nil && rhs._mediaObject == nil
+        }
+        
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(self.id)
+            hasher.combine(self.dataType)
         }
         
         public var id: UUID

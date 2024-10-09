@@ -15,7 +15,7 @@ public enum SplitterType_V25: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public enum SplitterType: String, CaseIterable {
+    public enum SplitterType: String, CaseIterable, Hashable {
         case inline = "Inline", // ie regular splitter: input and output
              // add GroupNodeId assoc-val ?
              input = "Input", // ie groupIutput node: output only

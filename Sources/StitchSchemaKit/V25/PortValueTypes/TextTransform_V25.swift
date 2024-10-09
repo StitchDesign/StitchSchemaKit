@@ -13,7 +13,7 @@ public enum TextTransform_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = TextTransform_V24.TextTransform
     // MARK: - endif
   
-    public enum TextTransform: String, CaseIterable {
+    public enum TextTransform: String, CaseIterable, Hashable {
         case uppercase, lowercase, capitalize
     }
 

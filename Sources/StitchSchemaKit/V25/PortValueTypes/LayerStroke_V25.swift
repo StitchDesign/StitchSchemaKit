@@ -13,7 +13,7 @@ public enum LayerStroke_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = LayerStroke_V24.LayerStroke
     // MARK: - endif
     
-    public enum LayerStroke: String, Codable, CaseIterable {
+    public enum LayerStroke: String, Codable, CaseIterable, Hashable {
         case none, inside, outside
     }
 }

@@ -21,7 +21,7 @@ public enum NodePortInputEntity_V25: StitchSchemaVersionable {
     public typealias UserVisibleType = UserVisibleType_V25.UserVisibleType
     // MARK: - end
 
-    public struct NodePortInputEntity: Equatable, Identifiable {
+    public struct NodePortInputEntity: Hashable, Identifiable {
         public let id: NodeIOCoordinate
         public let portData: NodeConnectionType
         public let nodeKind: NodeKind

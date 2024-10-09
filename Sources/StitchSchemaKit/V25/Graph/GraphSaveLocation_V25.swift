@@ -16,7 +16,7 @@ public enum GraphSaveLocation_V25: StitchSchemaVersionable {
     public typealias StitchSystemType = StitchSystemType_V25.StitchSystemType
     // MARK: - end
     
-    public enum GraphSaveLocation: Codable, Equatable, Sendable {
+    public enum GraphSaveLocation: Codable, Hashable, Sendable {
         case document(UUID)
         case localComponent(GraphDocumentPath)
         case systemComponent(StitchSystemType, UUID)

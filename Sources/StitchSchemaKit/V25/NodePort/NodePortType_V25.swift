@@ -15,7 +15,7 @@ public enum NodeConnectionType_V25: StitchSchemaVersionable {
     public typealias NodeIOCoordinate = NodeIOCoordinate_V25.NodeIOCoordinate
     // MARK: - endif
     
-    public enum NodeConnectionType: Equatable {
+    public enum NodeConnectionType: Hashable {
         case values(PortValues)
         case upstreamConnection(NodeIOCoordinate)
     }

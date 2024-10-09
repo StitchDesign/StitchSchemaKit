@@ -13,7 +13,7 @@ public enum DelayStyle_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = DelayStyle_V24.DelayStyle
     // MARK: - endif
     
-    public enum DelayStyle: String, Equatable, CaseIterable {
+    public enum DelayStyle: String, Equatable, CaseIterable, Hashable {
         case always = "Always"
         case increasing = "Increasing"
         case decreasing = "Decreasing"

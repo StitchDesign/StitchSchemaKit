@@ -14,7 +14,7 @@ public enum Patch_V25: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public enum Patch: String, CaseIterable, Equatable {
+    public enum Patch: String, CaseIterable, Hashable {
         case splitter = "Value",
              add,
              convertPosition,

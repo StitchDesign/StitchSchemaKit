@@ -16,7 +16,7 @@ public enum NodeEntity_V25: StitchSchemaVersionable {
     public typealias NodeTypeEntity = NodeTypeEntity_V25.NodeTypeEntity
     // MARK: - end
 
-    public struct NodeEntity: Equatable, Identifiable {
+    public struct NodeEntity: Hashable, Identifiable {
         public let id: UUID
         public var nodeTypeEntity: NodeTypeEntity
         public let title: String

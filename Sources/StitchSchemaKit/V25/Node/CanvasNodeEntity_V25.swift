@@ -18,7 +18,7 @@ public enum CanvasNodeEntity_V25: StitchSchemaVersionable {
     public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V25.NodePortInputEntity]
     // MARK: - end
 
-    public struct CanvasNodeEntity: Equatable {
+    public struct CanvasNodeEntity: Hashable {
         public var position: CGPoint
         public var zIndex: Double
         public var parentGroupNodeId: UUID?

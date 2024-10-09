@@ -13,7 +13,7 @@ public enum ShapeCoordinates_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = ShapeCoordinates_V24.ShapeCoordinates
     // MARK: - endif
  
-    public enum ShapeCoordinates: String, Equatable, CaseIterable {
+    public enum ShapeCoordinates: String, Equatable, CaseIterable, Hashable {
         case relative = "Relative"
         case absolute = "Absolute"
     }

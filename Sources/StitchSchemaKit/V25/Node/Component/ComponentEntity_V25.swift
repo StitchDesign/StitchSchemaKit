@@ -14,7 +14,7 @@ public enum ComponentEntity_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = NodeTypeEntity_V24.NodeTypeEntity
     // MARK: - end
 
-    public struct ComponentEntity: Codable, Equatable {
+    public struct ComponentEntity: Codable, Hashable {
         public let componentId: UUID
         public var inputs: [NodeConnectionType_V25.NodeConnectionType]
         public var canvasEntity: CanvasNodeEntity_V25.CanvasNodeEntity

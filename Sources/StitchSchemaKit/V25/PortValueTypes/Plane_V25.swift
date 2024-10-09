@@ -13,7 +13,7 @@ public enum Plane_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = Plane_V24.Plane
     // MARK: - endif
   
-    public enum Plane: String, CaseIterable {
+    public enum Plane: String, CaseIterable, Hashable {
         case any, horizontal, vertical
     }
 }

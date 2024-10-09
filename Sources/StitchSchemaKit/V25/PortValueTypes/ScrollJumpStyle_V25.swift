@@ -14,7 +14,7 @@ public enum ScrollJumpStyle_V25: StitchSchemaVersionable {
     // MARK: - endif
     
 
-    public enum ScrollJumpStyle: String, CaseIterable {
+    public enum ScrollJumpStyle: String, CaseIterable, Hashable {
         case animated
         case instant
     }

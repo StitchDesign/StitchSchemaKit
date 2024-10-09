@@ -14,7 +14,7 @@ public enum Layer_V25: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public enum Layer: String, CaseIterable {
+    public enum Layer: String, CaseIterable, Hashable {
         case text,
              oval,
              rectangle,

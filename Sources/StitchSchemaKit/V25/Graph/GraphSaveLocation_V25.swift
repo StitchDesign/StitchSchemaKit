@@ -19,7 +19,7 @@ public enum GraphSaveLocation_V25: StitchSchemaVersionable {
     public enum GraphSaveLocation: Codable, Equatable, Sendable {
         case document(UUID)
         case localComponent(GraphDocumentPath)
-        case systemComponent(StitchSystemType)
+        case systemComponent(StitchSystemType, UUID)
         case system(StitchSystemType)
     }
 }

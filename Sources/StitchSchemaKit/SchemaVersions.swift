@@ -104,6 +104,8 @@ public typealias CurrentComponentEntity = ComponentEntity_V25
 public typealias CurrentGraphEntity = GraphEntity_V25
 public typealias CurrentGraphSaveLocation = GraphSaveLocation_V25
 public typealias CurrentGraphDocumentPath = GraphDocumentPath_V25
+public typealias CurrentStitchSystemType = StitchSystemType_V25
+public typealias CurrentStitchSystem = StitchSystem_V25
 
 // MARK: - end
 

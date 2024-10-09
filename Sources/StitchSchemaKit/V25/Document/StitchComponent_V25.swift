@@ -20,14 +20,11 @@ public enum StitchComponent_V25: StitchSchemaVersionable {
     public struct StitchComponent: StitchVersionedCodable, Equatable, Sendable {
         // Share location, saved here due to static helpers for sharing
         public var saveLocation: GraphSaveLocation
-        public var isPublished: Bool
         public var graph: GraphEntity
         
         public init(saveLocation: GraphSaveLocation,
-                    isPublished: Bool,
                     graph: GraphEntity) {
             self.saveLocation = saveLocation
-            self.isPublished = isPublished
             self.graph = graph
         }
     }

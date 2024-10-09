@@ -13,13 +13,14 @@ public enum GraphSaveLocation_V25: StitchSchemaVersionable {
     public static let version = StitchSchemaVersion._V25
     public typealias PreviousInstance = Self.GraphSaveLocation
     public typealias GraphDocumentPath = GraphDocumentPath_V25.GraphDocumentPath
+    public typealias StitchSystemType = StitchSystemType_V25.StitchSystemType
     // MARK: - end
-
+    
     public enum GraphSaveLocation: Codable, Equatable, Sendable {
-        case document(GraphDocumentPath)
-        case userLibrary
-        // TODO: system
-        //case system(UUID)
+        case document(UUID)
+        case localComponent(GraphDocumentPath)
+        case systemComponent(StitchSystemType, UUID)
+        case system(StitchSystemType)
     }
 }
 

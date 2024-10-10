@@ -21,7 +21,7 @@ public enum StitchSystemType_V25: StitchSchemaVersionable {
         public var id: Int {
             switch self {
             case .userLibrary:
-                return Self.userLibraryName.hashValue
+                return 0
                 
             case .system(let id):
                 return id.hashValue
@@ -29,7 +29,7 @@ public enum StitchSystemType_V25: StitchSchemaVersionable {
         }
         
         public var description: String {
-            "\(self.hashValue)"
+            "\(self.id)"
         }
     }
 }

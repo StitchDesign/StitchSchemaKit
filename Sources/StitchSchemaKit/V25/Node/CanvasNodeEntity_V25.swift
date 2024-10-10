@@ -23,12 +23,6 @@ public enum CanvasNodeEntity_V25: StitchSchemaVersionable {
         public var zIndex: Double
         public var parentGroupNodeId: UUID?
         
-        public func hasher(into hasher: inout Hasher) {
-            // Ignores position and z-index for component hashing comparison
-            
-            hasher.combine(self.parentGroupNodeId)
-        }
-        
         public init(position: CGPoint,
                     zIndex: Double,
                     parentGroupNodeId: UUID?) {

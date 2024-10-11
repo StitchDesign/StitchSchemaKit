@@ -14,7 +14,7 @@ public enum LayerDimension_V25: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public enum LayerDimension: Equatable {
+    public enum LayerDimension: Hashable {
         case number(CGFloat),
              // visual media layer: resource's inherent dimnensions
              // non-media layer: 100% of parent's dimension

@@ -14,7 +14,7 @@ public enum NodeTypeEntity_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = NodeTypeEntity_V24.NodeTypeEntity
     // MARK: - end
 
-    public enum NodeTypeEntity: Equatable {
+    public enum NodeTypeEntity: Hashable {
         case patch(PatchNodeEntity_V25.PatchNodeEntity)
         case layer(LayerNodeEntity_V25.LayerNodeEntity)
         case group(CanvasNodeEntity_V25.CanvasNodeEntity)

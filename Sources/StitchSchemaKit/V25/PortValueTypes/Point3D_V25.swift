@@ -14,7 +14,7 @@ public enum Point3D_V25: StitchSchemaVersionable {
     // MARK: - endif
     
 
-    public struct Point3D: Equatable {
+    public struct Point3D: Hashable {
         public var x: Double
         public var y: Double
         public var z: Double

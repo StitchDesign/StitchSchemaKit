@@ -16,7 +16,7 @@ public enum CustomShape_V25: StitchSchemaVersionable {
     public typealias ShapeDataArray = [ShapeAndRect]
     // MARK: - endif
  
-    public struct CustomShape: Equatable, Codable {
+    public struct CustomShape: Codable, Hashable {
         /// Custom decoder enables us to only decode essential, non-cached values.
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)

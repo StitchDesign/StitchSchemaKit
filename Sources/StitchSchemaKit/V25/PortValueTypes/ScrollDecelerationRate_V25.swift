@@ -14,7 +14,7 @@ public enum ScrollDecelerationRate_V25: StitchSchemaVersionable {
     // MARK: - endif
     
 
-    public enum ScrollDecelerationRate: String, CaseIterable {
+    public enum ScrollDecelerationRate: String, CaseIterable, Hashable {
         case normal
         case fast
     }

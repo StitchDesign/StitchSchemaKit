@@ -13,7 +13,7 @@ public enum VisualMediaFitStyle_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = VisualMediaFitStyle_V24.VisualMediaFitStyle
     // MARK: - endif
  
-    public enum VisualMediaFitStyle: String, CaseIterable {
+    public enum VisualMediaFitStyle: String, CaseIterable, Hashable {
         case fit, fill, stretch
     }
 

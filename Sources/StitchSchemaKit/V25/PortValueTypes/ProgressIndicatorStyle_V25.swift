@@ -13,7 +13,7 @@ public enum ProgressIndicatorStyle_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = ProgressIndicatorStyle_V24.ProgressIndicatorStyle
 
     // MARK: - endif
-    public enum ProgressIndicatorStyle: String, Equatable, Codable, CaseIterable, Sendable {
+    public enum ProgressIndicatorStyle: String, Equatable, Codable, CaseIterable, Sendable, Hashable {
         case circular = "Circular",
              linear = "Linear"
     }

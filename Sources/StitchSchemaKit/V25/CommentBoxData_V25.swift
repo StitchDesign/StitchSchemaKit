@@ -15,7 +15,7 @@ public enum CommentBoxData_V25: StitchSchemaVersionable {
     public typealias CanvasItemId = CanvasItemId_V25.CanvasItemId
     // MARK: - endif
  
-    public struct CommentBoxData: Equatable, Hashable {
+    public struct CommentBoxData: Hashable {
         public var id: UUID
         
         /*

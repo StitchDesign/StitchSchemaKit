@@ -14,7 +14,7 @@ public enum CameraDirection_V25: StitchSchemaVersionable {
     // MARK: - endif
  
     // e.g. AVCaptureDevice.Position.front
-    public enum CameraDirection: String, CaseIterable {
+    public enum CameraDirection: String, CaseIterable, Hashable {
         case front, back
     }
 

@@ -14,7 +14,7 @@ public enum StitchOrientation_V25: StitchSchemaVersionable {
     // MARK: - endif
     
     // Used for VStack vs HStack on layer groups
-    public enum StitchOrientation: String, CaseIterable {
+    public enum StitchOrientation: String, CaseIterable, Hashable {
         case none, horizontal, vertical, grid
     }
 

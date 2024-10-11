@@ -13,7 +13,7 @@ public enum SidebarLayerData_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = SidebarLayerData_V24.SidebarLayerData
     // MARK: - endif
     
-    public struct SidebarLayerData: Equatable, Hashable {
+    public struct SidebarLayerData: Hashable {
         public let id: UUID
         public var children: [Self]?
         

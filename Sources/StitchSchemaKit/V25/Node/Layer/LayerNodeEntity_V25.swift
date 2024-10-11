@@ -18,7 +18,7 @@ public enum LayerNodeEntity_V25: StitchSchemaVersionable {
     public typealias NodeConnectionType = NodeConnectionType_V25.NodeConnectionType
     // MARK: - end
 
-    public struct LayerNodeEntity: Equatable {
+    public struct LayerNodeEntity: Hashable {
         public  let id: UUID
         public let layer: Layer
         

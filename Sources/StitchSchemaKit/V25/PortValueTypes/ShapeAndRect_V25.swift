@@ -17,7 +17,7 @@ public enum ShapeAndRect_V25: StitchSchemaVersionable {
     public typealias JSONShapeCommands = [JSONShapeCommand_V25.JSONShapeCommand]
     // MARK: - endif
  
-    public enum ShapeAndRect: Equatable {
+    public enum ShapeAndRect: Hashable {
         case oval(CGRect),
              circle(CGRect),
              rectangle(RoundedRectangleData),

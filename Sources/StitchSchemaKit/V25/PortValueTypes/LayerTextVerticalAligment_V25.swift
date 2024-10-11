@@ -15,7 +15,7 @@ public enum LayerTextVerticalAlignment_V25: StitchSchemaVersionable {
     // MARK: - endif
 
     // Vertical alignment options for our Text Layers in preview window
-    public enum LayerTextVerticalAlignment: String, CaseIterable {
+    public enum LayerTextVerticalAlignment: String, CaseIterable, Hashable {
         case top, center, bottom
     }
 

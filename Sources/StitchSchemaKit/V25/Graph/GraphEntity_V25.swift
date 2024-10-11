@@ -17,7 +17,7 @@ public enum GraphEntity_V25: StitchSchemaVersionable {
     public typealias CommentBoxData = CommentBoxData_V25.CommentBoxData
     // MARK: - end
 
-    public struct GraphEntity: Equatable, Sendable {
+    public struct GraphEntity: Hashable, Sendable {
         public var id: UUID
         public var name: String
         public var nodes: [NodeEntity]

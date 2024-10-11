@@ -14,7 +14,7 @@ public enum StitchMapType_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = StitchMapType_V24.StitchMapType
     
     // MARK: - endif
-    public enum StitchMapType: String, Equatable, Codable, CaseIterable, Sendable {
+    public enum StitchMapType: String, Equatable, Codable, CaseIterable, Sendable, Hashable {
         case standard = "Standard",
              satellite = "Satellite",
              hybrid = "Hybrid",

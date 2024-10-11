@@ -14,7 +14,7 @@ public enum StitchStringValue_V25: StitchSchemaVersionable {
     // MARK: - end
     
     /// A wrapper for some Base64 string which also contains an ID mapping to`StitchImage` for perf resasons.
-    public struct StitchStringValue: Equatable, Codable, Sendable {
+    public struct StitchStringValue: Hashable, Codable, Sendable {
         public let string: String
         
         // ID more efficient comparison for large strings

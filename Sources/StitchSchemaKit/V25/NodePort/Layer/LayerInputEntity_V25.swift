@@ -16,7 +16,7 @@ public enum LayerInputEntity_V25: StitchSchemaVersionable {
     public typealias CanvasNodeEntity = CanvasNodeEntity_V25.CanvasNodeEntity
     // MARK: - end
 
-    public struct LayerInputEntity: Equatable, Codable, Sendable {
+    public struct LayerInputEntity: Hashable, Codable, Sendable {
         public var packedData: LayerInputDataEntity
         public var unpackedData: [LayerInputDataEntity]
         

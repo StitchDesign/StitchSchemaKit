@@ -17,7 +17,7 @@ public enum StitchComponent_V25: StitchSchemaVersionable {
     public typealias SidebarLayerList = [SidebarLayerData_V25.SidebarLayerData]
     // MARK: - end
 
-    public struct StitchComponent: StitchVersionedCodable, Equatable, Sendable {
+    public struct StitchComponent: StitchVersionedCodable, Hashable, Sendable {
         // Share location, saved here due to static helpers for sharing
         public var saveLocation: GraphSaveLocation
         public var graph: GraphEntity

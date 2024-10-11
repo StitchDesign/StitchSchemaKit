@@ -65,7 +65,7 @@ public enum PortValue_V25: StitchSchemaVersionable {
     public typealias StitchTransform = StitchTransform_V25.StitchTransform
     // MARK: - end
     
-    public enum PortValue: Codable, Equatable {
+    public enum PortValue: Codable, Hashable {
         case string(StitchStringValue)
         case bool(Bool)
         case int(Int) // e.g  nodeId or index?

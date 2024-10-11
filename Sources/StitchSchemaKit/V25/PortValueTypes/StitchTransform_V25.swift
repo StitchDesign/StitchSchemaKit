@@ -13,7 +13,7 @@ public enum StitchTransform_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = StitchTransform_V24.StitchTransform
     // MARK: - endif
     
-    public struct StitchTransform: Codable, Equatable {
+    public struct StitchTransform: Codable, Hashable {
         public var positionX: Double
         public var positionY: Double
         public var positionZ: Double

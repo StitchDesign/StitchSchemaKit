@@ -15,7 +15,7 @@ public enum LayerSize_V25: StitchSchemaVersionable {
     // MARK: - endif
     
 
-    public struct LayerSize: Equatable {
+    public struct LayerSize: Hashable {
         public var width: LayerDimension
         public var height: LayerDimension
         

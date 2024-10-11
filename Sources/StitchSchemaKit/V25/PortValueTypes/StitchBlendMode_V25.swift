@@ -15,7 +15,7 @@ public enum StitchBlendMode_V25: StitchSchemaVersionable {
     // MARK: - endif
  
     // https://developer.apple.com/documentation/swiftui/blendmode
-    public enum StitchBlendMode: String, Equatable, Codable, CaseIterable, Sendable {
+    public enum StitchBlendMode: String, Equatable, Codable, CaseIterable, Sendable, Hashable {
         case normal = "Normal"
         
         // Darkening

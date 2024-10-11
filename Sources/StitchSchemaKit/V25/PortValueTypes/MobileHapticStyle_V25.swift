@@ -13,7 +13,7 @@ public enum MobileHapticStyle_V25: StitchSchemaVersionable {
     public typealias PreviousInstance = MobileHapticStyle_V24.MobileHapticStyle
 
     // MARK: - endif
-    public enum MobileHapticStyle: String, Equatable, Codable, CaseIterable, Sendable {
+    public enum MobileHapticStyle: String, Equatable, Codable, CaseIterable, Sendable, Hashable {
         case light = "Light",
              medium = "Medium",
              heavy = "Heavy"

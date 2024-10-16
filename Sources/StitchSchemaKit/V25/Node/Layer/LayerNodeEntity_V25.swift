@@ -149,7 +149,6 @@ public enum LayerNodeEntity_V25: StitchSchemaVersionable {
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
-        public let isExpandedInSidebar: Bool?
         
         public init(id: UUID,
                     layer: Layer,
@@ -269,8 +268,7 @@ public enum LayerNodeEntity_V25: StitchSchemaVersionable {
                     offsetInGroupPort: LayerInputEntity,
                     
                     hasSidebarVisibility: Bool,
-                    layerGroupId: UUID?,
-                    isExpandedInSidebar: Bool?) {     
+                    layerGroupId: UUID?) {
             self.id = id
             self.layer = layer
             self.outputCanvasPorts = outputCanvasPorts
@@ -357,7 +355,6 @@ public enum LayerNodeEntity_V25: StitchSchemaVersionable {
             self.endRadiusPort = endRadiusPort
             self.hasSidebarVisibility = hasSidebarVisibility
             self.layerGroupId = layerGroupId
-            self.isExpandedInSidebar = isExpandedInSidebar
             
             self.shadowColorPort = shadowColorPort
             self.shadowOpacityPort = shadowOpacityPort
@@ -528,7 +525,6 @@ extension LayerNodeEntity_V25.LayerNodeEntity: StitchVersionedCodable {
                   offsetInGroupPort: .init(previousInstance: previousInstance.offsetInGroupPort),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
-                  layerGroupId: previousInstance.layerGroupId,
-                  isExpandedInSidebar: previousInstance.isExpandedInSidebar)
+                  layerGroupId: previousInstance.layerGroupId)
     }
 }

@@ -153,6 +153,9 @@ public enum LayerInputPort_V25: StitchSchemaVersionable {
 
         // Layer's offset when in a Group
         case offsetInGroup
+        
+        case materialThickness
+        case deviceAppearance
     }
 }
 

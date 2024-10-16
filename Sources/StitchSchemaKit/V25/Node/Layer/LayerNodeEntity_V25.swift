@@ -146,6 +146,10 @@ public enum LayerNodeEntity_V25: StitchSchemaVersionable {
         public var layerMarginPort: LayerInputEntity
         public var offsetInGroupPort: LayerInputEntity
         
+        // Material Layer
+        public var deviceAppearancePort: LayerInputEntity
+        public var materialThicknessPort: LayerInputEntity
+        
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -267,6 +271,9 @@ public enum LayerNodeEntity_V25: StitchSchemaVersionable {
                     layerPaddingPort: LayerInputEntity,
                     layerMarginPort: LayerInputEntity,
                     offsetInGroupPort: LayerInputEntity,
+                    
+                    deviceAppearancePort: LayerInputEntity,
+                    materialThicknessPort: LayerInputEntity,
                     
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,
@@ -391,6 +398,9 @@ public enum LayerNodeEntity_V25: StitchSchemaVersionable {
             self.layerPaddingPort = layerPaddingPort
             self.layerMarginPort = layerMarginPort
             self.offsetInGroupPort = offsetInGroupPort
+            
+            self.deviceAppearancePort = deviceAppearancePort
+            self.materialThicknessPort = materialThicknessPort
         }
     }
 }
@@ -526,6 +536,10 @@ extension LayerNodeEntity_V25.LayerNodeEntity: StitchVersionedCodable {
                   layerPaddingPort: .init(previousInstance: previousInstance.layerPaddingPort),
                   layerMarginPort: .init(previousInstance: previousInstance.layerMarginPort),
                   offsetInGroupPort: .init(previousInstance: previousInstance.offsetInGroupPort),
+                  
+                  // TODO: fix after version 25
+                  deviceAppearancePort: .createEmpty(),
+                  materialThicknessPort: .createEmpty(),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

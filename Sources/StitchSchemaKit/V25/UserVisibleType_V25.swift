@@ -70,6 +70,8 @@ public enum UserVisibleType_V25: StitchSchemaVersionable {
         case padding = "Padding"
         case sizingScenario = "Sizing Scenario"
         case pinToId = "Pin To"
+        case deviceAppearance = "Device Appearance"
+        case materialThickness = "Material Thickness"
     }
 }
 

@@ -26,7 +26,7 @@ public enum GraphSaveLocation_V26: StitchSchemaVersionable {
 
 extension GraphSaveLocation_V26.GraphSaveLocation {
     public init(previousInstance: GraphSaveLocation_V26.PreviousInstance) {
-        // TODO: fix after version 25 (wasn't encoded ever in version 24)
+        // Note: not migrating during V25 -> V26 because has not yet been released as feature
         fatalError()
     }
 }

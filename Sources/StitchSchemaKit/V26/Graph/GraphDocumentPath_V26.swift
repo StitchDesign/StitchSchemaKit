@@ -31,7 +31,7 @@ public enum GraphDocumentPath_V26: StitchSchemaVersionable {
 
 extension GraphDocumentPath_V26.GraphDocumentPath {
     public init(previousInstance: GraphDocumentPath_V26.PreviousInstance) {
-        // TODO: fix after version 25
+        // Note: not migrating during V25 -> V26 because has not yet been released as feature
         fatalError()
     }
 }

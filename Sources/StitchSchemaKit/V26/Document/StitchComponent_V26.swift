@@ -32,7 +32,7 @@ public enum StitchComponent_V26: StitchSchemaVersionable {
 
 extension StitchComponent_V26.StitchComponent {
     public init(previousInstance: StitchComponent_V26.PreviousInstance) {
-        // TODO: fix after version 25 (wasn't encoded ever in version 24)
+        // Note: not migrating during V25 -> V26 because has not yet been released as feature
         fatalError()
     }
 }

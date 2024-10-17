@@ -40,7 +40,7 @@ extension StitchSystemType_V26.StitchSystemType {
 
 extension StitchSystemType_V26.StitchSystemType {
     public init(previousInstance: StitchSystemType_V26.PreviousInstance) {
-        // Note: not migrating during V25 -> V26 because has not yet been released as feature
+        // TODO: not migrating during V25 -> V26 because has not yet been released as feature
         fatalError()
     }
 }

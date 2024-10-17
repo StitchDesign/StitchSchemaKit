@@ -29,7 +29,7 @@ public enum StitchSystem_V26: StitchSchemaVersionable {
 
 extension StitchSystem_V26.StitchSystem {
     public init(previousInstance: StitchSystem_V26.PreviousInstance) {
-        // Note: not migrating during V25 -> V26 because has not yet been released as feature
+        // TODO: not migrating during V25 -> V26 because has not yet been released as feature
         fatalError()
     }
 }

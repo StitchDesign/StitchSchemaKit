@@ -106,6 +106,8 @@ public typealias CurrentGraphSaveLocation = GraphSaveLocation_V26
 public typealias CurrentGraphDocumentPath = GraphDocumentPath_V26
 public typealias CurrentStitchSystemType = StitchSystemType_V26
 public typealias CurrentStitchSystem = StitchSystem_V26
+public typealias CurrentDeviceAppearance = DeviceAppearance_V26
+public typealias CurrentMaterialThickness = MaterialThickness_V26
 
 // MARK: - end
 

@@ -35,7 +35,8 @@ public enum Layer_V26: StitchSchemaVersionable {
              radialGradient = "Radial Gradient",
              angularGradient = "Angular Gradient",
              sfSymbol = "SF Symbol",
-             videoStreaming = "Video Streaming"
+             videoStreaming = "Video Streaming",
+             material = "Material"
     }
 }
 

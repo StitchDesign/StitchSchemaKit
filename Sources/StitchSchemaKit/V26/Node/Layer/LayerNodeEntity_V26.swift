@@ -146,6 +146,10 @@ public enum LayerNodeEntity_V26: StitchSchemaVersionable {
         public var layerMarginPort: LayerInputEntity
         public var offsetInGroupPort: LayerInputEntity
         
+        // Material Layer
+        public var deviceAppearancePort: LayerInputEntity
+        public var materialThicknessPort: LayerInputEntity
+        
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -268,6 +272,9 @@ public enum LayerNodeEntity_V26: StitchSchemaVersionable {
                     layerMarginPort: LayerInputEntity,
                     offsetInGroupPort: LayerInputEntity,
                     
+                    deviceAppearancePort: LayerInputEntity,
+                    materialThicknessPort: LayerInputEntity,
+                    
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?,
                     isExpandedInSidebar: Bool?) {     
@@ -388,6 +395,9 @@ public enum LayerNodeEntity_V26: StitchSchemaVersionable {
             self.pinAnchorPort = pinAnchorPort
             self.pinOffsetPort = pinOffsetPort
             
+            self.deviceAppearancePort = deviceAppearancePort
+            self.materialThicknessPort = materialThicknessPort
+            
             self.layerPaddingPort = layerPaddingPort
             self.layerMarginPort = layerMarginPort
             self.offsetInGroupPort = offsetInGroupPort
@@ -401,21 +411,7 @@ extension LayerNodeEntity_V26.LayerNodeEntity: StitchVersionedCodable {
                   layer: LayerNodeEntity_V26.Layer(previousInstance: previousInstance.layer),
                   outputCanvasPorts: previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
                   positionPort: .init(previousInstance: previousInstance.positionPort),
-                  
-                  
-                  // `sizePort:` needs to be a LayerInputEntity_V26
-                  // I have a LayerNodeEntity_V25
-                  
                   sizePort: LayerNodeEntity_V26.LayerInputEntity.init(previousInstance: previousInstance.sizePort),
-                  
-//                  sizePort: .init(
-//                    inputPort:
-//                            .init(
-//                                previousInstance: previousInstance.sizePort
-//                            )),
-                  
-//                  sizePort: .init(previousInstance: previousInstance.sizePort),
-                  
                   scalePort: .init(previousInstance: previousInstance.scalePort),
                   anchoringPort: .init(previousInstance: previousInstance.anchoringPort),
                   opacityPort: .init(previousInstance: previousInstance.opacityPort),
@@ -526,6 +522,10 @@ extension LayerNodeEntity_V26.LayerNodeEntity: StitchVersionedCodable {
                   layerPaddingPort: .init(previousInstance: previousInstance.layerPaddingPort),
                   layerMarginPort: .init(previousInstance: previousInstance.layerMarginPort),
                   offsetInGroupPort: .init(previousInstance: previousInstance.offsetInGroupPort),
+                  
+                  // TODO: fix after version 26
+                  deviceAppearancePort: .createEmpty(),
+                  materialThicknessPort: .createEmpty(),
                   
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId,

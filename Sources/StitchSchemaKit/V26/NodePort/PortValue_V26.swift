@@ -63,6 +63,8 @@ public enum PortValue_V26: StitchSchemaVersionable {
     public typealias LayerNodeId = LayerNodeId_V26.LayerNodeId
     public typealias TextTransform = TextTransform_V26.TextTransform
     public typealias StitchTransform = StitchTransform_V26.StitchTransform
+    public typealias DeviceAppearance = DeviceAppearance_V26.DeviceAppearance
+    public typealias MaterialThickness = MaterialThickness_V26.MaterialThickness
     // MARK: - end
     
     public enum PortValue: Codable, Hashable {
@@ -121,6 +123,8 @@ public enum PortValue_V26: StitchSchemaVersionable {
         case padding(StitchPadding)
         case sizingScenario(SizingScenario)
         case pinTo(PinToId)
+        case deviceAppearance(DeviceAppearance)
+        case materialThickness(MaterialThickness)
     }
 }
 

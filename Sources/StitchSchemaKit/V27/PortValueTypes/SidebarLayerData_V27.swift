@@ -16,10 +16,20 @@ public enum SidebarLayerData_V27: StitchSchemaVersionable {
     public struct SidebarLayerData: Hashable {
         public let id: UUID
         public var children: [Self]?
+        public var isExpandedInSidebar: Bool?
         
-        public init(id: UUID, children: [Self]? = nil) {
+        public init(id: UUID,
+                    children: [Self]? = nil,
+                    isExpandedInSidebar: Bool? = nil) {
             self.id = id
             self.children = children
+            
+            if children != nil {
+                // Give expanded state true if new group
+                self.isExpandedInSidebar = isExpandedInSidebar ?? true
+            } else {
+                self.isExpandedInSidebar = isExpandedInSidebar
+            }
         }
     }
 }
@@ -34,6 +44,9 @@ extension SidebarLayerData_V27.SidebarLayerData: StitchVersionedCodable {
         
         let migratedChildren: [Self] = .init(previousElements: prevChildren)
         self.init(id: previousInstance.id,
-                  children: migratedChildren)
+                  children: migratedChildren,
+                  
+                  // TODO: use previousInstance data after version 27
+                  isExpandedInSidebar: true)
     }
 }

@@ -29,7 +29,6 @@ public enum StitchSystem_V26: StitchSchemaVersionable {
 
 extension StitchSystem_V26.StitchSystem {
     public init(previousInstance: StitchSystem_V26.PreviousInstance) {
-        // TODO: not migrating during V25 -> V26 because has not yet been released as feature
-        fatalError()
-    }
+        self = .init(id: .init(previousInstance: previousInstance.id),
+                     name: previousInstance.name)    }
 }

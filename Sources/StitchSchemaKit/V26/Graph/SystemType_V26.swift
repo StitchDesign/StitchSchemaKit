@@ -40,7 +40,11 @@ extension StitchSystemType_V26.StitchSystemType {
 
 extension StitchSystemType_V26.StitchSystemType {
     public init(previousInstance: StitchSystemType_V26.PreviousInstance) {
-        // TODO: not migrating during V25 -> V26 because has not yet been released as feature
-        fatalError()
+        switch previousInstance {
+        case .userLibrary:
+            self = .userLibrary
+        case .system(let id):
+            self = .system(id)
+        }
     }
 }

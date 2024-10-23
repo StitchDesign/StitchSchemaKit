@@ -26,7 +26,15 @@ public enum GraphSaveLocation_V26: StitchSchemaVersionable {
 
 extension GraphSaveLocation_V26.GraphSaveLocation {
     public init(previousInstance: GraphSaveLocation_V26.PreviousInstance) {
-        // TODO: not migrating during V25 -> V26 because has not yet been released as feature
-        fatalError()
+        switch previousInstance {
+        case .document(let uuid):
+            self = .document(uuid)
+        case .localComponent(let path):
+            self = .localComponent(.init(previousInstance: path))
+        case .systemComponent(let type, let uuid):
+            self = .systemComponent(.init(previousInstance: type), uuid)
+        case .system(let type):
+            self = .system(.init(previousInstance: type))
+        }
     }
 }

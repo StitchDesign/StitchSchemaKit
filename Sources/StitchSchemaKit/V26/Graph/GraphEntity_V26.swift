@@ -40,7 +40,10 @@ public enum GraphEntity_V26: StitchSchemaVersionable {
 
 extension GraphEntity_V26.GraphEntity: StitchVersionedCodable {
     public init(previousInstance: GraphEntity_V26.PreviousInstance) {
-        // TODO: not migrating during V25 -> V26 because has not yet been released as feature
-        fatalError()
+        self = .init(id: previousInstance.id,
+                     name: previousInstance.name,
+                     nodes: .init(previousElements: previousInstance.nodes),
+                     orderedSidebarLayers: .init(previousElements: previousInstance.orderedSidebarLayers),
+                     commentBoxes: .init(previousElements: previousInstance.commentBoxes))
     }
 }

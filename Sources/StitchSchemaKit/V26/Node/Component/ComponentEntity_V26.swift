@@ -31,7 +31,8 @@ public enum ComponentEntity_V26: StitchSchemaVersionable {
 
 extension ComponentEntity_V26.ComponentEntity: StitchVersionedCodable {
     public init(previousInstance: ComponentEntity_V26.PreviousInstance) {
-        // TODO: not migrating during V25 -> V26 because has not yet been released as feature
-        fatalError()
+        self = .init(componentId: previousInstance.componentId,
+                     inputs: .init(previousElements: previousInstance.inputs),
+                     canvasEntity: .init(previousInstance: previousInstance.canvasEntity))
     }
 }

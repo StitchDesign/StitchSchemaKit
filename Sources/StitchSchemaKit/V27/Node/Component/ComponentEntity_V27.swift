@@ -1,5 +1,5 @@
 //
-//  ComponentEntity_V26.swift
+//  ComponentEntity_V27.swift
 //  StitchSchemaKit
 //
 //  Created by Elliot Boschwitz on 10/2/24.
@@ -7,21 +7,21 @@
 
 import Foundation
 
-public enum ComponentEntity_V26: StitchSchemaVersionable {
+public enum ComponentEntity_V27: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V26
-    public typealias PreviousInstance = ComponentEntity_V25.ComponentEntity
+    public static let version = StitchSchemaVersion._V27
+    public typealias PreviousInstance = ComponentEntity_V26.ComponentEntity
     // MARK: - end
 
     public struct ComponentEntity: Codable, Hashable {
         public let componentId: UUID
-        public var inputs: [NodeConnectionType_V26.NodeConnectionType]
-        public var canvasEntity: CanvasNodeEntity_V26.CanvasNodeEntity
+        public var inputs: [NodeConnectionType_V27.NodeConnectionType]
+        public var canvasEntity: CanvasNodeEntity_V27.CanvasNodeEntity
         
         public init(componentId: UUID,
-                    inputs: [NodeConnectionType_V26.NodeConnectionType],
-                    canvasEntity: CanvasNodeEntity_V26.CanvasNodeEntity) {
+                    inputs: [NodeConnectionType_V27.NodeConnectionType],
+                    canvasEntity: CanvasNodeEntity_V27.CanvasNodeEntity) {
             self.componentId = componentId
             self.inputs = inputs
             self.canvasEntity = canvasEntity
@@ -29,8 +29,8 @@ public enum ComponentEntity_V26: StitchSchemaVersionable {
     }
 }
 
-extension ComponentEntity_V26.ComponentEntity: StitchVersionedCodable {
-    public init(previousInstance: ComponentEntity_V26.PreviousInstance) {
+extension ComponentEntity_V27.ComponentEntity: StitchVersionedCodable {
+    public init(previousInstance: ComponentEntity_V27.PreviousInstance) {
         self = .init(componentId: previousInstance.componentId,
                      inputs: .init(previousElements: previousInstance.inputs),
                      canvasEntity: .init(previousInstance: previousInstance.canvasEntity))

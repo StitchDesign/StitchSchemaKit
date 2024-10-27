@@ -7,14 +7,14 @@
 
 import Foundation
 
-public enum StitchComponent_V26: StitchSchemaVersionable {
+public enum StitchComponent_V27: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V26
-    public typealias PreviousInstance = StitchComponent_V25.StitchComponent
-    public typealias GraphEntity = GraphEntity_V26.GraphEntity
-    public typealias GraphSaveLocation = GraphSaveLocation_V26.GraphSaveLocation
-    public typealias SidebarLayerList = [SidebarLayerData_V26.SidebarLayerData]
+    public static let version = StitchSchemaVersion._V27
+    public typealias PreviousInstance = StitchComponent_V26.StitchComponent
+    public typealias GraphEntity = GraphEntity_V27.GraphEntity
+    public typealias GraphSaveLocation = GraphSaveLocation_V27.GraphSaveLocation
+    public typealias SidebarLayerList = [SidebarLayerData_V27.SidebarLayerData]
     // MARK: - end
 
     public struct StitchComponent: StitchVersionedCodable, Hashable, Sendable {
@@ -30,8 +30,8 @@ public enum StitchComponent_V26: StitchSchemaVersionable {
     }
 }
 
-extension StitchComponent_V26.StitchComponent {
-    public init(previousInstance: StitchComponent_V26.PreviousInstance) {
+extension StitchComponent_V27.StitchComponent {
+    public init(previousInstance: StitchComponent_V27.PreviousInstance) {
         self = .init(saveLocation: .init(previousInstance: previousInstance.saveLocation),
                      graph: .init(previousInstance: previousInstance.graph))
     }

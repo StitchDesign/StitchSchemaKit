@@ -1,5 +1,5 @@
 //
-//  SystemType_V26.swift
+//  SystemType_V27.swift
 //  StitchSchemaKit
 //
 //  Created by Elliot Boschwitz on 10/7/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum StitchSystemType_V26: StitchSchemaVersionable {
+public enum StitchSystemType_V27: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V26
-    public typealias PreviousInstance = StitchSystem_V25.StitchSystemType
+    public static let version = StitchSchemaVersion._V27
+    public typealias PreviousInstance = StitchSystem_V26.StitchSystemType
     // MARK: - end
     
     public enum StitchSystemType: Codable, Hashable, Identifiable, CustomStringConvertible, Sendable {
@@ -34,12 +34,12 @@ public enum StitchSystemType_V26: StitchSchemaVersionable {
     }
 }
 
-extension StitchSystemType_V26.StitchSystemType {
+extension StitchSystemType_V27.StitchSystemType {
     public static let userLibraryName = "User Library"
 }
 
-extension StitchSystemType_V26.StitchSystemType {
-    public init(previousInstance: StitchSystemType_V26.PreviousInstance) {
+extension StitchSystemType_V27.StitchSystemType {
+    public init(previousInstance: StitchSystemType_V27.PreviousInstance) {
         switch previousInstance {
         case .userLibrary:
             self = .userLibrary

@@ -1,5 +1,5 @@
 //
-//  StitchSystem_V26.swift
+//  StitchSystem_V27.swift
 //  StitchSchemaKit
 //
 //  Created by Elliot Boschwitz on 10/7/24.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public enum StitchSystem_V26: StitchSchemaVersionable {
+public enum StitchSystem_V27: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V26
-    public typealias PreviousInstance = StitchSystem_V25.StitchSystem
-    public typealias StitchSystemType = StitchSystemType_V26.StitchSystemType
+    public static let version = StitchSchemaVersion._V27
+    public typealias PreviousInstance = StitchSystem_V26.StitchSystem
+    public typealias StitchSystemType = StitchSystemType_V27.StitchSystemType
     // MARK: - end
 
     public struct StitchSystem: StitchVersionedCodable, Equatable, Sendable {
@@ -27,8 +27,9 @@ public enum StitchSystem_V26: StitchSchemaVersionable {
     }
 }
 
-extension StitchSystem_V26.StitchSystem {
-    public init(previousInstance: StitchSystem_V26.PreviousInstance) {
+extension StitchSystem_V27.StitchSystem {
+    public init(previousInstance: StitchSystem_V27.PreviousInstance) {
         self = .init(id: .init(previousInstance: previousInstance.id),
-                     name: previousInstance.name)    }
+                     name: previousInstance.name)
+    }
 }

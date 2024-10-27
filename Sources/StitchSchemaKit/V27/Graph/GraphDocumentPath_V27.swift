@@ -1,5 +1,5 @@
 //
-//  GraphDocumentPath_V26.swift
+//  GraphDocumentPath_V27.swift
 //  StitchSchemaKit
 //
 //  Created by Elliot Boschwitz on 10/2/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum GraphDocumentPath_V26: StitchSchemaVersionable {
+public enum GraphDocumentPath_V27: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V26
-    public typealias PreviousInstance = GraphDocumentPath_V25.GraphDocumentPath
+    public static let version = StitchSchemaVersion._V27
+    public typealias PreviousInstance = GraphDocumentPath_V26.GraphDocumentPath
     // MARK: - end
 
     public struct GraphDocumentPath: Codable, Hashable, Sendable {
@@ -29,8 +29,8 @@ public enum GraphDocumentPath_V26: StitchSchemaVersionable {
     }
 }
 
-extension GraphDocumentPath_V26.GraphDocumentPath {
-    public init(previousInstance: GraphDocumentPath_V26.PreviousInstance) {
+extension GraphDocumentPath_V27.GraphDocumentPath {
+    public init(previousInstance: GraphDocumentPath_V27.PreviousInstance) {
         self = .init(docId: previousInstance.docId,
                      componentId: previousInstance.componentId,
                      componentsPath: previousInstance.componentsPath)

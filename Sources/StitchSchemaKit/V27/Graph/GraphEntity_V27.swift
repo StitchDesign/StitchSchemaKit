@@ -1,5 +1,5 @@
 //
-//  GraphEntity_V26.swift
+//  GraphEntity_V27.swift
 //  StitchSchemaKit
 //
 //  Created by Elliot Boschwitz on 10/2/24.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-public enum GraphEntity_V26: StitchSchemaVersionable {
+public enum GraphEntity_V27: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V26
-    public typealias PreviousInstance = GraphEntity_V25.GraphEntity
-    public typealias NodeEntity = NodeEntity_V26.NodeEntity
-    public typealias SidebarLayerData = SidebarLayerData_V26.SidebarLayerData
-    public typealias CommentBoxData = CommentBoxData_V26.CommentBoxData
+    public static let version = StitchSchemaVersion._V27
+    public typealias PreviousInstance = GraphEntity_V26.GraphEntity
+    public typealias NodeEntity = NodeEntity_V27.NodeEntity
+    public typealias SidebarLayerData = SidebarLayerData_V27.SidebarLayerData
+    public typealias CommentBoxData = CommentBoxData_V27.CommentBoxData
     // MARK: - end
 
     public struct GraphEntity: Hashable, Sendable {
@@ -38,8 +38,8 @@ public enum GraphEntity_V26: StitchSchemaVersionable {
     }
 }
 
-extension GraphEntity_V26.GraphEntity: StitchVersionedCodable {
-    public init(previousInstance: GraphEntity_V26.PreviousInstance) {
+extension GraphEntity_V27.GraphEntity: StitchVersionedCodable {
+    public init(previousInstance: GraphEntity_V27.PreviousInstance) {
         self = .init(id: previousInstance.id,
                      name: previousInstance.name,
                      nodes: .init(previousElements: previousInstance.nodes),

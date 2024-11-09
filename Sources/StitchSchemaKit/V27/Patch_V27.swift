@@ -180,7 +180,10 @@ public enum Patch_V27: StitchSchemaVersionable {
              curveToUnpack = "Curve To Unpack",
              mathExpression = "Math Expression",
              qrCodeDetection = "QR Code Detection",
-             delayOne
+             delayOne,
+             springFromDurationAndBounce = "Duration and Bounce Converter",
+             springFromResponseAndDampingRatio = "Response and Damping Ratio Converter",
+             springFromSettlingDurationAndDampingRatio = "Settling Duration and Damping Ratio Converter"
     }
 }
 

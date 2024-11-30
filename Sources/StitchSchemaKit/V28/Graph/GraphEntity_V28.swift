@@ -38,12 +38,45 @@ public enum GraphEntity_V28: StitchSchemaVersionable {
     }
 }
 
+// TODO: remove after version 28
+extension Array where Element == SidebarLayerData_V27.SidebarLayerData {
+    func convertRealityLayers(realityIds: Set<UUID>) -> Self {
+        self.map { sidebarData in
+            var sidebarData = sidebarData
+            
+            if realityIds.contains(sidebarData.id) {
+                sidebarData.children = []
+                return sidebarData
+            }
+            
+            // recursively check children
+            sidebarData.children = sidebarData.children?.convertRealityLayers(realityIds: realityIds)
+            return sidebarData
+        }
+    }
+}
+
 extension GraphEntity_V28.GraphEntity: StitchVersionedCodable {
     public init(previousInstance: GraphEntity_V28.PreviousInstance) {
+        // TODO: remove reality view migration after version 28
+        let realityViewIds: Set<UUID> = previousInstance.nodes.reduce(into: .init()) { result, node in
+            switch node.nodeTypeEntity {
+            case .layer(let layerNode):
+                if layerNode.layer == .realityView {
+                    result.insert(node.id)
+                }
+            default:
+                return
+            }
+        }
+        
+        let convertedSidebarLayers = previousInstance.orderedSidebarLayers
+            .convertRealityLayers(realityIds: realityViewIds)
+        
         self = .init(id: previousInstance.id,
                      name: previousInstance.name,
                      nodes: .init(previousElements: previousInstance.nodes),
-                     orderedSidebarLayers: .init(previousElements: previousInstance.orderedSidebarLayers),
+                     orderedSidebarLayers: .init(previousElements: convertedSidebarLayers),
                      commentBoxes: .init(previousElements: previousInstance.commentBoxes))
     }
 }

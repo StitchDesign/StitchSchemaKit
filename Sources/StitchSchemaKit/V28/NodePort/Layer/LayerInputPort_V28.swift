@@ -48,7 +48,6 @@ public enum LayerInputPort_V28: StitchSchemaVersionable {
         case isAnimating
         
         // Reality
-        case allAnchors
         case cameraDirection
         case isCameraEnabled
         case isShadowsEnabled
@@ -221,7 +220,8 @@ extension LayerInputPort_V28.LayerInputPort: StitchVersionedCodable {
         case .isAnimating:
             self = .isAnimating
         case .allAnchors:
-            self = .allAnchors
+            // TODO: LayerInputPort_V28 migration
+            fatalError()
         case .cameraDirection:
             self = .cameraDirection
         case .isCameraEnabled:

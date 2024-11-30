@@ -68,7 +68,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
         public var paddingPort: LayerInputEntity
         
         public var setupModePort: LayerInputEntity
-        public var allAnchorsPort: LayerInputEntity
         public var cameraDirectionPort: LayerInputEntity
         public var isCameraEnabledPort: LayerInputEntity
         public var isShadowsEnabledPort: LayerInputEntity
@@ -189,7 +188,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
                     paddingPort: LayerInputEntity,
                     
                     setupModePort: LayerInputEntity,
-                    allAnchorsPort: LayerInputEntity,
                     cameraDirectionPort: LayerInputEntity,
                     isCameraEnabledPort: LayerInputEntity,
                     isShadowsEnabledPort: LayerInputEntity,
@@ -313,7 +311,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
             self.paddingPort = paddingPort
             
             self.setupModePort = setupModePort
-            self.allAnchorsPort = allAnchorsPort
             self.cameraDirectionPort = cameraDirectionPort
             self.isCameraEnabledPort = isCameraEnabledPort
             self.isShadowsEnabledPort = isShadowsEnabledPort
@@ -438,7 +435,6 @@ extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
                   paddingPort: .init(previousInstance: previousInstance.paddingPort),
                   
                   setupModePort: .init(previousInstance: previousInstance.setupModePort),
-                  allAnchorsPort: .init(previousInstance: previousInstance.allAnchorsPort),
                   cameraDirectionPort: .init(previousInstance: previousInstance.cameraDirectionPort),
                   isCameraEnabledPort: .init(previousInstance: previousInstance.isCameraEnabledPort),
                   isShadowsEnabledPort: .init(previousInstance: previousInstance.isShadowsEnabledPort),

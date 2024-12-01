@@ -52,6 +52,11 @@ public enum LayerInputPort_V28: StitchSchemaVersionable {
         case isCameraEnabled
         case isShadowsEnabled
         
+        // 3D
+        case position3D
+        case scale3D
+        case rotation3D
+        
         // Shape
         case shape
         case strokePosition

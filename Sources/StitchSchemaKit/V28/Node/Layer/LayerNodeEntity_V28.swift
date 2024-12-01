@@ -111,6 +111,10 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
         public var shadowRadiusPort: LayerInputEntity
         public var shadowOffsetPort: LayerInputEntity
         
+        public var position3DPort: LayerInputEntity
+        public var scale3DPort: LayerInputEntity
+        public var rotation3DPort: LayerInputEntity
+        
         public var sfSymbolPort: LayerInputEntity
         
         public var videoURLPort: LayerInputEntity
@@ -272,6 +276,10 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
                     deviceAppearancePort: LayerInputEntity,
                     materialThicknessPort: LayerInputEntity,
                     
+                    position3DPort: LayerInputEntity,
+                    scale3DPort: LayerInputEntity,
+                    rotation3DPort: LayerInputEntity,
+                    
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?) {
             self.id = id
@@ -395,6 +403,10 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
             self.layerPaddingPort = layerPaddingPort
             self.layerMarginPort = layerMarginPort
             self.offsetInGroupPort = offsetInGroupPort
+            
+            self.position3DPort = position3DPort
+            self.scale3DPort = scale3DPort
+            self.rotation3DPort = rotation3DPort
         }
     }
 }
@@ -519,7 +531,20 @@ extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
                   deviceAppearancePort: .init(previousInstance: previousInstance.deviceAppearancePort),
                   materialThicknessPort: .init(previousInstance: previousInstance.materialThicknessPort),
                   
+                  // TODO: remove migration after version 28
+                  position3DPort: Self.createNew3DPort(from: .init(x: 0, y: 0, z: 0)),
+                  scale3DPort: Self.createNew3DPort(from: .init(x: 1, y: 1, z: 1)),
+                  rotation3DPort: Self.createNew3DPort(from: .init(x: 0, y: 0, z: 0)),
+                  
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId)
+    }
+    
+    // TODO: remove after version 28
+    static func createNew3DPort(from value: Point3D_V28.Point3D) -> LayerInputEntity_V28.LayerInputEntity {
+        .init(packedData: .init(inputPort: .values([.point3D(value)])),
+              unpackedData: [.init(inputPort: .values([.number(value.x)])),
+                             .init(inputPort: .values([.number(value.y)])),
+                             .init(inputPort: .values([.number(value.z)]))])
     }
 }

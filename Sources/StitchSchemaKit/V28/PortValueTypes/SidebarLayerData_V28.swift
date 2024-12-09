@@ -1,5 +1,5 @@
 //
-//  SidebarLayerData_V27.swift
+//  SidebarLayerData_V28.swift
 //
 //
 //  Created by Nicholas Arner on 1/24/24.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-public enum SidebarLayerData_V27: StitchSchemaVersionable {
+public enum SidebarLayerData_V28: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    public static let version: StitchSchemaVersion = StitchSchemaVersion._V27
-    public typealias PreviousInstance = SidebarLayerData_V26.SidebarLayerData
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V28
+    public typealias PreviousInstance = SidebarLayerData_V27.SidebarLayerData
     // MARK: - endif
     
     public struct SidebarLayerData: Hashable {
@@ -34,18 +34,17 @@ public enum SidebarLayerData_V27: StitchSchemaVersionable {
     }
 }
 
-extension SidebarLayerData_V27.SidebarLayerData: StitchVersionedCodable {
-    public init(previousInstance: SidebarLayerData_V27.PreviousInstance) {
+extension SidebarLayerData_V28.SidebarLayerData: StitchVersionedCodable {
+    public init(previousInstance: SidebarLayerData_V28.PreviousInstance) {
         guard let prevChildren = previousInstance.children else {
             self.init(id: previousInstance.id,
                       children: nil)
             return
         }
-        
+
         let migratedChildren: [Self] = .init(previousElements: prevChildren)
         self.init(id: previousInstance.id,
                   children: migratedChildren,
-                  // TODO: use previousInstance data after version 27
-                  isExpandedInSidebar: true)
+                  isExpandedInSidebar: previousInstance.isExpandedInSidebar)
     }
 }

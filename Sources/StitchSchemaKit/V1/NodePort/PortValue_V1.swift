@@ -62,7 +62,7 @@ public enum PortValue_V1: StitchSchemaVersionable {
         case networkRequestType(NetworkRequestType)
         case color(Color)
         case size(LayerSize)
-        case position(CGSize) // TODO: use `CGPoint` instead of `CGSize`
+        case position(CGSize)
         case point3D(Point3D)
         case point4D(Point4D)
         case pulse(TimeInterval) // TimeInterval = last time this input/output pulsed

@@ -151,7 +151,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
         public var materialThicknessPort: LayerInputEntity
         
         // Layer scroll
-        public var scrollContentLayerPort: LayerInputEntity
         public var scrollContentSizePort: LayerInputEntity
         
         public var scrollXEnabledPort: LayerInputEntity
@@ -288,7 +287,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
                     deviceAppearancePort: LayerInputEntity,
                     materialThicknessPort: LayerInputEntity,
                     
-                    scrollContentLayerPort: LayerInputEntity,
                     scrollContentSizePort: LayerInputEntity,
                     scrollXEnabledPort: LayerInputEntity,
                     scrollJumpToXStylePort: LayerInputEntity,
@@ -425,8 +423,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
             self.offsetInGroupPort = offsetInGroupPort
 
             // Scroll layer inputs
-            
-            self.scrollContentLayerPort = scrollContentLayerPort
             self.scrollContentSizePort = scrollContentSizePort
 
             self.scrollXEnabledPort = scrollXEnabledPort
@@ -570,7 +566,6 @@ extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
                   
                   
                   // TODO: remove migraton after version 28
-                  scrollContentLayerPort: .createEmpty(),
                   scrollContentSizePort: .createEmpty(),
 
                   scrollXEnabledPort: .createEmpty(),

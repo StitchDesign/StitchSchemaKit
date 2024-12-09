@@ -158,7 +158,6 @@ public enum LayerInputPort_V28: StitchSchemaVersionable {
         case deviceAppearance
         
         // Layer scroll
-        case scrollContentLayer
         case scrollContentSize
         
         case scrollXEnabled

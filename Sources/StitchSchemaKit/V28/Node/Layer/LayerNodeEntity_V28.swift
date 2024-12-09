@@ -153,6 +153,20 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
         public var deviceAppearancePort: LayerInputEntity
         public var materialThicknessPort: LayerInputEntity
         
+        // Layer scroll
+        public var scrollContentLayerPort: LayerInputEntity
+        public var scrollContentSizePort: LayerInputEntity
+        
+        public var scrollXEnabledPort: LayerInputEntity
+        public var scrollJumpToXStylePort: LayerInputEntity
+        public var scrollJumpToXPort: LayerInputEntity
+        public var scrollJumpToXLocationPort: LayerInputEntity
+        
+        public var scrollYEnabledPort: LayerInputEntity
+        public var scrollJumpToYStylePort: LayerInputEntity
+        public var scrollJumpToYPort: LayerInputEntity
+        public var scrollJumpToYLocationPort: LayerInputEntity
+        
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -276,10 +290,21 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
                     deviceAppearancePort: LayerInputEntity,
                     materialThicknessPort: LayerInputEntity,
                     
+                    scrollContentLayerPort: LayerInputEntity,
+                    scrollContentSizePort: LayerInputEntity,
+                    scrollXEnabledPort: LayerInputEntity,
+                    scrollJumpToXStylePort: LayerInputEntity,
+                    scrollJumpToXPort: LayerInputEntity,
+                    scrollJumpToXLocationPort: LayerInputEntity,
+                    scrollYEnabledPort: LayerInputEntity,
+                    scrollJumpToYStylePort: LayerInputEntity,
+                    scrollJumpToYPort: LayerInputEntity,
+                    scrollJumpToYLocationPort: LayerInputEntity,
+                    
                     position3DPort: LayerInputEntity,
                     scale3DPort: LayerInputEntity,
                     rotation3DPort: LayerInputEntity,
-                    
+                                        
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?) {
             self.id = id
@@ -403,6 +428,17 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
             self.layerPaddingPort = layerPaddingPort
             self.layerMarginPort = layerMarginPort
             self.offsetInGroupPort = offsetInGroupPort
+            
+            self.scrollContentLayerPort = scrollContentLayerPort
+            self.scrollContentSizePort = scrollContentSizePort
+            self.scrollXEnabledPort = scrollXEnabledPort
+            self.scrollJumpToXStylePort = scrollJumpToXStylePort
+            self.scrollJumpToXPort = scrollJumpToXPort
+            self.scrollJumpToXLocationPort = scrollJumpToXLocationPort
+            self.scrollYEnabledPort = scrollYEnabledPort
+            self.scrollJumpToYStylePort = scrollJumpToYStylePort
+            self.scrollJumpToYPort = scrollJumpToYPort
+            self.scrollJumpToYLocationPort = scrollJumpToYLocationPort
             
             self.position3DPort = position3DPort
             self.scale3DPort = scale3DPort
@@ -530,6 +566,22 @@ extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
                   
                   deviceAppearancePort: .init(previousInstance: previousInstance.deviceAppearancePort),
                   materialThicknessPort: .init(previousInstance: previousInstance.materialThicknessPort),
+                  
+                  
+                  // TODO: remove migraton after version 28
+                  scrollContentLayerPort: .createEmpty(),
+                  scrollContentSizePort: .createEmpty(),
+                  
+                  scrollXEnabledPort: .createEmpty(),
+                  scrollJumpToXStylePort: .createEmpty(),
+                  scrollJumpToXPort: .createEmpty(),
+                  scrollJumpToXLocationPort: .createEmpty(),
+                  
+                  scrollYEnabledPort: .createEmpty(),
+                  scrollJumpToYStylePort: .createEmpty(),
+                  scrollJumpToYPort: .createEmpty(),
+                  scrollJumpToYLocationPort: .createEmpty(),
+                  
                   
                   // TODO: remove migration after version 28
                   position3DPort: Self.createNew3DPort(from: .init(x: 0, y: 0, z: 0)),

@@ -160,6 +160,21 @@ public enum LayerInputPort_V28: StitchSchemaVersionable {
         
         case materialThickness
         case deviceAppearance
+        
+        
+        // Layer scroll
+        case scrollContentLayer
+        case scrollContentSize
+        
+        case scrollXEnabled
+        case scrollJumpToXStyle
+        case scrollJumpToX
+        case scrollJumpToXLocation
+        
+        case scrollYEnabled
+        case scrollJumpToYStyle
+        case scrollJumpToY
+        case scrollJumpToYLocation
     }
 }
 

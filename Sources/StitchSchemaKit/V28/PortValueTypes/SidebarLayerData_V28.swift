@@ -41,12 +41,10 @@ extension SidebarLayerData_V28.SidebarLayerData: StitchVersionedCodable {
                       children: nil)
             return
         }
-        
+
         let migratedChildren: [Self] = .init(previousElements: prevChildren)
         self.init(id: previousInstance.id,
                   children: migratedChildren,
-                  
-                  // TODO: use previousInstance data after version 27
-                  isExpandedInSidebar: true)
+                  isExpandedInSidebar: previousInstance.isExpandedInSidebar)
     }
 }

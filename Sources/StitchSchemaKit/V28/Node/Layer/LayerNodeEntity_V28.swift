@@ -446,7 +446,12 @@ extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
     public init(previousInstance: LayerNodeEntity_V28.PreviousInstance) {
         self.init(id: previousInstance.id,
                   layer: LayerNodeEntity_V28.Layer(previousInstance: previousInstance.layer),
-                  outputCanvasPorts: previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
+                  
+                  // TODO: remove after version 28 migration; just needed to provide a default `nil` entry for the scroll output added to all group layer nodes
+                  outputCanvasPorts: previousInstance.layer == .group
+                  ? [nil] // Scroll offset is newly added to layer group, so cannot have appeared on canvas prior to V28
+                  : previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
+                  
                   positionPort: .init(previousInstance: previousInstance.positionPort),
                   sizePort: LayerNodeEntity_V28.LayerInputEntity.init(previousInstance: previousInstance.sizePort),
                   scalePort: .init(previousInstance: previousInstance.scalePort),

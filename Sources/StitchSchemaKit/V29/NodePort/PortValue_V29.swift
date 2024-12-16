@@ -125,6 +125,7 @@ public enum PortValue_V29: StitchSchemaVersionable {
         case pinTo(PinToId)
         case deviceAppearance(DeviceAppearance)
         case materialThickness(MaterialThickness)
+        case anchorEntity(UUID?)
     }
 }
 

@@ -48,10 +48,15 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         case isAnimating
         
         // Reality
-        case allAnchors
         case cameraDirection
         case isCameraEnabled
         case isShadowsEnabled
+                
+        // 3D
+        case position3D
+        case scale3D
+        case rotation3D
+        case anchorEntity
         
         // Shape
         case shape
@@ -233,8 +238,6 @@ extension LayerInputPort_V29.LayerInputPort: StitchVersionedCodable {
             self = .setupMode
         case .isAnimating:
             self = .isAnimating
-        case .allAnchors:
-            self = .allAnchors
         case .cameraDirection:
             self = .cameraDirection
         case .isCameraEnabled:
@@ -389,6 +392,9 @@ extension LayerInputPort_V29.LayerInputPort: StitchVersionedCodable {
             self = .scrollJumpToY
         case .scrollJumpToYLocation:
             self = .scrollJumpToYLocation
+        case .allAnchors:
+            // TODO: LayerInputPort_V28 migration
+            fatalError()
         }
     }
 }

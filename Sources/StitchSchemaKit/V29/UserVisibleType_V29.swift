@@ -16,7 +16,7 @@ public enum UserVisibleType_V29: StitchSchemaVersionable {
 
     // not just the size of the box,
     // but from where the box goes to etc.
-    public enum UserVisibleType: String, CaseIterable, Codable {
+    public enum UserVisibleType: CaseIterable, Codable {
         case string
         case bool
         case int
@@ -44,8 +44,8 @@ public enum UserVisibleType_V29: StitchSchemaVersionable {
         case animationCurve
         case lightType
         case layerStroke
-        case strokeLineCap = "Stroke Line Cap"
-        case strokeLineJoin = "Stroke Line Join"
+        case strokeLineCap
+        case strokeLineJoin
         case textTransform
         case dateAndTimeFormat
         case shape
@@ -61,17 +61,17 @@ public enum UserVisibleType_V29: StitchSchemaVersionable {
         case vnImageCropOption
         case textDecoration
         case textFont
-        case blendMode = "Blend Mode"
+        case blendMode
         case mapType
         case progressIndicatorStyle
         case mobileHapticStyle
-        case contentMode = "Content Mode"
-        case spacing = "Spacing"
-        case padding = "Padding"
-        case sizingScenario = "Sizing Scenario"
-        case pinToId = "Pin To"
-        case deviceAppearance = "Device Appearance"
-        case materialThickness = "Material Thickness"
+        case contentMode
+        case spacing
+        case padding
+        case sizingScenario
+        case pinToId
+        case deviceAppearance
+        case materialThickness
     }
 }
 

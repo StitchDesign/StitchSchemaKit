@@ -72,6 +72,7 @@ public enum UserVisibleType_V29: StitchSchemaVersionable {
         case pinToId
         case deviceAppearance
         case materialThickness
+        case anchorEntity
     }
 }
 

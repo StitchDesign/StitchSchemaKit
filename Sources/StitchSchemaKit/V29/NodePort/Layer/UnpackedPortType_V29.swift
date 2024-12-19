@@ -18,6 +18,11 @@ public enum UnpackedPortType_V29: StitchSchemaVersionable {
         case port1 = 1
         case port2 = 2
         case port3 = 3
+        case port4 = 4
+        case port5 = 5
+        case port6 = 6
+        case port7 = 7
+        case port8 = 8
     }
 }
 

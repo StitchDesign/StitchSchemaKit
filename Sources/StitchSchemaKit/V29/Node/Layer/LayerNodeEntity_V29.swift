@@ -111,9 +111,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
         public var shadowRadiusPort: LayerInputEntity
         public var shadowOffsetPort: LayerInputEntity
         
-        public var position3DPort: LayerInputEntity
-        public var scale3DPort: LayerInputEntity
-        public var rotation3DPort: LayerInputEntity
+        public var transform3DPort: LayerInputEntity
         public var anchorEntityPort: LayerInputEntity
 
         public var sfSymbolPort: LayerInputEntity
@@ -300,9 +298,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
                     scrollJumpToYPort: LayerInputEntity,
                     scrollJumpToYLocationPort: LayerInputEntity,
                     
-                    position3DPort: LayerInputEntity,
-                    scale3DPort: LayerInputEntity,
-                    rotation3DPort: LayerInputEntity,
+                    transform3DPort: LayerInputEntity,
                     anchorEntityPort: LayerInputEntity,
 
                     hasSidebarVisibility: Bool,
@@ -442,9 +438,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
             self.scrollJumpToYPort = scrollJumpToYPort
             self.scrollJumpToYLocationPort = scrollJumpToYLocationPort
 
-            self.position3DPort = position3DPort
-            self.scale3DPort = scale3DPort
-            self.rotation3DPort = rotation3DPort
+            self.transform3DPort = transform3DPort
             self.anchorEntityPort = anchorEntityPort
         }
     }
@@ -584,9 +578,7 @@ extension LayerNodeEntity_V29.LayerNodeEntity: StitchVersionedCodable {
                   scrollJumpToYLocationPort: .init(previousInstance: previousInstance.scrollJumpToYLocationPort),
                   
                   // TODO: remove migration after version 28
-                  position3DPort: Self.createNew3DPort(from: .init(x: 0, y: 0, z: 0)),
-                  scale3DPort: Self.createNew3DPort(from: .init(x: 1, y: 1, z: 1)),
-                  rotation3DPort: Self.createNew3DPort(from: .init(x: 0, y: 0, z: 0)),
+                  transform3DPort: Self.createTransformPort(),
                   anchorEntityPort: .init(packedData: .init(inputPort: .values([.asyncMedia(nil)])),
                                           unpackedData: []),
 
@@ -595,10 +587,29 @@ extension LayerNodeEntity_V29.LayerNodeEntity: StitchVersionedCodable {
     }
 
     // TODO: remove after version 29
-    static func createNew3DPort(from value: Point3D_V29.Point3D) -> LayerInputEntity_V29.LayerInputEntity {
-        .init(packedData: .init(inputPort: .values([.point3D(value)])),
-              unpackedData: [.init(inputPort: .values([.number(value.x)])),
-                             .init(inputPort: .values([.number(value.y)])),
-                             .init(inputPort: .values([.number(value.z)]))])
+    static func createTransformPort() -> LayerInputEntity_V29.LayerInputEntity {
+        let transform = StitchTransform_V29.StitchTransform(positionX: 0,
+                                                            positionY: 0,
+                                                            positionZ: 0,
+                                                            scaleX: 1,
+                                                            scaleY: 1,
+                                                            scaleZ: 1,
+                                                            rotationX: 0,
+                                                            rotationY: 0,
+                                                            rotationZ: 0)
+        
+        return .init(packedData: .init(inputPort: .values([.transform(transform)])),
+                     unpackedData: [
+                        .init(inputPort: .values([.number(transform.positionX)])),
+                        .init(inputPort: .values([.number(transform.positionY)])),
+                        .init(inputPort: .values([.number(transform.positionZ)])),
+                        .init(inputPort: .values([.number(transform.scaleX)])),
+                        .init(inputPort: .values([.number(transform.scaleY)])),
+                        .init(inputPort: .values([.number(transform.scaleZ)])),
+                        .init(inputPort: .values([.number(transform.rotationX)])),
+                        .init(inputPort: .values([.number(transform.rotationY)])),
+                        .init(inputPort: .values([.number(transform.rotationZ)])),
+                     ]
+        )
     }
 }

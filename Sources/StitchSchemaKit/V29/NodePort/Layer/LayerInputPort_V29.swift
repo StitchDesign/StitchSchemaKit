@@ -53,9 +53,7 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         case isShadowsEnabled
                 
         // 3D
-        case position3D
-        case scale3D
-        case rotation3D
+        case transform3D
         case anchorEntity
         
         // Shape

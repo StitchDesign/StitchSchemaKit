@@ -55,6 +55,7 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         // 3D
         case transform3D
         case anchorEntity
+        case isEntityAnimating
         
         // Shape
         case shape

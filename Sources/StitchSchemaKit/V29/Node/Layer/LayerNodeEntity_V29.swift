@@ -113,6 +113,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
         
         public var transform3DPort: LayerInputEntity
         public var anchorEntityPort: LayerInputEntity
+        public var isEntityAnimatingPort: LayerInputEntity
 
         public var sfSymbolPort: LayerInputEntity
         
@@ -300,6 +301,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
                     
                     transform3DPort: LayerInputEntity,
                     anchorEntityPort: LayerInputEntity,
+                    isEntityAnimatingPort: LayerInputEntity,
 
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?) {
@@ -440,6 +442,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
 
             self.transform3DPort = transform3DPort
             self.anchorEntityPort = anchorEntityPort
+            self.isEntityAnimatingPort = isEntityAnimatingPort
         }
     }
 }
@@ -579,8 +582,8 @@ extension LayerNodeEntity_V29.LayerNodeEntity: StitchVersionedCodable {
                   
                   // TODO: remove migration after version 28
                   transform3DPort: Self.createTransformPort(),
-                  anchorEntityPort: .init(packedData: .init(inputPort: .values([.asyncMedia(nil)])),
-                                          unpackedData: []),
+                  anchorEntityPort: .createEmpty(),
+                  isEntityAnimatingPort: .createEmpty(),
 
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId)

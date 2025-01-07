@@ -61,7 +61,6 @@ public enum Patch_V29: StitchSchemaVersionable {
              transition,
              imageImport,
              cameraFeed,
-             model3DImport,
              arRaycasting,
              arAnchor,
              sampleAndHold,
@@ -284,7 +283,7 @@ extension Patch_V29.Patch: StitchVersionedCodable {
         case .cameraFeed:
             self = .cameraFeed
         case .model3DImport:
-            self = .model3DImport
+            fatalError()
         case .arRaycasting:
             self = .arRaycasting
         case .arAnchor:

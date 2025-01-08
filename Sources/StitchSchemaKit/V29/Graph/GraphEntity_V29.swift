@@ -151,7 +151,7 @@ extension GraphEntity_V29.GraphEntity: StitchVersionedCodable {
 
         self = .init(id: previousInstance.id,
                      name: previousInstance.name,
-                     migrationWarning: "3D Model patch nodes have been deprecated in favor of 3D Model layers. While this document has been migrated, some data might have been lost. Please review your newly-created 3D Model Layer nodes.",
+                     migrationWarning: "3D models and AR anchors have been modified in a recent update. Your document has been migrated to be compatible with these changes. Please review your 3D model layers and AR anchor patch nodes.",
                      nodes: .init(previousElements: convertedNodes),
                      orderedSidebarLayers: .init(previousElements: convertedSidebarLayers),
                      commentBoxes: .init(previousElements: previousInstance.commentBoxes))

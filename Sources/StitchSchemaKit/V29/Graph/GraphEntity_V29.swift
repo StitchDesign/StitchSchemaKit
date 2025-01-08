@@ -61,7 +61,9 @@ extension Array where Element == SidebarLayerData_V28.SidebarLayerData {
 
 extension GraphEntity_V29.GraphEntity: StitchVersionedCodable {
     public init(previousInstance: GraphEntity_V29.PreviousInstance) {
+        
         // TODO: remove reality view migration after version 29
+        
         let realityViewIds: Set<UUID> = previousInstance.nodes.reduce(into: .init()) { result, node in
             switch node.nodeTypeEntity {
             case .layer(let layerNode):
@@ -102,42 +104,11 @@ extension GraphEntity_V29.GraphEntity: StitchVersionedCodable {
         let oldNodes = previousInstance.nodes
         
         // Removes 3D model patch node and create 3D model layer node
-        let convertedNodes: [GraphEntity_V29.NodeEntity] = oldNodes.map { prevNode in
+        let convertedNodes: [GraphEntity_V29.NodeEntity] = oldNodes.compactMap { prevNode in
             switch prevNode.nodeTypeEntity {
                 // Convertes old 3D model patch node to layer node
             case .patch(let patchNode) where patchNode.patch == .model3DImport:
-                // Migrate with fake layer option
-                var prevNode = prevNode
-                prevNode.nodeTypeEntity = .layer(LayerNodeEntity_V28
-                    .LayerNodeEntity(id: .init(),
-                                     layer: .image, // will update this
-                                     outputCanvasPorts: [],
-                                     hasSidebarVisibility: true,
-                                     layerGroupId: nil))
-                
-                var migratedNode = GraphEntity_V29.NodeEntity(previousInstance: prevNode)
-                
-                // Create new layer node
-                var newLayerNode = LayerNodeEntity_V29
-                    .LayerNodeEntity(id: .init(),
-                                     layer: .model3D,
-                                     outputCanvasPorts: [],
-                                     hasSidebarVisibility: true,
-                                     layerGroupId: nil)
-                
-                // Transfer values from old node
-                newLayerNode.model3DPort.packedData.inputPort = .init(previousInstance: patchNode.inputs[0].portData)
-                newLayerNode.isAnimatingPort.packedData.inputPort = .init(previousInstance: patchNode.inputs[1].portData)
-                newLayerNode.transform3DPort.packedData.inputPort = .init(previousInstance: patchNode.inputs[2].portData)
-                
-                // Removes connections from model 3D import patch node
-                newLayerNode.model3DPort.packedData.inputPort.resetUpstreamConnection(with: .asyncMedia(nil)) { upstreamConnection in
-                    oldModel3DPatchIds.contains(upstreamConnection.nodeId)
-                }
-                
-                migratedNode.nodeTypeEntity = .layer(newLayerNode)
-                
-                return migratedNode
+                return nil
 
                 // Searches all input data to find connections to old nodes and removes them.
             default:

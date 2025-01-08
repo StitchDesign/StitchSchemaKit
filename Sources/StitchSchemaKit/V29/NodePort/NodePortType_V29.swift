@@ -21,6 +21,20 @@ public enum NodeConnectionType_V29: StitchSchemaVersionable {
     }
 }
 
+extension NodeConnectionType_V29.NodeConnectionType {
+    /// Resets connection data with some PortValue if matching condition.
+    mutating func resetUpstreamConnection(with value: PortValue_V29.PortValue,
+                                                   willResetCallback: @escaping (NodeIOCoordinate_V29.NodeIOCoordinate) -> Bool) {
+        switch self {
+        case .upstreamConnection(let connection) where willResetCallback(connection):
+            self = .values([value])
+
+        default:
+            return
+        }
+    }
+}
+
 extension NodeConnectionType_V29.NodeConnectionType: StitchVersionedCodable {
     public init(previousInstance: NodeConnectionType_V29.PreviousInstance) {
         switch previousInstance {

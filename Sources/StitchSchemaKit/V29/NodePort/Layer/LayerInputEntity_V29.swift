@@ -27,7 +27,7 @@ public enum LayerInputEntity_V29: StitchSchemaVersionable {
         }
     
         /// Used for migrations when a port hasn't been created yet.
-        static func createEmpty() -> LayerInputEntity {
+        public static func createEmpty() -> LayerInputEntity {
             .init(packedData: .init(inputPort: .values([])),
                   unpackedData: .init())
         }

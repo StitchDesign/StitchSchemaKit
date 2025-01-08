@@ -22,6 +22,19 @@ public enum NodeTypeEntity_V28: StitchSchemaVersionable {
     }
 }
 
+extension NodeTypeEntity_V28.NodeTypeEntity {
+    public var kind: NodeKind_V28.NodeKind {
+        switch self {
+        case .patch(let patchNode):
+            return .patch(patchNode.patch)
+        case .layer(let layerNode):
+            return .layer(layerNode.layer)
+        case .group, .component:
+            return .group
+        }
+    }
+}
+
 extension NodeTypeEntity_V28.NodeTypeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeTypeEntity_V28.PreviousInstance) {
         switch previousInstance {

@@ -20,17 +20,20 @@ public enum GraphEntity_V29: StitchSchemaVersionable {
     public struct GraphEntity: Hashable, Sendable {
         public var id: UUID
         public var name: String
+        public var migrationWarning: String?
         public var nodes: [NodeEntity]
         public var orderedSidebarLayers: [SidebarLayerData]
         public let commentBoxes: [CommentBoxData]
         
         public init(id: UUID,
                     name: String,
+                    migrationWarning: String? = nil,
                     nodes: [NodeEntity],
                     orderedSidebarLayers: [SidebarLayerData],
                     commentBoxes: [CommentBoxData]) {
             self.id = id
             self.name = name
+            self.migrationWarning = migrationWarning
             self.nodes = nodes
             self.orderedSidebarLayers = orderedSidebarLayers
             self.commentBoxes = commentBoxes
@@ -72,10 +75,95 @@ extension GraphEntity_V29.GraphEntity: StitchVersionedCodable {
         
         let convertedSidebarLayers = previousInstance.orderedSidebarLayers
             .convertRealityLayers(realityIds: realityViewIds)
+        
+        let oldModel3DPatchIds = Set(
+            previousInstance.nodes
+                .compactMap {
+                    if $0.nodeTypeEntity.kind == .patch(.model3DImport) {
+                        return $0.id
+                    }
+                    
+                    return nil
+                }
+        )
+        
+        // Nothing to do if no 3D import patch nodes were used
+        guard !oldModel3DPatchIds.isEmpty else {
+            self = .init(id: previousInstance.id,
+                         name: previousInstance.name,
+                         migrationWarning: nil,
+                         nodes: .init(previousElements: previousInstance.nodes),
+                         orderedSidebarLayers: .init(previousElements: convertedSidebarLayers),
+                         commentBoxes: .init(previousElements: previousInstance.commentBoxes))
+            
+            return
+        }
+        
+        let oldNodes = previousInstance.nodes
+        
+        // Removes 3D model patch node and create 3D model layer node
+        let convertedNodes: [GraphEntity_V29.NodeEntity] = oldNodes.map { prevNode in
+            switch prevNode.nodeTypeEntity {
+                // Convertes old 3D model patch node to layer node
+            case .patch(let patchNode) where patchNode.patch == .model3DImport:
+                // Migrate with fake layer option
+                var prevNode = prevNode
+                prevNode.nodeTypeEntity = .layer(LayerNodeEntity_V28
+                    .LayerNodeEntity(id: .init(),
+                                     layer: .image, // will update this
+                                     outputCanvasPorts: [],
+                                     hasSidebarVisibility: true,
+                                     layerGroupId: nil))
+                
+                var migratedNode = GraphEntity_V29.NodeEntity(previousInstance: prevNode)
+                
+                // Create new layer node
+                var newLayerNode = LayerNodeEntity_V29
+                    .LayerNodeEntity(id: .init(),
+                                     layer: .model3D,
+                                     outputCanvasPorts: [],
+                                     hasSidebarVisibility: true,
+                                     layerGroupId: nil)
+                
+                // Transfer values from old node
+                newLayerNode.model3DPort.packedData.inputPort = .init(previousInstance: patchNode.inputs[0].portData)
+                newLayerNode.isAnimatingPort.packedData.inputPort = .init(previousInstance: patchNode.inputs[1].portData)
+                newLayerNode.transform3DPort.packedData.inputPort = .init(previousInstance: patchNode.inputs[2].portData)
+                
+                // Removes connections from model 3D import patch node
+                newLayerNode.model3DPort.packedData.inputPort.resetUpstreamConnection(with: .asyncMedia(nil)) { upstreamConnection in
+                    oldModel3DPatchIds.contains(upstreamConnection.nodeId)
+                }
+                
+                migratedNode.nodeTypeEntity = .layer(newLayerNode)
+                
+                return migratedNode
+
+                // Searches all input data to find connections to old nodes and removes them.
+            default:
+                var migratedNode = GraphEntity_V29.NodeEntity(previousInstance: prevNode)
+                migratedNode.nodeTypeEntity = migratedNode.nodeTypeEntity.inputsModifier() { input in
+                    var input = input
+                    
+                    // Removes connections from model 3D import patch node
+                    input.resetUpstreamConnection(with: .asyncMedia(nil)) { upstreamConnection in
+                        oldModel3DPatchIds.contains(upstreamConnection.nodeId)
+                    }
+                    
+                    return input
+                }
+                
+                
+                return migratedNode
+                
+                // TODO: remove connections
+            }
+        }
 
         self = .init(id: previousInstance.id,
                      name: previousInstance.name,
-                     nodes: .init(previousElements: previousInstance.nodes),
+                     migrationWarning: "3D Model patch nodes have been deprecated in favor of 3D Model layers. While this document has been migrated, some data might have been lost. Please review your newly-created 3D Model Layer nodes.",
+                     nodes: convertedNodes,
                      orderedSidebarLayers: .init(previousElements: convertedSidebarLayers),
                      commentBoxes: .init(previousElements: previousInstance.commentBoxes))
     }

@@ -23,7 +23,7 @@ public enum NodePortInputEntity_V29: StitchSchemaVersionable {
 
     public struct NodePortInputEntity: Hashable, Identifiable {
         public let id: NodeIOCoordinate
-        public let portData: NodeConnectionType
+        public var portData: NodeConnectionType
         public let nodeKind: NodeKind
         public let userVisibleType: UserVisibleType?
         

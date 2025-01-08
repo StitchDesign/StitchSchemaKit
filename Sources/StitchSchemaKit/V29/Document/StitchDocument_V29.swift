@@ -53,11 +53,7 @@ public enum StitchDocument_V29: StitchSchemaVersionable {
 
 extension StitchDocument_V29.StitchDocument {
     public init(previousInstance: StitchDocument_V29.PreviousInstance) {
-        self.init(graph: .init(id: previousInstance.graph.id,
-                               name: previousInstance.graph.name,
-                               nodes: .init(previousElements: previousInstance.graph.nodes),
-                               orderedSidebarLayers: .init(previousElements: previousInstance.graph.orderedSidebarLayers),
-                               commentBoxes: .init(previousElements: previousInstance.graph.commentBoxes)),
+        self.init(graph: .init(previousInstance: previousInstance.graph),
                   previewWindowSize: previousInstance.previewWindowSize,
                   previewSizeDevice: .init(previousInstance: previousInstance.previewSizeDevice),
                   previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor,

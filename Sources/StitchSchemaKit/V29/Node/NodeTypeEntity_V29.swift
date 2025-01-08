@@ -22,6 +22,72 @@ public enum NodeTypeEntity_V29: StitchSchemaVersionable {
     }
 }
 
+extension NodeTypeEntity_V29.NodeTypeEntity {
+    public var kind: NodeKind_V29.NodeKind {
+        switch self {
+        case .patch(let patchNode):
+            return .patch(patchNode.patch)
+        case .layer(let layerNode):
+            return .layer(layerNode.layer)
+        case .group, .component:
+            return .group
+        }
+    }
+    
+    var patchNodeEntity: PatchNodeEntity_V29.PatchNodeEntity? {
+        switch self {
+        case .patch(let patchNodeEntity):
+            return patchNodeEntity
+        default:
+            return nil
+        }
+    }
+    
+    /// Helper which modifies all discovered input data.
+    func inputsModifier(callback: @escaping (NodeConnectionType_V29.NodeConnectionType) -> NodeConnectionType_V29.NodeConnectionType) -> Self {
+        switch self {
+        case .patch(var patchNodeEntity):
+            patchNodeEntity.inputs = patchNodeEntity.inputs
+                .map { inputData in
+                    var inputData = inputData
+                    inputData.portData = callback(inputData.portData)
+                    return inputData
+                }
+            
+            return .patch(patchNodeEntity)
+        
+        case .layer(var layerNodeEntity):
+            let allPorts = LayerInputPort_V29.LayerInputPort.allCases
+            
+            for port in allPorts {
+                var inputData = layerNodeEntity[keyPath: port.schemaPortKeyPath]
+                
+                inputData.packedData.inputPort = callback(inputData.packedData.inputPort)
+                inputData.unpackedData = inputData.unpackedData.map { unpackedData in
+                    var unpackedData = unpackedData
+                    unpackedData.inputPort = callback(unpackedData.inputPort)
+                    return unpackedData
+                }
+                
+                layerNodeEntity[keyPath: port.schemaPortKeyPath] = inputData
+            }
+            
+            return .layer(layerNodeEntity)
+        
+        case .component(var componentEntity):
+            componentEntity.inputs = componentEntity.inputs.map {
+                callback($0)
+            }
+            
+            return .component(componentEntity)
+            
+        case .group:
+            // Input data not held here
+            return self
+        }
+    }
+}
+
 extension NodeTypeEntity_V29.NodeTypeEntity: StitchVersionedCodable {
     public init(previousInstance: NodeTypeEntity_V29.PreviousInstance) {
         switch previousInstance {

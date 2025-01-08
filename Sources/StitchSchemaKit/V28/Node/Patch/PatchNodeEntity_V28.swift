@@ -20,10 +20,10 @@ public enum PatchNodeEntity_V28: StitchSchemaVersionable {
 
     public struct PatchNodeEntity: Hashable {
         public let id: UUID
-        public let patch: Patch
+        public var patch: Patch
         public var inputs: NodePortInputEntitySchemas
         public var canvasEntity: CanvasNodeEntity_V28.CanvasNodeEntity
-        public let userVisibleType: UserVisibleType?
+        public var userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema?
         public let mathExpression: String? // only for Math Expression
         

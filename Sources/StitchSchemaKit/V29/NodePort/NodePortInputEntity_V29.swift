@@ -24,17 +24,11 @@ public enum NodePortInputEntity_V29: StitchSchemaVersionable {
     public struct NodePortInputEntity: Hashable, Identifiable {
         public let id: NodeIOCoordinate
         public var portData: NodeConnectionType
-        public let nodeKind: NodeKind
-        public let userVisibleType: UserVisibleType?
         
         public init(id: NodeIOCoordinate,
-                    portData: NodeConnectionType,
-                    nodeKind: NodeKind,
-                    userVisibleType: UserVisibleType?) {
+                    portData: NodeConnectionType) {
             self.id = id
             self.portData = portData
-            self.nodeKind = nodeKind
-            self.userVisibleType = userVisibleType
         }
     }
 }
@@ -42,8 +36,6 @@ public enum NodePortInputEntity_V29: StitchSchemaVersionable {
 extension NodePortInputEntity_V29.NodePortInputEntity: StitchVersionedCodable {
     public init(previousInstance: NodePortInputEntity_V29.PreviousInstance) {
         self.init(id: .init(previousInstance: previousInstance.id),
-                  portData: .init(previousInstance: previousInstance.portData),
-                  nodeKind: .init(previousInstance: previousInstance.nodeKind),
-                  userVisibleType: .init(previousInstance: previousInstance.userVisibleType))
+                  portData: .init(previousInstance: previousInstance.portData))
     }
 }

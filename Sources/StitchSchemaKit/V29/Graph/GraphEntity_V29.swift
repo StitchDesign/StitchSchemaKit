@@ -104,37 +104,28 @@ extension GraphEntity_V29.GraphEntity: StitchVersionedCodable {
         let oldNodes = previousInstance.nodes
         
         // Removes 3D model patch node and create 3D model layer node
-        let convertedNodes: [GraphEntity_V29.NodeEntity] = oldNodes.compactMap { prevNode in
+        let convertedNodes: [GraphEntity_V28.NodeEntity] = oldNodes.map { prevNode in
+            var prevNode = prevNode
+            
             switch prevNode.nodeTypeEntity {
-                // Convertes old 3D model patch node to layer node
-            case .patch(let patchNode) where patchNode.patch == .model3DImport:
-                return nil
-
-                // Searches all input data to find connections to old nodes and removes them.
+                // Converts old 3D model patch node to value node
+            case .patch(var patchNode) where patchNode.patch == .model3DImport:
+                patchNode.patch = .splitter
+                patchNode.userVisibleType = .media
+                patchNode.inputs = [patchNode.inputs[0]]
+                prevNode.nodeTypeEntity = .patch(patchNode)
+                
             default:
-                var migratedNode = GraphEntity_V29.NodeEntity(previousInstance: prevNode)
-                migratedNode.nodeTypeEntity = migratedNode.nodeTypeEntity.inputsModifier() { input in
-                    var input = input
-                    
-                    // Removes connections from model 3D import patch node
-                    input.resetUpstreamConnection(with: .asyncMedia(nil)) { upstreamConnection in
-                        oldModel3DPatchIds.contains(upstreamConnection.nodeId)
-                    }
-                    
-                    return input
-                }
-                
-                
-                return migratedNode
-                
-                // TODO: remove connections
+                break
             }
+            
+            return prevNode
         }
 
         self = .init(id: previousInstance.id,
                      name: previousInstance.name,
                      migrationWarning: "3D Model patch nodes have been deprecated in favor of 3D Model layers. While this document has been migrated, some data might have been lost. Please review your newly-created 3D Model Layer nodes.",
-                     nodes: convertedNodes,
+                     nodes: .init(previousElements: convertedNodes),
                      orderedSidebarLayers: .init(previousElements: convertedSidebarLayers),
                      commentBoxes: .init(previousElements: previousInstance.commentBoxes))
     }

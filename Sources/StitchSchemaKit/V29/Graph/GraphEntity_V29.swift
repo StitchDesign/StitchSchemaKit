@@ -89,6 +89,17 @@ extension GraphEntity_V29.GraphEntity: StitchVersionedCodable {
                 }
         )
         
+        let oldAnchorPatchIds = Set(
+            previousInstance.nodes
+                .compactMap {
+                    if $0.nodeTypeEntity.kind == .patch(.arAnchor) {
+                        return $0.id
+                    }
+                    
+                    return nil
+                }
+        )
+        
         // Nothing to do if no 3D import patch nodes were used
         guard !oldModel3DPatchIds.isEmpty else {
             self = .init(id: previousInstance.id,
@@ -108,14 +119,30 @@ extension GraphEntity_V29.GraphEntity: StitchVersionedCodable {
             var prevNode = prevNode
             
             switch prevNode.nodeTypeEntity {
-                // Converts old 3D model patch node to value node
             case .patch(var patchNode) where patchNode.patch == .model3DImport:
+                // Converts old 3D model patch node to value node
                 patchNode.patch = .splitter
                 patchNode.userVisibleType = .media
                 patchNode.inputs = [patchNode.inputs[0]]
                 prevNode.nodeTypeEntity = .patch(patchNode)
                 
+            case .patch(var patchNode) where patchNode.patch == .arAnchor:
+                // New AR anchor removed first input
+                patchNode.inputs = [patchNode.inputs[1]]
+                prevNode.nodeTypeEntity = .patch(patchNode)
+                
             default:
+                // Remove connections to now removed first input of ar anchor
+                prevNode.nodeTypeEntity = prevNode.nodeTypeEntity.inputsModifier { input in
+                    switch input {
+                    case .upstreamConnection(let nodeIOCoordinate) where oldAnchorPatchIds.contains(nodeIOCoordinate.nodeId):
+                        return .values([.asyncMedia(nil)])
+                        
+                    default:
+                        return input
+                    }
+                }
+                
                 break
             }
             

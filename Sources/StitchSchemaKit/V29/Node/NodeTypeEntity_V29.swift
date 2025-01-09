@@ -1,5 +1,5 @@
 //
-//  NodeTypeEntity_V28.swift
+//  NodeTypeEntity_V29.swift
 //
 //
 //  Created by Elliot Boschwitz on 6/19/24.
@@ -7,23 +7,23 @@
 
 import Foundation
 
-public enum NodeTypeEntity_V28: StitchSchemaVersionable {
+public enum NodeTypeEntity_V29: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V28
-    public typealias PreviousInstance = NodeTypeEntity_V27.NodeTypeEntity
+    public static let version = StitchSchemaVersion._V29
+    public typealias PreviousInstance = NodeTypeEntity_V28.NodeTypeEntity
     // MARK: - end
 
     public enum NodeTypeEntity: Hashable {
-        case patch(PatchNodeEntity_V28.PatchNodeEntity)
-        case layer(LayerNodeEntity_V28.LayerNodeEntity)
-        case group(CanvasNodeEntity_V28.CanvasNodeEntity)
-        case component(ComponentEntity_V28.ComponentEntity)
+        case patch(PatchNodeEntity_V29.PatchNodeEntity)
+        case layer(LayerNodeEntity_V29.LayerNodeEntity)
+        case group(CanvasNodeEntity_V29.CanvasNodeEntity)
+        case component(ComponentEntity_V29.ComponentEntity)
     }
 }
 
-extension NodeTypeEntity_V28.NodeTypeEntity {
-    public var kind: NodeKind_V28.NodeKind {
+extension NodeTypeEntity_V29.NodeTypeEntity {
+    public var kind: NodeKind_V29.NodeKind {
         switch self {
         case .patch(let patchNode):
             return .patch(patchNode.patch)
@@ -34,8 +34,17 @@ extension NodeTypeEntity_V28.NodeTypeEntity {
         }
     }
     
+    var patchNodeEntity: PatchNodeEntity_V29.PatchNodeEntity? {
+        switch self {
+        case .patch(let patchNodeEntity):
+            return patchNodeEntity
+        default:
+            return nil
+        }
+    }
+    
     /// Helper which modifies all discovered input data.
-    func inputsModifier(callback: @escaping (NodeConnectionType_V28.NodeConnectionType) -> NodeConnectionType_V28.NodeConnectionType) -> Self {
+    func inputsModifier(callback: @escaping (NodeConnectionType_V29.NodeConnectionType) -> NodeConnectionType_V29.NodeConnectionType) -> Self {
         switch self {
         case .patch(var patchNodeEntity):
             patchNodeEntity.inputs = patchNodeEntity.inputs
@@ -48,7 +57,7 @@ extension NodeTypeEntity_V28.NodeTypeEntity {
             return .patch(patchNodeEntity)
         
         case .layer(var layerNodeEntity):
-            let allPorts = LayerInputPort_V28.LayerInputPort.allCases
+            let allPorts = LayerInputPort_V29.LayerInputPort.allCases
             
             for port in allPorts {
                 var inputData = layerNodeEntity[keyPath: port.schemaPortKeyPath]
@@ -79,8 +88,8 @@ extension NodeTypeEntity_V28.NodeTypeEntity {
     }
 }
 
-extension NodeTypeEntity_V28.NodeTypeEntity: StitchVersionedCodable {
-    public init(previousInstance: NodeTypeEntity_V28.PreviousInstance) {
+extension NodeTypeEntity_V29.NodeTypeEntity: StitchVersionedCodable {
+    public init(previousInstance: NodeTypeEntity_V29.PreviousInstance) {
         switch previousInstance {
         case .patch(let patchNodeEntity):
             self = .patch(.init(previousInstance: patchNodeEntity))

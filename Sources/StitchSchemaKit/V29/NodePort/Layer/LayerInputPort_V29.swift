@@ -1,5 +1,5 @@
 //
-//  LayerInputPort_V28.swift
+//  LayerInputPort_V29.swift
 //
 //
 //  Created by Elliot Boschwitz on 4/3/24.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-public enum LayerInputPort_V28: StitchSchemaVersionable {
+public enum LayerInputPort_V29: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    public static let version: StitchSchemaVersion = StitchSchemaVersion._V28
-    public typealias PreviousInstance = LayerInputPort_V27.LayerInputPort
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V29
+    public typealias PreviousInstance = LayerInputPort_V28.LayerInputPort
     // MARK: - endif
     
     public enum LayerInputPort: CaseIterable {
@@ -48,10 +48,14 @@ public enum LayerInputPort_V28: StitchSchemaVersionable {
         case isAnimating
         
         // Reality
-        case allAnchors
         case cameraDirection
         case isCameraEnabled
         case isShadowsEnabled
+                
+        // 3D
+        case transform3D
+        case anchorEntity
+        case isEntityAnimating
         
         // Shape
         case shape
@@ -172,8 +176,8 @@ public enum LayerInputPort_V28: StitchSchemaVersionable {
     }
 }
 
-extension LayerInputPort_V28.LayerInputPort: StitchVersionedCodable {
-    public init(previousInstance: LayerInputPort_V28.PreviousInstance) {
+extension LayerInputPort_V29.LayerInputPort: StitchVersionedCodable {
+    public init(previousInstance: LayerInputPort_V29.PreviousInstance) {
         switch previousInstance {
         case .position:
             self = .position
@@ -233,8 +237,6 @@ extension LayerInputPort_V28.LayerInputPort: StitchVersionedCodable {
             self = .setupMode
         case .isAnimating:
             self = .isAnimating
-        case .allAnchors:
-            self = .allAnchors
         case .cameraDirection:
             self = .cameraDirection
         case .isCameraEnabled:
@@ -371,13 +373,34 @@ extension LayerInputPort_V28.LayerInputPort: StitchVersionedCodable {
             self = .materialThickness
         case .deviceAppearance:
             self = .deviceAppearance
+        case .scrollContentSize:
+            self = .scrollContentSize
+        case .scrollXEnabled:
+            self = .scrollXEnabled
+        case .scrollJumpToXStyle:
+            self = .scrollJumpToXStyle
+        case .scrollJumpToX:
+            self = .scrollJumpToX
+        case .scrollJumpToXLocation:
+            self = .scrollJumpToXLocation
+        case .scrollYEnabled:
+            self = .scrollYEnabled
+        case .scrollJumpToYStyle:
+            self = .scrollJumpToYStyle
+        case .scrollJumpToY:
+            self = .scrollJumpToY
+        case .scrollJumpToYLocation:
+            self = .scrollJumpToYLocation
+        case .allAnchors:
+            // TODO: LayerInputPort_V28 migration
+            fatalError()
         }
     }
 }
 
-extension LayerInputPort_V28.LayerInputPort {
+extension LayerInputPort_V29.LayerInputPort {
     /// Keypath mapping to this schema version.
-    var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V28.LayerNodeEntity, LayerInputEntity_V28.LayerInputEntity> {
+    var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V29.LayerNodeEntity, LayerInputEntity_V29.LayerInputEntity> {
         switch self {
             
         // Required
@@ -605,8 +628,12 @@ extension LayerInputPort_V28.LayerInputPort {
             return \.scrollJumpToYPort
         case .scrollJumpToYLocation:
             return \.scrollJumpToYLocationPort
-        case .allAnchors:
-            return \.allAnchorsPort
+        case .transform3D:
+            return \.transform3DPort
+        case .anchorEntity:
+            return \.anchorEntityPort
+        case .isEntityAnimating:
+            return \.isEntityAnimatingPort
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LayerNodeEntity_V28.swift
+//  LayerNodeEntity_V29.swift
 //  Stitch
 //
 //  Created by Elliot Boschwitz on 12/29/23.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public enum LayerNodeEntity_V28: StitchSchemaVersionable {
+public enum LayerNodeEntity_V29: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V28
-    public typealias PreviousInstance = LayerNodeEntity_V27.LayerNodeEntity
-    public typealias CanvasNodeEntity = CanvasNodeEntity_V28.CanvasNodeEntity
-    public typealias Layer = Layer_V28.Layer
-    public typealias LayerInputEntity = LayerInputEntity_V28.LayerInputEntity
-    public typealias NodeConnectionType = NodeConnectionType_V28.NodeConnectionType
+    public static let version = StitchSchemaVersion._V29
+    public typealias PreviousInstance = LayerNodeEntity_V28.LayerNodeEntity
+    public typealias CanvasNodeEntity = CanvasNodeEntity_V29.CanvasNodeEntity
+    public typealias Layer = Layer_V29.Layer
+    public typealias LayerInputEntity = LayerInputEntity_V29.LayerInputEntity
+    public typealias NodeConnectionType = NodeConnectionType_V29.NodeConnectionType
     // MARK: - end
 
     public struct LayerNodeEntity: Hashable {
@@ -68,7 +68,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
         public var paddingPort: LayerInputEntity
         
         public var setupModePort: LayerInputEntity
-        public var allAnchorsPort: LayerInputEntity
         public var cameraDirectionPort: LayerInputEntity
         public var isCameraEnabledPort: LayerInputEntity
         public var isShadowsEnabledPort: LayerInputEntity
@@ -112,6 +111,10 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
         public var shadowRadiusPort: LayerInputEntity
         public var shadowOffsetPort: LayerInputEntity
         
+        public var transform3DPort: LayerInputEntity
+        public var anchorEntityPort: LayerInputEntity
+        public var isEntityAnimatingPort: LayerInputEntity
+
         public var sfSymbolPort: LayerInputEntity
         
         public var videoURLPort: LayerInputEntity
@@ -202,7 +205,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
                     paddingPort: LayerInputEntity = .createEmpty(),
                     
                     setupModePort: LayerInputEntity = .createEmpty(),
-                    allAnchorsPort: LayerInputEntity = .createEmpty(),
                     cameraDirectionPort: LayerInputEntity = .createEmpty(),
                     isCameraEnabledPort: LayerInputEntity = .createEmpty(),
                     isShadowsEnabledPort: LayerInputEntity = .createEmpty(),
@@ -297,6 +299,10 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
                     scrollJumpToYPort: LayerInputEntity = .createEmpty(),
                     scrollJumpToYLocationPort: LayerInputEntity = .createEmpty(),
                     
+                    transform3DPort: LayerInputEntity = .createEmpty(),
+                    anchorEntityPort: LayerInputEntity = .createEmpty(),
+                    isEntityAnimatingPort: LayerInputEntity = .createEmpty(),
+
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?) {
             self.id = id
@@ -336,7 +342,6 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
             self.paddingPort = paddingPort
             
             self.setupModePort = setupModePort
-            self.allAnchorsPort = allAnchorsPort
             self.cameraDirectionPort = cameraDirectionPort
             self.isCameraEnabledPort = isCameraEnabledPort
             self.isShadowsEnabledPort = isShadowsEnabledPort
@@ -434,22 +439,21 @@ public enum LayerNodeEntity_V28: StitchSchemaVersionable {
             self.scrollJumpToYStylePort = scrollJumpToYStylePort
             self.scrollJumpToYPort = scrollJumpToYPort
             self.scrollJumpToYLocationPort = scrollJumpToYLocationPort
+
+            self.transform3DPort = transform3DPort
+            self.anchorEntityPort = anchorEntityPort
+            self.isEntityAnimatingPort = isEntityAnimatingPort
         }
     }
 }
 
-extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
-    public init(previousInstance: LayerNodeEntity_V28.PreviousInstance) {
+extension LayerNodeEntity_V29.LayerNodeEntity: StitchVersionedCodable {
+    public init(previousInstance: LayerNodeEntity_V29.PreviousInstance) {
         self.init(id: previousInstance.id,
-                  layer: LayerNodeEntity_V28.Layer(previousInstance: previousInstance.layer),
-                  
-                  // TODO: remove after version 28 migration; just needed to provide a default `nil` entry for the scroll output added to all group layer nodes
-                  outputCanvasPorts: previousInstance.layer == .group
-                  ? [nil] // Scroll offset is newly added to layer group, so cannot have appeared on canvas prior to V28
-                  : previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
-                  
+                  layer: LayerNodeEntity_V29.Layer(previousInstance: previousInstance.layer),
+                  outputCanvasPorts: previousInstance.outputCanvasPorts.map { .init(previousInstance: $0) },
                   positionPort: .init(previousInstance: previousInstance.positionPort),
-                  sizePort: LayerNodeEntity_V28.LayerInputEntity.init(previousInstance: previousInstance.sizePort),
+                  sizePort: LayerNodeEntity_V29.LayerInputEntity(previousInstance: previousInstance.sizePort),
                   scalePort: .init(previousInstance: previousInstance.scalePort),
                   anchoringPort: .init(previousInstance: previousInstance.anchoringPort),
                   opacityPort: .init(previousInstance: previousInstance.opacityPort),
@@ -479,7 +483,6 @@ extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
                   paddingPort: .init(previousInstance: previousInstance.paddingPort),
                   
                   setupModePort: .init(previousInstance: previousInstance.setupModePort),
-                  allAnchorsPort: .init(previousInstance: previousInstance.allAnchorsPort),
                   cameraDirectionPort: .init(previousInstance: previousInstance.cameraDirectionPort),
                   isCameraEnabledPort: .init(previousInstance: previousInstance.isCameraEnabledPort),
                   isShadowsEnabledPort: .init(previousInstance: previousInstance.isShadowsEnabledPort),
@@ -565,20 +568,51 @@ extension LayerNodeEntity_V28.LayerNodeEntity: StitchVersionedCodable {
                   materialThicknessPort: .init(previousInstance: previousInstance.materialThicknessPort),
                   
                   
-                  // TODO: remove migraton after version 28
-                  scrollContentSizePort: .createEmpty(),
+                  scrollContentSizePort: .init(previousInstance: previousInstance.scrollContentSizePort),
 
-                  scrollXEnabledPort: .createEmpty(),
-                  scrollJumpToXStylePort: .createEmpty(),
-                  scrollJumpToXPort: .createEmpty(),
-                  scrollJumpToXLocationPort: .createEmpty(),
+                  scrollXEnabledPort: .init(previousInstance: previousInstance.scrollXEnabledPort),
+                  scrollJumpToXStylePort: .init(previousInstance: previousInstance.scrollJumpToXStylePort),
+                  scrollJumpToXPort: .init(previousInstance: previousInstance.scrollJumpToXPort),
+                  scrollJumpToXLocationPort: .init(previousInstance: previousInstance.scrollJumpToXLocationPort),
 
-                  scrollYEnabledPort: .createEmpty(),
-                  scrollJumpToYStylePort: .createEmpty(),
-                  scrollJumpToYPort: .createEmpty(),
-                  scrollJumpToYLocationPort: .createEmpty(),
+                  scrollYEnabledPort: .init(previousInstance: previousInstance.scrollYEnabledPort),
+                  scrollJumpToYStylePort: .init(previousInstance: previousInstance.scrollJumpToYStylePort),
+                  scrollJumpToYPort: .init(previousInstance: previousInstance.scrollJumpToYPort),
+                  scrollJumpToYLocationPort: .init(previousInstance: previousInstance.scrollJumpToYLocationPort),
                   
+                  // TODO: remove migration after version 28
+                  transform3DPort: Self.createTransformPort(),
+                  anchorEntityPort: .createEmpty(),
+                  isEntityAnimatingPort: .createEmpty(),
+
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId)
+    }
+
+    // TODO: remove after version 29
+    static func createTransformPort() -> LayerInputEntity_V29.LayerInputEntity {
+        let transform = StitchTransform_V29.StitchTransform(positionX: 0,
+                                                            positionY: 0,
+                                                            positionZ: 0,
+                                                            scaleX: 1,
+                                                            scaleY: 1,
+                                                            scaleZ: 1,
+                                                            rotationX: 0,
+                                                            rotationY: 0,
+                                                            rotationZ: 0)
+        
+        return .init(packedData: .init(inputPort: .values([.transform(transform)])),
+                     unpackedData: [
+                        .init(inputPort: .values([.number(transform.positionX)])),
+                        .init(inputPort: .values([.number(transform.positionY)])),
+                        .init(inputPort: .values([.number(transform.positionZ)])),
+                        .init(inputPort: .values([.number(transform.scaleX)])),
+                        .init(inputPort: .values([.number(transform.scaleY)])),
+                        .init(inputPort: .values([.number(transform.scaleZ)])),
+                        .init(inputPort: .values([.number(transform.rotationX)])),
+                        .init(inputPort: .values([.number(transform.rotationY)])),
+                        .init(inputPort: .values([.number(transform.rotationZ)])),
+                     ]
+        )
     }
 }

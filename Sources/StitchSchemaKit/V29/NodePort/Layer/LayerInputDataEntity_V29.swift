@@ -8,13 +8,13 @@
 import Foundation
 
 
-public enum LayerInputDataEntity_V28: StitchSchemaVersionable {
+public enum LayerInputDataEntity_V29: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V28
-    public typealias PreviousInstance = LayerInputDataEntity_V27.LayerInputDataEntity
-    public typealias NodeConnectionType = NodeConnectionType_V28.NodeConnectionType
-    public typealias CanvasNodeEntity = CanvasNodeEntity_V28.CanvasNodeEntity
+    public static let version = StitchSchemaVersion._V29
+    public typealias PreviousInstance = LayerInputDataEntity_V28.LayerInputDataEntity
+    public typealias NodeConnectionType = NodeConnectionType_V29.NodeConnectionType
+    public typealias CanvasNodeEntity = CanvasNodeEntity_V29.CanvasNodeEntity
     // MARK: - end
 
     public struct LayerInputDataEntity: Hashable {
@@ -29,8 +29,8 @@ public enum LayerInputDataEntity_V28: StitchSchemaVersionable {
     }
 }
 
-extension LayerInputDataEntity_V28.LayerInputDataEntity: StitchVersionedCodable {
-    public init(previousInstance: LayerInputDataEntity_V28.PreviousInstance) {
+extension LayerInputDataEntity_V29.LayerInputDataEntity: StitchVersionedCodable {
+    public init(previousInstance: LayerInputDataEntity_V29.PreviousInstance) {
         self.init(
             inputPort: .init(previousInstance: previousInstance.inputPort),
             canvasItem: .init(previousInstance: previousInstance.canvasItem)

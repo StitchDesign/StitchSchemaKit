@@ -1,5 +1,5 @@
 //
-//  LayerInputEntity_V28.swift
+//  LayerInputEntity_V29.swift
 //
 //
 //  Created by Elliot Boschwitz on 8/14/24.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-public enum LayerInputEntity_V28: StitchSchemaVersionable {
+public enum LayerInputEntity_V29: StitchSchemaVersionable {
 
     // MARK: - ensure versions are correct
-    public static let version = StitchSchemaVersion._V28
-    public typealias PreviousInstance = LayerInputEntity_V27.LayerInputEntity
-    public typealias LayerInputDataEntity = LayerInputDataEntity_V28.LayerInputDataEntity
-    public typealias CanvasNodeEntity = CanvasNodeEntity_V28.CanvasNodeEntity
+    public static let version = StitchSchemaVersion._V29
+    public typealias PreviousInstance = LayerInputEntity_V28.LayerInputEntity
+    public typealias LayerInputDataEntity = LayerInputDataEntity_V29.LayerInputDataEntity
+    public typealias CanvasNodeEntity = CanvasNodeEntity_V29.CanvasNodeEntity
     // MARK: - end
 
     public struct LayerInputEntity: Hashable, Codable, Sendable {
@@ -34,8 +34,8 @@ public enum LayerInputEntity_V28: StitchSchemaVersionable {
     }
 }
 
-extension LayerInputEntity_V28.LayerInputEntity: StitchVersionedCodable {
-    public init(previousInstance: LayerInputEntity_V28.PreviousInstance) {
+extension LayerInputEntity_V29.LayerInputEntity: StitchVersionedCodable {
+    public init(previousInstance: LayerInputEntity_V29.PreviousInstance) {
         self.init(packedData: .init(previousInstance: previousInstance.packedData),
                   unpackedData: .init(previousElements: previousInstance.unpackedData))
     }

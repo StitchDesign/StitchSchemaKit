@@ -35,7 +35,14 @@ public enum CanvasNodeEntity_V29: StitchSchemaVersionable {
 
 extension CanvasNodeEntity_V29.CanvasNodeEntity: StitchVersionedCodable {
     public init(previousInstance: CanvasNodeEntity_V29.PreviousInstance) {
-        self.init(position: previousInstance.position,
+        
+        let STITCH_GRAPH_LENGTH: CGFloat = 300000
+        
+        var position = previousInstance.position
+        position.x += STITCH_GRAPH_LENGTH/2
+        position.y += STITCH_GRAPH_LENGTH/2
+        
+        self.init(position: position,
                   zIndex: previousInstance.zIndex,
                   parentGroupNodeId: previousInstance.parentGroupNodeId)
     }

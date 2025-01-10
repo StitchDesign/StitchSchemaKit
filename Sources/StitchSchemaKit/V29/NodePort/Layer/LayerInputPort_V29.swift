@@ -56,6 +56,9 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         case transform3D
         case anchorEntity
         case isEntityAnimating
+        case translation3DEnabled
+        case rotation3DEnabled
+        case scale3DEnabled
         
         // Shape
         case shape
@@ -634,6 +637,12 @@ extension LayerInputPort_V29.LayerInputPort {
             return \.anchorEntityPort
         case .isEntityAnimating:
             return \.isEntityAnimatingPort
+        case .translation3DEnabled:
+            return \.translation3DEnabledPort
+        case .rotation3DEnabled:
+            return \.rotation3DEnabledPort
+        case .scale3DEnabled:
+            return \.scale3DEnabledPort
         }
     }
 }

@@ -59,6 +59,7 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         case translation3DEnabled
         case rotation3DEnabled
         case scale3DEnabled
+        case size3D
         
         // Shape
         case shape
@@ -71,6 +72,7 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         case strokeLineJoin
         case coordinateSystem
         case cornerRadius
+        case isMetallic
         
         // Canvas
         case canvasLineColor
@@ -643,6 +645,10 @@ extension LayerInputPort_V29.LayerInputPort {
             return \.rotation3DEnabledPort
         case .scale3DEnabled:
             return \.scale3DEnabledPort
+        case .size3D:
+            return \.size3DPort
+        case .isMetallic:
+            return \.isMetallicPort
         }
     }
 }

@@ -117,6 +117,8 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
         public var translation3DEnabledPort: LayerInputEntity
         public var rotation3DEnabledPort: LayerInputEntity
         public var scale3DEnabledPort: LayerInputEntity
+        public var size3DPort: LayerInputEntity
+        public var isMetallicPort: LayerInputEntity
 
         public var sfSymbolPort: LayerInputEntity
         
@@ -308,6 +310,8 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
                     translation3DEnabledPort: LayerInputEntity = .createEmpty(),
                     rotation3DEnabledPort: LayerInputEntity = .createEmpty(),
                     scale3DEnabledPort: LayerInputEntity = .createEmpty(),
+                    size3DPort: LayerInputEntity = .createEmpty(),
+                    isMetallicPort: LayerInputEntity = .createEmpty(),
 
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?) {
@@ -452,6 +456,8 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
             self.translation3DEnabledPort = translation3DEnabledPort
             self.rotation3DEnabledPort = rotation3DEnabledPort
             self.scale3DEnabledPort = scale3DEnabledPort
+            self.size3DPort = size3DPort
+            self.isMetallicPort = isMetallicPort
         }
     }
 }

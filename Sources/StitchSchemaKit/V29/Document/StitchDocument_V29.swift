@@ -53,11 +53,17 @@ public enum StitchDocument_V29: StitchSchemaVersionable {
 
 extension StitchDocument_V29.StitchDocument {
     public init(previousInstance: StitchDocument_V29.PreviousInstance) {
+        
+        // TODO: REMOVE AFTER V29
+        var localPosition = previousInstance.localPosition
+        localPosition.x += STITCH_GRAPH_LENGTH/2
+        localPosition.y += STITCH_GRAPH_LENGTH/2
+        
         self.init(graph: .init(previousInstance: previousInstance.graph),
                   previewWindowSize: previousInstance.previewWindowSize,
                   previewSizeDevice: .init(previousInstance: previousInstance.previewSizeDevice),
                   previewWindowBackgroundColor: previousInstance.previewWindowBackgroundColor,
-                  localPosition: previousInstance.localPosition,
+                  localPosition: localPosition,
                   zoomData: previousInstance.zoomData,
                   cameraSettings: .init(previousInstance: previousInstance.cameraSettings))
     }

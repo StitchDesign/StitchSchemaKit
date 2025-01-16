@@ -59,11 +59,11 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         case translation3DEnabled
         case rotation3DEnabled
         case scale3DEnabled
-        
-        // Shape
         case size3D
         case radius3D
         case height3D
+        
+        // Shape
         case shape
         case strokePosition
         case strokeWidth

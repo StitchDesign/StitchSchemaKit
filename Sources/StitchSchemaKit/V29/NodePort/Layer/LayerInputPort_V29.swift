@@ -60,6 +60,8 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         case rotation3DEnabled
         case scale3DEnabled
         case size3D
+        case radius3D
+        case height3D
         
         // Shape
         case shape
@@ -647,6 +649,10 @@ extension LayerInputPort_V29.LayerInputPort {
             return \.scale3DEnabledPort
         case .size3D:
             return \.size3DPort
+        case .radius3D:
+            return \.radius3DPort
+        case .height3D:
+            return \.height3DPort
         case .isMetallic:
             return \.isMetallicPort
         }

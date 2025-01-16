@@ -14,7 +14,7 @@ public enum Layer_V29: StitchSchemaVersionable {
     // MARK: - endif
  
 
-    public enum Layer: String, CaseIterable, Hashable {
+    public enum Layer: CaseIterable, Hashable {
         case text,
              oval,
              rectangle,
@@ -26,17 +26,21 @@ public enum Layer_V29: StitchSchemaVersionable {
              shape,
              colorFill,
              hitArea,
-             canvasSketch = "Canvas Sketch",
-             textField = "Text Field",
-             map = "Map",
-             progressIndicator = "Progress Indicator",
-             switchLayer = "Switch",
-             linearGradient = "Linear Gradient",
-             radialGradient = "Radial Gradient",
-             angularGradient = "Angular Gradient",
-             sfSymbol = "SF Symbol",
-             videoStreaming = "Video Streaming",
-             material = "Material"
+             canvasSketch,
+             textField,
+             map,
+             progressIndicator,
+             switchLayer,
+             linearGradient,
+             radialGradient,
+             angularGradient,
+             sfSymbol,
+             videoStreaming,
+             material,
+             box,
+             sphere,
+             cylinder,
+             cone
     }
 }
 

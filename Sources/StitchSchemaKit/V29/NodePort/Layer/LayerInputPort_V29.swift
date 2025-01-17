@@ -165,6 +165,10 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         // Layer's offset when in a Group
         case offsetInGroup
         
+        // How a layer group aligns its children
+        // e.g. `VStack(alignment: .leading) { ... }`
+        case layerGroupAlignment
+        
         case materialThickness
         case deviceAppearance
         
@@ -613,6 +617,8 @@ extension LayerInputPort_V29.LayerInputPort {
             return \.layerMarginPort
         case .offsetInGroup:
             return \.offsetInGroupPort
+        case .layerGroupAlignment:
+            return \.layerGroupAlignmentPort
         case .materialThickness:
             return \.materialThicknessPort
         case .deviceAppearance:

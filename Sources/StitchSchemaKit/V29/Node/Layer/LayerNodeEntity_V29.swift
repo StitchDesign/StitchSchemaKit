@@ -155,6 +155,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
         public var layerPaddingPort: LayerInputEntity
         public var layerMarginPort: LayerInputEntity
         public var offsetInGroupPort: LayerInputEntity
+        public var layerGroupAlignmentPort: LayerInputEntity
         
         // Material Layer
         public var deviceAppearancePort: LayerInputEntity
@@ -172,7 +173,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
         public var scrollJumpToYStylePort: LayerInputEntity
         public var scrollJumpToYPort: LayerInputEntity
         public var scrollJumpToYLocationPort: LayerInputEntity
-        
+                
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -292,6 +293,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
                     layerPaddingPort: LayerInputEntity = .createEmpty(),
                     layerMarginPort: LayerInputEntity = .createEmpty(),
                     offsetInGroupPort: LayerInputEntity = .createEmpty(),
+                    layerGroupAlignmentPort: LayerInputEntity = .createEmpty(),
                     
                     deviceAppearancePort: LayerInputEntity = .createEmpty(),
                     materialThicknessPort: LayerInputEntity = .createEmpty(),
@@ -440,6 +442,7 @@ public enum LayerNodeEntity_V29: StitchSchemaVersionable {
             self.layerPaddingPort = layerPaddingPort
             self.layerMarginPort = layerMarginPort
             self.offsetInGroupPort = offsetInGroupPort
+            self.layerGroupAlignmentPort = layerGroupAlignmentPort
 
             // Scroll layer inputs
             self.scrollContentSizePort = scrollContentSizePort
@@ -585,9 +588,11 @@ extension LayerNodeEntity_V29.LayerNodeEntity: StitchVersionedCodable {
                   layerMarginPort: .init(previousInstance: previousInstance.layerMarginPort),
                   offsetInGroupPort: .init(previousInstance: previousInstance.offsetInGroupPort),
                   
+                  // TODO: remove after version 29
+                  layerGroupAlignmentPort: .createEmpty(),
+                  
                   deviceAppearancePort: .init(previousInstance: previousInstance.deviceAppearancePort),
                   materialThicknessPort: .init(previousInstance: previousInstance.materialThicknessPort),
-                  
                   
                   scrollContentSizePort: .init(previousInstance: previousInstance.scrollContentSizePort),
 
@@ -601,7 +606,7 @@ extension LayerNodeEntity_V29.LayerNodeEntity: StitchVersionedCodable {
                   scrollJumpToYPort: .init(previousInstance: previousInstance.scrollJumpToYPort),
                   scrollJumpToYLocationPort: .init(previousInstance: previousInstance.scrollJumpToYLocationPort),
                   
-                  // TODO: remove migration after version 28
+                  // TODO: remove migration after version 29
                   transform3DPort: Self.createTransformPort(),
                   anchorEntityPort: .createEmpty(),
                   isEntityAnimatingPort: .createEmpty(),

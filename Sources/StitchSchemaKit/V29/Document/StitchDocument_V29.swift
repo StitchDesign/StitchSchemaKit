@@ -54,7 +54,7 @@ public enum StitchDocument_V29: StitchSchemaVersionable {
 extension StitchDocument_V29.StitchDocument {
     public init(previousInstance: StitchDocument_V29.PreviousInstance) {
         
-        // TODO: REMOVE AFTER V29
+        // TODO: remove after version 29
         var localPosition = previousInstance.localPosition
         localPosition.x += STITCH_GRAPH_LENGTH/2
         localPosition.y += STITCH_GRAPH_LENGTH/2

@@ -38,7 +38,7 @@ let STITCH_GRAPH_LENGTH: CGFloat = 300000
 extension CanvasNodeEntity_V29.CanvasNodeEntity: StitchVersionedCodable {
     public init(previousInstance: CanvasNodeEntity_V29.PreviousInstance) {
                 
-        // TODO: REMOVE AFTER V29
+        // TODO: remove after version 29
         var position = previousInstance.position
         position.x += STITCH_GRAPH_LENGTH/2
         position.y += STITCH_GRAPH_LENGTH/2

@@ -16,27 +16,31 @@ public enum AsyncMediaValue_V30: StitchSchemaVersionable {
     public struct AsyncMediaValue: Hashable {
         public var id: UUID
         public var dataType: DataType_V30.DataType<MediaKey_V30.MediaKey>
+        public var label: String
         
         public init(id: UUID,
-                    dataType: DataType_V30.DataType<MediaKey_V30.MediaKey>) {
+                    dataType: DataType_V30.DataType<MediaKey_V30.MediaKey>,
+                    label: String) {
             self.id = id
             self.dataType = dataType
+            self.label = label
         }
     }
 }
 
 extension AsyncMediaValue_V30.AsyncMediaValue: StitchVersionedCodable {
     public init(previousInstance: AsyncMediaValue_V30.PreviousInstance) {
-
-        var dataType: DataType_V30.DataType<MediaKey_V30.MediaKey>
         switch previousInstance.dataType {
         case .computed:
-            dataType = .computed
+            self.init(id: previousInstance.id,
+                      dataType: .computed,
+                      
+                      // TODO: fix after version 30 migration
+                      label: "")    // fix in runtime
         case .source(let x):
-            dataType = .source(.init(previousInstance: x.self))
+            self.init(id: previousInstance.id,
+                      dataType: .source(.init(previousInstance: x)),
+                      label: x.filename)
         }
-        
-        self.init(id: previousInstance.id,
-                  dataType: dataType)
     }
 }

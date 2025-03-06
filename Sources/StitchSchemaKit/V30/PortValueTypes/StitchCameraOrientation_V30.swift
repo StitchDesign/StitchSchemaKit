@@ -42,15 +42,17 @@ extension StitchCameraOrientation_V30.StitchCameraOrientation: StitchVersionedCo
     
     @MainActor
     public static let defaultCameraOrientation: Self = {
-#if os(iOS)
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .portrait
-        }
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return .landscapeRight
-        }
-#endif
         return .portrait
+//
+//#if os(iOS)
+//        if UIDevice.current.userInterfaceIdiom == .phone {
+//            return .portrait
+//        }
+//        
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            return .landscapeRight
+//        }
+//#endif
+//        return .portrait
     }()
 }

@@ -51,6 +51,6 @@ extension StitchCameraOrientation_V30.StitchCameraOrientation: StitchVersionedCo
             return .landscapeRight
         }
 #endif
-        return .landscapeRight
+        return .portrait
     }()
 }

@@ -1,5 +1,5 @@
 //
-//  LayerInputPort_V29.swift
+//  LayerInputPort_V31.swift
 //
 //
 //  Created by Elliot Boschwitz on 4/3/24.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-public enum LayerInputPort_V29: StitchSchemaVersionable {
+public enum LayerInputPort_V31: StitchSchemaVersionable {
     // MARK: - ensure versions are correct
-    public static let version: StitchSchemaVersion = StitchSchemaVersion._V29
-    public typealias PreviousInstance = LayerInputPort_V28.LayerInputPort
+    public static let version: StitchSchemaVersion = StitchSchemaVersion._V31
+    public typealias PreviousInstance = LayerInputPort_V30.LayerInputPort
     // MARK: - endif
     
     public enum LayerInputPort: CaseIterable {
@@ -174,7 +174,6 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         
         // Layer scroll
         case scrollContentSize
-        case scrollAuto
         
         case scrollXEnabled
         case scrollJumpToXStyle
@@ -188,8 +187,8 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
     }
 }
 
-extension LayerInputPort_V29.LayerInputPort: StitchVersionedCodable {
-    public init(previousInstance: LayerInputPort_V29.PreviousInstance) {
+extension LayerInputPort_V31.LayerInputPort: StitchVersionedCodable {
+    public init(previousInstance: LayerInputPort_V31.PreviousInstance) {
         switch previousInstance {
         case .position:
             self = .position
@@ -403,16 +402,35 @@ extension LayerInputPort_V29.LayerInputPort: StitchVersionedCodable {
             self = .scrollJumpToY
         case .scrollJumpToYLocation:
             self = .scrollJumpToYLocation
-        case .allAnchors:
-            // TODO: LayerInputPort_V28 migration
-            fatalError()
+        case .transform3D:
+            self = .transform3D
+        case .anchorEntity:
+            self = .anchorEntity
+        case .isEntityAnimating:
+            self = .isEntityAnimating
+        case .translation3DEnabled:
+            self = .translation3DEnabled
+        case .rotation3DEnabled:
+            self = .rotation3DEnabled
+        case .scale3DEnabled:
+            self = .scale3DEnabled
+        case .size3D:
+            self = .size3D
+        case .radius3D:
+            self = .radius3D
+        case .height3D:
+            self = .height3D
+        case .isMetallic:
+            self = .isMetallic
+        case .layerGroupAlignment:
+            self = .layerGroupAlignment
         }
     }
 }
 
-extension LayerInputPort_V29.LayerInputPort {
+extension LayerInputPort_V31.LayerInputPort {
     /// Keypath mapping to this schema version.
-    var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V29.LayerNodeEntity, LayerInputEntity_V29.LayerInputEntity> {
+    var schemaPortKeyPath: WritableKeyPath<LayerNodeEntity_V31.LayerNodeEntity, LayerInputEntity_V31.LayerInputEntity> {
         switch self {
             
         // Required

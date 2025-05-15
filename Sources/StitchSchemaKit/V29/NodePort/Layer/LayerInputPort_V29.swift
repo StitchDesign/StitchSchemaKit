@@ -174,7 +174,6 @@ public enum LayerInputPort_V29: StitchSchemaVersionable {
         
         // Layer scroll
         case scrollContentSize
-        case scrollAuto
         
         case scrollXEnabled
         case scrollJumpToXStyle

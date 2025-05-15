@@ -163,6 +163,7 @@ public enum LayerNodeEntity_V31: StitchSchemaVersionable {
         
         // Layer scroll
         public var scrollContentSizePort: LayerInputEntity
+        public var isScrollAutoPort: LayerInputEntity
         
         public var scrollXEnabledPort: LayerInputEntity
         public var scrollJumpToXStylePort: LayerInputEntity
@@ -299,6 +300,7 @@ public enum LayerNodeEntity_V31: StitchSchemaVersionable {
                     materialThicknessPort: LayerInputEntity = .createEmpty(),
                     
                     scrollContentSizePort: LayerInputEntity = .createEmpty(),
+                    isScrollAutoPort: LayerInputEntity = .createEmpty(),
                     scrollXEnabledPort: LayerInputEntity = .createEmpty(),
                     scrollJumpToXStylePort: LayerInputEntity = .createEmpty(),
                     scrollJumpToXPort: LayerInputEntity = .createEmpty(),
@@ -446,6 +448,7 @@ public enum LayerNodeEntity_V31: StitchSchemaVersionable {
 
             // Scroll layer inputs
             self.scrollContentSizePort = scrollContentSizePort
+            self.isScrollAutoPort = isScrollAutoPort
 
             self.scrollXEnabledPort = scrollXEnabledPort
             self.scrollJumpToXStylePort = scrollJumpToXStylePort

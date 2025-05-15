@@ -174,6 +174,7 @@ public enum LayerInputPort_V31: StitchSchemaVersionable {
         
         // Layer scroll
         case scrollContentSize
+        case isScrollAuto
         
         case scrollXEnabled
         case scrollJumpToXStyle
@@ -680,6 +681,8 @@ extension LayerInputPort_V31.LayerInputPort {
             return \.height3DPort
         case .isMetallic:
             return \.isMetallicPort
+        case .isScrollAuto:
+            return \.isScrollAutoPort
         }
     }
 }

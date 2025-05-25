@@ -143,4 +143,5 @@ public enum StitchSchemaVersion: Int, VersionType {
     case _V29 = 29
     case _V30 = 30
     case _V31 = 31
+    case _V32 = 32
 }

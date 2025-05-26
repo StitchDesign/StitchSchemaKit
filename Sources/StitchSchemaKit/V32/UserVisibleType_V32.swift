@@ -19,7 +19,6 @@ public enum UserVisibleType_V32: StitchSchemaVersionable {
     public enum UserVisibleType: CaseIterable, Codable {
         case string
         case bool
-        case int
         case color
         case number
         case layerDimension
@@ -84,7 +83,7 @@ extension UserVisibleType_V32.UserVisibleType: StitchVersionedCodable {
         case .bool:
             self = .bool
         case .int:
-            self = .int
+            self = .number
         case .color:
             self = .color
         case .number:

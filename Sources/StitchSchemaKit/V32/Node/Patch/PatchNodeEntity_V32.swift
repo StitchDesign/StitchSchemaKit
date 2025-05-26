@@ -16,6 +16,7 @@ public enum PatchNodeEntity_V32: StitchSchemaVersionable {
     public typealias Patch = Patch_V32.Patch
     public typealias UserVisibleType = UserVisibleType_V32.UserVisibleType
     public typealias NodePortInputEntitySchemas = [NodePortInputEntity_V32.NodePortInputEntity]
+    public typealias JavaScriptNodeSettings = JavaScriptNodeSettings_V32.JavaScriptNodeSettings
     // MARK: - end
 
     public struct PatchNodeEntity: Hashable {
@@ -26,6 +27,7 @@ public enum PatchNodeEntity_V32: StitchSchemaVersionable {
         public let userVisibleType: UserVisibleType?
         public let splitterNode: SplitterNodeEntitySchema?
         public let mathExpression: String? // only for Math Expression
+        public let javaScriptNodeSettings: JavaScriptNodeSettings?
         
         public init(id: UUID,
                     patch: Patch,
@@ -33,7 +35,8 @@ public enum PatchNodeEntity_V32: StitchSchemaVersionable {
                     canvasEntity: CanvasNodeEntity_V32.CanvasNodeEntity,
                     userVisibleType: UserVisibleType?,
                     splitterNode: SplitterNodeEntitySchema?,
-                    mathExpression: String?) {
+                    mathExpression: String?,
+                    javaScriptNodeSettings: JavaScriptNodeSettings?) {
             self.id = id
             self.patch = patch
             self.inputs = inputs
@@ -41,6 +44,7 @@ public enum PatchNodeEntity_V32: StitchSchemaVersionable {
             self.userVisibleType = userVisibleType
             self.splitterNode = splitterNode
             self.mathExpression = mathExpression
+            self.javaScriptNodeSettings = javaScriptNodeSettings
         }
     }
 }
@@ -53,6 +57,9 @@ extension PatchNodeEntity_V32.PatchNodeEntity: StitchVersionedCodable {
                   canvasEntity: .init(previousInstance: previousInstance.canvasEntity),
                   userVisibleType: .init(previousInstance: previousInstance.userVisibleType),
                   splitterNode: .init(previousInstance: previousInstance.splitterNode),
-                  mathExpression: previousInstance.mathExpression)
+                  mathExpression: previousInstance.mathExpression,
+                  
+                  // TODO: fix for version 33
+                  javaScriptNodeSettings: nil)
     }
 }

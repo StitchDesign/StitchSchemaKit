@@ -108,6 +108,8 @@ public typealias CurrentStitchSystemType = StitchSystemType_V32
 public typealias CurrentStitchSystem = StitchSystem_V32
 public typealias CurrentDeviceAppearance = DeviceAppearance_V32
 public typealias CurrentMaterialThickness = MaterialThickness_V32
+public typealias CurrentJavaScriptNodeSettings = JavaScriptNodeSettings_V32
+public typealias CurrentJavaScriptPortDefinition = JavaScriptPortDefinition_V32
 
 // MARK: - end
 

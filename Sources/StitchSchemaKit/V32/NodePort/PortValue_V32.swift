@@ -70,7 +70,6 @@ public enum PortValue_V32: StitchSchemaVersionable {
     public enum PortValue: Codable, Hashable {
         case string(StitchStringValue)
         case bool(Bool)
-        case int(Int) // e.g  nodeId or index?
         case number(Double) // e.g. CGFloat, part of CGSize, etc.
         case layerDimension(LayerDimension)
         case transform(StitchTransform)
@@ -138,7 +137,7 @@ extension PortValue_V32.PortValue: StitchVersionedCodable {
         case .bool(let value):
             self = .bool(value)
         case .int(let value):
-            self = .int(value)
+            self = .number(Double(value))
         case .number(let value):
             self = .number(value)
         case .layerDimension(let value):

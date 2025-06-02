@@ -196,6 +196,23 @@ extension UserVisibleType_V31.UserVisibleType: StitchVersionedCodable {
 }
 
 extension UserVisibleType_V31.UserVisibleType {
+    init?(llmString: String) throws {
+        guard let match = Self.allCases.first(where: {
+            $0.asLLMStepNodeType == Self.toCamelCase(llmString)
+        }) else {
+            // throw StitchAIParsingError.nodeTypeParsing(llmString)
+            return nil
+        }
+        
+        self = match
+    }
+    
+    // TODO: our OpenAI schema does not define all possible node-types, and those node types that we do define use camelCase
+    // TODO: some node types use human-readable strings ("Sizing Scenario"), not camelCase ("sizingScenario") as their raw value; so can't use `NodeType(rawValue:)` constructor
+    var asLLMStepNodeType: String {
+        Self.toCamelCase(self.display)
+    }
+    
     public var display: String {
         switch self {
         case .int:
@@ -311,5 +328,13 @@ extension UserVisibleType_V31.UserVisibleType {
         case .anchorEntity:
             return "Anchor Entity"
         }
+    }
+    
+    private static func toCamelCase(_ sentence: String) -> String {
+        let words = sentence.components(separatedBy: " ")
+        let camelCaseString = words.enumerated().map { index, word in
+            index == 0 ? word.lowercased() : word.capitalized
+        }.joined()
+        return camelCaseString
     }
 }

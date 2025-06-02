@@ -41,7 +41,7 @@ extension PatchOrLayer_V32.PatchOrLayer {
         }
     }
     
-    var asLLMStepNodeName: String {
+    public var asLLMStepNodeName: String {
         switch self {
         case .patch(let x):
             // e.g. Patch.squareRoot -> "Square Root" -> "squareRoot || Patch"

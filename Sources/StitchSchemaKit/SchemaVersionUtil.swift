@@ -9,8 +9,10 @@ import Foundation
 import SwiftUI
 import SwiftyJSON
 
-public protocol StitchSchemaVersionable {
-    static var version: StitchSchemaVersion { get }
+public protocol StitchSchemaVersionable where Version: VersionType {
+    associatedtype Version
+    
+    static var version: Version { get }
 }
 
 public protocol StitchSchemaVersionType {

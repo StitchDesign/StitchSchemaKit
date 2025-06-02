@@ -104,7 +104,9 @@ extension Layer_V31.Layer: StitchVersionedCodable {
     }
 }
 
-extension Layer_V31.Layer {
+extension Layer_V31.Layer: NodeKindDescribable_V31.NodeKindDescribable {
+    public static let titleDisplay = "Layer"
+    
     public func defaultDisplayTitle() -> String {
         switch self {
         case .model3D:

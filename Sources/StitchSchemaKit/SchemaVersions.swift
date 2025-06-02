@@ -112,6 +112,7 @@ public typealias CurrentJavaScriptNodeSettings = JavaScriptNodeSettings_V32
 public typealias CurrentJavaScriptPortDefinition = JavaScriptPortDefinition_V32
 public typealias CurrentKeyboardType = KeyboardType_V32
 public typealias CurrentPatchOrLayer = PatchOrLayer_V32
+public typealias CurrentNodeKindDescribable = NodeKindDescribable_V32
 
 // MARK: - end
 

@@ -68,6 +68,7 @@ extension VersionType where RawValue: Comparable {
 }
 
 extension StitchSchemaVersionType {
+    /// Performs migration from a document URL.
     public static func migrate(versionedCodableUrl: URL) throws -> Self.NewestVersionType? {
         // 1. get version
         // 2. call decode with payload
@@ -77,16 +78,26 @@ extension StitchSchemaVersionType {
         // 6. return when casting successful on newest type
         
         // Parse version from data file extension
-        guard var currentVersion = versionedCodableUrl.getSchemaVersion() else {
+        guard let currentVersion = versionedCodableUrl.getSchemaVersion() else {
             print("StitchDocumentVersion.migrate error: could not parse version number from extension in: \(versionedCodableUrl)")
             return nil
         }
-
-        let newestVersion = StitchSchemaVersion.getNewestVersion()
+        
         let versionedData = try Data(contentsOf: versionedCodableUrl)
         let documentVersion = Self(version: currentVersion)
-        var currentEntity: any StitchVersionedCodable = try documentVersion.decode(versionedData)
+        let currentEntity: any StitchVersionedCodable = try documentVersion.decode(versionedData)
+        
+        return Self.migrate(entity: currentEntity,
+                            version: currentVersion)
+    }
 
+    /// Performs migration from decoded types.
+    public static func migrate(entity: any StitchVersionedCodable,
+                               version: StitchSchemaVersion) -> Self.NewestVersionType? {
+        var currentEntity = entity
+        var currentVersion = version
+        let newestVersion = StitchSchemaVersion.getNewestVersion()
+        
         // continue so long as current version doesn't match newest
         while currentVersion != newestVersion {
             guard let nextVersion = StitchSchemaVersion.getNextVersion(currentVersion) else {

@@ -117,7 +117,7 @@ public typealias CurrentStitchAINodeKindDescription = StitchAINodeKindDescriptio
 
 // MARK: - end
 
-public enum StitchSchemaVersion: Int, VersionType {
+public enum StitchSchemaVersion: Int, VersionType, Sendable {
     case _V1 = 1
     case _V2 = 2
     case _V3 = 3

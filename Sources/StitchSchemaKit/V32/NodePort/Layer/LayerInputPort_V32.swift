@@ -88,6 +88,10 @@ public enum LayerInputPort_V32: StitchSchemaVersionable {
         case verticalAlignment
         case textDecoration
         case textFont
+        case beginEditing
+        case endEditing
+        case setText
+        case textToSet
         
         // Media
         case image
@@ -539,6 +543,14 @@ extension LayerInputPort_V32.LayerInputPort {
             return \.textDecorationPort
         case .textFont:
             return \.textFontPort
+        case .beginEditing:
+            return \.beginEditingPort
+        case .endEditing:
+            return \.endEditingPort
+        case .setText:
+            return \.setTextPort
+        case .textToSet:
+            return \.textToSetPort
         case .image:
             return \.imagePort
         case .video:

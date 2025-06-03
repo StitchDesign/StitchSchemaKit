@@ -548,7 +548,7 @@ extension LayerNodeEntity_V32.LayerNodeEntity: StitchVersionedCodable {
                   textDecorationPort: .init(previousInstance: previousInstance.textDecorationPort),
                   textFontPort: .init(previousInstance: previousInstance.textFontPort),
                   
-                  // TODO: fix for V_33
+                  // TODO: fix for _V33
                   beginEditingPort: .createEmpty(),
                   endEditingPort: .createEmpty(),
                   setTextPort: .createEmpty(),

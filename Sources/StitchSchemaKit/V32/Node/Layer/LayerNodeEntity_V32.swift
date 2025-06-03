@@ -173,7 +173,6 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
         public var isSecureEntryPort: LayerInputEntity
         public var isSpellCheckEnabledPort: LayerInputEntity
         public var selectedKeyboardPort: LayerInputEntity
-        public var cursorColorPort: LayerInputEntity
         
         public var scrollXEnabledPort: LayerInputEntity
         public var scrollJumpToXStylePort: LayerInputEntity
@@ -318,7 +317,6 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
                     isSecureEntryPort: LayerInputEntity = .createEmpty(),
                     isSpellCheckEnabledPort: LayerInputEntity = .createEmpty(),
                     selectedKeyboardPort: LayerInputEntity = .createEmpty(),
-                    cursorColorPort: LayerInputEntity = .createEmpty(),
                     scrollXEnabledPort: LayerInputEntity = .createEmpty(),
                     scrollJumpToXStylePort: LayerInputEntity = .createEmpty(),
                     scrollJumpToXPort: LayerInputEntity = .createEmpty(),
@@ -474,7 +472,6 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
             self.isSecureEntryPort = isSecureEntryPort
             self.isSpellCheckEnabledPort = isSpellCheckEnabledPort
             self.selectedKeyboardPort = selectedKeyboardPort
-            self.cursorColorPort = cursorColorPort
 
             self.scrollXEnabledPort = scrollXEnabledPort
             self.scrollJumpToXStylePort = scrollJumpToXStylePort
@@ -632,7 +629,7 @@ extension LayerNodeEntity_V32.LayerNodeEntity: StitchVersionedCodable {
                   isSecureEntryPort: .createEmpty(),
                   isSpellCheckEnabledPort: .createEmpty(),
                   selectedKeyboardPort: .createEmpty(),
-                  cursorColorPort: .createEmpty(),
+
                   scrollXEnabledPort: .init(previousInstance: previousInstance.scrollXEnabledPort),
                   scrollJumpToXStylePort: .init(previousInstance: previousInstance.scrollJumpToXStylePort),
                   scrollJumpToXPort: .init(previousInstance: previousInstance.scrollJumpToXPort),

@@ -72,6 +72,7 @@ public enum UserVisibleType_V32: StitchSchemaVersionable {
         case deviceAppearance
         case materialThickness
         case anchorEntity
+        case keyboardType
     }
 }
 

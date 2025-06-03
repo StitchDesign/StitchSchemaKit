@@ -65,6 +65,7 @@ public enum PortValue_V32: StitchSchemaVersionable {
     public typealias StitchTransform = StitchTransform_V32.StitchTransform
     public typealias DeviceAppearance = DeviceAppearance_V32.DeviceAppearance
     public typealias MaterialThickness = MaterialThickness_V32.MaterialThickness
+    public typealias KeyboardType = KeyboardType_V32.KeyboardType
     // MARK: - end
     
     public enum PortValue: Codable, Hashable {
@@ -121,6 +122,7 @@ public enum PortValue_V32: StitchSchemaVersionable {
         case spacing(StitchSpacing)
         case padding(StitchPadding)
         case sizingScenario(SizingScenario)
+        case keyboardType(KeyboardType_V32.KeyboardType)
         case pinTo(PinToId)
         case deviceAppearance(DeviceAppearance)
         case materialThickness(MaterialThickness)

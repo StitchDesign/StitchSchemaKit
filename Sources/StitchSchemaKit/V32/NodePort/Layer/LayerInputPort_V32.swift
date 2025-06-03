@@ -95,7 +95,6 @@ public enum LayerInputPort_V32: StitchSchemaVersionable {
         case isSecureEntry
         case isSpellCheckEnabled
         case selectedKeyboard
-        case cursorColor
         
         // Media
         case image
@@ -707,8 +706,6 @@ extension LayerInputPort_V32.LayerInputPort {
             return \.isSpellCheckEnabledPort
         case .selectedKeyboard:
             return \.selectedKeyboardPort
-        case .cursorColor:
-            return \.cursorColorPort
         }
     }
 }

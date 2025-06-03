@@ -92,6 +92,10 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
         public var verticalAlignmentPort: LayerInputEntity
         public var textDecorationPort: LayerInputEntity
         public var textFontPort: LayerInputEntity
+        public var beginEditingPort: LayerInputEntity
+        public var endEditingPort: LayerInputEntity
+        public var setTextPort: LayerInputEntity
+        public var textToSetPort: LayerInputEntity
         public var imagePort: LayerInputEntity
         public var videoPort: LayerInputEntity
         public var fitStylePort: LayerInputEntity
@@ -239,6 +243,10 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
                     verticalAlignmentPort: LayerInputEntity = .createEmpty(),
                     textDecorationPort: LayerInputEntity = .createEmpty(),
                     textFontPort: LayerInputEntity = .createEmpty(),
+                    beginEditingPort: LayerInputEntity = .createEmpty(),
+                    endEditingPort: LayerInputEntity = .createEmpty(),
+                    setTextPort: LayerInputEntity = .createEmpty(),
+                    textToSetPort: LayerInputEntity = .createEmpty(),
                     
                     imagePort: LayerInputEntity = .createEmpty(),
                     videoPort: LayerInputEntity = .createEmpty(),
@@ -384,6 +392,10 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
             self.verticalAlignmentPort = verticalAlignmentPort
             self.textDecorationPort = textDecorationPort
             self.textFontPort = textFontPort
+            self.beginEditingPort = beginEditingPort
+            self.endEditingPort = endEditingPort
+            self.setTextPort = setTextPort
+            self.textToSetPort = textToSetPort
             self.imagePort = imagePort
             self.videoPort = videoPort
             self.fitStylePort = fitStylePort
@@ -535,6 +547,12 @@ extension LayerNodeEntity_V32.LayerNodeEntity: StitchVersionedCodable {
                   verticalAlignmentPort: .init(previousInstance: previousInstance.verticalAlignmentPort),
                   textDecorationPort: .init(previousInstance: previousInstance.textDecorationPort),
                   textFontPort: .init(previousInstance: previousInstance.textFontPort),
+                  
+                  // TODO: fix for V_33
+                  beginEditingPort: .createEmpty(),
+                  endEditingPort: .createEmpty(),
+                  setTextPort: .createEmpty(),
+                  textToSetPort: .createEmpty(),
                   
                   imagePort: .init(previousInstance: previousInstance.imagePort),
                   videoPort: .init(previousInstance: previousInstance.videoPort),

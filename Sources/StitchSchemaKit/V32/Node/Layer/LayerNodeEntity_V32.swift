@@ -168,6 +168,12 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
         // Layer scroll
         public var scrollContentSizePort: LayerInputEntity
         public var isScrollAutoPort: LayerInputEntity
+
+        // Custom input bindings
+        public var isSecureEntryPort: LayerInputEntity
+        public var isSpellCheckEnabledPort: LayerInputEntity
+        public var selectedKeyboardPort: LayerInputEntity
+        public var cursorColorPort: LayerInputEntity
         
         public var scrollXEnabledPort: LayerInputEntity
         public var scrollJumpToXStylePort: LayerInputEntity
@@ -309,6 +315,10 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
                     
                     scrollContentSizePort: LayerInputEntity = .createEmpty(),
                     isScrollAutoPort: LayerInputEntity = .createEmpty(),
+                    isSecureEntryPort: LayerInputEntity = .createEmpty(),
+                    isSpellCheckEnabledPort: LayerInputEntity = .createEmpty(),
+                    selectedKeyboardPort: LayerInputEntity = .createEmpty(),
+                    cursorColorPort: LayerInputEntity = .createEmpty(),
                     scrollXEnabledPort: LayerInputEntity = .createEmpty(),
                     scrollJumpToXStylePort: LayerInputEntity = .createEmpty(),
                     scrollJumpToXPort: LayerInputEntity = .createEmpty(),
@@ -461,6 +471,10 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
             // Scroll layer inputs
             self.scrollContentSizePort = scrollContentSizePort
             self.isScrollAutoPort = isScrollAutoPort
+            self.isSecureEntryPort = isSecureEntryPort
+            self.isSpellCheckEnabledPort = isSpellCheckEnabledPort
+            self.selectedKeyboardPort = selectedKeyboardPort
+            self.cursorColorPort = cursorColorPort
 
             self.scrollXEnabledPort = scrollXEnabledPort
             self.scrollJumpToXStylePort = scrollJumpToXStylePort
@@ -615,7 +629,10 @@ extension LayerNodeEntity_V32.LayerNodeEntity: StitchVersionedCodable {
                   materialThicknessPort: .init(previousInstance: previousInstance.materialThicknessPort),
                   
                   scrollContentSizePort: .init(previousInstance: previousInstance.scrollContentSizePort),
-
+                  isSecureEntryPort: .createEmpty(),
+                  isSpellCheckEnabledPort: .createEmpty(),
+                  selectedKeyboardPort: .createEmpty(),
+                  cursorColorPort: .createEmpty(),
                   scrollXEnabledPort: .init(previousInstance: previousInstance.scrollXEnabledPort),
                   scrollJumpToXStylePort: .init(previousInstance: previousInstance.scrollJumpToXStylePort),
                   scrollJumpToXPort: .init(previousInstance: previousInstance.scrollJumpToXPort),

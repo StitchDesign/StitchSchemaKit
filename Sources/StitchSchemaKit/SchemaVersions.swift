@@ -111,13 +111,10 @@ public typealias CurrentMaterialThickness = MaterialThickness_V32
 public typealias CurrentJavaScriptNodeSettings = JavaScriptNodeSettings_V32
 public typealias CurrentJavaScriptPortDefinition = JavaScriptPortDefinition_V32
 public typealias CurrentKeyboardType = KeyboardType_V32
-public typealias CurrentPatchOrLayer = PatchOrLayer_V32
-public typealias CurrentNodeKindDescribable = NodeKindDescribable_V32
-public typealias CurrentStitchAINodeKindDescription = StitchAINodeKindDescription_V32
 
 // MARK: - end
 
-public enum StitchSchemaVersion: Int, VersionType, Sendable {
+public enum StitchSchemaVersion: Int, VersionType {
     case _V1 = 1
     case _V2 = 2
     case _V3 = 3

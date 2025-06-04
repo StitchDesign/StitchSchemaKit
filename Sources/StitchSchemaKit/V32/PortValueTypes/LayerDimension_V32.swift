@@ -51,27 +51,3 @@ extension LayerDimension_V32.LayerDimension: StitchVersionedCodable {
         }
     }
 }
-
-extension LayerDimension_V32.LayerDimension: CustomStringConvertible {
-    public static let AUTO_SIZE_STRING = "auto"
-    public static let FILL_SIZE_STRING = "fill"
-    public static let HUG_SIZE_STRING = "hug"
-    
-    // MARK: string coercison causes perf loss (GitHub issue #3120)
-    public var description: String {
-        switch self {
-        case .auto:
-            return Self.AUTO_SIZE_STRING
-        case .parentPercent(let x):
-            //            return "\(x.coerceToUserFriendlyString)%"
-            return "\(x.description)%"
-        case .number(let x):
-            //            return x.coerceToUserFriendlyString
-            return x.description
-        case .fill:
-            return Self.FILL_SIZE_STRING
-        case .hug:
-            return Self.HUG_SIZE_STRING
-        }
-    }
-}

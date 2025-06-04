@@ -954,6 +954,20 @@ extension LayerInputPort_V32.LayerInputPort {
             return "Height"
         case .isScrollAuto:
             return "Auto Scroll"
+        case .beginEditing:
+            return "Begin Editing"
+        case .endEditing:
+            return "End Editing"
+        case .setText:
+            return "Set Text"
+        case .textToSet:
+            return "Text To Set"
+        case .isSecureEntry:
+            return "Secure Entry"
+        case .isSpellCheckEnabled:
+            return "Spellcheck Enabled"
+        case .keyboardType:
+            return "Keyboard Type"
         }
     }
 }

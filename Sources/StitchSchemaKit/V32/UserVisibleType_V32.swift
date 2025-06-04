@@ -324,6 +324,8 @@ extension UserVisibleType_V32.UserVisibleType {
             return "Device Appearance"
         case .anchorEntity:
             return "Anchor Entity"
+        case .keyboardType:
+            return "Keyboard Type"
         }
     }
     

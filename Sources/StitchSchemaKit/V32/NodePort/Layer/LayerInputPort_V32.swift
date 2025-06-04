@@ -94,7 +94,7 @@ public enum LayerInputPort_V32: StitchSchemaVersionable {
         case textToSet
         case isSecureEntry
         case isSpellCheckEnabled
-        case selectedKeyboard
+        case keyboardType
         
         // Media
         case image
@@ -704,8 +704,8 @@ extension LayerInputPort_V32.LayerInputPort {
             return \.isSecureEntryPort
         case .isSpellCheckEnabled:
             return \.isSpellCheckEnabledPort
-        case .selectedKeyboard:
-            return \.selectedKeyboardPort
+        case .keyboardType:
+            return \.keyboardTypePort
         }
     }
 }

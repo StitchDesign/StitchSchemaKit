@@ -172,7 +172,7 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
         // Custom input bindings
         public var isSecureEntryPort: LayerInputEntity
         public var isSpellCheckEnabledPort: LayerInputEntity
-        public var selectedKeyboardPort: LayerInputEntity
+        public var keyboardTypePort: LayerInputEntity
         
         public var scrollXEnabledPort: LayerInputEntity
         public var scrollJumpToXStylePort: LayerInputEntity
@@ -471,7 +471,7 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
             self.isScrollAutoPort = isScrollAutoPort
             self.isSecureEntryPort = isSecureEntryPort
             self.isSpellCheckEnabledPort = isSpellCheckEnabledPort
-            self.selectedKeyboardPort = selectedKeyboardPort
+            self.keyboardTypePort = selectedKeyboardPort
 
             self.scrollXEnabledPort = scrollXEnabledPort
             self.scrollJumpToXStylePort = scrollJumpToXStylePort

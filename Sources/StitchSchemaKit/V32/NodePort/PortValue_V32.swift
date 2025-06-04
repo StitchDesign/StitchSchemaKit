@@ -122,7 +122,7 @@ public enum PortValue_V32: StitchSchemaVersionable {
         case spacing(StitchSpacing)
         case padding(StitchPadding)
         case sizingScenario(SizingScenario)
-        case keyboardType(KeyboardType_V32.KeyboardType)
+        case keyboardType(KeyboardType.KeyboardType)
         case pinTo(PinToId)
         case deviceAppearance(DeviceAppearance)
         case materialThickness(MaterialThickness)

@@ -15,7 +15,7 @@ public protocol StitchSchemaVersionable where Version: VersionType {
     static var version: Version { get }
 }
 
-public protocol StitchSchemaVersionType {
+public protocol StitchSchemaVersionType: Sendable {
     associatedtype NewestVersionType: StitchVersionedCodable
 
     var version: StitchSchemaVersion { get }

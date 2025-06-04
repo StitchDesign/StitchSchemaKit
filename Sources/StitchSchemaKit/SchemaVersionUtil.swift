@@ -87,13 +87,13 @@ extension StitchSchemaVersionType {
         let documentVersion = Self(version: currentVersion)
         let currentEntity: any StitchVersionedCodable = try documentVersion.decode(versionedData)
         
-        return Self.migrate(entity: currentEntity,
-                            version: currentVersion)
+        return try Self.migrate(entity: currentEntity,
+                                version: currentVersion)
     }
 
     /// Performs migration from decoded types.
     public static func migrate(entity: any StitchVersionedCodable,
-                               version: StitchSchemaVersion) -> Self.NewestVersionType? {
+                               version: StitchSchemaVersion) throws -> Self.NewestVersionType {
         var currentEntity = entity
         var currentVersion = version
         let newestVersion = StitchSchemaVersion.getNewestVersion()
@@ -101,7 +101,7 @@ extension StitchSchemaVersionType {
         // continue so long as current version doesn't match newest
         while currentVersion != newestVersion {
             guard let nextVersion = StitchSchemaVersion.getNextVersion(currentVersion) else {
-                return nil
+                throw SSKError.nextVersionNotFound(currentVersion)
             }
 
             let nextType = Self.getCodableType(from: nextVersion)
@@ -110,12 +110,16 @@ extension StitchSchemaVersionType {
             
             guard let entity = nextType.init(anyCodable: currentEntity) else {
                 print("StitchSchemaVersionType.migrate: couldn't migrate version.")
-                return nil
+                throw SSKError.migrationFailed(currentEntity)
             }
             currentEntity = entity
         }
 
-        return currentEntity as? Self.NewestVersionType
+        guard let newestVersion = currentEntity as? Self.NewestVersionType else {
+            throw SSKError.castingToNewestVersionFailed(currentEntity)
+        }
+        
+        return newestVersion
     }
 }
 

@@ -110,6 +110,7 @@ public typealias CurrentDeviceAppearance = DeviceAppearance_V32
 public typealias CurrentMaterialThickness = MaterialThickness_V32
 public typealias CurrentJavaScriptNodeSettings = JavaScriptNodeSettings_V32
 public typealias CurrentJavaScriptPortDefinition = JavaScriptPortDefinition_V32
+public typealias CurrentKeyboardType = KeyboardType_V32
 
 // MARK: - end
 

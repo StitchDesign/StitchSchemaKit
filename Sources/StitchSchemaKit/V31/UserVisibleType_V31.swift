@@ -198,7 +198,7 @@ extension UserVisibleType_V31.UserVisibleType: StitchVersionedCodable {
 extension UserVisibleType_V31.UserVisibleType {
     public init?(llmString: String) {
         guard let match = Self.allCases.first(where: {
-            $0.asLLMStepNodeType == Self.toCamelCase(llmString)
+            $0.asLLMStepNodeType == llmString //Self.toCamelCase(llmString)
         }) else {
             return nil
         }

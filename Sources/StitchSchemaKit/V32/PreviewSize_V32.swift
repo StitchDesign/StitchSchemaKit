@@ -17,6 +17,14 @@ public enum PreviewSize_V32: StitchSchemaVersionable {
         public var id: String { self.rawValue }
 
         // iPhones
+        case iPhone16 = "iPhone 16"
+        case iPhone16Plus = "iPhone 16 Plus"
+        case iPhone16Pro = "iPhone 16 Pro"
+        case iPhone16ProMax = "iPhone 16 Pro Max"
+        case iPhone15 = "iPhone 15"
+        case iPhone15Plus = "iPhone 15 Plus"
+        case iPhone15Pro = "iPhone 15 Pro"
+        case iPhone15ProMax = "iPhone 15 Pro Max"
         case iPhone14 = "iPhone 14"
         case iPhone14Plus = "iPhone 14 Plus"
         case iPhone14Pro = "iPhone 14 Pro"

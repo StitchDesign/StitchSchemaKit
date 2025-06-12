@@ -25,11 +25,11 @@ extension StitchAINodeKindDescription_V31.StitchAINodeKindDescription: StitchVer
     }
 }
 
-extension NodeKindDescribable_V31.NodeKindDescribable {
-    public static var allAiDescriptions: [StitchAINodeKindDescription_V31.StitchAINodeKindDescription] {
-        Self.allCases.map {
-            .init(nodeKind: $0.aiDisplayTitle,
-                  description: $0.aiNodeDescription)
-        }
-    }
-}
+//extension NodeKindDescribable_V31.NodeKindDescribable {
+//    public static var allAiDescriptions: [StitchAINodeKindDescription_V31.StitchAINodeKindDescription] {
+//        Self.allCases.map {
+//            .init(nodeKind: $0.aiDisplayTitle,
+//                  description: $0.aiNodeDescription)
+//        }
+//    }
+//}

@@ -26,23 +26,23 @@ extension PatchOrLayer_V31.PatchOrLayer: StitchVersionedCodable {
     }
 }
 
-extension PatchOrLayer_V31.PatchOrLayer {
-    var description: String {
-        switch self {
-        case .patch(let patch):
-            return patch.defaultDisplayTitle()
-        case .layer(let layer):
-            return layer.defaultDisplayTitle()
-        }
-    }
-    
-    public var asLLMStepNodeName: String {
-        switch self {
-        case .patch(let x):
-            // e.g. Patch.squareRoot -> "Square Root" -> "squareRoot || Patch"
-            return x.aiDisplayTitle
-        case .layer(let x):
-            return x.aiDisplayTitle
-        }
-    }
-}
+//extension PatchOrLayer_V31.PatchOrLayer {
+//    var description: String {
+//        switch self {
+//        case .patch(let patch):
+//            return patch.defaultDisplayTitle()
+//        case .layer(let layer):
+//            return layer.defaultDisplayTitle()
+//        }
+//    }
+//    
+//    public var asLLMStepNodeName: String {
+//        switch self {
+//        case .patch(let x):
+//            // e.g. Patch.squareRoot -> "Square Root" -> "squareRoot || Patch"
+//            return x.aiDisplayTitle
+//        case .layer(let x):
+//            return x.aiDisplayTitle
+//        }
+//    }
+//}

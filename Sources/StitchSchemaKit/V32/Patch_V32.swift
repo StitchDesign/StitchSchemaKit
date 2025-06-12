@@ -515,7 +515,7 @@ extension Patch_V32.Patch: StitchVersionedCodable {
     }
 }
 
-extension Patch_V32.Patch: NodeKindDescribable_V32.NodeKindDescribable {
+extension Patch_V32.Patch {
     public static let titleDisplay = "Patch"
     
     public func defaultDisplayTitle() -> String {

@@ -29,4 +29,8 @@ extension LayerNodeId_V32.LayerNodeId: StitchVersionedCodable {
     public init(previousInstance: LayerNodeId_V32.PreviousInstance) {
         self.init(previousInstance.id)
     }
+    
+    public var asNodeId: UUID {
+        self.id
+    }
 }

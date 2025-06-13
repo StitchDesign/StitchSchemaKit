@@ -803,7 +803,7 @@ extension Patch_V32.Patch: NodeKindDescribable_V32.NodeKindDescribable {
         case .delayOne:
             return "Delay 1"
         case .javascript:
-            return "JavaScript"
+            return "AI Node"
             // TODO: assume that rawValue for all patches added will have properly capitalized display-value, and so just use `default: return self.rawValue`
         case .sizePack, .sizeUnpack, .positionPack, .positionUnpack, .point3DPack, .point3DUnpack, .point4DPack, .point4DUnpack, .transformPack, .transformUnpack, .closePath, .moveToPack, .lineToPack, .curveToPack, .curveToUnpack, .mathExpression, .springFromDurationAndBounce, .springFromResponseAndDampingRatio, .springFromSettlingDurationAndDampingRatio:
             return self.rawValue

@@ -17,13 +17,16 @@ public enum JavaScriptNodeSettings_V32: StitchSchemaVersionable {
     // MARK: - end
 
     public struct JavaScriptNodeSettings: Hashable {
+        public let suggestedTitle: String
         public let script: String
         public let inputDefinitions: [JavaScriptPortDefinition]
         public let outputDefinitions: [JavaScriptPortDefinition]
         
-        public init(script: String,
+        public init(suggestedTitle: String,
+                    script: String,
                     inputDefinitions: [JavaScriptPortDefinition],
                     outputDefinitions: [JavaScriptPortDefinition]) {
+            self.suggestedTitle = suggestedTitle
             self.script = script
             self.inputDefinitions = inputDefinitions
             self.outputDefinitions = outputDefinitions

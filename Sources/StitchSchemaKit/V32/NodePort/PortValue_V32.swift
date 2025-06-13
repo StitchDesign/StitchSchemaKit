@@ -262,7 +262,7 @@ extension PortValue_V32.PortValue: StitchVersionedCodable {
 // MARK: - helpers below are needed for both SSK and AI. Managed here to ensure all versions include this logic.
 
 extension PortValue_V32.PortValue {
-    var getInteractionId: LayerNodeId_V32.LayerNodeId? {
+    public var getInteractionId: LayerNodeId_V32.LayerNodeId? {
         switch self {
         case .assignedLayer(let x): return x
         default: return nil

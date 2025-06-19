@@ -184,6 +184,12 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
         public var scrollJumpToYPort: LayerInputEntity
         public var scrollJumpToYLocationPort: LayerInputEntity
                 
+        // Button
+        public var buttonStylePort: LayerInputEntity
+        public var buttonRolePort: LayerInputEntity
+        public var buttonBorderShapePort: LayerInputEntity
+        public var buttonRepeatBehaviorPort: LayerInputEntity
+                
         // Sidebar data
         public let hasSidebarVisibility: Bool
         public let layerGroupId: UUID?
@@ -336,7 +342,12 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
                     radius3DPort: LayerInputEntity = .createEmpty(),
                     height3DPort: LayerInputEntity = .createEmpty(),
                     isMetallicPort: LayerInputEntity = .createEmpty(),
-
+                    
+                    buttonStylePort: LayerInputEntity = .createEmpty(),
+                    buttonRolePort: LayerInputEntity = .createEmpty(),
+                    buttonBorderShapePort: LayerInputEntity = .createEmpty(),
+                    buttonRepeatBehaviorPort: LayerInputEntity = .createEmpty(),
+                    
                     hasSidebarVisibility: Bool,
                     layerGroupId: UUID?) {
             self.id = id
@@ -493,6 +504,11 @@ public enum LayerNodeEntity_V32: StitchSchemaVersionable {
             self.radius3DPort = radius3DPort
             self.height3DPort = height3DPort
             self.isMetallicPort = isMetallicPort
+            
+            self.buttonStylePort = buttonStylePort
+            self.buttonRolePort = buttonRolePort
+            self.buttonBorderShapePort = buttonBorderShapePort
+            self.buttonRepeatBehaviorPort = buttonRepeatBehaviorPort
         }
     }
 }
@@ -643,7 +659,19 @@ extension LayerNodeEntity_V32.LayerNodeEntity: StitchVersionedCodable {
                   transform3DPort: .init(previousInstance: previousInstance.transform3DPort),
                   anchorEntityPort: .init(previousInstance: previousInstance.anchorEntityPort),
                   isEntityAnimatingPort: .init(previousInstance: previousInstance.isEntityAnimatingPort),
-
+                  translation3DEnabledPort: .init(previousInstance: previousInstance.translation3DEnabledPort),
+                  rotation3DEnabledPort: .init(previousInstance: previousInstance.rotation3DEnabledPort),
+                  scale3DEnabledPort: .init(previousInstance: previousInstance.scale3DEnabledPort),
+                  size3DPort: .init(previousInstance: previousInstance.size3DPort),
+                  radius3DPort: .init(previousInstance: previousInstance.radius3DPort),
+                  height3DPort: .init(previousInstance: previousInstance.height3DPort),
+                  isMetallicPort: .init(previousInstance: previousInstance.isMetallicPort),
+                  
+                  buttonStylePort: .createEmpty(),
+                  buttonRolePort: .createEmpty(),
+                  buttonBorderShapePort: .createEmpty(),
+                  buttonRepeatBehaviorPort: .createEmpty(),
+                  
                   hasSidebarVisibility: previousInstance.hasSidebarVisibility,
                   layerGroupId: previousInstance.layerGroupId)
     }

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUI
+@preconcurrency import SwiftUI
 import simd
 import Vision
 import SwiftyJSON
@@ -66,6 +66,10 @@ public enum PortValue_V32: StitchSchemaVersionable {
     public typealias DeviceAppearance = DeviceAppearance_V32.DeviceAppearance
     public typealias MaterialThickness = MaterialThickness_V32.MaterialThickness
     public typealias KeyboardType = KeyboardType_V32.KeyboardType
+    public typealias StitchButtonStyle = StitchButtonTypes_V32.StitchButtonStyle
+    public typealias StitchButtonRole = StitchButtonTypes_V32.StitchButtonRole
+    public typealias StitchButtonBorderShape = StitchButtonTypes_V32.StitchButtonBorderShape
+    public typealias StitchButtonRepeatBehavior = StitchButtonTypes_V32.StitchButtonRepeatBehavior
     // MARK: - end
     
     public enum PortValue: Codable, Hashable {
@@ -127,6 +131,10 @@ public enum PortValue_V32: StitchSchemaVersionable {
         case deviceAppearance(DeviceAppearance)
         case materialThickness(MaterialThickness)
         case anchorEntity(UUID?)
+        case buttonStyle(StitchButtonStyle)
+        case buttonRole(StitchButtonRole)
+        case buttonBorderShape(StitchButtonBorderShape)
+        case buttonRepeatBehavior(StitchButtonRepeatBehavior)
     }
 }
 
@@ -258,8 +266,6 @@ extension PortValue_V32.PortValue: StitchVersionedCodable {
         }
     }
 }
-
-// MARK: - helpers below are needed for both SSK and AI. Managed here to ensure all versions include this logic.
 
 extension PortValue_V32.PortValue {
     public var getInteractionId: LayerNodeId_V32.LayerNodeId? {

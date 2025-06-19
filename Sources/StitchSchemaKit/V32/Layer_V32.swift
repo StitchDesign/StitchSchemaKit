@@ -40,7 +40,8 @@ public enum Layer_V32: StitchSchemaVersionable {
              box,
              sphere,
              cylinder,
-             cone
+             cone,
+             button
     }
 }
 
@@ -161,6 +162,8 @@ extension Layer_V32.Layer {
             return "Cylinder"
         case .cone:
             return "Cone"
+        case .button:
+            return "Button"
         }
     }
     
@@ -218,7 +221,8 @@ extension Layer_V32.Layer {
             return "The Map node will display an Apple Maps UI in the preview window."
         case .sfSymbol:
             return "Creates an SF Symbol."
+        case .button:
+            return "A button control layer."
         }
     }
 }
-

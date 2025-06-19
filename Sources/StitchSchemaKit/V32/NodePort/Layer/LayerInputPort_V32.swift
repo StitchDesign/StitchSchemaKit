@@ -192,6 +192,12 @@ public enum LayerInputPort_V32: StitchSchemaVersionable {
         case scrollJumpToYStyle
         case scrollJumpToY
         case scrollJumpToYLocation
+        
+        // Button
+        case buttonStyle
+        case buttonRole
+        case buttonBorderShape
+        case buttonRepeatBehavior
     }
 }
 
@@ -706,6 +712,14 @@ extension LayerInputPort_V32.LayerInputPort {
             return \.isSpellCheckEnabledPort
         case .keyboardType:
             return \.keyboardTypePort
+        case .buttonStyle:
+            return \.buttonStylePort
+        case .buttonRole:
+            return \.buttonRolePort
+        case .buttonBorderShape:
+            return \.buttonBorderShapePort
+        case .buttonRepeatBehavior:
+            return \.buttonRepeatBehaviorPort
         }
     }
     
@@ -968,6 +982,14 @@ extension LayerInputPort_V32.LayerInputPort {
             return "Spellcheck Enabled"
         case .keyboardType:
             return "Keyboard Type"
+        case .buttonStyle:
+            return "Button Style"
+        case .buttonRole:
+            return "Button Role"
+        case .buttonBorderShape:
+            return "Button Border Shape"
+        case .buttonRepeatBehavior:
+            return "Button Repeat Behavior"
         }
     }
 }

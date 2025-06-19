@@ -13,7 +13,6 @@ public enum UserVisibleType_V32: StitchSchemaVersionable {
     public typealias PreviousInstance = UserVisibleType_V31.UserVisibleType
     // MARK: - endif
  
-
     // not just the size of the box,
     // but from where the box goes to etc.
     public enum UserVisibleType: CaseIterable, Codable {
@@ -73,6 +72,10 @@ public enum UserVisibleType_V32: StitchSchemaVersionable {
         case materialThickness
         case anchorEntity
         case keyboardType
+        case buttonStyle
+        case buttonRole
+        case buttonBorderShape
+        case buttonRepeatBehavior
     }
 }
 
@@ -326,6 +329,14 @@ extension UserVisibleType_V32.UserVisibleType {
             return "Anchor Entity"
         case .keyboardType:
             return "Keyboard Type"
+        case .buttonStyle:
+            return "Button Style"
+        case .buttonRole:
+            return "Button Role"
+        case .buttonBorderShape:
+            return "Button Border Shape"
+        case .buttonRepeatBehavior:
+            return "Button Repeat Behavior"
         }
     }
     

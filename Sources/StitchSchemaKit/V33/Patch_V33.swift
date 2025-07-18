@@ -511,6 +511,8 @@ extension Patch_V33.Patch: StitchVersionedCodable {
             self = .springFromResponseAndDampingRatio
         case .springFromSettlingDurationAndDampingRatio:
             self = .springFromSettlingDurationAndDampingRatio
+        case .javascript:
+            self = .javascript
         }
     }
 }

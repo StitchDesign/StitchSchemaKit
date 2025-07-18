@@ -40,7 +40,8 @@ public enum Layer_V33: StitchSchemaVersionable {
              box,
              sphere,
              cylinder,
-             cone
+             cone,
+             spacer
     }
 }
 
@@ -161,6 +162,8 @@ extension Layer_V33.Layer {
             return "Cylinder"
         case .cone:
             return "Cone"
+        case .spacer:
+            return "Spacer"
         }
     }
     
@@ -218,6 +221,9 @@ extension Layer_V33.Layer {
             return "The Map node will display an Apple Maps UI in the preview window."
         case .sfSymbol:
             return "Creates an SF Symbol."
+        case .spacer:
+            return "A flexible space that expands along the major axis of its containing stack layout, or on both axes if not contained in a stack."
+            
         }
     }
 }

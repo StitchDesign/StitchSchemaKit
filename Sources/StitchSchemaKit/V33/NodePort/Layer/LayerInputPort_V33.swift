@@ -434,6 +434,20 @@ extension LayerInputPort_V33.LayerInputPort: StitchVersionedCodable {
             self = .layerGroupAlignment
         case .isScrollAuto:
             self = .isScrollAuto
+        case .beginEditing:
+            self = .beginEditing
+        case .endEditing:
+            self = .endEditing
+        case .setText:
+            self = .setText
+        case .textToSet:
+            self = .textToSet
+        case .isSecureEntry:
+            self = .isSecureEntry
+        case .isSpellCheckEnabled:
+            self = .isSpellCheckEnabled
+        case .keyboardType:
+            self = .keyboardType
         }
     }
 }
